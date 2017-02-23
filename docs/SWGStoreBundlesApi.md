@@ -1,0 +1,507 @@
+# SWGStoreBundlesApi
+
+All URIs are relative to *https://sandbox.knetikcloud.com/*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createBundleItem**](SWGStoreBundlesApi.md#createbundleitem) | **POST** /store/bundles | Create a bundle item
+[**createBundleTemplate**](SWGStoreBundlesApi.md#createbundletemplate) | **POST** /store/bundles/templates | Create a bundle template
+[**deleteBundleItem**](SWGStoreBundlesApi.md#deletebundleitem) | **DELETE** /store/bundles/{id} | Delete a bundle item
+[**deleteBundleTemplate**](SWGStoreBundlesApi.md#deletebundletemplate) | **DELETE** /store/bundles/templates/{id} | Delete a bundle template
+[**getBundleItem**](SWGStoreBundlesApi.md#getbundleitem) | **GET** /store/bundles/{id} | Get a single bundle item
+[**getBundleTemplate**](SWGStoreBundlesApi.md#getbundletemplate) | **GET** /store/bundles/templates/{id} | Get a single bundle template
+[**getBundleTemplates**](SWGStoreBundlesApi.md#getbundletemplates) | **GET** /store/bundles/templates | List and search bundle templates
+[**updateBundleItem**](SWGStoreBundlesApi.md#updatebundleitem) | **PUT** /store/bundles/{id} | Update a bundle item
+[**updateBundleTemplate**](SWGStoreBundlesApi.md#updatebundletemplate) | **PUT** /store/bundles/templates/{id} | Update a bundle template
+
+
+# **createBundleItem**
+```objc
+-(NSURLSessionTask*) createBundleItemWithCascade: (NSNumber*) cascade
+    bundleItem: (SWGBundleItem*) bundleItem
+        completionHandler: (void (^)(SWGBundleItem* output, NSError* error)) handler;
+```
+
+Create a bundle item
+
+The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* cascade = @false; // Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
+SWGBundleItem* bundleItem = [[SWGBundleItem alloc] init]; // The bundle item object (optional)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Create a bundle item
+[apiInstance createBundleItemWithCascade:cascade
+              bundleItem:bundleItem
+          completionHandler: ^(SWGBundleItem* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->createBundleItem: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
+ **bundleItem** | [**SWGBundleItem***](SWGBundleItem*.md)| The bundle item object | [optional] 
+
+### Return type
+
+[**SWGBundleItem***](SWGBundleItem.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createBundleTemplate**
+```objc
+-(NSURLSessionTask*) createBundleTemplateWithBundleTemplateResource: (SWGItemTemplateResource*) bundleTemplateResource
+        completionHandler: (void (^)(SWGItemTemplateResource* output, NSError* error)) handler;
+```
+
+Create a bundle template
+
+Bundle Templates define a type of bundle and the properties they have.
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+SWGItemTemplateResource* bundleTemplateResource = [[SWGItemTemplateResource alloc] init]; // The new bundle template (optional)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Create a bundle template
+[apiInstance createBundleTemplateWithBundleTemplateResource:bundleTemplateResource
+          completionHandler: ^(SWGItemTemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->createBundleTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bundleTemplateResource** | [**SWGItemTemplateResource***](SWGItemTemplateResource*.md)| The new bundle template | [optional] 
+
+### Return type
+
+[**SWGItemTemplateResource***](SWGItemTemplateResource.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteBundleItem**
+```objc
+-(NSURLSessionTask*) deleteBundleItemWithId: (NSNumber*) _id
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Delete a bundle item
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* _id = @56; // The id of the bundle
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Delete a bundle item
+[apiInstance deleteBundleItemWithId:_id
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->deleteBundleItem: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The id of the bundle | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteBundleTemplate**
+```objc
+-(NSURLSessionTask*) deleteBundleTemplateWithId: (NSString*) _id
+    cascade: (NSString*) cascade
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Delete a bundle template
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* _id = @"_id_example"; // The id of the template
+NSString* cascade = @"cascade_example"; // force deleting the template if it's attached to other objects, cascade = detach (optional)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Delete a bundle template
+[apiInstance deleteBundleTemplateWithId:_id
+              cascade:cascade
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->deleteBundleTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+ **cascade** | **NSString***| force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getBundleItem**
+```objc
+-(NSURLSessionTask*) getBundleItemWithId: (NSNumber*) _id
+        completionHandler: (void (^)(SWGBundleItem* output, NSError* error)) handler;
+```
+
+Get a single bundle item
+
+### Example 
+```objc
+
+NSNumber* _id = @56; // The id of the bundle
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Get a single bundle item
+[apiInstance getBundleItemWithId:_id
+          completionHandler: ^(SWGBundleItem* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->getBundleItem: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The id of the bundle | 
+
+### Return type
+
+[**SWGBundleItem***](SWGBundleItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getBundleTemplate**
+```objc
+-(NSURLSessionTask*) getBundleTemplateWithId: (NSString*) _id
+        completionHandler: (void (^)(SWGItemTemplateResource* output, NSError* error)) handler;
+```
+
+Get a single bundle template
+
+Bundle Templates define a type of bundle and the properties they have.
+
+### Example 
+```objc
+
+NSString* _id = @"_id_example"; // The id of the template
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Get a single bundle template
+[apiInstance getBundleTemplateWithId:_id
+          completionHandler: ^(SWGItemTemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->getBundleTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+
+### Return type
+
+[**SWGItemTemplateResource***](SWGItemTemplateResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getBundleTemplates**
+```objc
+-(NSURLSessionTask*) getBundleTemplatesWithSize: (NSNumber*) size
+    page: (NSNumber*) page
+    order: (NSString*) order
+        completionHandler: (void (^)(SWGPageResourceItemTemplateResource_* output, NSError* error)) handler;
+```
+
+List and search bundle templates
+
+### Example 
+```objc
+
+NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
+NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
+NSString* order = @"id:ASC"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// List and search bundle templates
+[apiInstance getBundleTemplatesWithSize:size
+              page:page
+              order:order
+          completionHandler: ^(SWGPageResourceItemTemplateResource_* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->getBundleTemplates: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
+ **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+
+### Return type
+
+[**SWGPageResourceItemTemplateResource_***](SWGPageResourceItemTemplateResource_.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBundleItem**
+```objc
+-(NSURLSessionTask*) updateBundleItemWithId: (NSNumber*) _id
+    cascade: (NSNumber*) cascade
+    bundleItem: (SWGBundleItem*) bundleItem
+        completionHandler: (void (^)(SWGBundleItem* output, NSError* error)) handler;
+```
+
+Update a bundle item
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* _id = @56; // The id of the bundle
+NSNumber* cascade = @false; // Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
+SWGBundleItem* bundleItem = [[SWGBundleItem alloc] init]; // The bundle item object (optional)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Update a bundle item
+[apiInstance updateBundleItemWithId:_id
+              cascade:cascade
+              bundleItem:bundleItem
+          completionHandler: ^(SWGBundleItem* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->updateBundleItem: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The id of the bundle | 
+ **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
+ **bundleItem** | [**SWGBundleItem***](SWGBundleItem*.md)| The bundle item object | [optional] 
+
+### Return type
+
+[**SWGBundleItem***](SWGBundleItem.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBundleTemplate**
+```objc
+-(NSURLSessionTask*) updateBundleTemplateWithId: (NSString*) _id
+    bundleTemplateResource: (SWGItemTemplateResource*) bundleTemplateResource
+        completionHandler: (void (^)(SWGItemTemplateResource* output, NSError* error)) handler;
+```
+
+Update a bundle template
+
+### Example 
+```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* _id = @"_id_example"; // The id of the template
+SWGItemTemplateResource* bundleTemplateResource = [[SWGItemTemplateResource alloc] init]; // The bundle template resource object (optional)
+
+SWGStoreBundlesApi*apiInstance = [[SWGStoreBundlesApi alloc] init];
+
+// Update a bundle template
+[apiInstance updateBundleTemplateWithId:_id
+              bundleTemplateResource:bundleTemplateResource
+          completionHandler: ^(SWGItemTemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling SWGStoreBundlesApi->updateBundleTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+ **bundleTemplateResource** | [**SWGItemTemplateResource***](SWGItemTemplateResource*.md)| The bundle template resource object | [optional] 
+
+### Return type
+
+[**SWGItemTemplateResource***](SWGItemTemplateResource.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
