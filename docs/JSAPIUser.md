@@ -1,0 +1,53 @@
+# JSAPIUser
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) |  | [optional] 
+**address** | **NSString*** |  | [optional] 
+**address2** | **NSString*** |  | [optional] 
+**affiliate** | [**JSAPIAffiliate***](JSAPIAffiliate.md) |  | [optional] 
+**avatarUrl** | **NSString*** |  | [optional] 
+**children** | [**NSArray&lt;JSAPIUserRelationship&gt;***](JSAPIUserRelationship.md) |  | [optional] 
+**city** | **NSString*** |  | [optional] 
+**country** | [**JSAPICountry***](JSAPICountry.md) |  | [optional] 
+**currency** | [**JSAPICurrency***](JSAPICurrency.md) |  | [optional] 
+**dateCreated** | **NSNumber*** |  | [optional] 
+**dateOfBirth** | **NSNumber*** |  | [optional] 
+**dateUpdated** | **NSNumber*** |  | [optional] 
+**_description** | **NSString*** |  | [optional] 
+**displayName** | **NSString*** |  | [optional] 
+**email** | **NSString*** |  | [optional] 
+**firstName** | **NSString*** |  | [optional] 
+**fullname** | **NSString*** |  | [optional] 
+**gender** | **NSString*** |  | [optional] 
+**groups** | [**NSArray&lt;JSAPIGroupMember&gt;***](JSAPIGroupMember.md) |  | [optional] 
+**guest** | **NSNumber*** |  | [optional] 
+**_id** | **NSNumber*** |  | [optional] 
+**inviteToken** | **NSString*** |  | [optional] 
+**lang** | [**JSAPILanguage***](JSAPILanguage.md) |  | [optional] 
+**lastActivity** | **NSNumber*** |  | [optional] 
+**lastLogin** | **NSNumber*** |  | [optional] 
+**lastName** | **NSString*** |  | [optional] 
+**lockoutAttempts** | **NSNumber*** |  | [optional] 
+**lockoutDate** | **NSNumber*** |  | [optional] 
+**mobileNumber** | **NSString*** |  | [optional] 
+**oldId** | **NSNumber*** |  | [optional] 
+**parents** | [**NSArray&lt;JSAPIUserRelationship&gt;***](JSAPIUserRelationship.md) |  | [optional] 
+**password** | **NSString*** |  | [optional] 
+**postalCode** | **NSString*** |  | [optional] 
+**propertiesString** | **NSString*** |  | [optional] 
+**roles** | [**NSArray&lt;JSAPIRole&gt;***](JSAPIRole.md) |  | [optional] 
+**state** | **NSString*** |  | [optional] 
+**status** | **NSString*** |  | [optional] 
+**tagStrings** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
+**tags** | [**NSArray&lt;JSAPIUserTag&gt;***](JSAPIUserTag.md) |  | [optional] 
+**template** | **NSString*** |  | [optional] 
+**timezone** | [**JSAPITimezone***](JSAPITimezone.md) |  | [optional] 
+**token** | **NSString*** |  | [optional] 
+**typeHint** | **NSString*** |  | [optional] 
+**username** | **NSString*** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
