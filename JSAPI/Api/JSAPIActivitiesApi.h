@@ -1,17 +1,18 @@
 #import <Foundation/Foundation.h>
-#import "JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.h"
 #import "JSAPIActivityOccurrenceCreationFailure.h"
+#import "JSAPIActivityOccurrenceResource.h"
 #import "JSAPIActivityOccurrenceResults.h"
+#import "JSAPIActivityOccurrenceResultsResource.h"
+#import "JSAPIActivityResource.h"
 #import "JSAPIPageResourceBareActivityResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
-#import "JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIApi.h"
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -41,9 +42,9 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
--(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+/// @return JSAPIActivityResource*
+-(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIActivityResource*) activityResource
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 
 
 /// Create a new activity occurrence. Ex: start a game
@@ -58,10 +59,10 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///  code:403 message:"Attempted to set an admin only field (no 'result' returned), or missing an entitlement/wallet balance (result is an array of ActivityOccurrenceJoinResult explaining which users had what problems)",
 ///  code:404 message:"Not Found"
 ///
-/// @return JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*
+/// @return JSAPIActivityOccurrenceResource*
 -(NSURLSessionTask*) createActivityOccurrenceWithTest: (NSNumber*) test
-    activityOccurrenceResource: (JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*) activityOccurrenceResource
-    completionHandler: (void (^)(JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings* output, NSError* error)) handler;
+    activityOccurrenceResource: (JSAPIActivityOccurrenceResource*) activityOccurrenceResource
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
 
 
 /// Create a activity template
@@ -133,7 +134,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 /// @return JSAPIPageResourceBareActivityResource_*
 -(NSURLSessionTask*) getActivitiesWithFilterTemplate: (NSNumber*) filterTemplate
     filterName: (NSString*) filterName
-    filterId: (NSObject*) filterId
+    filterId: (NSString*) filterId
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -151,9 +152,9 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
+/// @return JSAPIActivityResource*
 -(NSURLSessionTask*) getActivityWithId: (NSNumber*) _id
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 
 
 /// Get a single activity template
@@ -206,7 +207,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///
 /// @return JSAPIActivityOccurrenceResults*
 -(NSURLSessionTask*) setActivityOccurrenceResultsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceResults: (JSAPIActivityOccurrenceResults*) activityOccurrenceResults
+    activityOccurrenceResults: (JSAPIActivityOccurrenceResultsResource*) activityOccurrenceResults
     completionHandler: (void (^)(JSAPIActivityOccurrenceResults* output, NSError* error)) handler;
 
 
@@ -222,10 +223,10 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
+/// @return JSAPIActivityResource*
 -(NSURLSessionTask*) updateActivityWithId: (NSNumber*) _id
-    activityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+    activityResource: (JSAPIActivityResource*) activityResource
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 
 
 /// Updated the status of an activity occurrence

@@ -21,8 +21,8 @@ Method | HTTP request | Description
 
 # **createActivity**
 ```objc
--(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-        completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+-(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIActivityResource*) activityResource
+        completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 ```
 
 Create an activity
@@ -35,13 +35,13 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* activityResource = [[JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_ alloc] init]; // The activity resource object (optional)
+JSAPIActivityResource* activityResource = [[JSAPIActivityResource alloc] init]; // The activity resource object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 // Create an activity
 [apiInstance createActivityWithActivityResource:activityResource
-          completionHandler: ^(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error) {
+          completionHandler: ^(JSAPIActivityResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -55,11 +55,11 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityResource** | [**JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_***](JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*.md)| The activity resource object | [optional] 
+ **activityResource** | [**JSAPIActivityResource***](JSAPIActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_***](JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.md)
+[**JSAPIActivityResource***](JSAPIActivityResource.md)
 
 ### Authorization
 
@@ -75,8 +75,8 @@ Name | Type | Description  | Notes
 # **createActivityOccurrence**
 ```objc
 -(NSURLSessionTask*) createActivityOccurrenceWithTest: (NSNumber*) test
-    activityOccurrenceResource: (JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*) activityOccurrenceResource
-        completionHandler: (void (^)(JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings* output, NSError* error)) handler;
+    activityOccurrenceResource: (JSAPIActivityOccurrenceResource*) activityOccurrenceResource
+        completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
 ```
 
 Create a new activity occurrence. Ex: start a game
@@ -92,14 +92,14 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* test = @false; // if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings (optional) (default to false)
-JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings* activityOccurrenceResource = [[JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings alloc] init]; // The activity occurrence object (optional)
+JSAPIActivityOccurrenceResource* activityOccurrenceResource = [[JSAPIActivityOccurrenceResource alloc] init]; // The activity occurrence object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 // Create a new activity occurrence. Ex: start a game
 [apiInstance createActivityOccurrenceWithTest:test
               activityOccurrenceResource:activityOccurrenceResource
-          completionHandler: ^(JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings* output, NSError* error) {
+          completionHandler: ^(JSAPIActivityOccurrenceResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -114,11 +114,11 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test** | **NSNumber***| if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings | [optional] [default to false]
- **activityOccurrenceResource** | [**JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings***](JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*.md)| The activity occurrence object | [optional] 
+ **activityOccurrenceResource** | [**JSAPIActivityOccurrenceResource***](JSAPIActivityOccurrenceResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
-[**JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings***](JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.md)
+[**JSAPIActivityOccurrenceResource***](JSAPIActivityOccurrenceResource.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The activity template resource object | [optional] 
+ **activityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The activity template resource object | [optional] 
 
 ### Return type
 
@@ -296,7 +296,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) getActivitiesWithFilterTemplate: (NSNumber*) filterTemplate
     filterName: (NSString*) filterName
-    filterId: (NSObject*) filterId
+    filterId: (NSString*) filterId
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -310,7 +310,7 @@ List activity definitions
 
 NSNumber* filterTemplate = @true; // Filter for activities that are templates, or specifically not if false (optional)
 NSString* filterName = @"filterName_example"; // Filter for activities that have a name starting with specified string (optional)
-NSObject* filterId = [[NSObject alloc] init]; // Filter for activities with an id in the given comma separated list of ids (optional)
+NSString* filterId = @"filterId_example"; // Filter for activities with an id in the given comma separated list of ids (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
 NSString* order = @"id:ASC"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterTemplate** | **NSNumber***| Filter for activities that are templates, or specifically not if false | [optional] 
  **filterName** | **NSString***| Filter for activities that have a name starting with specified string | [optional] 
- **filterId** | [**NSObject***](.md)| Filter for activities with an id in the given comma separated list of ids | [optional] 
+ **filterId** | **NSString***| Filter for activities with an id in the given comma separated list of ids | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
@@ -363,7 +363,7 @@ No authorization required
 # **getActivity**
 ```objc
 -(NSURLSessionTask*) getActivityWithId: (NSNumber*) _id
-        completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+        completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 ```
 
 Get a single activity
@@ -377,7 +377,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 // Get a single activity
 [apiInstance getActivityWithId:_id
-          completionHandler: ^(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error) {
+          completionHandler: ^(JSAPIActivityResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_***](JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.md)
+[**JSAPIActivityResource***](JSAPIActivityResource.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 # **setActivityOccurrenceResults**
 ```objc
 -(NSURLSessionTask*) setActivityOccurrenceResultsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceResults: (JSAPIActivityOccurrenceResults*) activityOccurrenceResults
+    activityOccurrenceResults: (JSAPIActivityOccurrenceResultsResource*) activityOccurrenceResults
         completionHandler: (void (^)(JSAPIActivityOccurrenceResults* output, NSError* error)) handler;
 ```
 
@@ -540,7 +540,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
-JSAPIActivityOccurrenceResults* activityOccurrenceResults = [[JSAPIActivityOccurrenceResults alloc] init]; // The activity occurrence object (optional)
+JSAPIActivityOccurrenceResultsResource* activityOccurrenceResults = [[JSAPIActivityOccurrenceResultsResource alloc] init]; // The activity occurrence object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
@@ -562,7 +562,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
- **activityOccurrenceResults** | [**JSAPIActivityOccurrenceResults***](JSAPIActivityOccurrenceResults*.md)| The activity occurrence object | [optional] 
+ **activityOccurrenceResults** | [**JSAPIActivityOccurrenceResultsResource***](JSAPIActivityOccurrenceResultsResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
@@ -582,8 +582,8 @@ Name | Type | Description  | Notes
 # **updateActivity**
 ```objc
 -(NSURLSessionTask*) updateActivityWithId: (NSNumber*) _id
-    activityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-        completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler;
+    activityResource: (JSAPIActivityResource*) activityResource
+        completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 ```
 
 Update an activity
@@ -597,14 +597,14 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @789; // The id of the activity
-JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* activityResource = [[JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_ alloc] init]; // The activity resource object (optional)
+JSAPIActivityResource* activityResource = [[JSAPIActivityResource alloc] init]; // The activity resource object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
 // Update an activity
 [apiInstance updateActivityWithId:_id
               activityResource:activityResource
-          completionHandler: ^(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error) {
+          completionHandler: ^(JSAPIActivityResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -619,11 +619,11 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the activity | 
- **activityResource** | [**JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_***](JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*.md)| The activity resource object | [optional] 
+ **activityResource** | [**JSAPIActivityResource***](JSAPIActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_***](JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.md)
+[**JSAPIActivityResource***](JSAPIActivityResource.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **activityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The activity template resource object | [optional] 
+ **activityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The activity template resource object | [optional] 
 
 ### Return type
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -25,5 +25,7 @@
 /* The details of each user's entry, or just the current user's if not run with ACTIVITIES_ADMIN permission [optional]
  */
 @property(nonatomic) NSArray<JSAPIActivityOccurrenceJoinResult>* userResults;
+
++ (NSDictionary *)modalDictionary;
 
 @end

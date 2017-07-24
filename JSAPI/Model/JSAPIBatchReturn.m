@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"body": @"body", @"code": @"code", @"uri": @"uri" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"body": @"body", @"code": @"code", @"uri": @"uri" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"body", @"code", @"uri"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

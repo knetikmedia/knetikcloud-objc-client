@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -59,5 +59,7 @@
 /* Whether the rule is a default part of the system. System rules cannot be edited or deleted, but may be disabled [optional]
  */
 @property(nonatomic) NSNumber* systemRule;
+
++ (NSDictionary *)modalDictionary;
 
 @end

@@ -53,7 +53,7 @@ JSAPITaxesApi*apiInstance = [[JSAPITaxesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taxResource** | [**JSAPICountryTaxResource***](JSAPICountryTaxResource*.md)| The tax object | [optional] 
+ **taxResource** | [**JSAPICountryTaxResource***](JSAPICountryTaxResource.md)| The tax object | [optional] 
 
 ### Return type
 
@@ -110,7 +110,7 @@ JSAPITaxesApi*apiInstance = [[JSAPITaxesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **NSString***| The iso3 code of the country | 
- **taxResource** | [**JSAPIStateTaxResource***](JSAPIStateTaxResource*.md)| The tax object | [optional] 
+ **taxResource** | [**JSAPIStateTaxResource***](JSAPIStateTaxResource.md)| The tax object | [optional] 
 
 ### Return type
 
@@ -549,7 +549,7 @@ JSAPITaxesApi*apiInstance = [[JSAPITaxesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **NSString***| The iso3 code of the country | 
- **taxResource** | [**JSAPICountryTaxResource***](JSAPICountryTaxResource*.md)| The tax object | [optional] 
+ **taxResource** | [**JSAPICountryTaxResource***](JSAPICountryTaxResource.md)| The tax object | [optional] 
 
 ### Return type
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **NSString***| The iso3 code of the country | 
  **stateCode** | **NSString***| The code of the state | 
- **taxResource** | [**JSAPIStateTaxResource***](JSAPIStateTaxResource*.md)| The tax object | [optional] 
+ **taxResource** | [**JSAPIStateTaxResource***](JSAPIStateTaxResource.md)| The tax object | [optional] 
 
 ### Return type
 

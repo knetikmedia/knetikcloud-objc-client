@@ -49,7 +49,7 @@ JSAPIBRERuleEngineGlobalsApi*apiInstance = [[JSAPIBRERuleEngineGlobalsApi alloc]
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breGlobalResource** | [**JSAPIBreGlobalResource***](JSAPIBreGlobalResource*.md)| The BRE global resource object | [optional] 
+ **breGlobalResource** | [**JSAPIBreGlobalResource***](JSAPIBreGlobalResource.md)| The BRE global resource object | [optional] 
 
 ### Return type
 
@@ -274,7 +274,7 @@ JSAPIBRERuleEngineGlobalsApi*apiInstance = [[JSAPIBRERuleEngineGlobalsApi alloc]
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the global definition | 
- **breGlobalResource** | [**JSAPIBreGlobalResource***](JSAPIBreGlobalResource*.md)| The BRE global resource object | [optional] 
+ **breGlobalResource** | [**JSAPIBreGlobalResource***](JSAPIBreGlobalResource.md)| The BRE global resource object | [optional] 
 
 ### Return type
 

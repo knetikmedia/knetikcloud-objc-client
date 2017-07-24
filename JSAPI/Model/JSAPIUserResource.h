@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -74,6 +74,9 @@
 /* The ISO3 code for the user's currency (private) [optional]
  */
 @property(nonatomic) NSString* languageCode;
+/* The date the user last interacted with the API (private) [optional]
+ */
+@property(nonatomic) NSNumber* lastActivity;
 /* The user's last name (private) [optional]
  */
 @property(nonatomic) NSString* lastName;
@@ -110,5 +113,7 @@
 /* The login username for the user (private). May be set to match email if system does not require usernames separately. 
  */
 @property(nonatomic) NSString* username;
+
++ (NSDictionary *)modalDictionary;
 
 @end

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -17,10 +17,10 @@
 #import "JSAPISettingOption.h"
 
 
-@protocol JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel
+@protocol JSAPIAvailableSettingResource
 @end
 
-@interface JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel : JSAPIObject
+@interface JSAPIAvailableSettingResource : JSAPIObject
 
 /* Whether the setting is advanced. Default: false [optional]
  */
@@ -40,5 +40,7 @@
 /* The set of options available for this setting, Ex: easy, medium, hard 
  */
 @property(nonatomic) NSArray<JSAPISettingOption>* options;
+
++ (NSDictionary *)modalDictionary;
 
 @end

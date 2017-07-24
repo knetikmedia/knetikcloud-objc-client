@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -33,5 +33,7 @@
 /* The transaction type to allow for search/etc [optional]
  */
 @property(nonatomic) NSString* type;
+
++ (NSDictionary *)modalDictionary;
 
 @end

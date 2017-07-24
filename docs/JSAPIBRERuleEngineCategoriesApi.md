@@ -52,7 +52,7 @@ JSAPIBRERuleEngineCategoriesApi*apiInstance = [[JSAPIBRERuleEngineCategoriesApi 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The category template to create | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The category template to create | [optional] 
 
 ### Return type
 
@@ -389,7 +389,7 @@ JSAPIBRERuleEngineCategoriesApi*apiInstance = [[JSAPIBRERuleEngineCategoriesApi 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **NSString***| The category name | 
- **category** | [**JSAPIBreCategoryResource***](JSAPIBreCategoryResource*.md)| The updated BRE category information | [optional] 
+ **category** | [**JSAPIBreCategoryResource***](JSAPIBreCategoryResource.md)| The updated BRE category information | [optional] 
 
 ### Return type
 
@@ -446,7 +446,7 @@ JSAPIBRERuleEngineCategoriesApi*apiInstance = [[JSAPIBRERuleEngineCategoriesApi 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The updated category template definition | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The updated category template definition | [optional] 
 
 ### Return type
 

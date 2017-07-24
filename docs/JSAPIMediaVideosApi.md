@@ -122,7 +122,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoResource** | [**JSAPIVideoResource***](JSAPIVideoResource*.md)| The video object | [optional] 
+ **videoResource** | [**JSAPIVideoResource***](JSAPIVideoResource.md)| The video object | [optional] 
 
 ### Return type
 
@@ -179,7 +179,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id  | 
- **commentResource** | [**JSAPICommentResource***](JSAPICommentResource*.md)| The comment object | [optional] 
+ **commentResource** | [**JSAPICommentResource***](JSAPICommentResource.md)| The comment object | [optional] 
 
 ### Return type
 
@@ -233,7 +233,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
- **contributionResource** | [**JSAPIContributionResource***](JSAPIContributionResource*.md)| The contribution object | [optional] 
+ **contributionResource** | [**JSAPIContributionResource***](JSAPIContributionResource.md)| The contribution object | [optional] 
 
 ### Return type
 
@@ -347,7 +347,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
- **videoRelationshipResource** | [**JSAPIVideoRelationshipResource***](JSAPIVideoRelationshipResource*.md)| The video relationship object  | [optional] 
+ **videoRelationshipResource** | [**JSAPIVideoRelationshipResource***](JSAPIVideoRelationshipResource.md)| The video relationship object  | [optional] 
 
 ### Return type
 
@@ -404,7 +404,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
- **dispositionResource** | [**JSAPIDispositionResource***](JSAPIDispositionResource*.md)| The disposition object | [optional] 
+ **dispositionResource** | [**JSAPIDispositionResource***](JSAPIDispositionResource.md)| The disposition object | [optional] 
 
 ### Return type
 
@@ -968,12 +968,12 @@ No authorization required
 # **getVideos**
 ```objc
 -(NSURLSessionTask*) getVideosWithExcludeFlagged: (NSNumber*) excludeFlagged
-    filterVideosByUploader: (NSObject*) filterVideosByUploader
+    filterVideosByUploader: (NSNumber*) filterVideosByUploader
     filterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
     filterVideosByName: (NSString*) filterVideosByName
-    filterVideosByContributor: (NSObject*) filterVideosByContributor
-    filterVideosByAuthor: (NSObject*) filterVideosByAuthor
+    filterVideosByContributor: (NSNumber*) filterVideosByContributor
+    filterVideosByAuthor: (NSNumber*) filterVideosByAuthor
     filterHasAuthor: (NSNumber*) filterHasAuthor
     filterHasUploader: (NSNumber*) filterHasUploader
     filterRelatedTo: (NSString*) filterRelatedTo
@@ -991,12 +991,12 @@ Search videos using the documented filters
 ```objc
 
 NSNumber* excludeFlagged = @true; // Skip videos that have been flagged by the current user (optional) (default to true)
-NSObject* filterVideosByUploader = [[NSObject alloc] init]; // Filter for videos by uploader id (optional)
+NSNumber* filterVideosByUploader = @56; // Filter for videos by uploader id (optional)
 NSString* filterCategory = @"filterCategory_example"; // Filter for videos from a specific category by id (optional)
 NSString* filterTagset = @"filterTagset_example"; // Filter for videos with specified tags (separated by comma) (optional)
 NSString* filterVideosByName = @"filterVideosByName_example"; // Filter for videos which name *STARTS* with the given string (optional)
-NSObject* filterVideosByContributor = [[NSObject alloc] init]; // Filter for videos with contribution from the artist specified by ID (optional)
-NSObject* filterVideosByAuthor = [[NSObject alloc] init]; // Filter for videos with an artist as author specified by ID (optional)
+NSNumber* filterVideosByContributor = @56; // Filter for videos with contribution from the artist specified by ID (optional)
+NSNumber* filterVideosByAuthor = @56; // Filter for videos with an artist as author specified by ID (optional)
 NSNumber* filterHasAuthor = @true; // Filter for videos that have an author set if true, or that have no author if false (optional)
 NSNumber* filterHasUploader = @true; // Filter for videos that have an uploader set if true, or that have no uploader if false (optional)
 NSString* filterRelatedTo = @"filterRelatedTo_example"; // Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well (optional)
@@ -1039,12 +1039,12 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **excludeFlagged** | **NSNumber***| Skip videos that have been flagged by the current user | [optional] [default to true]
- **filterVideosByUploader** | [**NSObject***](.md)| Filter for videos by uploader id | [optional] 
+ **filterVideosByUploader** | **NSNumber***| Filter for videos by uploader id | [optional] 
  **filterCategory** | **NSString***| Filter for videos from a specific category by id | [optional] 
  **filterTagset** | **NSString***| Filter for videos with specified tags (separated by comma) | [optional] 
  **filterVideosByName** | **NSString***| Filter for videos which name *STARTS* with the given string | [optional] 
- **filterVideosByContributor** | [**NSObject***](.md)| Filter for videos with contribution from the artist specified by ID | [optional] 
- **filterVideosByAuthor** | [**NSObject***](.md)| Filter for videos with an artist as author specified by ID | [optional] 
+ **filterVideosByContributor** | **NSNumber***| Filter for videos with contribution from the artist specified by ID | [optional] 
+ **filterVideosByAuthor** | **NSNumber***| Filter for videos with an artist as author specified by ID | [optional] 
  **filterHasAuthor** | **NSNumber***| Filter for videos that have an author set if true, or that have no author if false | [optional] 
  **filterHasUploader** | **NSNumber***| Filter for videos that have an uploader set if true, or that have no uploader if false | [optional] 
  **filterRelatedTo** | **NSString***| Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well | [optional] 
@@ -1216,7 +1216,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The video id | 
- **videoResource** | [**JSAPIVideoResource***](JSAPIVideoResource*.md)| The video object | [optional] 
+ **videoResource** | [**JSAPIVideoResource***](JSAPIVideoResource.md)| The video object | [optional] 
 
 ### Return type
 

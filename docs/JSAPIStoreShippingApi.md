@@ -57,7 +57,7 @@ JSAPIStoreShippingApi*apiInstance = [[JSAPIStoreShippingApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **shippingItem** | [**JSAPIShippingItem***](JSAPIShippingItem*.md)| The shipping item object | [optional] 
+ **shippingItem** | [**JSAPIShippingItem***](JSAPIShippingItem.md)| The shipping item object | [optional] 
 
 ### Return type
 
@@ -112,7 +112,7 @@ JSAPIStoreShippingApi*apiInstance = [[JSAPIStoreShippingApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shippingTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The new shipping template | [optional] 
+ **shippingTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The new shipping template | [optional] 
 
 ### Return type
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the shipping item | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **shippingItem** | [**JSAPIShippingItem***](JSAPIShippingItem*.md)| The shipping item object | [optional] 
+ **shippingItem** | [**JSAPIShippingItem***](JSAPIShippingItem.md)| The shipping item object | [optional] 
 
 ### Return type
 
@@ -498,7 +498,7 @@ JSAPIStoreShippingApi*apiInstance = [[JSAPIStoreShippingApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **shippingTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The shipping template resource object | [optional] 
+ **shippingTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The shipping template resource object | [optional] 
 
 ### Return type
 

@@ -17,7 +17,15 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"max": @"max", @"min": @"min" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+  NSMutableDictionary * mutableDictionary = [[NSMutableDictionary alloc] initWithDictionary:[super modalDictionary] copyItems:NO];
+    
+  [mutableDictionary addEntriesFromDictionary:@{ @"max": @"max", @"min": @"min" }];
+    
+  return mutableDictionary;
 }
 
 /**
@@ -28,7 +36,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"max", @"min"];
-  return [optionalProperties containsObject:propertyName];
+  return [super propertyIsOptional:propertyName] | [optionalProperties containsObject:propertyName];
 }
 
 @end

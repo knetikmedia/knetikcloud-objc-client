@@ -47,7 +47,7 @@ JSAPICurrenciesApi*apiInstance = [[JSAPICurrenciesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | [**JSAPICurrencyResource***](JSAPICurrencyResource*.md)| The currency object | [optional] 
+ **currency** | [**JSAPICurrencyResource***](JSAPICurrencyResource.md)| The currency object | [optional] 
 
 ### Return type
 
@@ -263,7 +263,7 @@ JSAPICurrenciesApi*apiInstance = [[JSAPICurrenciesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **NSString***| The currency code | 
- **currency** | [**JSAPICurrencyResource***](JSAPICurrencyResource*.md)| The currency object | [optional] 
+ **currency** | [**JSAPICurrencyResource***](JSAPICurrencyResource.md)| The currency object | [optional] 
 
 ### Return type
 

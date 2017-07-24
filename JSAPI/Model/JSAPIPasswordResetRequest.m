@@ -1,6 +1,6 @@
-#import "JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel.h"
+#import "JSAPIPasswordResetRequest.h"
 
-@implementation JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel
+@implementation JSAPIPasswordResetRequest
 
 - (instancetype)init {
   self = [super init];
@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"advancedOption": @"advanced_option", @"defaultValue": @"default_value", @"_description": @"description", @"key": @"key", @"name": @"name", @"options": @"options" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"email": @"email", @"mobileNumber": @"mobile_number", @"username": @"username" };
 }
 
 /**
@@ -27,7 +32,8 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"advancedOption", @"_description", ];
+  NSArray *optionalProperties = @[@"email", @"mobileNumber", @"username"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

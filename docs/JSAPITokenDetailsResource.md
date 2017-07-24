@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clientId** | **NSString*** |  | [optional] 
 **roles** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **userId** | **NSNumber*** |  | [optional] 
 

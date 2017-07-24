@@ -12,7 +12,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -116,9 +116,9 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 
 
 /// Delete a challenge activity
-/// 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 ///
-/// @param activityId The activity id
+/// @param _id The challenge_activity id
 /// @param challengeId The challenge id
 /// 
 ///  code:204 message:"No Content",
@@ -128,7 +128,7 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return 
--(NSURLSessionTask*) deleteChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) deleteChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -224,9 +224,10 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 
 
 /// Get a single challenge activity
-/// 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 ///
-/// @param activityId The activity id
+/// @param _id The challenge_activity id
+/// @param challengeId The challenge id
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -235,7 +236,8 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIChallengeActivityResource*
--(NSURLSessionTask*) getChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) getChallengeActivityWithId: (NSNumber*) _id
+    challengeId: (NSNumber*) challengeId
     completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
 
 
@@ -402,9 +404,9 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 
 
 /// Update a challenge activity
-/// 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 ///
-/// @param activityId The activity id
+/// @param _id The challenge_activity id
 /// @param challengeId The challenge id
 /// @param challengeActivityResource The challenge activity resource object (optional)
 /// 
@@ -415,7 +417,7 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIChallengeActivityResource*
--(NSURLSessionTask*) updateChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
     completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;

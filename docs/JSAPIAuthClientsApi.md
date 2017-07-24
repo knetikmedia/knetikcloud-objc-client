@@ -50,7 +50,7 @@ JSAPIAuthClientsApi*apiInstance = [[JSAPIAuthClientsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientResource** | [**JSAPIClientResource***](JSAPIClientResource*.md)| The client resource object | [optional] 
+ **clientResource** | [**JSAPIClientResource***](JSAPIClientResource.md)| The client resource object | [optional] 
 
 ### Return type
 
@@ -428,7 +428,7 @@ JSAPIAuthClientsApi*apiInstance = [[JSAPIAuthClientsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **NSString***| The key of the client | 
- **clientResource** | [**JSAPIClientResource***](JSAPIClientResource*.md)| The client resource object | [optional] 
+ **clientResource** | [**JSAPIClientResource***](JSAPIClientResource.md)| The client resource object | [optional] 
 
 ### Return type
 

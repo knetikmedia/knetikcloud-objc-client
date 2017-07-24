@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"additionalProperties": @"additional_properties", @"born": @"born", @"contributionCount": @"contribution_count", @"contributions": @"contributions", @"createdDate": @"created_date", @"died": @"died", @"_id": @"id", @"longDescription": @"long_description", @"name": @"name", @"priority": @"priority", @"shortDescription": @"short_description", @"template": @"template", @"updatedDate": @"updated_date" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"additionalProperties": @"additional_properties", @"born": @"born", @"contributionCount": @"contribution_count", @"contributions": @"contributions", @"createdDate": @"created_date", @"died": @"died", @"_id": @"id", @"longDescription": @"long_description", @"name": @"name", @"priority": @"priority", @"shortDescription": @"short_description", @"template": @"template", @"updatedDate": @"updated_date" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"additionalProperties", @"born", @"contributionCount", @"contributions", @"createdDate", @"died", @"_id", @"longDescription", @"priority", @"shortDescription", @"template", @"updatedDate"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

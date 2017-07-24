@@ -53,7 +53,7 @@ JSAPIStoreSubscriptionsApi*apiInstance = [[JSAPIStoreSubscriptionsApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionResource** | [**JSAPISubscriptionResource***](JSAPISubscriptionResource*.md)| The subscription to be created | [optional] 
+ **subscriptionResource** | [**JSAPISubscriptionResource***](JSAPISubscriptionResource.md)| The subscription to be created | [optional] 
 
 ### Return type
 
@@ -108,7 +108,7 @@ JSAPIStoreSubscriptionsApi*apiInstance = [[JSAPIStoreSubscriptionsApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionTemplateResource** | [**JSAPISubscriptionTemplateResource***](JSAPISubscriptionTemplateResource*.md)| The new subscription template | [optional] 
+ **subscriptionTemplateResource** | [**JSAPISubscriptionTemplateResource***](JSAPISubscriptionTemplateResource.md)| The new subscription template | [optional] 
 
 ### Return type
 
@@ -540,7 +540,7 @@ JSAPIStoreSubscriptionsApi*apiInstance = [[JSAPIStoreSubscriptionsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the subscription | 
- **subscriptionResource** | [**JSAPISubscriptionResource***](JSAPISubscriptionResource*.md)| The subscription resource object | [optional] 
+ **subscriptionResource** | [**JSAPISubscriptionResource***](JSAPISubscriptionResource.md)| The subscription resource object | [optional] 
 
 ### Return type
 
@@ -597,7 +597,7 @@ JSAPIStoreSubscriptionsApi*apiInstance = [[JSAPIStoreSubscriptionsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **subscriptionTemplateResource** | [**JSAPISubscriptionTemplateResource***](JSAPISubscriptionTemplateResource*.md)| The subscription template resource object | [optional] 
+ **subscriptionTemplateResource** | [**JSAPISubscriptionTemplateResource***](JSAPISubscriptionTemplateResource.md)| The subscription template resource object | [optional] 
 
 ### Return type
 

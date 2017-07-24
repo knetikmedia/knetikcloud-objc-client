@@ -1,4 +1,4 @@
-# JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings
+# JSAPIActivityOccurrenceResource
 
 ## Properties
 Name | Type | Description | Notes

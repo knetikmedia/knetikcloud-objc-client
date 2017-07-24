@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"additionalProperties": @"additional_properties", @"answers": @"answers", @"category": @"category", @"createdDate": @"created_date", @"difficulty": @"difficulty", @"_id": @"id", @"importId": @"import_id", @"publishedDate": @"published_date", @"question": @"question", @"source1": @"source1", @"source2": @"source2", @"tags": @"tags", @"template": @"template", @"updatedDate": @"updated_date", @"vendor": @"vendor" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"additionalProperties": @"additional_properties", @"answers": @"answers", @"category": @"category", @"createdDate": @"created_date", @"difficulty": @"difficulty", @"_id": @"id", @"importId": @"import_id", @"publishedDate": @"published_date", @"question": @"question", @"source1": @"source1", @"source2": @"source2", @"tags": @"tags", @"template": @"template", @"updatedDate": @"updated_date", @"vendor": @"vendor" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"additionalProperties", @"answers", @"createdDate", @"_id", @"importId", @"publishedDate", @"source1", @"source2", @"tags", @"template", @"updatedDate", @"vendor"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

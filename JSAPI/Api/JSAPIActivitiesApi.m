@@ -1,12 +1,13 @@
 #import "JSAPIActivitiesApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
-#import "JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.h"
 #import "JSAPIActivityOccurrenceCreationFailure.h"
+#import "JSAPIActivityOccurrenceResource.h"
 #import "JSAPIActivityOccurrenceResults.h"
+#import "JSAPIActivityOccurrenceResultsResource.h"
+#import "JSAPIActivityResource.h"
 #import "JSAPIPageResourceBareActivityResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
-#import "JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
 
@@ -61,10 +62,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 /// 
 ///  @param activityResource The activity resource object (optional)
 ///
-///  @returns JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
+///  @returns JSAPIActivityResource*
 ///
--(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler {
+-(NSURLSessionTask*) createActivityWithActivityResource: (JSAPIActivityResource*) activityResource
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activities"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -103,10 +104,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*"
+                              responseType: @"JSAPIActivityResource*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*)data, error);
+                                    handler((JSAPIActivityResource*)data, error);
                                 }
                             }];
 }
@@ -118,11 +119,11 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///
 ///  @param activityOccurrenceResource The activity occurrence object (optional)
 ///
-///  @returns JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*
+///  @returns JSAPIActivityOccurrenceResource*
 ///
 -(NSURLSessionTask*) createActivityOccurrenceWithTest: (NSNumber*) test
-    activityOccurrenceResource: (JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*) activityOccurrenceResource
-    completionHandler: (void (^)(JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings* output, NSError* error)) handler {
+    activityOccurrenceResource: (JSAPIActivityOccurrenceResource*) activityOccurrenceResource
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activity-occurrences"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -164,10 +165,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*"
+                              responseType: @"JSAPIActivityOccurrenceResource*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((JSAPIAOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings*)data, error);
+                                    handler((JSAPIActivityOccurrenceResource*)data, error);
                                 }
                             }];
 }
@@ -388,7 +389,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) getActivitiesWithFilterTemplate: (NSNumber*) filterTemplate
     filterName: (NSString*) filterName
-    filterId: (NSObject*) filterId
+    filterId: (NSString*) filterId
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -461,10 +462,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 /// 
 ///  @param _id The id of the activity 
 ///
-///  @returns JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
+///  @returns JSAPIActivityResource*
 ///
 -(NSURLSessionTask*) getActivityWithId: (NSNumber*) _id
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler {
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -516,10 +517,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*"
+                              responseType: @"JSAPIActivityResource*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*)data, error);
+                                    handler((JSAPIActivityResource*)data, error);
                                 }
                             }];
 }
@@ -671,7 +672,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///  @returns JSAPIActivityOccurrenceResults*
 ///
 -(NSURLSessionTask*) setActivityOccurrenceResultsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceResults: (JSAPIActivityOccurrenceResults*) activityOccurrenceResults
+    activityOccurrenceResults: (JSAPIActivityOccurrenceResultsResource*) activityOccurrenceResults
     completionHandler: (void (^)(JSAPIActivityOccurrenceResults* output, NSError* error)) handler {
     // verify the required parameter 'activityOccurrenceId' is set
     if (activityOccurrenceId == nil) {
@@ -740,11 +741,11 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///
 ///  @param activityResource The activity resource object (optional)
 ///
-///  @returns JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*
+///  @returns JSAPIActivityResource*
 ///
 -(NSURLSessionTask*) updateActivityWithId: (NSNumber*) _id
-    activityResource: (JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*) activityResource
-    completionHandler: (void (^)(JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_* output, NSError* error)) handler {
+    activityResource: (JSAPIActivityResource*) activityResource
+    completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -797,10 +798,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*"
+                              responseType: @"JSAPIActivityResource*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_*)data, error);
+                                    handler((JSAPIActivityResource*)data, error);
                                 }
                             }];
 }

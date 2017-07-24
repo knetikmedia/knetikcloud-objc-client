@@ -48,7 +48,7 @@ JSAPIPaymentsPayPalClassicApi*apiInstance = [[JSAPIPaymentsPayPalClassicApi allo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPICreateBillingAgreementRequest***](JSAPICreateBillingAgreementRequest*.md)| The request to create a PayPal billing agreement | [optional] 
+ **request** | [**JSAPICreateBillingAgreementRequest***](JSAPICreateBillingAgreementRequest.md)| The request to create a PayPal billing agreement | [optional] 
 
 ### Return type
 
@@ -103,7 +103,7 @@ JSAPIPaymentsPayPalClassicApi*apiInstance = [[JSAPIPaymentsPayPalClassicApi allo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPICreatePayPalPaymentRequest***](JSAPICreatePayPalPaymentRequest*.md)| The request to create a PayPal payment token | [optional] 
+ **request** | [**JSAPICreatePayPalPaymentRequest***](JSAPICreatePayPalPaymentRequest.md)| The request to create a PayPal payment token | [optional] 
 
 ### Return type
 
@@ -158,7 +158,7 @@ JSAPIPaymentsPayPalClassicApi*apiInstance = [[JSAPIPaymentsPayPalClassicApi allo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIFinalizeBillingAgreementRequest***](JSAPIFinalizeBillingAgreementRequest*.md)| The request to finalize a PayPal billing agreement | [optional] 
+ **request** | [**JSAPIFinalizeBillingAgreementRequest***](JSAPIFinalizeBillingAgreementRequest.md)| The request to finalize a PayPal billing agreement | [optional] 
 
 ### Return type
 
@@ -210,7 +210,7 @@ JSAPIPaymentsPayPalClassicApi*apiInstance = [[JSAPIPaymentsPayPalClassicApi allo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIFinalizePayPalPaymentRequest***](JSAPIFinalizePayPalPaymentRequest*.md)| The request to finalize the payment | [optional] 
+ **request** | [**JSAPIFinalizePayPalPaymentRequest***](JSAPIFinalizePayPalPaymentRequest.md)| The request to finalize the payment | [optional] 
 
 ### Return type
 

@@ -11,7 +11,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -132,7 +132,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
     filterItemName: (NSString*) filterItemName
     filterExternalRef: (NSString*) filterExternalRef
     filterCreatedDate: (NSString*) filterCreatedDate
-    filterVendorIds: (NSObject*) filterVendorIds
+    filterVendorIds: (NSString*) filterVendorIds
     filterCurrency: (NSString*) filterCurrency
     filterShippingStateName: (NSString*) filterShippingStateName
     filterShippingCountryName: (NSString*) filterShippingCountryName
@@ -175,6 +175,28 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 /// @return 
 -(NSURLSessionTask*) payInvoiceWithId: (NSNumber*) _id
     request: (JSAPIPayBySavedMethodRequest*) request
+    completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Set the fulfillment status of a bundled invoice item
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+///
+/// @param _id The id of the invoice
+/// @param bundleSku The sku of the bundle in the invoice that contains the given target
+/// @param sku The sku of an item in the bundle in the invoice
+/// @param status The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39;
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return 
+-(NSURLSessionTask*) setBundledInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
+    bundleSku: (NSString*) bundleSku
+    sku: (NSString*) sku
+    status: (NSString*) status
     completionHandler: (void (^)(NSError* error)) handler;
 
 

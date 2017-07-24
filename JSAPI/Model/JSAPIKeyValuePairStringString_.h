@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -25,5 +25,7 @@
 @property(nonatomic) NSString* key;
 
 @property(nonatomic) NSString* value;
+
++ (NSDictionary *)modalDictionary;
 
 @end

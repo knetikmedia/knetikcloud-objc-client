@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -59,5 +59,7 @@
 /* The code for the state. Required if the country has states/provinces/equivalent [optional]
  */
 @property(nonatomic) NSString* stateCode;
+
++ (NSDictionary *)modalDictionary;
 
 @end

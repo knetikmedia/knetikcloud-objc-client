@@ -14,7 +14,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -366,12 +366,12 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///
 /// @return JSAPIPageResourceVideoResource_*
 -(NSURLSessionTask*) getVideosWithExcludeFlagged: (NSNumber*) excludeFlagged
-    filterVideosByUploader: (NSObject*) filterVideosByUploader
+    filterVideosByUploader: (NSNumber*) filterVideosByUploader
     filterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
     filterVideosByName: (NSString*) filterVideosByName
-    filterVideosByContributor: (NSObject*) filterVideosByContributor
-    filterVideosByAuthor: (NSObject*) filterVideosByAuthor
+    filterVideosByContributor: (NSNumber*) filterVideosByContributor
+    filterVideosByAuthor: (NSNumber*) filterVideosByAuthor
     filterHasAuthor: (NSNumber*) filterHasAuthor
     filterHasUploader: (NSNumber*) filterHasUploader
     filterRelatedTo: (NSString*) filterRelatedTo

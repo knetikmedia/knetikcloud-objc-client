@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -15,15 +15,15 @@
 
 
 #import "JSAPIActivityEntitlementResource.h"
+#import "JSAPIAvailableSettingResource.h"
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
-#import "JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel.h"
 
 
-@protocol JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_
+@protocol JSAPIActivityResource
 @end
 
-@interface JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_ : JSAPIObject
+@interface JSAPIActivityResource : JSAPIObject
 
 /* A map of additional properties keyed on the property name. Used to further describe an activity. While settings will vary from one activity occurrence (a game) to another, additional properties are shared by all the occurrences of this activity. Ex: Activity Logo, Disclaimer, Greeting, etc. Validated against template if one exists for activities [optional]
  */
@@ -51,7 +51,7 @@
 @property(nonatomic) JSAPIRewardSetResource* rewardSet;
 /* Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing [optional]
  */
-@property(nonatomic) NSArray<JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel>* settings;
+@property(nonatomic) NSArray<JSAPIAvailableSettingResource>* settings;
 /* The user friendly name of that resource. Defaults to blank string [optional]
  */
 @property(nonatomic) NSString* shortDescription;
@@ -70,5 +70,7 @@
 /* The date/time this resource was last updated in seconds since unix epoch [optional]
  */
 @property(nonatomic) NSNumber* updatedDate;
+
++ (NSDictionary *)modalDictionary;
 
 @end

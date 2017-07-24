@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -15,7 +15,7 @@
 
 
 #import "JSAPIBehavior.h"
-#import "JSAPIPropertyDefinitionResource.h"
+#import "JSAPIPropertyFieldResource.h"
 
 
 @protocol JSAPIBehaviorDefinitionResource
@@ -31,9 +31,11 @@
 @property(nonatomic) NSArray<JSAPIBehavior>* prerequisiteBehaviors;
 /* Configurable properties of the behavior 
  */
-@property(nonatomic) NSArray<JSAPIPropertyDefinitionResource>* properties;
+@property(nonatomic) NSArray<JSAPIPropertyFieldResource>* properties;
 /* The behavior type 
  */
 @property(nonatomic) NSString* typeHint;
+
++ (NSDictionary *)modalDictionary;
 
 @end

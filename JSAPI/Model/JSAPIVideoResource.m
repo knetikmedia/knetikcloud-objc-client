@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"active": @"active", @"author": @"author", @"authored": @"authored", @"banned": @"banned", @"category": @"category", @"comments": @"comments", @"contributors": @"contributors", @"createdDate": @"created_date", @"embed": @"embed", @"extension": @"extension", @"height": @"height", @"_id": @"id", @"length": @"length", @"location": @"location", @"longDescription": @"long_description", @"mimeType": @"mime_type", @"name": @"name", @"priority": @"priority", @"privacy": @"privacy", @"published": @"published", @"shortDescription": @"short_description", @"size": @"size", @"tags": @"tags", @"thumbnail": @"thumbnail", @"updatedDate": @"updated_date", @"uploader": @"uploader", @"views": @"views", @"width": @"width" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"active": @"active", @"author": @"author", @"authored": @"authored", @"banned": @"banned", @"category": @"category", @"comments": @"comments", @"contributors": @"contributors", @"createdDate": @"created_date", @"embed": @"embed", @"extension": @"extension", @"height": @"height", @"_id": @"id", @"length": @"length", @"location": @"location", @"longDescription": @"long_description", @"mimeType": @"mime_type", @"name": @"name", @"priority": @"priority", @"privacy": @"privacy", @"published": @"published", @"shortDescription": @"short_description", @"size": @"size", @"tags": @"tags", @"thumbnail": @"thumbnail", @"updatedDate": @"updated_date", @"uploader": @"uploader", @"views": @"views", @"width": @"width" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"active", @"author", @"authored", @"banned", @"comments", @"contributors", @"createdDate", @"embed", @"_id", @"longDescription", @"mimeType", @"priority", @"privacy", @"published", @"shortDescription", @"size", @"tags", @"thumbnail", @"updatedDate", @"uploader", @"views", ];
+
   return [optionalProperties containsObject:propertyName];
 }
 

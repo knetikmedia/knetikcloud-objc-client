@@ -47,7 +47,7 @@ JSAPIStoreSalesApi*apiInstance = [[JSAPIStoreSalesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **catalogSale** | [**JSAPICatalogSale***](JSAPICatalogSale*.md)| The catalog sale object | [optional] 
+ **catalogSale** | [**JSAPICatalogSale***](JSAPICatalogSale.md)| The catalog sale object | [optional] 
 
 ### Return type
 
@@ -268,7 +268,7 @@ JSAPIStoreSalesApi*apiInstance = [[JSAPIStoreSalesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the sale | 
- **catalogSale** | [**JSAPICatalogSale***](JSAPICatalogSale*.md)| The catalog sale object | [optional] 
+ **catalogSale** | [**JSAPICatalogSale***](JSAPICatalogSale.md)| The catalog sale object | [optional] 
 
 ### Return type
 

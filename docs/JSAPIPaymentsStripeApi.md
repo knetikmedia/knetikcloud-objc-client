@@ -46,7 +46,7 @@ JSAPIPaymentsStripeApi*apiInstance = [[JSAPIPaymentsStripeApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIStripeCreatePaymentMethod***](JSAPIStripeCreatePaymentMethod*.md)| The request to create a Stripe customer with payment info | [optional] 
+ **request** | [**JSAPIStripeCreatePaymentMethod***](JSAPIStripeCreatePaymentMethod.md)| The request to create a Stripe customer with payment info | [optional] 
 
 ### Return type
 
@@ -91,7 +91,7 @@ JSAPIPaymentsStripeApi*apiInstance = [[JSAPIPaymentsStripeApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIStripePaymentRequest***](JSAPIStripePaymentRequest*.md)| The request to pay an invoice | [optional] 
+ **request** | [**JSAPIStripePaymentRequest***](JSAPIStripePaymentRequest.md)| The request to pay an invoice | [optional] 
 
 ### Return type
 

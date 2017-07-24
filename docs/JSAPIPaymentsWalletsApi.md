@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The ID of the user for whom wallet is being modified | 
  **currencyCode** | **NSString***| Currency code of the user&#39;s wallet | 
- **request** | [**JSAPIWalletAlterRequest***](JSAPIWalletAlterRequest*.md)| The requested balance modification to be made to the user&#39;s wallet | [optional] 
+ **request** | [**JSAPIWalletAlterRequest***](JSAPIWalletAlterRequest.md)| The requested balance modification to be made to the user&#39;s wallet | [optional] 
 
 ### Return type
 

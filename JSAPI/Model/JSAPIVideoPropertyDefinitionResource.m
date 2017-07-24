@@ -17,7 +17,15 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fileType": @"file_type", @"maxHeight": @"max_height", @"maxLength": @"max_length", @"maxWidth": @"max_width", @"minHeight": @"min_height", @"minLength": @"min_length", @"minWidth": @"min_width" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+  NSMutableDictionary * mutableDictionary = [[NSMutableDictionary alloc] initWithDictionary:[super modalDictionary] copyItems:NO];
+    
+  [mutableDictionary addEntriesFromDictionary:@{ @"fileType": @"file_type", @"maxHeight": @"max_height", @"maxLength": @"max_length", @"maxWidth": @"max_width", @"minHeight": @"min_height", @"minLength": @"min_length", @"minWidth": @"min_width" }];
+    
+  return mutableDictionary;
 }
 
 /**
@@ -28,7 +36,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"fileType", @"maxHeight", @"maxLength", @"maxWidth", @"minHeight", @"minLength", @"minWidth"];
-  return [optionalProperties containsObject:propertyName];
+  return [super propertyIsOptional:propertyName] | [optionalProperties containsObject:propertyName];
 }
 
 @end

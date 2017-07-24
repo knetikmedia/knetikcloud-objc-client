@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getInvoices**](JSAPIInvoicesApi.md#getinvoices) | **GET** /invoices | Retrieve invoices
 [**getPaymentStatuses**](JSAPIInvoicesApi.md#getpaymentstatuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
 [**payInvoice**](JSAPIInvoicesApi.md#payinvoice) | **POST** /invoices/{id}/payments | Trigger payment of an invoice
+[**setBundledInvoiceItemFulfillmentStatus**](JSAPIInvoicesApi.md#setbundledinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 [**setExternalRef**](JSAPIInvoicesApi.md#setexternalref) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 [**setInvoiceItemFulfillmentStatus**](JSAPIInvoicesApi.md#setinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
 [**setOrderNotes**](JSAPIInvoicesApi.md#setordernotes) | **PUT** /invoices/{id}/order-notes | Set the order notes of an invoice
@@ -56,7 +57,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req** | [**JSAPIInvoiceCreateRequest***](JSAPIInvoiceCreateRequest*.md)| Invoice to be created | [optional] 
+ **req** | [**JSAPIInvoiceCreateRequest***](JSAPIInvoiceCreateRequest.md)| Invoice to be created | [optional] 
 
 ### Return type
 
@@ -240,7 +241,7 @@ Name | Type | Description  | Notes
     filterItemName: (NSString*) filterItemName
     filterExternalRef: (NSString*) filterExternalRef
     filterCreatedDate: (NSString*) filterCreatedDate
-    filterVendorIds: (NSObject*) filterVendorIds
+    filterVendorIds: (NSString*) filterVendorIds
     filterCurrency: (NSString*) filterCurrency
     filterShippingStateName: (NSString*) filterShippingStateName
     filterShippingCountryName: (NSString*) filterShippingCountryName
@@ -272,7 +273,7 @@ NSString* filterPaymentStatus = @"filterPaymentStatus_example"; // Filters invoi
 NSString* filterItemName = @"filterItemName_example"; // Filters invoices by item name containing the given string (optional)
 NSString* filterExternalRef = @"filterExternalRef_example"; // Filters invoices by external reference. (optional)
 NSString* filterCreatedDate = @"filterCreatedDate_example"; // Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874 (optional)
-NSObject* filterVendorIds = [[NSObject alloc] init]; // Filters invoices for ones from one of the vendors whose id is in the given comma separated list (optional)
+NSString* filterVendorIds = @"filterVendorIds_example"; // Filters invoices for ones from one of the vendors whose id is in the given comma separated list (optional)
 NSString* filterCurrency = @"filterCurrency_example"; // Filters invoices by currency. ISO3 currency code (optional)
 NSString* filterShippingStateName = @"filterShippingStateName_example"; // Filters invoices by shipping address: Exact match state name (optional)
 NSString* filterShippingCountryName = @"filterShippingCountryName_example"; // Filters invoices by shipping address: Exact match country name (optional)
@@ -324,7 +325,7 @@ Name | Type | Description  | Notes
  **filterItemName** | **NSString***| Filters invoices by item name containing the given string | [optional] 
  **filterExternalRef** | **NSString***| Filters invoices by external reference. | [optional] 
  **filterCreatedDate** | **NSString***| Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 | [optional] 
- **filterVendorIds** | [**NSObject***](.md)| Filters invoices for ones from one of the vendors whose id is in the given comma separated list | [optional] 
+ **filterVendorIds** | **NSString***| Filters invoices for ones from one of the vendors whose id is in the given comma separated list | [optional] 
  **filterCurrency** | **NSString***| Filters invoices by currency. ISO3 currency code | [optional] 
  **filterShippingStateName** | **NSString***| Filters invoices by shipping address: Exact match state name | [optional] 
  **filterShippingCountryName** | **NSString***| Filters invoices by shipping address: Exact match country name | [optional] 
@@ -431,7 +432,71 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **request** | [**JSAPIPayBySavedMethodRequest***](JSAPIPayBySavedMethodRequest*.md)| Payment info | [optional] 
+ **request** | [**JSAPIPayBySavedMethodRequest***](JSAPIPayBySavedMethodRequest.md)| Payment info | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setBundledInvoiceItemFulfillmentStatus**
+```objc
+-(NSURLSessionTask*) setBundledInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
+    bundleSku: (NSString*) bundleSku
+    sku: (NSString*) sku
+    status: (NSString*) status
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Set the fulfillment status of a bundled invoice item
+
+This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* _id = @56; // The id of the invoice
+NSString* bundleSku = @"bundleSku_example"; // The sku of the bundle in the invoice that contains the given target
+NSString* sku = @"sku_example"; // The sku of an item in the bundle in the invoice
+NSString* status = status_example; // The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
+
+JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
+
+// Set the fulfillment status of a bundled invoice item
+[apiInstance setBundledInvoiceItemFulfillmentStatusWithId:_id
+              bundleSku:bundleSku
+              sku:sku
+              status:status
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling JSAPIInvoicesApi->setBundledInvoiceItemFulfillmentStatus: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The id of the invoice | 
+ **bundleSku** | **NSString***| The sku of the bundle in the invoice that contains the given target | 
+ **sku** | **NSString***| The sku of an item in the bundle in the invoice | 
+ **status** | **NSString***| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
 
 ### Return type
 
@@ -655,7 +720,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **request** | [**JSAPIInvoicePaymentStatusRequest***](JSAPIInvoicePaymentStatusRequest*.md)| Payment status info | [optional] 
+ **request** | [**JSAPIInvoicePaymentStatusRequest***](JSAPIInvoicePaymentStatusRequest.md)| Payment status info | [optional] 
 
 ### Return type
 
@@ -709,7 +774,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **billingInfoRequest** | [**JSAPIAddressResource***](JSAPIAddressResource*.md)| Address info | [optional] 
+ **billingInfoRequest** | [**JSAPIAddressResource***](JSAPIAddressResource.md)| Address info | [optional] 
 
 ### Return type
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -24,11 +24,16 @@
 /* The amount to refund. If left off, will refund the remaining balance of the transaction or specific item balance (if SKU provided), whichever is less. [optional]
  */
 @property(nonatomic) NSNumber* amount;
+/* The SKU of a bundle item from the invoice that the target item is within. [optional]
+ */
+@property(nonatomic) NSString* bundleSku;
 /* Notes about or reason for the refund 
  */
 @property(nonatomic) NSString* notes;
 /* The SKU of a specific item from the invoice to refund. Affects the maximum refund amount (not to exceed the price of this item times quantity on invoice). Transaction must be tied to an invoice if used. [optional]
  */
 @property(nonatomic) NSString* sku;
+
++ (NSDictionary *)modalDictionary;
 
 @end

@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"context": @"context", @"contextId": @"context_id", @"createdDate": @"created_date", @"_id": @"id", @"reason": @"reason", @"resolution": @"resolution", @"resolved": @"resolved", @"updatedDate": @"updated_date" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"context": @"context", @"contextId": @"context_id", @"createdDate": @"created_date", @"_id": @"id", @"reason": @"reason", @"resolution": @"resolution", @"resolved": @"resolved", @"updatedDate": @"updated_date" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"context", @"contextId", @"createdDate", @"_id", @"reason", @"resolved", @"updatedDate"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

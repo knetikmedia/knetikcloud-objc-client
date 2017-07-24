@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -16,10 +16,10 @@
 
 
 
-@protocol JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty
+@protocol JSAPIPasswordResetRequest
 @end
 
-@interface JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty : JSAPIObject
+@interface JSAPIPasswordResetRequest : JSAPIObject
 
 /* The user's email address [optional]
  */
@@ -30,5 +30,7 @@
 /* The user's username [optional]
  */
 @property(nonatomic) NSString* username;
+
++ (NSDictionary *)modalDictionary;
 
 @end

@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty.h"
 #import "JSAPINewPasswordRequest.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceUserBaseResource_.h"
+#import "JSAPIPasswordResetRequest.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIUserResource.h"
@@ -10,7 +10,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -287,7 +287,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return 
--(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty*) passwordReset
+-(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIPasswordResetRequest*) passwordReset
     completionHandler: (void (^)(NSError* error)) handler;
 
 

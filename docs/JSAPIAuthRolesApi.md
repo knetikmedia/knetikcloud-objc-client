@@ -52,7 +52,7 @@ JSAPIAuthRolesApi*apiInstance = [[JSAPIAuthRolesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleResource** | [**JSAPIRoleResource***](JSAPIRoleResource*.md)| The role resource object | [optional] 
+ **roleResource** | [**JSAPIRoleResource***](JSAPIRoleResource.md)| The role resource object | [optional] 
 
 ### Return type
 
@@ -554,7 +554,7 @@ JSAPIAuthRolesApi*apiInstance = [[JSAPIAuthRolesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **NSString***| The role value | 
- **roleResource** | [**JSAPIRoleResource***](JSAPIRoleResource*.md)| The role resource object | [optional] 
+ **roleResource** | [**JSAPIRoleResource***](JSAPIRoleResource.md)| The role resource object | [optional] 
 
 ### Return type
 

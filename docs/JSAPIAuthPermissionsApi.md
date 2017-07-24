@@ -47,7 +47,7 @@ JSAPIAuthPermissionsApi*apiInstance = [[JSAPIAuthPermissionsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permissionResource** | [**JSAPIPermissionResource***](JSAPIPermissionResource*.md)| The permission resource object | [optional] 
+ **permissionResource** | [**JSAPIPermissionResource***](JSAPIPermissionResource.md)| The permission resource object | [optional] 
 
 ### Return type
 
@@ -272,7 +272,7 @@ JSAPIAuthPermissionsApi*apiInstance = [[JSAPIAuthPermissionsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission** | **NSString***| The permission value | 
- **permissionResource** | [**JSAPIPermissionResource***](JSAPIPermissionResource*.md)| The permission resource object | [optional] 
+ **permissionResource** | [**JSAPIPermissionResource***](JSAPIPermissionResource.md)| The permission resource object | [optional] 
 
 ### Return type
 

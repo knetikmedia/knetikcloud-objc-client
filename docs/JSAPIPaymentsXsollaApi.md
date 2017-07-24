@@ -44,7 +44,7 @@ JSAPIPaymentsXsollaApi*apiInstance = [[JSAPIPaymentsXsollaApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIXsollaPaymentRequest***](JSAPIXsollaPaymentRequest*.md)| The payment request to be sent to XSolla | [optional] 
+ **request** | [**JSAPIXsollaPaymentRequest***](JSAPIXsollaPaymentRequest.md)| The payment request to be sent to XSolla | [optional] 
 
 ### Return type
 

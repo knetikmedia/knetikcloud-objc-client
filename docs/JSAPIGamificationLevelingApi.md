@@ -52,7 +52,7 @@ JSAPIGamificationLevelingApi*apiInstance = [[JSAPIGamificationLevelingApi alloc]
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **level** | [**JSAPILevelingResource***](JSAPILevelingResource*.md)| The level schema definition | [optional] 
+ **level** | [**JSAPILevelingResource***](JSAPILevelingResource.md)| The level schema definition | [optional] 
 
 ### Return type
 
@@ -576,7 +576,7 @@ JSAPIGamificationLevelingApi*apiInstance = [[JSAPIGamificationLevelingApi alloc]
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **NSString***| The level schema name | 
- **varNewLevel** | [**JSAPILevelingResource***](JSAPILevelingResource*.md)| The level schema definition | [optional] 
+ **varNewLevel** | [**JSAPILevelingResource***](JSAPILevelingResource.md)| The level schema definition | [optional] 
 
 ### Return type
 

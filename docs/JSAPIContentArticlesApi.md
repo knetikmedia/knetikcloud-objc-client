@@ -54,7 +54,7 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleResource** | [**JSAPIArticleResource***](JSAPIArticleResource*.md)| The new article | [optional] 
+ **articleResource** | [**JSAPIArticleResource***](JSAPIArticleResource.md)| The new article | [optional] 
 
 ### Return type
 
@@ -109,7 +109,7 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The article template resource object | [optional] 
+ **articleTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The article template resource object | [optional] 
 
 ### Return type
 
@@ -398,6 +398,8 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
+    filterTagIntersection: (NSString*) filterTagIntersection
+    filterTagExclusion: (NSString*) filterTagExclusion
     filterTitle: (NSString*) filterTitle
     size: (NSNumber*) size
     page: (NSNumber*) page
@@ -413,7 +415,9 @@ Get a list of articles with optional filtering. Assets will not be filled in on 
 ```objc
 
 NSString* filterCategory = @"filterCategory_example"; // Filter for articles from a specific category by id (optional)
-NSString* filterTagset = @"filterTagset_example"; // Filter for articles with specified tags (separated by comma) (optional)
+NSString* filterTagset = @"filterTagset_example"; // Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
+NSString* filterTagIntersection = @"filterTagIntersection_example"; // Filter for articles with all of a specified set of tags (separated by comma) (optional)
+NSString* filterTagExclusion = @"filterTagExclusion_example"; // Filter for articles with none of a specified set of tags (separated by comma) (optional)
 NSString* filterTitle = @"filterTitle_example"; // Filter for articles whose title contains a string (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -424,6 +428,8 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 // List and search articles
 [apiInstance getArticlesWithFilterCategory:filterCategory
               filterTagset:filterTagset
+              filterTagIntersection:filterTagIntersection
+              filterTagExclusion:filterTagExclusion
               filterTitle:filterTitle
               size:size
               page:page
@@ -443,7 +449,9 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterCategory** | **NSString***| Filter for articles from a specific category by id | [optional] 
- **filterTagset** | **NSString***| Filter for articles with specified tags (separated by comma) | [optional] 
+ **filterTagset** | **NSString***| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
+ **filterTagIntersection** | **NSString***| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
+ **filterTagExclusion** | **NSString***| Filter for articles with none of a specified set of tags (separated by comma) | [optional] 
  **filterTitle** | **NSString***| Filter for articles whose title contains a string | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
@@ -504,7 +512,7 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The article id | 
- **articleResource** | [**JSAPIArticleResource***](JSAPIArticleResource*.md)| The article object | [optional] 
+ **articleResource** | [**JSAPIArticleResource***](JSAPIArticleResource.md)| The article object | [optional] 
 
 ### Return type
 
@@ -561,7 +569,7 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **articleTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The article template resource object | [optional] 
+ **articleTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The article template resource object | [optional] 
 
 ### Return type
 

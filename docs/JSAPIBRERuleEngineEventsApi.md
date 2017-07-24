@@ -45,7 +45,7 @@ JSAPIBRERuleEngineEventsApi*apiInstance = [[JSAPIBRERuleEngineEventsApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breEvent** | [**JSAPIBreEvent***](JSAPIBreEvent*.md)| The BRE event object | [optional] 
+ **breEvent** | [**JSAPIBreEvent***](JSAPIBreEvent.md)| The BRE event object | [optional] 
 
 ### Return type
 

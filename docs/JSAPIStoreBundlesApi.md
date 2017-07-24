@@ -57,7 +57,7 @@ JSAPIStoreBundlesApi*apiInstance = [[JSAPIStoreBundlesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **bundleItem** | [**JSAPIBundleItem***](JSAPIBundleItem*.md)| The bundle item object | [optional] 
+ **bundleItem** | [**JSAPIBundleItem***](JSAPIBundleItem.md)| The bundle item object | [optional] 
 
 ### Return type
 
@@ -112,7 +112,7 @@ JSAPIStoreBundlesApi*apiInstance = [[JSAPIStoreBundlesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundleTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The new bundle template | [optional] 
+ **bundleTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The new bundle template | [optional] 
 
 ### Return type
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the bundle | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **bundleItem** | [**JSAPIBundleItem***](JSAPIBundleItem*.md)| The bundle item object | [optional] 
+ **bundleItem** | [**JSAPIBundleItem***](JSAPIBundleItem.md)| The bundle item object | [optional] 
 
 ### Return type
 
@@ -488,7 +488,7 @@ JSAPIStoreBundlesApi*apiInstance = [[JSAPIStoreBundlesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **bundleTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The bundle template resource object | [optional] 
+ **bundleTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The bundle template resource object | [optional] 
 
 ### Return type
 

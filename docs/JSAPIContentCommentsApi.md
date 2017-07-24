@@ -48,7 +48,7 @@ JSAPIContentCommentsApi*apiInstance = [[JSAPIContentCommentsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **commentResource** | [**JSAPICommentResource***](JSAPICommentResource*.md)| The comment to be added | [optional] 
+ **commentResource** | [**JSAPICommentResource***](JSAPICommentResource.md)| The comment to be added | [optional] 
 
 ### Return type
 

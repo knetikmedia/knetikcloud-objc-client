@@ -357,7 +357,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     filterItemName: (NSString*) filterItemName
     filterExternalRef: (NSString*) filterExternalRef
     filterCreatedDate: (NSString*) filterCreatedDate
-    filterVendorIds: (NSObject*) filterVendorIds
+    filterVendorIds: (NSString*) filterVendorIds
     filterCurrency: (NSString*) filterCurrency
     filterShippingStateName: (NSString*) filterShippingStateName
     filterShippingCountryName: (NSString*) filterShippingCountryName
@@ -571,6 +571,123 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Set the fulfillment status of a bundled invoice item
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+///  @param _id The id of the invoice 
+///
+///  @param bundleSku The sku of the bundle in the invoice that contains the given target 
+///
+///  @param sku The sku of an item in the bundle in the invoice 
+///
+///  @param status The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' 
+///
+///  @returns void
+///
+-(NSURLSessionTask*) setBundledInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
+    bundleSku: (NSString*) bundleSku
+    sku: (NSString*) sku
+    status: (NSString*) status
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIInvoicesApiErrorDomain code:kJSAPIInvoicesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'bundleSku' is set
+    if (bundleSku == nil) {
+        NSParameterAssert(bundleSku);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"bundleSku"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIInvoicesApiErrorDomain code:kJSAPIInvoicesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'sku' is set
+    if (sku == nil) {
+        NSParameterAssert(sku);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"sku"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIInvoicesApiErrorDomain code:kJSAPIInvoicesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'status' is set
+    if (status == nil) {
+        NSParameterAssert(status);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"status"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIInvoicesApiErrorDomain code:kJSAPIInvoicesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+    if (bundleSku != nil) {
+        pathParams[@"bundleSku"] = bundleSku;
+    }
+    if (sku != nil) {
+        pathParams[@"sku"] = sku;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"OAuth2"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = status;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams

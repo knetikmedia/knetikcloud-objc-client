@@ -53,7 +53,7 @@ JSAPICategoriesApi*apiInstance = [[JSAPICategoriesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | [**JSAPICategoryResource***](JSAPICategoryResource*.md)| The category to create | [optional] 
+ **category** | [**JSAPICategoryResource***](JSAPICategoryResource.md)| The category to create | [optional] 
 
 ### Return type
 
@@ -108,7 +108,7 @@ JSAPICategoriesApi*apiInstance = [[JSAPICategoriesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The template to create | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The template to create | [optional] 
 
 ### Return type
 
@@ -549,7 +549,7 @@ JSAPICategoriesApi*apiInstance = [[JSAPICategoriesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the category | 
- **category** | [**JSAPICategoryResource***](JSAPICategoryResource*.md)| The category to update | [optional] 
+ **category** | [**JSAPICategoryResource***](JSAPICategoryResource.md)| The category to update | [optional] 
 
 ### Return type
 
@@ -606,7 +606,7 @@ JSAPICategoriesApi*apiInstance = [[JSAPICategoriesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The updated template information | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The updated template information | [optional] 
 
 ### Return type
 

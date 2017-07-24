@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
     s.summary          = "Knetik Platform API Documentation latest "
     s.description      = <<-DESC
-                         This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+                         This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
                          DESC
 
     s.platform     = :ios, '7.0'

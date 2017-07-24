@@ -109,7 +109,7 @@ JSAPICampaignsApi*apiInstance = [[JSAPICampaignsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignResource** | [**JSAPICampaignResource***](JSAPICampaignResource*.md)| The campaign resource object | [optional] 
+ **campaignResource** | [**JSAPICampaignResource***](JSAPICampaignResource.md)| The campaign resource object | [optional] 
 
 ### Return type
 
@@ -164,7 +164,7 @@ JSAPICampaignsApi*apiInstance = [[JSAPICampaignsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The campaign template resource object | [optional] 
+ **campaignTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The campaign template resource object | [optional] 
 
 ### Return type
 
@@ -671,7 +671,7 @@ JSAPICampaignsApi*apiInstance = [[JSAPICampaignsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The campaign id | 
- **campaignResource** | [**JSAPICampaignResource***](JSAPICampaignResource*.md)| The campaign resource object | [optional] 
+ **campaignResource** | [**JSAPICampaignResource***](JSAPICampaignResource.md)| The campaign resource object | [optional] 
 
 ### Return type
 
@@ -728,7 +728,7 @@ JSAPICampaignsApi*apiInstance = [[JSAPICampaignsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **campaignTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The campaign template resource object | [optional] 
+ **campaignTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The campaign template resource object | [optional] 
 
 ### Return type
 

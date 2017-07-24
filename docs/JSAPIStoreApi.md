@@ -56,7 +56,7 @@ JSAPIStoreApi*apiInstance = [[JSAPIStoreApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemTemplateResource** | [**JSAPIStoreItemTemplateResource***](JSAPIStoreItemTemplateResource*.md)| The new item template | [optional] 
+ **itemTemplateResource** | [**JSAPIStoreItemTemplateResource***](JSAPIStoreItemTemplateResource.md)| The new item template | [optional] 
 
 ### Return type
 
@@ -115,7 +115,7 @@ JSAPIStoreApi*apiInstance = [[JSAPIStoreApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **storeItem** | [**JSAPIStoreItem***](JSAPIStoreItem*.md)| The store item object | [optional] 
+ **storeItem** | [**JSAPIStoreItem***](JSAPIStoreItem.md)| The store item object | [optional] 
 
 ### Return type
 
@@ -667,7 +667,7 @@ JSAPIStoreApi*apiInstance = [[JSAPIStoreApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **itemTemplateResource** | [**JSAPIStoreItemTemplateResource***](JSAPIStoreItemTemplateResource*.md)| The item template resource object | [optional] 
+ **itemTemplateResource** | [**JSAPIStoreItemTemplateResource***](JSAPIStoreItemTemplateResource.md)| The item template resource object | [optional] 
 
 ### Return type
 
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the item | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **storeItem** | [**JSAPIStoreItem***](JSAPIStoreItem*.md)| The store item object | [optional] 
+ **storeItem** | [**JSAPIStoreItem***](JSAPIStoreItem.md)| The store item object | [optional] 
 
 ### Return type
 

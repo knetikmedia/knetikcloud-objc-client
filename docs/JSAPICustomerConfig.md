@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aliases** | **NSString*** |  | [optional] 
 **database** | [**JSAPIDatabaseConfig***](JSAPIDatabaseConfig.md) |  | [optional] 
+**io** | [**JSAPIIOConfig***](JSAPIIOConfig.md) |  | [optional] 
 **name** | **NSString*** |  | [optional] 
 **s3Config** | [**JSAPIS3Config***](JSAPIS3Config.md) |  | [optional] 
 

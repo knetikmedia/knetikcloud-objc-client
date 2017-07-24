@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"city": @"city", @"countryCodeIso3": @"country_code_iso3", @"email": @"email", @"firstName": @"first_name", @"lastName": @"last_name", @"namePrefix": @"name_prefix", @"orderNotes": @"order_notes", @"phoneNumber": @"phone_number", @"postalStateCode": @"postal_state_code", @"shippingAddressLine1": @"shipping_address_line1", @"shippingAddressLine2": @"shipping_address_line2", @"zip": @"zip" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"city": @"city", @"countryCodeIso3": @"country_code_iso3", @"email": @"email", @"firstName": @"first_name", @"lastName": @"last_name", @"namePrefix": @"name_prefix", @"orderNotes": @"order_notes", @"phoneNumber": @"phone_number", @"postalStateCode": @"postal_state_code", @"shippingAddressLine1": @"shipping_address_line1", @"shippingAddressLine2": @"shipping_address_line2", @"zip": @"zip" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"city", @"countryCodeIso3", @"email", @"firstName", @"lastName", @"namePrefix", @"orderNotes", @"phoneNumber", @"postalStateCode", @"shippingAddressLine1", @"shippingAddressLine2", @"zip"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

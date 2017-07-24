@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **gender** | **NSString*** | The user&#39;s gender (private) | [optional] 
 **_id** | **NSNumber*** | The id of the user | [optional] 
 **languageCode** | **NSString*** | The ISO3 code for the user&#39;s currency (private) | [optional] 
+**lastActivity** | **NSNumber*** | The date the user last interacted with the API (private) | [optional] 
 **lastName** | **NSString*** | The user&#39;s last name (private) | [optional] 
 **lastUpdated** | **NSNumber*** | The date the user&#39;s info was last updated as a unix timestamp | [optional] 
 **memberSince** | **NSNumber*** | The user&#39;s date of registration as a unix timestamp | [optional] 

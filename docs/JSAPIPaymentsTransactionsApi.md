@@ -169,7 +169,7 @@ JSAPIPaymentsTransactionsApi*apiInstance = [[JSAPIPaymentsTransactionsApi alloc]
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the transaction to refund | 
- **request** | [**JSAPIRefundRequest***](JSAPIRefundRequest*.md)| Request containing refund details | [optional] 
+ **request** | [**JSAPIRefundRequest***](JSAPIRefundRequest.md)| Request containing refund details | [optional] 
 
 ### Return type
 

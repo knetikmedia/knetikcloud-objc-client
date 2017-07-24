@@ -370,21 +370,21 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge activity
-/// 
-///  @param activityId The activity id 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+///  @param _id The challenge_activity id 
 ///
 ///  @param challengeId The challenge id 
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deleteChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) deleteChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'activityId' is set
-    if (activityId == nil) {
-        NSParameterAssert(activityId);
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
             NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
@@ -402,11 +402,11 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{activity_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (activityId != nil) {
-        pathParams[@"activity_id"] = activityId;
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
     }
     if (challengeId != nil) {
         pathParams[@"challenge_id"] = challengeId;
@@ -825,29 +825,46 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single challenge activity
-/// 
-///  @param activityId The activity id 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+///  @param _id The challenge_activity id 
+///
+///  @param challengeId The challenge id 
 ///
 ///  @returns JSAPIChallengeActivityResource*
 ///
--(NSURLSessionTask*) getChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) getChallengeActivityWithId: (NSNumber*) _id
+    challengeId: (NSNumber*) challengeId
     completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler {
-    // verify the required parameter 'activityId' is set
-    if (activityId == nil) {
-        NSParameterAssert(activityId);
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
             NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{activity_id}"];
+    // verify the required parameter 'challengeId' is set
+    if (challengeId == nil) {
+        NSParameterAssert(challengeId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"challengeId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (activityId != nil) {
-        pathParams[@"activity_id"] = activityId;
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+    if (challengeId != nil) {
+        pathParams[@"challenge_id"] = challengeId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -1493,8 +1510,8 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a challenge activity
-/// 
-///  @param activityId The activity id 
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+///  @param _id The challenge_activity id 
 ///
 ///  @param challengeId The challenge id 
 ///
@@ -1502,15 +1519,15 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 ///
 ///  @returns JSAPIChallengeActivityResource*
 ///
--(NSURLSessionTask*) updateChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
     completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler {
-    // verify the required parameter 'activityId' is set
-    if (activityId == nil) {
-        NSParameterAssert(activityId);
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
             NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -1528,11 +1545,11 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{activity_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/challenges/{challenge_id}/activities/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (activityId != nil) {
-        pathParams[@"activity_id"] = activityId;
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
     }
     if (challengeId != nil) {
         pathParams[@"challenge_id"] = challengeId;

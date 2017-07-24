@@ -47,7 +47,7 @@ JSAPIUsersRelationshipsApi*apiInstance = [[JSAPIUsersRelationshipsApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **relationship** | [**JSAPIUserRelationshipResource***](JSAPIUserRelationshipResource*.md)| The new relationship | [optional] 
+ **relationship** | [**JSAPIUserRelationshipResource***](JSAPIUserRelationshipResource.md)| The new relationship | [optional] 
 
 ### Return type
 
@@ -268,7 +268,7 @@ JSAPIUsersRelationshipsApi*apiInstance = [[JSAPIUsersRelationshipsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the relationship | 
- **relationship** | [**JSAPIUserRelationshipResource***](JSAPIUserRelationshipResource*.md)| The new relationship | [optional] 
+ **relationship** | [**JSAPIUserRelationshipResource***](JSAPIUserRelationshipResource.md)| The new relationship | [optional] 
 
 ### Return type
 

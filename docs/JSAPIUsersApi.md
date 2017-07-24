@@ -114,7 +114,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The user template resource object | [optional] 
+ **userTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The user template resource object | [optional] 
 
 ### Return type
 
@@ -546,7 +546,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the user | 
- **varNewPasswordRequest** | [**JSAPINewPasswordRequest***](JSAPINewPasswordRequest*.md)| The new password request object | [optional] 
+ **varNewPasswordRequest** | [**JSAPINewPasswordRequest***](JSAPINewPasswordRequest.md)| The new password request object | [optional] 
 
 ### Return type
 
@@ -596,7 +596,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userResource** | [**JSAPIUserResource***](JSAPIUserResource*.md)| The user resource object | [optional] 
+ **userResource** | [**JSAPIUserResource***](JSAPIUserResource.md)| The user resource object | [optional] 
 
 ### Return type
 
@@ -772,7 +772,7 @@ No authorization required
 
 # **submitPasswordReset**
 ```objc
--(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty*) passwordReset
+-(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIPasswordResetRequest*) passwordReset
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -783,7 +783,7 @@ A reset code will be generated and a 'forgot_password' BRE event will be fired w
 ### Example 
 ```objc
 
-JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty* passwordReset = [[JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty alloc] init]; // An object containing one of three methods to look up a user (optional)
+JSAPIPasswordResetRequest* passwordReset = [[JSAPIPasswordResetRequest alloc] init]; // An object containing one of three methods to look up a user (optional)
 
 JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
@@ -800,7 +800,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **passwordReset** | [**JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty***](JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty*.md)| An object containing one of three methods to look up a user | [optional] 
+ **passwordReset** | [**JSAPIPasswordResetRequest***](JSAPIPasswordResetRequest.md)| An object containing one of three methods to look up a user | [optional] 
 
 ### Return type
 
@@ -856,7 +856,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the user or &#39;me&#39; | 
- **userResource** | [**JSAPIUserResource***](JSAPIUserResource*.md)| The user resource object | [optional] 
+ **userResource** | [**JSAPIUserResource***](JSAPIUserResource.md)| The user resource object | [optional] 
 
 ### Return type
 
@@ -913,7 +913,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **userTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The user template resource object | [optional] 
+ **userTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The user template resource object | [optional] 
 
 ### Return type
 

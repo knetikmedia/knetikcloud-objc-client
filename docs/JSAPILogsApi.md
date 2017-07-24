@@ -46,7 +46,7 @@ JSAPILogsApi*apiInstance = [[JSAPILogsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logEntry** | [**JSAPIUserActionLog***](JSAPIUserActionLog*.md)| The user log entry to be added | [optional] 
+ **logEntry** | [**JSAPIUserActionLog***](JSAPIUserActionLog.md)| The user log entry to be added | [optional] 
 
 ### Return type
 

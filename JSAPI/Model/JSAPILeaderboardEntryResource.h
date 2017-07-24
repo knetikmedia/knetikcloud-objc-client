@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -28,8 +28,13 @@
 /* The raw score in this leaderboard. Null means non-compete or disqualification [optional]
  */
 @property(nonatomic) NSNumber* score;
+/* The date this score was recorded or updated. Unix timestamp in seconds [optional]
+ */
+@property(nonatomic) NSNumber* updatedDate;
 /* The player for this entry 
  */
 @property(nonatomic) JSAPISimpleUserResource* user;
+
++ (NSDictionary *)modalDictionary;
 
 @end

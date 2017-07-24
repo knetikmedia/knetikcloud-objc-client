@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -27,7 +27,7 @@
 /* The client_id field of the oauth token request 
  */
 @property(nonatomic) NSString* clientKey;
-/* The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. use dedicated endpoint PUT /grant-types to edit this list [optional]
+/* The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. Use dedicated endpoint PUT /grant-types to edit this list [optional]
  */
 @property(nonatomic) NSArray<NSString*>* grantTypes;
 /* Generated unique ID for the client [optional]
@@ -51,5 +51,7 @@
 /* The client-secret field of the oauth request when creating a private client 
  */
 @property(nonatomic) NSString* secret;
+
++ (NSDictionary *)modalDictionary;
 
 @end

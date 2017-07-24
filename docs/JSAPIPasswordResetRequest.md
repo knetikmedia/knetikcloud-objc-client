@@ -1,4 +1,4 @@
-# JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty
+# JSAPIPasswordResetRequest
 
 ## Properties
 Name | Type | Description | Notes

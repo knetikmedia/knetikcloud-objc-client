@@ -47,7 +47,7 @@ JSAPIFulfillmentApi*apiInstance = [[JSAPIFulfillmentApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**JSAPIFulfillmentType***](JSAPIFulfillmentType*.md)| The fulfillment type | [optional] 
+ **type** | [**JSAPIFulfillmentType***](JSAPIFulfillmentType.md)| The fulfillment type | [optional] 
 
 ### Return type
 
@@ -255,7 +255,7 @@ JSAPIFulfillmentApi*apiInstance = [[JSAPIFulfillmentApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id | 
- **fulfillmentType** | [**JSAPIFulfillmentType***](JSAPIFulfillmentType*.md)| The fulfillment type | [optional] 
+ **fulfillmentType** | [**JSAPIFulfillmentType***](JSAPIFulfillmentType.md)| The fulfillment type | [optional] 
 
 ### Return type
 

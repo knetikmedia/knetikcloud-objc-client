@@ -69,7 +69,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the user | 
- **userInventoryAddRequest** | [**JSAPIUserInventoryAddRequest***](JSAPIUserInventoryAddRequest*.md)| The user inventory add request object | [optional] 
+ **userInventoryAddRequest** | [**JSAPIUserInventoryAddRequest***](JSAPIUserInventoryAddRequest.md)| The user inventory add request object | [optional] 
 
 ### Return type
 
@@ -186,7 +186,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **entitlementItem** | [**JSAPIEntitlementItem***](JSAPIEntitlementItem*.md)| The entitlement item object | [optional] 
+ **entitlementItem** | [**JSAPIEntitlementItem***](JSAPIEntitlementItem.md)| The entitlement item object | [optional] 
 
 ### Return type
 
@@ -241,7 +241,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The entitlement template to be created | [optional] 
+ **template** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The entitlement template to be created | [optional] 
 
 ### Return type
 
@@ -907,7 +907,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user to grant the entitlement to | 
- **grantRequest** | [**JSAPIEntitlementGrantRequest***](JSAPIEntitlementGrantRequest*.md)| grantRequest | 
+ **grantRequest** | [**JSAPIEntitlementGrantRequest***](JSAPIEntitlementGrantRequest.md)| grantRequest | 
 
 ### Return type
 
@@ -965,7 +965,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entitlementId** | **NSNumber***| The id of the entitlement | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **entitlementItem** | [**JSAPIEntitlementItem***](JSAPIEntitlementItem*.md)| The entitlement item object | [optional] 
+ **entitlementItem** | [**JSAPIEntitlementItem***](JSAPIEntitlementItem.md)| The entitlement item object | [optional] 
 
 ### Return type
 
@@ -1022,7 +1022,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **template** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The updated template | [optional] 
+ **template** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The updated template | [optional] 
 
 ### Return type
 

@@ -76,7 +76,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **questionId** | **NSString***| The id of the question | 
- **answer** | [**JSAPIAnswerResource***](JSAPIAnswerResource*.md)| The new answer | [optional] 
+ **answer** | [**JSAPIAnswerResource***](JSAPIAnswerResource.md)| The new answer | [optional] 
 
 ### Return type
 
@@ -272,7 +272,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIImportJobResource***](JSAPIImportJobResource*.md)| The new import job | [optional] 
+ **request** | [**JSAPIImportJobResource***](JSAPIImportJobResource.md)| The new import job | [optional] 
 
 ### Return type
 
@@ -325,7 +325,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource*.md)| The new question | [optional] 
+ **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource.md)| The new question | [optional] 
 
 ### Return type
 
@@ -380,7 +380,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **questionTemplateResource** | [**JSAPIQuestionTemplateResource***](JSAPIQuestionTemplateResource*.md)| The question template resource object | [optional] 
+ **questionTemplateResource** | [**JSAPIQuestionTemplateResource***](JSAPIQuestionTemplateResource.md)| The question template resource object | [optional] 
 
 ### Return type
 
@@ -1601,7 +1601,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the job | 
- **request** | [**JSAPIImportJobResource***](JSAPIImportJobResource*.md)| The updated job | [optional] 
+ **request** | [**JSAPIImportJobResource***](JSAPIImportJobResource.md)| The updated job | [optional] 
 
 ### Return type
 
@@ -1658,7 +1658,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the question | 
- **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource*.md)| The updated question | [optional] 
+ **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource.md)| The updated question | [optional] 
 
 ### Return type
 
@@ -1716,7 +1716,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **questionId** | **NSString***| The id of the question | 
  **_id** | **NSString***| The id of the answer | 
- **answer** | [**JSAPIAnswerResource***](JSAPIAnswerResource*.md)| The updated answer | [optional] 
+ **answer** | [**JSAPIAnswerResource***](JSAPIAnswerResource.md)| The updated answer | [optional] 
 
 ### Return type
 
@@ -1773,7 +1773,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **questionTemplateResource** | [**JSAPIQuestionTemplateResource***](JSAPIQuestionTemplateResource*.md)| The question template resource object | [optional] 
+ **questionTemplateResource** | [**JSAPIQuestionTemplateResource***](JSAPIQuestionTemplateResource.md)| The question template resource object | [optional] 
 
 ### Return type
 
@@ -1849,7 +1849,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource*.md)| New values for a set of question fields | [optional] 
+ **question** | [**JSAPIQuestionResource***](JSAPIQuestionResource.md)| New values for a set of question fields | [optional] 
  **filterSearch** | **NSString***| Filter for documents whose question, answers or tags contains provided string | [optional] 
  **filterIdset** | **NSString***| Filter for documents whose id is in the comma separated list provided | [optional] 
  **filterCategory** | **NSString***| Filter for questions with specified category, by id | [optional] 

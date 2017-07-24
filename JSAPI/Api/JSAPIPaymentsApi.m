@@ -298,6 +298,14 @@ NSInteger kJSAPIPaymentsApiMissingParamErrorCode = 234513;
 /// 
 ///  @param userId ID of the user for whom the payment methods are being retrieved 
 ///
+///  @param filterName Filter for payment methods whose name starts with a given string (optional)
+///
+///  @param filterPaymentType Filter for payment methods with a specific payment type (optional)
+///
+///  @param filterPaymentMethodTypeId Filter for payment methods with a specific payment method type by id (optional)
+///
+///  @param filterPaymentMethodTypeName Filter for payment methods whose payment method type name starts with a given string (optional)
+///
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -307,6 +315,10 @@ NSInteger kJSAPIPaymentsApiMissingParamErrorCode = 234513;
 ///  @returns NSArray<JSAPIPaymentMethodResource>*
 ///
 -(NSURLSessionTask*) getPaymentMethodsWithUserId: (NSNumber*) userId
+    filterName: (NSString*) filterName
+    filterPaymentType: (NSString*) filterPaymentType
+    filterPaymentMethodTypeId: (NSNumber*) filterPaymentMethodTypeId
+    filterPaymentMethodTypeName: (NSString*) filterPaymentMethodTypeName
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -330,6 +342,18 @@ NSInteger kJSAPIPaymentsApiMissingParamErrorCode = 234513;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (filterName != nil) {
+        queryParams[@"filter_name"] = filterName;
+    }
+    if (filterPaymentType != nil) {
+        queryParams[@"filter_payment_type"] = filterPaymentType;
+    }
+    if (filterPaymentMethodTypeId != nil) {
+        queryParams[@"filter_payment_method_type_id"] = filterPaymentMethodTypeId;
+    }
+    if (filterPaymentMethodTypeName != nil) {
+        queryParams[@"filter_payment_method_type_name"] = filterPaymentMethodTypeName;
+    }
     if (size != nil) {
         queryParams[@"size"] = size;
     }

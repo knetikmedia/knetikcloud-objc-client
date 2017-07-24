@@ -1,4 +1,4 @@
-# JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel
+# JSAPIAvailableSettingResource
 
 ## Properties
 Name | Type | Description | Notes

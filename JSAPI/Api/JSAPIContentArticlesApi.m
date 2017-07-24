@@ -515,7 +515,11 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 /// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
 ///  @param filterCategory Filter for articles from a specific category by id (optional)
 ///
-///  @param filterTagset Filter for articles with specified tags (separated by comma) (optional)
+///  @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
+///
+///  @param filterTagIntersection Filter for articles with all of a specified set of tags (separated by comma) (optional)
+///
+///  @param filterTagExclusion Filter for articles with none of a specified set of tags (separated by comma) (optional)
 ///
 ///  @param filterTitle Filter for articles whose title contains a string (optional)
 ///
@@ -529,6 +533,8 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
+    filterTagIntersection: (NSString*) filterTagIntersection
+    filterTagExclusion: (NSString*) filterTagExclusion
     filterTitle: (NSString*) filterTitle
     size: (NSNumber*) size
     page: (NSNumber*) page
@@ -544,6 +550,12 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     }
     if (filterTagset != nil) {
         queryParams[@"filter_tagset"] = filterTagset;
+    }
+    if (filterTagIntersection != nil) {
+        queryParams[@"filter_tag_intersection"] = filterTagIntersection;
+    }
+    if (filterTagExclusion != nil) {
+        queryParams[@"filter_tag_exclusion"] = filterTagExclusion;
     }
     if (filterTitle != nil) {
         queryParams[@"filter_title"] = filterTitle;

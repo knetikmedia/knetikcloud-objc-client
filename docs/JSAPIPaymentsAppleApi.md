@@ -40,7 +40,7 @@ JSAPIPaymentsAppleApi*apiInstance = [[JSAPIPaymentsAppleApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIApplyPaymentRequest***](JSAPIApplyPaymentRequest*.md)| The request for paying an invoice through an Apple receipt | [optional] 
+ **request** | [**JSAPIApplyPaymentRequest***](JSAPIApplyPaymentRequest.md)| The request for paying an invoice through an Apple receipt | [optional] 
 
 ### Return type
 

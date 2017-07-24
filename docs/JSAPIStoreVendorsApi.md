@@ -52,7 +52,7 @@ JSAPIStoreVendorsApi*apiInstance = [[JSAPIStoreVendorsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vendor** | [**JSAPIVendorResource***](JSAPIVendorResource*.md)| The vendor | [optional] 
+ **vendor** | [**JSAPIVendorResource***](JSAPIVendorResource.md)| The vendor | [optional] 
 
 ### Return type
 
@@ -107,7 +107,7 @@ JSAPIStoreVendorsApi*apiInstance = [[JSAPIStoreVendorsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vendorTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The new vendor template | [optional] 
+ **vendorTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The new vendor template | [optional] 
 
 ### Return type
 
@@ -492,7 +492,7 @@ JSAPIStoreVendorsApi*apiInstance = [[JSAPIStoreVendorsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the vendor | 
- **vendor** | [**JSAPIVendorResource***](JSAPIVendorResource*.md)| The vendor | [optional] 
+ **vendor** | [**JSAPIVendorResource***](JSAPIVendorResource.md)| The vendor | [optional] 
 
 ### Return type
 
@@ -549,7 +549,7 @@ JSAPIStoreVendorsApi*apiInstance = [[JSAPIStoreVendorsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **vendorTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The vendor template resource object | [optional] 
+ **vendorTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The vendor template resource object | [optional] 
 
 ### Return type
 

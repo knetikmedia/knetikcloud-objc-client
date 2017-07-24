@@ -5,7 +5,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -24,10 +24,10 @@ extern NSInteger kJSAPISocialGoogleApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
-/// Link facebook account
-/// Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+/// Link google account
+/// Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
 ///
-/// @param facebookToken The token from facebook (optional)
+/// @param googleToken The token from google (optional)
 /// 
 ///  code:202 message:"Accepted",
 ///  code:400 message:"Bad Request",
@@ -36,7 +36,7 @@ extern NSInteger kJSAPISocialGoogleApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return 
--(NSURLSessionTask*) linkAccounts1WithFacebookToken: (JSAPIGoogleToken*) facebookToken
+-(NSURLSessionTask*) linkAccounts1WithGoogleToken: (JSAPIGoogleToken*) googleToken
     completionHandler: (void (^)(NSError* error)) handler;
 
 

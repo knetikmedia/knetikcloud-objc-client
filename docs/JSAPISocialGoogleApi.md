@@ -4,18 +4,18 @@ All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**linkAccounts1**](JSAPISocialGoogleApi.md#linkaccounts1) | **POST** /social/google/users | Link facebook account
+[**linkAccounts1**](JSAPISocialGoogleApi.md#linkaccounts1) | **POST** /social/google/users | Link google account
 
 
 # **linkAccounts1**
 ```objc
--(NSURLSessionTask*) linkAccounts1WithFacebookToken: (JSAPIGoogleToken*) facebookToken
+-(NSURLSessionTask*) linkAccounts1WithGoogleToken: (JSAPIGoogleToken*) googleToken
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
-Link facebook account
+Link google account
 
-Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
 
 ### Example 
 ```objc
@@ -25,12 +25,12 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-JSAPIGoogleToken* facebookToken = [[JSAPIGoogleToken alloc] init]; // The token from facebook (optional)
+JSAPIGoogleToken* googleToken = [[JSAPIGoogleToken alloc] init]; // The token from google (optional)
 
 JSAPISocialGoogleApi*apiInstance = [[JSAPISocialGoogleApi alloc] init];
 
-// Link facebook account
-[apiInstance linkAccounts1WithFacebookToken:facebookToken
+// Link google account
+[apiInstance linkAccounts1WithGoogleToken:googleToken
           completionHandler: ^(NSError* error) {
                         if (error) {
                             NSLog(@"Error calling JSAPISocialGoogleApi->linkAccounts1: %@", error);
@@ -42,7 +42,7 @@ JSAPISocialGoogleApi*apiInstance = [[JSAPISocialGoogleApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **facebookToken** | [**JSAPIGoogleToken***](JSAPIGoogleToken*.md)| The token from facebook | [optional] 
+ **googleToken** | [**JSAPIGoogleToken***](JSAPIGoogleToken.md)| The token from google | [optional] 
 
 ### Return type
 

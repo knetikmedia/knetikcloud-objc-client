@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -30,5 +30,7 @@
 /* The endpoint URL to which PayPal should forward the user after they accept. This endpoint will receive information needed for the next step 
  */
 @property(nonatomic) NSString* returnUrl;
+
++ (NSDictionary *)modalDictionary;
 
 @end

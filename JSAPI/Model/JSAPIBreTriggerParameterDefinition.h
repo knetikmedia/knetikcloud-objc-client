@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -24,8 +24,13 @@
 /* The name of the parameter. This is used as the unique identifier of this parameter 
  */
 @property(nonatomic) NSString* name;
+/* Whether this parameter can be left off when firing the event. Default false [optional]
+ */
+@property(nonatomic) NSNumber* optional;
 /* The variable type of this parameter. See Bre Variables endpoint for list 
  */
 @property(nonatomic) NSString* type;
+
++ (NSDictionary *)modalDictionary;
 
 @end

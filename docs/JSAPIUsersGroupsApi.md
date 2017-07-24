@@ -63,7 +63,7 @@ JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **NSString***| The group unique name | 
- **user** | [**JSAPIGroupMemberResource***](JSAPIGroupMemberResource*.md)| The id and status for a user to add to the group | 
+ **user** | [**JSAPIGroupMemberResource***](JSAPIGroupMemberResource.md)| The id and status for a user to add to the group | 
 
 ### Return type
 
@@ -173,7 +173,7 @@ JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupResource** | [**JSAPIGroupResource***](JSAPIGroupResource*.md)| The new group | [optional] 
+ **groupResource** | [**JSAPIGroupResource***](JSAPIGroupResource.md)| The new group | [optional] 
 
 ### Return type
 
@@ -228,7 +228,7 @@ JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The group template resource object | [optional] 
+ **groupTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The group template resource object | [optional] 
 
 ### Return type
 
@@ -764,7 +764,7 @@ JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **NSString***| The group unique name | 
- **groupResource** | [**JSAPIGroupResource***](JSAPIGroupResource*.md)| The updated group | [optional] 
+ **groupResource** | [**JSAPIGroupResource***](JSAPIGroupResource.md)| The updated group | [optional] 
 
 ### Return type
 
@@ -879,7 +879,7 @@ JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **groupTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The group template resource object | [optional] 
+ **groupTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The group template resource object | [optional] 
 
 ### Return type
 

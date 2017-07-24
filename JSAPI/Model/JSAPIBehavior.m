@@ -34,7 +34,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_description": @"description", @"typeHint": @"type_hint" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"_description": @"description", @"typeHint": @"type_hint" };
 }
 
 /**
@@ -45,6 +50,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"_description", @"typeHint"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

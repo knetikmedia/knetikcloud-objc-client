@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"answerProperty": @"answer_property", @"createdDate": @"created_date", @"_id": @"id", @"name": @"name", @"properties": @"properties", @"questionProperty": @"question_property", @"updatedDate": @"updated_date" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"answerProperty": @"answer_property", @"createdDate": @"created_date", @"_id": @"id", @"name": @"name", @"properties": @"properties", @"questionProperty": @"question_property", @"updatedDate": @"updated_date" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"answerProperty", @"createdDate", @"_id", @"properties", @"questionProperty", @"updatedDate"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

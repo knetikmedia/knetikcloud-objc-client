@@ -47,7 +47,7 @@ JSAPICampaignsRewardsApi*apiInstance = [[JSAPICampaignsRewardsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rewardSetResource** | [**JSAPIRewardSetResource***](JSAPIRewardSetResource*.md)| The reward set resource object | [optional] 
+ **rewardSetResource** | [**JSAPIRewardSetResource***](JSAPIRewardSetResource.md)| The reward set resource object | [optional] 
 
 ### Return type
 
@@ -258,7 +258,7 @@ JSAPICampaignsRewardsApi*apiInstance = [[JSAPICampaignsRewardsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The reward id | 
- **rewardSetResource** | [**JSAPIRewardSetResource***](JSAPIRewardSetResource*.md)| The reward set resource object | [optional] 
+ **rewardSetResource** | [**JSAPIRewardSetResource***](JSAPIRewardSetResource.md)| The reward set resource object | [optional] 
 
 ### Return type
 

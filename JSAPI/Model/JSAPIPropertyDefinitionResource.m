@@ -34,7 +34,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fieldList": @"field_list", @"name": @"name", @"required": @"required", @"type": @"type" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"fieldList": @"field_list", @"name": @"name", @"required": @"required", @"type": @"type" };
 }
 
 /**
@@ -45,6 +50,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"fieldList", ];
+
   return [optionalProperties containsObject:propertyName];
 }
 

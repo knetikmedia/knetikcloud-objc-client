@@ -91,7 +91,7 @@ JSAPIUtilBatchApi*apiInstance = [[JSAPIUtilBatchApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch** | [**JSAPIBatch***](JSAPIBatch*.md)| The batch object | [optional] 
+ **batch** | [**JSAPIBatch***](JSAPIBatch.md)| The batch object | [optional] 
 
 ### Return type
 

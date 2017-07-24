@@ -1,6 +1,6 @@
-#import "JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty.h"
+#import "JSAPISubscriptionPriceOverrideRequest.h"
 
-@implementation JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty
+@implementation JSAPISubscriptionPriceOverrideRequest
 
 - (instancetype)init {
   self = [super init];
@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"email": @"email", @"mobileNumber": @"mobile_number", @"username": @"username" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"varNewPrice": @"new_price", @"reason": @"reason" };
 }
 
 /**
@@ -27,7 +32,8 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"email", @"mobileNumber", @"username"];
+  NSArray *optionalProperties = @[@"varNewPrice", @"reason"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

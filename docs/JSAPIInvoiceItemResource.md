@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**affiliateId** | **NSNumber*** |  | [optional] 
 **bundleSku** | **NSString*** |  | [optional] 
 **currentFulfillmentStatus** | **NSString*** |  | [optional] 
 **_id** | **NSNumber*** |  | [optional] 

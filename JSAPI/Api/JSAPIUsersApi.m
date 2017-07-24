@@ -1,10 +1,10 @@
 #import "JSAPIUsersApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
-#import "JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty.h"
 #import "JSAPINewPasswordRequest.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceUserBaseResource_.h"
+#import "JSAPIPasswordResetRequest.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIUserResource.h"
@@ -1028,7 +1028,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIARequestToResetAUserSPasswordByUsingAKnownUserProperty*) passwordReset
+-(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIPasswordResetRequest*) passwordReset
     completionHandler: (void (^)(NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/password-reset"];
 

@@ -1,6 +1,6 @@
-#import "JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_.h"
+#import "JSAPIActivityResource.h"
 
-@implementation JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_
+@implementation JSAPIActivityResource
 
 - (instancetype)init {
   self = [super init];
@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"additionalProperties": @"additional_properties", @"createdDate": @"created_date", @"entitlements": @"entitlements", @"_id": @"id", @"launch": @"launch", @"longDescription": @"long_description", @"name": @"name", @"rewardSet": @"reward_set", @"settings": @"settings", @"shortDescription": @"short_description", @"template": @"template", @"templateId": @"template_id", @"type": @"type", @"uniqueKey": @"unique_key", @"updatedDate": @"updated_date" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"additionalProperties": @"additional_properties", @"createdDate": @"created_date", @"entitlements": @"entitlements", @"_id": @"id", @"launch": @"launch", @"longDescription": @"long_description", @"name": @"name", @"rewardSet": @"reward_set", @"settings": @"settings", @"shortDescription": @"short_description", @"template": @"template", @"templateId": @"template_id", @"type": @"type", @"uniqueKey": @"unique_key", @"updatedDate": @"updated_date" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"additionalProperties", @"createdDate", @"entitlements", @"_id", @"launch", @"longDescription", @"rewardSet", @"settings", @"shortDescription", @"template", @"templateId", @"uniqueKey", @"updatedDate"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

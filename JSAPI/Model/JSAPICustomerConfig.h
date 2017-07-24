@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -15,6 +15,7 @@
 
 
 #import "JSAPIDatabaseConfig.h"
+#import "JSAPIIOConfig.h"
 #import "JSAPIS3Config.h"
 
 
@@ -28,8 +29,12 @@
 
 @property(nonatomic) JSAPIDatabaseConfig* database;
 
+@property(nonatomic) JSAPIIOConfig* io;
+
 @property(nonatomic) NSString* name;
 
 @property(nonatomic) JSAPIS3Config* s3Config;
+
++ (NSDictionary *)modalDictionary;
 
 @end

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -48,10 +48,16 @@
 /* The payment method object [optional]
  */
 @property(nonatomic) JSAPIPaymentMethodResource* paymentMethod;
-/* The recurring price [optional]
+/* The recurring price that has been set to override the base price. Null if not overriding [optional]
+ */
+@property(nonatomic) NSNumber* priceOverride;
+/* An explanation for the reason the price is being overridden [optional]
+ */
+@property(nonatomic) NSString* priceOverrideReason;
+/* The default recurring price [optional]
  */
 @property(nonatomic) NSNumber* recurringPrice;
-/* The sku of the subscription [optional]
+/* The recurring sku of the subscription [optional]
  */
 @property(nonatomic) NSString* sku;
 /* The date the subscription will start [optional]
@@ -63,5 +69,7 @@
 /* The user [optional]
  */
 @property(nonatomic) JSAPISimpleUserResource* user;
+
++ (NSDictionary *)modalDictionary;
 
 @end

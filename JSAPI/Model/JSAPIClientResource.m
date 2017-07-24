@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"accessTokenValiditySeconds": @"access_token_validity_seconds", @"clientKey": @"client_key", @"grantTypes": @"grant_types", @"_id": @"id", @"isPublic": @"is_public", @"locked": @"locked", @"name": @"name", @"redirectUris": @"redirect_uris", @"refreshTokenValiditySeconds": @"refresh_token_validity_seconds", @"secret": @"secret" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"accessTokenValiditySeconds": @"access_token_validity_seconds", @"clientKey": @"client_key", @"grantTypes": @"grant_types", @"_id": @"id", @"isPublic": @"is_public", @"locked": @"locked", @"name": @"name", @"redirectUris": @"redirect_uris", @"refreshTokenValiditySeconds": @"refresh_token_validity_seconds", @"secret": @"secret" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"accessTokenValiditySeconds", @"grantTypes", @"_id", @"isPublic", @"locked", @"redirectUris", @"refreshTokenValiditySeconds", ];
+
   return [optionalProperties containsObject:propertyName];
 }
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -36,6 +36,9 @@
 /* The id of the user [optional]
  */
 @property(nonatomic) NSNumber* _id;
+/* The date the user last interacted with the API (private) [optional]
+ */
+@property(nonatomic) NSNumber* lastActivity;
 /* The date the user's info was last updated as a unix timestamp [optional]
  */
 @property(nonatomic) NSNumber* lastUpdated;
@@ -45,5 +48,7 @@
 /* The login username for the user (private). May be set to match email if system does not require usernames separately. 
  */
 @property(nonatomic) NSString* username;
+
++ (NSDictionary *)modalDictionary;
 
 @end

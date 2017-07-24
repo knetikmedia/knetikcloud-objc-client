@@ -5,6 +5,7 @@
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIReactivateSubscriptionRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPISubscriptionPriceOverrideRequest.h"
 
 
 @interface JSAPIUsersSubscriptionsApi ()
@@ -652,6 +653,95 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
     bodyParam = planId;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Set a new subscription price for a user
+/// This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+///  @param userId The id of the user 
+///
+///  @param inventoryId The id of the user's inventory 
+///
+///  @param theOverrideDetails override (optional)
+///
+///  @returns void
+///
+-(NSURLSessionTask*) setUserSubscriptionPriceWithUserId: (NSNumber*) userId
+    inventoryId: (NSNumber*) inventoryId
+    theOverrideDetails: (JSAPISubscriptionPriceOverrideRequest*) theOverrideDetails
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersSubscriptionsApiErrorDomain code:kJSAPIUsersSubscriptionsApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'inventoryId' is set
+    if (inventoryId == nil) {
+        NSParameterAssert(inventoryId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inventoryId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersSubscriptionsApiErrorDomain code:kJSAPIUsersSubscriptionsApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/{user_id}/subscriptions/{inventory_id}/price-override"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (userId != nil) {
+        pathParams[@"user_id"] = userId;
+    }
+    if (inventoryId != nil) {
+        pathParams[@"inventory_id"] = inventoryId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"OAuth2"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = theOverrideDetails;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"

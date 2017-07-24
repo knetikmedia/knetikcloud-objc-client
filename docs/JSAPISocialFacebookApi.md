@@ -42,7 +42,7 @@ JSAPISocialFacebookApi*apiInstance = [[JSAPISocialFacebookApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **facebookToken** | [**JSAPIFacebookToken***](JSAPIFacebookToken*.md)| The token from facebook | [optional] 
+ **facebookToken** | [**JSAPIFacebookToken***](JSAPIFacebookToken.md)| The token from facebook | [optional] 
 
 ### Return type
 

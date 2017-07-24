@@ -168,7 +168,7 @@ JSAPIMediaModerationApi*apiInstance = [[JSAPIMediaModerationApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The flag report id | 
- **flagReportResource** | [**JSAPIFlagReportResource***](JSAPIFlagReportResource*.md)| The new flag report | [optional] 
+ **flagReportResource** | [**JSAPIFlagReportResource***](JSAPIFlagReportResource.md)| The new flag report | [optional] 
 
 ### Return type
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -43,5 +43,7 @@
 /* The number of users this role is assigned to [optional]
  */
 @property(nonatomic) NSNumber* userCount;
+
++ (NSDictionary *)modalDictionary;
 
 @end

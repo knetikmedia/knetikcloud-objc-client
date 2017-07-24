@@ -1,4 +1,4 @@
-# JSAPIRepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc_
+# JSAPIActivityResource
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **longDescription** | **NSString*** | The user friendly name of that resource. Defaults to blank string | [optional] 
 **name** | **NSString*** | The user friendly name of that resource | 
 **rewardSet** | [**JSAPIRewardSetResource***](JSAPIRewardSetResource.md) | The rewards to give at the end of each occurence of the activity. When creating/updating only id is used. Reward set must be pre-existing | [optional] 
-**settings** | [**NSArray&lt;JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel&gt;***](JSAPITheDefinitionOfAnActivityParametersExDifficultyLevel.md) | Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing | [optional] 
+**settings** | [**NSArray&lt;JSAPIAvailableSettingResource&gt;***](JSAPIAvailableSettingResource.md) | Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing | [optional] 
 **shortDescription** | **NSString*** | The user friendly name of that resource. Defaults to blank string | [optional] 
 **template** | **NSNumber*** | Whether this activity is a template for other activities. Default: false | [optional] 
 **templateId** | **NSString*** | An activity template this activity is validated against (private). May be null and no validation of additional_properties will be done | [optional] 

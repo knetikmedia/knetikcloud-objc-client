@@ -9,13 +9,13 @@ Method | HTTP request | Description
 [**createChallengeActivityTemplate**](JSAPICampaignsChallengesApi.md#createchallengeactivitytemplate) | **POST** /challenge-activities/templates | Create a challenge activity template
 [**createChallengeTemplate**](JSAPICampaignsChallengesApi.md#createchallengetemplate) | **POST** /challenges/templates | Create a challenge template
 [**deleteChallenge**](JSAPICampaignsChallengesApi.md#deletechallenge) | **DELETE** /challenges/{id} | Delete a challenge
-[**deleteChallengeActivity**](JSAPICampaignsChallengesApi.md#deletechallengeactivity) | **DELETE** /challenges/{challenge_id}/activities/{activity_id} | Delete a challenge activity
+[**deleteChallengeActivity**](JSAPICampaignsChallengesApi.md#deletechallengeactivity) | **DELETE** /challenges/{challenge_id}/activities/{id} | Delete a challenge activity
 [**deleteChallengeActivityTemplate**](JSAPICampaignsChallengesApi.md#deletechallengeactivitytemplate) | **DELETE** /challenge-activities/templates/{id} | Delete a challenge activity template
 [**deleteChallengeEvent**](JSAPICampaignsChallengesApi.md#deletechallengeevent) | **DELETE** /challenges/events/{id} | Delete a challenge event
 [**deleteChallengeTemplate**](JSAPICampaignsChallengesApi.md#deletechallengetemplate) | **DELETE** /challenges/templates/{id} | Delete a challenge template
 [**getChallenge**](JSAPICampaignsChallengesApi.md#getchallenge) | **GET** /challenges/{id} | Retrieve a challenge
 [**getChallengeActivities**](JSAPICampaignsChallengesApi.md#getchallengeactivities) | **GET** /challenges/{challenge_id}/activities | List and search challenge activities
-[**getChallengeActivity**](JSAPICampaignsChallengesApi.md#getchallengeactivity) | **GET** /challenges/{challenge_id}/activities/{activity_id} | Get a single challenge activity
+[**getChallengeActivity**](JSAPICampaignsChallengesApi.md#getchallengeactivity) | **GET** /challenges/{challenge_id}/activities/{id} | Get a single challenge activity
 [**getChallengeActivityTemplate**](JSAPICampaignsChallengesApi.md#getchallengeactivitytemplate) | **GET** /challenge-activities/templates/{id} | Get a single challenge activity template
 [**getChallengeActivityTemplates**](JSAPICampaignsChallengesApi.md#getchallengeactivitytemplates) | **GET** /challenge-activities/templates | List and search challenge activity templates
 [**getChallengeEvent**](JSAPICampaignsChallengesApi.md#getchallengeevent) | **GET** /challenges/events/{id} | Retrieve a single challenge event details
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**getChallengeTemplates**](JSAPICampaignsChallengesApi.md#getchallengetemplates) | **GET** /challenges/templates | List and search challenge templates
 [**getChallenges**](JSAPICampaignsChallengesApi.md#getchallenges) | **GET** /challenges | Retrieve a list of challenges
 [**updateChallenge**](JSAPICampaignsChallengesApi.md#updatechallenge) | **PUT** /challenges/{id} | Update a challenge
-[**updateChallengeActivity**](JSAPICampaignsChallengesApi.md#updatechallengeactivity) | **PUT** /challenges/{challenge_id}/activities/{activity_id} | Update a challenge activity
+[**updateChallengeActivity**](JSAPICampaignsChallengesApi.md#updatechallengeactivity) | **PUT** /challenges/{challenge_id}/activities/{id} | Update a challenge activity
 [**updateChallengeActivityTemplate**](JSAPICampaignsChallengesApi.md#updatechallengeactivitytemplate) | **PUT** /challenge-activities/templates/{id} | Update an challenge activity template
 [**updateChallengeTemplate**](JSAPICampaignsChallengesApi.md#updatechallengetemplate) | **PUT** /challenges/templates/{id} | Update a challenge template
 
@@ -67,7 +67,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **challengeResource** | [**JSAPIChallengeResource***](JSAPIChallengeResource*.md)| The challenge resource object | [optional] 
+ **challengeResource** | [**JSAPIChallengeResource***](JSAPIChallengeResource.md)| The challenge resource object | [optional] 
 
 ### Return type
 
@@ -127,7 +127,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **challengeId** | **NSNumber***| The challenge id | 
- **challengeActivityResource** | [**JSAPIChallengeActivityResource***](JSAPIChallengeActivityResource*.md)| The challenge activity resource object | [optional] 
+ **challengeActivityResource** | [**JSAPIChallengeActivityResource***](JSAPIChallengeActivityResource.md)| The challenge activity resource object | [optional] 
  **validateSettings** | **NSNumber***| Whether to validate the settings being sent against the available settings on the base activity. | [optional] [default to false]
 
 ### Return type
@@ -183,7 +183,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **challengeActivityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The challengeActivity template resource object | [optional] 
+ **challengeActivityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The challengeActivity template resource object | [optional] 
 
 ### Return type
 
@@ -238,7 +238,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **challengeTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The challenge template resource object | [optional] 
+ **challengeTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The challenge template resource object | [optional] 
 
 ### Return type
 
@@ -307,12 +307,14 @@ void (empty response body)
 
 # **deleteChallengeActivity**
 ```objc
--(NSURLSessionTask*) deleteChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) deleteChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
 Delete a challenge activity
+
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 
 ### Example 
 ```objc
@@ -322,13 +324,13 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-NSNumber* activityId = @789; // The activity id
+NSNumber* _id = @789; // The challenge_activity id
 NSNumber* challengeId = @789; // The challenge id
 
 JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] init];
 
 // Delete a challenge activity
-[apiInstance deleteChallengeActivityWithActivityId:activityId
+[apiInstance deleteChallengeActivityWithId:_id
               challengeId:challengeId
           completionHandler: ^(NSError* error) {
                         if (error) {
@@ -341,7 +343,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **NSNumber***| The activity id | 
+ **_id** | **NSNumber***| The challenge_activity id | 
  **challengeId** | **NSNumber***| The challenge id | 
 
 ### Return type
@@ -631,21 +633,26 @@ No authorization required
 
 # **getChallengeActivity**
 ```objc
--(NSURLSessionTask*) getChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) getChallengeActivityWithId: (NSNumber*) _id
+    challengeId: (NSNumber*) challengeId
         completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
 ```
 
 Get a single challenge activity
 
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+
 ### Example 
 ```objc
 
-NSNumber* activityId = @789; // The activity id
+NSNumber* _id = @789; // The challenge_activity id
+NSNumber* challengeId = @789; // The challenge id
 
 JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] init];
 
 // Get a single challenge activity
-[apiInstance getChallengeActivityWithActivityId:activityId
+[apiInstance getChallengeActivityWithId:_id
+              challengeId:challengeId
           completionHandler: ^(JSAPIChallengeActivityResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -660,7 +667,8 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **NSNumber***| The activity id | 
+ **_id** | **NSNumber***| The challenge_activity id | 
+ **challengeId** | **NSNumber***| The challenge id | 
 
 ### Return type
 
@@ -1139,7 +1147,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The challenge id | 
- **challengeResource** | [**JSAPIChallengeResource***](JSAPIChallengeResource*.md)| The challenge resource object | [optional] 
+ **challengeResource** | [**JSAPIChallengeResource***](JSAPIChallengeResource.md)| The challenge resource object | [optional] 
 
 ### Return type
 
@@ -1158,13 +1166,15 @@ Name | Type | Description  | Notes
 
 # **updateChallengeActivity**
 ```objc
--(NSURLSessionTask*) updateChallengeActivityWithActivityId: (NSNumber*) activityId
+-(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
         completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
 ```
 
 Update a challenge activity
+
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 
 ### Example 
 ```objc
@@ -1174,14 +1184,14 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-NSNumber* activityId = @789; // The activity id
+NSNumber* _id = @789; // The challenge_activity id
 NSNumber* challengeId = @789; // The challenge id
 JSAPIChallengeActivityResource* challengeActivityResource = [[JSAPIChallengeActivityResource alloc] init]; // The challenge activity resource object (optional)
 
 JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] init];
 
 // Update a challenge activity
-[apiInstance updateChallengeActivityWithActivityId:activityId
+[apiInstance updateChallengeActivityWithId:_id
               challengeId:challengeId
               challengeActivityResource:challengeActivityResource
           completionHandler: ^(JSAPIChallengeActivityResource* output, NSError* error) {
@@ -1198,9 +1208,9 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **NSNumber***| The activity id | 
+ **_id** | **NSNumber***| The challenge_activity id | 
  **challengeId** | **NSNumber***| The challenge id | 
- **challengeActivityResource** | [**JSAPIChallengeActivityResource***](JSAPIChallengeActivityResource*.md)| The challenge activity resource object | [optional] 
+ **challengeActivityResource** | [**JSAPIChallengeActivityResource***](JSAPIChallengeActivityResource.md)| The challenge activity resource object | [optional] 
 
 ### Return type
 
@@ -1257,7 +1267,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **challengeActivityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The challengeActivity template resource object | [optional] 
+ **challengeActivityTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The challengeActivity template resource object | [optional] 
 
 ### Return type
 
@@ -1314,7 +1324,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **challengeTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The challenge template resource object | [optional] 
+ **challengeTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The challenge template resource object | [optional] 
 
 ### Return type
 

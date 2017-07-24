@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -27,5 +27,7 @@
 /* The parameters to the event. A Map (assosiative array) with a key for each trigger parameter name and a corrosponding value. 
  */
 @property(nonatomic) NSObject* params;
+
++ (NSDictionary *)modalDictionary;
 
 @end

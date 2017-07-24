@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -14,9 +14,6 @@
 */
 
 
-#import "JSAPIRewardCurrencyResource.h"
-#import "JSAPIRewardItemResource.h"
-#import "JSAPISimpleUserResource.h"
 
 
 @protocol JSAPIUserActivityResultsResource
@@ -24,26 +21,16 @@
 
 @interface JSAPIUserActivityResultsResource : JSAPIObject
 
-/* Any currency rewarded to this user [optional]
- */
-@property(nonatomic) NSArray<JSAPIRewardCurrencyResource>* currencyRewards;
-/* Any items rewarded to this user [optional]
- */
-@property(nonatomic) NSArray<JSAPIRewardItemResource>* itemRewards;
-/* The position of the user in the leaderboard. Null means non-compete or disqualification [optional]
- */
-@property(nonatomic) NSNumber* rank;
-/* The raw score in this leaderboard. Null means non-compete or disqualification [optional]
+/* The raw score. Null means non-compete or disqualification [optional]
  */
 @property(nonatomic) NSNumber* score;
 /* Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 5 tags and 50 characters each [optional]
  */
 @property(nonatomic) NSArray<NSString*>* tags;
-/* The number of users tied at this rank, including this user. 1 means no tie [optional]
+/* The id of the player 
  */
-@property(nonatomic) NSNumber* ties;
-/* The player for this entry 
- */
-@property(nonatomic) JSAPISimpleUserResource* user;
+@property(nonatomic) NSNumber* userId;
+
++ (NSDictionary *)modalDictionary;
 
 @end

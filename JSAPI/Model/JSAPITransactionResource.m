@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"createDate": @"create_date", @"currencyCode": @"currency_code", @"details": @"details", @"_id": @"id", @"invoiceId": @"invoice_id", @"isRefunded": @"is_refunded", @"response": @"response", @"source": @"source", @"successful": @"successful", @"transactionId": @"transaction_id", @"type": @"type", @"typeHint": @"type_hint", @"value": @"value" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"createDate": @"create_date", @"currencyCode": @"currency_code", @"details": @"details", @"_id": @"id", @"invoiceId": @"invoice_id", @"isRefunded": @"is_refunded", @"response": @"response", @"source": @"source", @"successful": @"successful", @"transactionId": @"transaction_id", @"type": @"type", @"typeHint": @"type_hint", @"value": @"value" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"createDate", @"currencyCode", @"details", @"_id", @"invoiceId", @"isRefunded", @"response", @"source", @"successful", @"transactionId", @"type", @"typeHint", @"value"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

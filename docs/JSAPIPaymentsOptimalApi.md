@@ -45,7 +45,7 @@ JSAPIPaymentsOptimalApi*apiInstance = [[JSAPIPaymentsOptimalApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIOptimalPaymentRequest***](JSAPIOptimalPaymentRequest*.md)| The payment request to initiate | [optional] 
+ **request** | [**JSAPIOptimalPaymentRequest***](JSAPIOptimalPaymentRequest.md)| The payment request to initiate | [optional] 
 
 ### Return type
 

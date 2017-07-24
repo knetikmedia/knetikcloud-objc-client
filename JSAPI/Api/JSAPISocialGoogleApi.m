@@ -51,13 +51,13 @@ NSInteger kJSAPISocialGoogleApiMissingParamErrorCode = 234513;
 #pragma mark - Api Methods
 
 ///
-/// Link facebook account
-/// Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
-///  @param facebookToken The token from facebook (optional)
+/// Link google account
+/// Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
+///  @param googleToken The token from google (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) linkAccounts1WithFacebookToken: (JSAPIGoogleToken*) facebookToken
+-(NSURLSessionTask*) linkAccounts1WithGoogleToken: (JSAPIGoogleToken*) googleToken
     completionHandler: (void (^)(NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/social/google/users"];
 
@@ -84,7 +84,7 @@ NSInteger kJSAPISocialGoogleApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = facebookToken;
+    bodyParam = googleToken;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

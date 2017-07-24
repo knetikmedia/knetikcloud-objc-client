@@ -51,7 +51,7 @@ JSAPIUsersAddressesApi*apiInstance = [[JSAPIUsersAddressesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSString***| The id of the user | 
- **savedAddressResource** | [**JSAPISavedAddressResource***](JSAPISavedAddressResource*.md)| The new address | [optional] 
+ **savedAddressResource** | [**JSAPISavedAddressResource***](JSAPISavedAddressResource.md)| The new address | [optional] 
 
 ### Return type
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSString***| The id of the user | 
  **_id** | **NSNumber***| The id of the address | 
- **savedAddressResource** | [**JSAPISavedAddressResource***](JSAPISavedAddressResource*.md)| The saved address resource object | [optional] 
+ **savedAddressResource** | [**JSAPISavedAddressResource***](JSAPISavedAddressResource.md)| The saved address resource object | [optional] 
 
 ### Return type
 

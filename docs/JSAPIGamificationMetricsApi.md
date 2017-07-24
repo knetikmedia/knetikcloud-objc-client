@@ -42,7 +42,7 @@ JSAPIGamificationMetricsApi*apiInstance = [[JSAPIGamificationMetricsApi alloc] i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **metric** | [**JSAPIMetricResource***](JSAPIMetricResource*.md)| The new metric | [optional] 
+ **metric** | [**JSAPIMetricResource***](JSAPIMetricResource.md)| The new metric | [optional] 
 
 ### Return type
 

@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"currencyCode": @"currency_code", @"discountType": @"discount_type", @"discountValue": @"discount_value", @"_id": @"id", @"item": @"item", @"longDescription": @"long_description", @"name": @"name", @"saleEndDate": @"sale_end_date", @"saleStartDate": @"sale_start_date", @"shortDescription": @"short_description", @"tag": @"tag", @"vendor": @"vendor" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"currencyCode": @"currency_code", @"discountType": @"discount_type", @"discountValue": @"discount_value", @"_id": @"id", @"item": @"item", @"longDescription": @"long_description", @"name": @"name", @"saleEndDate": @"sale_end_date", @"saleStartDate": @"sale_start_date", @"shortDescription": @"short_description", @"tag": @"tag", @"vendor": @"vendor" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"discountValue", @"_id", @"item", @"longDescription", @"saleEndDate", @"shortDescription", @"tag", @"vendor"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

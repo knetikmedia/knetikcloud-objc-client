@@ -8,7 +8,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -149,7 +149,9 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 /// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
 ///
 /// @param filterCategory Filter for articles from a specific category by id (optional)
-/// @param filterTagset Filter for articles with specified tags (separated by comma) (optional)
+/// @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
+/// @param filterTagIntersection Filter for articles with all of a specified set of tags (separated by comma) (optional)
+/// @param filterTagExclusion Filter for articles with none of a specified set of tags (separated by comma) (optional)
 /// @param filterTitle Filter for articles whose title contains a string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -164,6 +166,8 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 /// @return JSAPIPageResourceArticleResource_*
 -(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
+    filterTagIntersection: (NSString*) filterTagIntersection
+    filterTagExclusion: (NSString*) filterTagExclusion
     filterTitle: (NSString*) filterTitle
     size: (NSNumber*) size
     page: (NSNumber*) page

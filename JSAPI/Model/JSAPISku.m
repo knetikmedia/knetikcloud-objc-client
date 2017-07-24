@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"additionalProperties": @"additional_properties", @"currencyCode": @"currency_code", @"_description": @"description", @"inventory": @"inventory", @"minInventoryThreshold": @"min_inventory_threshold", @"originalPrice": @"original_price", @"price": @"price", @"published": @"published", @"saleId": @"sale_id", @"saleName": @"sale_name", @"sku": @"sku", @"startDate": @"start_date", @"stopDate": @"stop_date" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"additionalProperties": @"additional_properties", @"currencyCode": @"currency_code", @"_description": @"description", @"inventory": @"inventory", @"minInventoryThreshold": @"min_inventory_threshold", @"originalPrice": @"original_price", @"price": @"price", @"published": @"published", @"saleId": @"sale_id", @"saleName": @"sale_name", @"sku": @"sku", @"startDate": @"start_date", @"stopDate": @"stop_date" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"additionalProperties", @"inventory", @"minInventoryThreshold", @"price", @"published", @"saleId", @"saleName", @"startDate", @"stopDate"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

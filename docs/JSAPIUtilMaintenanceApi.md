@@ -135,7 +135,7 @@ JSAPIUtilMaintenanceApi*apiInstance = [[JSAPIUtilMaintenanceApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenance** | [**JSAPIMaintenance***](JSAPIMaintenance*.md)| The maintenance object | [optional] 
+ **maintenance** | [**JSAPIMaintenance***](JSAPIMaintenance.md)| The maintenance object | [optional] 
 
 ### Return type
 
@@ -185,7 +185,7 @@ JSAPIUtilMaintenanceApi*apiInstance = [[JSAPIUtilMaintenanceApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenance** | [**JSAPIMaintenance***](JSAPIMaintenance*.md)| The maintenance object | [optional] 
+ **maintenance** | [**JSAPIMaintenance***](JSAPIMaintenance.md)| The maintenance object | [optional] 
 
 ### Return type
 

@@ -54,7 +54,7 @@ JSAPIMediaArtistsApi*apiInstance = [[JSAPIMediaArtistsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **artistResource** | [**JSAPIArtistResource***](JSAPIArtistResource*.md)| The new artist | [optional] 
+ **artistResource** | [**JSAPIArtistResource***](JSAPIArtistResource.md)| The new artist | [optional] 
 
 ### Return type
 
@@ -109,7 +109,7 @@ JSAPIMediaArtistsApi*apiInstance = [[JSAPIMediaArtistsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **artistTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The artist template resource object | [optional] 
+ **artistTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The artist template resource object | [optional] 
 
 ### Return type
 
@@ -495,7 +495,7 @@ JSAPIMediaArtistsApi*apiInstance = [[JSAPIMediaArtistsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The artist id | 
- **artistResource** | [**JSAPIArtistResource***](JSAPIArtistResource*.md)| The new artist | [optional] 
+ **artistResource** | [**JSAPIArtistResource***](JSAPIArtistResource.md)| The new artist | [optional] 
 
 ### Return type
 
@@ -552,7 +552,7 @@ JSAPIMediaArtistsApi*apiInstance = [[JSAPIMediaArtistsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **artistTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The artist template resource object | [optional] 
+ **artistTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The artist template resource object | [optional] 
 
 ### Return type
 

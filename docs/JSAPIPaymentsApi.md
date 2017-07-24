@@ -53,7 +53,7 @@ JSAPIPaymentsApi*apiInstance = [[JSAPIPaymentsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| ID of the user for whom the payment method is being created | 
- **paymentMethod** | [**JSAPIPaymentMethodResource***](JSAPIPaymentMethodResource*.md)| Payment method being created | [optional] 
+ **paymentMethod** | [**JSAPIPaymentMethodResource***](JSAPIPaymentMethodResource.md)| Payment method being created | [optional] 
 
 ### Return type
 
@@ -184,6 +184,10 @@ Name | Type | Description  | Notes
 # **getPaymentMethods**
 ```objc
 -(NSURLSessionTask*) getPaymentMethodsWithUserId: (NSNumber*) userId
+    filterName: (NSString*) filterName
+    filterPaymentType: (NSString*) filterPaymentType
+    filterPaymentMethodTypeId: (NSNumber*) filterPaymentMethodTypeId
+    filterPaymentMethodTypeName: (NSString*) filterPaymentMethodTypeName
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -201,6 +205,10 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* userId = @56; // ID of the user for whom the payment methods are being retrieved
+NSString* filterName = @"filterName_example"; // Filter for payment methods whose name starts with a given string (optional)
+NSString* filterPaymentType = @"filterPaymentType_example"; // Filter for payment methods with a specific payment type (optional)
+NSNumber* filterPaymentMethodTypeId = @56; // Filter for payment methods with a specific payment method type by id (optional)
+NSString* filterPaymentMethodTypeName = @"filterPaymentMethodTypeName_example"; // Filter for payment methods whose payment method type name starts with a given string (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
 NSString* order = @"id:ASC"; // a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -209,6 +217,10 @@ JSAPIPaymentsApi*apiInstance = [[JSAPIPaymentsApi alloc] init];
 
 // Get all payment methods for a user
 [apiInstance getPaymentMethodsWithUserId:userId
+              filterName:filterName
+              filterPaymentType:filterPaymentType
+              filterPaymentMethodTypeId:filterPaymentMethodTypeId
+              filterPaymentMethodTypeName:filterPaymentMethodTypeName
               size:size
               page:page
               order:order
@@ -227,6 +239,10 @@ JSAPIPaymentsApi*apiInstance = [[JSAPIPaymentsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| ID of the user for whom the payment methods are being retrieved | 
+ **filterName** | **NSString***| Filter for payment methods whose name starts with a given string | [optional] 
+ **filterPaymentType** | **NSString***| Filter for payment methods with a specific payment type | [optional] 
+ **filterPaymentMethodTypeId** | **NSNumber***| Filter for payment methods with a specific payment method type by id | [optional] 
+ **filterPaymentMethodTypeName** | **NSString***| Filter for payment methods whose payment method type name starts with a given string | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **NSString***| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
@@ -282,7 +298,7 @@ JSAPIPaymentsApi*apiInstance = [[JSAPIPaymentsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIPaymentAuthorizationResource***](JSAPIPaymentAuthorizationResource*.md)| Payment authorization request | [optional] 
+ **request** | [**JSAPIPaymentAuthorizationResource***](JSAPIPaymentAuthorizationResource.md)| Payment authorization request | [optional] 
 
 ### Return type
 
@@ -393,7 +409,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| ID of the user for whom the payment method is being updated | 
  **_id** | **NSNumber***| ID of the payment method being updated | 
- **paymentMethod** | [**JSAPIPaymentMethodResource***](JSAPIPaymentMethodResource*.md)| The updated payment method data | [optional] 
+ **paymentMethod** | [**JSAPIPaymentMethodResource***](JSAPIPaymentMethodResource.md)| The updated payment method data | [optional] 
 
 ### Return type
 

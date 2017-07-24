@@ -57,7 +57,7 @@ JSAPIStoreCouponsApi*apiInstance = [[JSAPIStoreCouponsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **couponItem** | [**JSAPICouponItem***](JSAPICouponItem*.md)| The coupon item object | [optional] 
+ **couponItem** | [**JSAPICouponItem***](JSAPICouponItem.md)| The coupon item object | [optional] 
 
 ### Return type
 
@@ -112,7 +112,7 @@ JSAPIStoreCouponsApi*apiInstance = [[JSAPIStoreCouponsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **couponTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The new coupon template | [optional] 
+ **couponTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The new coupon template | [optional] 
 
 ### Return type
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the coupon | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **couponItem** | [**JSAPICouponItem***](JSAPICouponItem*.md)| The coupon item object | [optional] 
+ **couponItem** | [**JSAPICouponItem***](JSAPICouponItem.md)| The coupon item object | [optional] 
 
 ### Return type
 
@@ -503,7 +503,7 @@ JSAPIStoreCouponsApi*apiInstance = [[JSAPIStoreCouponsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **couponTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource*.md)| The coupon template resource object | [optional] 
+ **couponTemplateResource** | [**JSAPIItemTemplateResource***](JSAPIItemTemplateResource.md)| The coupon template resource object | [optional] 
 
 ### Return type
 

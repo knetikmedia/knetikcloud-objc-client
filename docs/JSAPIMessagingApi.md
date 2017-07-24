@@ -43,7 +43,7 @@ JSAPIMessagingApi*apiInstance = [[JSAPIMessagingApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rawEmailResource** | [**JSAPIRawEmailResource***](JSAPIRawEmailResource*.md)| The new raw email to be sent | [optional] 
+ **rawEmailResource** | [**JSAPIRawEmailResource***](JSAPIRawEmailResource.md)| The new raw email to be sent | [optional] 
 
 ### Return type
 
@@ -95,7 +95,7 @@ JSAPIMessagingApi*apiInstance = [[JSAPIMessagingApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rawSMSResource** | [**JSAPIRawSMSResource***](JSAPIRawSMSResource*.md)| The new raw SMS to be sent | [optional] 
+ **rawSMSResource** | [**JSAPIRawSMSResource***](JSAPIRawSMSResource.md)| The new raw SMS to be sent | [optional] 
 
 ### Return type
 
@@ -145,7 +145,7 @@ JSAPIMessagingApi*apiInstance = [[JSAPIMessagingApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageResource** | [**JSAPITemplateEmailResource***](JSAPITemplateEmailResource*.md)| The new template email to be sent | [optional] 
+ **messageResource** | [**JSAPITemplateEmailResource***](JSAPITemplateEmailResource.md)| The new template email to be sent | [optional] 
 
 ### Return type
 
@@ -197,7 +197,7 @@ JSAPIMessagingApi*apiInstance = [[JSAPIMessagingApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateSMSResource** | [**JSAPITemplateSMSResource***](JSAPITemplateSMSResource*.md)| The new template SMS to be sent | [optional] 
+ **templateSMSResource** | [**JSAPITemplateSMSResource***](JSAPITemplateSMSResource.md)| The new template SMS to be sent | [optional] 
 
 ### Return type
 

@@ -6,7 +6,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -83,6 +83,10 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 /// 
 ///
 /// @param userId ID of the user for whom the payment methods are being retrieved
+/// @param filterName Filter for payment methods whose name starts with a given string (optional)
+/// @param filterPaymentType Filter for payment methods with a specific payment type (optional)
+/// @param filterPaymentMethodTypeId Filter for payment methods with a specific payment method type by id (optional)
+/// @param filterPaymentMethodTypeName Filter for payment methods whose payment method type name starts with a given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
 /// @param order a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -95,6 +99,10 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 ///
 /// @return NSArray<JSAPIPaymentMethodResource>*
 -(NSURLSessionTask*) getPaymentMethodsWithUserId: (NSNumber*) userId
+    filterName: (NSString*) filterName
+    filterPaymentType: (NSString*) filterPaymentType
+    filterPaymentMethodTypeId: (NSNumber*) filterPaymentMethodTypeId
+    filterPaymentMethodTypeName: (NSString*) filterPaymentMethodTypeName
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order

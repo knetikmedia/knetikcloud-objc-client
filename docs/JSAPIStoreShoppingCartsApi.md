@@ -56,7 +56,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **customDiscount** | [**JSAPICouponDefinition***](JSAPICouponDefinition*.md)| The details of the discount to add | [optional] 
+ **customDiscount** | [**JSAPICouponDefinition***](JSAPICouponDefinition.md)| The details of the discount to add | [optional] 
 
 ### Return type
 
@@ -110,7 +110,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **skuRequest** | [**JSAPISkuRequest***](JSAPISkuRequest*.md)| The request of the sku | [optional] 
+ **skuRequest** | [**JSAPISkuRequest***](JSAPISkuRequest.md)| The request of the sku | [optional] 
 
 ### Return type
 
@@ -166,7 +166,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **cartItemRequest** | [**JSAPICartItemRequest***](JSAPICartItemRequest*.md)| The cart item request object | [optional] 
+ **cartItemRequest** | [**JSAPICartItemRequest***](JSAPICartItemRequest.md)| The cart item request object | [optional] 
 
 ### Return type
 
@@ -671,7 +671,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **cartItemRequest** | [**JSAPICartItemRequest***](JSAPICartItemRequest*.md)| The cart item request object | [optional] 
+ **cartItemRequest** | [**JSAPICartItemRequest***](JSAPICartItemRequest.md)| The cart item request object | [optional] 
 
 ### Return type
 
@@ -725,7 +725,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **cartShippingAddressRequest** | [**JSAPICartShippingAddressRequest***](JSAPICartShippingAddressRequest*.md)| The cart shipping address request object | [optional] 
+ **cartShippingAddressRequest** | [**JSAPICartShippingAddressRequest***](JSAPICartShippingAddressRequest.md)| The cart shipping address request object | [optional] 
 
 ### Return type
 

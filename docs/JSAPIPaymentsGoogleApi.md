@@ -40,7 +40,7 @@ JSAPIPaymentsGoogleApi*apiInstance = [[JSAPIPaymentsGoogleApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**JSAPIGooglePaymentRequest***](JSAPIGooglePaymentRequest*.md)| The request for paying an invoice through a Google in-app payment | [optional] 
+ **request** | [**JSAPIGooglePaymentRequest***](JSAPIGooglePaymentRequest.md)| The request for paying an invoice through a Google in-app payment | [optional] 
 
 ### Return type
 

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**setSubscriptionPaymentMethod**](JSAPIUsersSubscriptionsApi.md#setsubscriptionpaymentmethod) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/payment-method | Set the payment method to use for a subscription
 [**setSubscriptionStatus**](JSAPIUsersSubscriptionsApi.md#setsubscriptionstatus) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/status | Set the status of a subscription
 [**setUserSubscriptionPlan**](JSAPIUsersSubscriptionsApi.md#setusersubscriptionplan) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/plan | Set a new subscription plan for a user
+[**setUserSubscriptionPrice**](JSAPIUsersSubscriptionsApi.md#setusersubscriptionprice) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/price-override | Set a new subscription price for a user
 
 
 # **getUserSubscriptionDetails**
@@ -167,7 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
- **reactivateSubscriptionRequest** | [**JSAPIReactivateSubscriptionRequest***](JSAPIReactivateSubscriptionRequest*.md)| The reactivate subscription request object inventory | [optional] 
+ **reactivateSubscriptionRequest** | [**JSAPIReactivateSubscriptionRequest***](JSAPIReactivateSubscriptionRequest.md)| The reactivate subscription request object inventory | [optional] 
 
 ### Return type
 
@@ -404,6 +405,66 @@ Name | Type | Description  | Notes
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
  **planId** | **NSString***| The id of the new plan. Must be from the same subscription | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setUserSubscriptionPrice**
+```objc
+-(NSURLSessionTask*) setUserSubscriptionPriceWithUserId: (NSNumber*) userId
+    inventoryId: (NSNumber*) inventoryId
+    theOverrideDetails: (JSAPISubscriptionPriceOverrideRequest*) theOverrideDetails
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Set a new subscription price for a user
+
+This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* userId = @56; // The id of the user
+NSNumber* inventoryId = @56; // The id of the user's inventory
+JSAPISubscriptionPriceOverrideRequest* theOverrideDetails = [[JSAPISubscriptionPriceOverrideRequest alloc] init]; // override (optional)
+
+JSAPIUsersSubscriptionsApi*apiInstance = [[JSAPIUsersSubscriptionsApi alloc] init];
+
+// Set a new subscription price for a user
+[apiInstance setUserSubscriptionPriceWithUserId:userId
+              inventoryId:inventoryId
+              theOverrideDetails:theOverrideDetails
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersSubscriptionsApi->setUserSubscriptionPrice: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **NSNumber***| The id of the user | 
+ **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
+ **theOverrideDetails** | [**JSAPISubscriptionPriceOverrideRequest***](JSAPISubscriptionPriceOverrideRequest.md)| override | [optional] 
 
 ### Return type
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -39,16 +39,13 @@
 /* The expiration year for the payment method. Typically used for credit card payment methods [optional]
  */
 @property(nonatomic) NSNumber* expirationYear;
-/* The unique ID for that resource [optional]
+/* The unique ID of the resource [optional]
  */
 @property(nonatomic) NSNumber* _id;
 /* The last 4 digits of the account number for the payment method. Typically used for credit card payment methods [optional]
  */
 @property(nonatomic) NSString* last4;
-/* The user friendly name of that resource. Defaults to blank string [optional]
- */
-@property(nonatomic) NSString* longDescription;
-/* The user friendly name of that resource 
+/* The user friendly name of the resource 
  */
 @property(nonatomic) NSString* name;
 /* The type of payment method. Must be a pre-existing value 
@@ -57,9 +54,6 @@
 /* The generic payment type. Default is card [optional]
  */
 @property(nonatomic) NSString* paymentType;
-/* The user friendly name of that resource. Defaults to blank string [optional]
- */
-@property(nonatomic) NSString* shortDescription;
 /* The sort value for the payment method [optional]
  */
 @property(nonatomic) NSNumber* sort;
@@ -77,5 +71,7 @@
 @property(nonatomic) NSNumber* userId;
 
 @property(nonatomic) NSNumber* verified;
+
++ (NSDictionary *)modalDictionary;
 
 @end

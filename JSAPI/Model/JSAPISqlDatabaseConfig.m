@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"connectionPoolSize": @"connection_pool_size", @"dbName": @"db_name", @"hostname": @"hostname", @"password": @"password", @"port": @"port", @"username": @"username" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"connectionPoolSize": @"connection_pool_size", @"dbName": @"db_name", @"hostname": @"hostname", @"password": @"password", @"port": @"port", @"username": @"username" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"connectionPoolSize", @"dbName", @"hostname", @"password", @"port", @"username"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

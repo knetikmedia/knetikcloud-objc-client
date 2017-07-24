@@ -51,7 +51,7 @@ JSAPIBRERuleEngineRulesApi*apiInstance = [[JSAPIBRERuleEngineRulesApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breRule** | [**JSAPIBreRule***](JSAPIBreRule*.md)| The BRE rule object | [optional] 
+ **breRule** | [**JSAPIBreRule***](JSAPIBreRule.md)| The BRE rule object | [optional] 
 
 ### Return type
 
@@ -156,7 +156,7 @@ JSAPIBRERuleEngineRulesApi*apiInstance = [[JSAPIBRERuleEngineRulesApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **expression** | [**JSAPIExpressionObject_***](JSAPIExpressionObject_*.md)| The expression | [optional] 
+ **expression** | [**JSAPIExpressionObject_***](JSAPIExpressionObject_.md)| The expression | [optional] 
 
 ### Return type
 
@@ -346,7 +346,7 @@ JSAPIBRERuleEngineRulesApi*apiInstance = [[JSAPIBRERuleEngineRulesApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the rule | 
- **enabled** | [**JSAPIBooleanResource***](JSAPIBooleanResource*.md)| The boolean value | [optional] 
+ **enabled** | [**JSAPIBooleanResource***](JSAPIBooleanResource.md)| The boolean value | [optional] 
 
 ### Return type
 
@@ -405,7 +405,7 @@ JSAPIBRERuleEngineRulesApi*apiInstance = [[JSAPIBRERuleEngineRulesApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the rule | 
- **breRule** | [**JSAPIBreRule***](JSAPIBreRule*.md)| The BRE rule object | [optional] 
+ **breRule** | [**JSAPIBreRule***](JSAPIBreRule.md)| The BRE rule object | [optional] 
 
 ### Return type
 

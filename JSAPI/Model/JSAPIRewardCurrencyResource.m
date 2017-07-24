@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"currencyCode": @"currency_code", @"currencyName": @"currency_name", @"maxRank": @"max_rank", @"minRank": @"min_rank", @"percent": @"percent", @"value": @"value" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"currencyCode": @"currency_code", @"currencyName": @"currency_name", @"maxRank": @"max_rank", @"minRank": @"min_rank", @"percent": @"percent", @"value": @"value" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"currencyName", ];
+
   return [optionalProperties containsObject:propertyName];
 }
 

@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -36,5 +36,7 @@
 /* The sku id, if available. If multiple are available, then first one is returned [optional]
  */
 @property(nonatomic) NSString* sku;
+
++ (NSDictionary *)modalDictionary;
 
 @end

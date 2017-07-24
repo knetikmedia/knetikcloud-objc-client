@@ -3,11 +3,12 @@
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIReactivateSubscriptionRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPISubscriptionPriceOverrideRequest.h"
 #import "JSAPIApi.h"
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -157,6 +158,26 @@ extern NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode;
 -(NSURLSessionTask*) setUserSubscriptionPlanWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
     planId: (NSString*) planId
+    completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Set a new subscription price for a user
+/// This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+///
+/// @param userId The id of the user
+/// @param inventoryId The id of the user&#39;s inventory
+/// @param theOverrideDetails override (optional)
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return 
+-(NSURLSessionTask*) setUserSubscriptionPriceWithUserId: (NSNumber*) userId
+    inventoryId: (NSNumber*) inventoryId
+    theOverrideDetails: (JSAPISubscriptionPriceOverrideRequest*) theOverrideDetails
     completionHandler: (void (^)(NSError* error)) handler;
 
 

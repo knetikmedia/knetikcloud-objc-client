@@ -107,7 +107,7 @@ JSAPIDevicesApi*apiInstance = [[JSAPIDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **device** | [**JSAPIDeviceResource***](JSAPIDeviceResource*.md)| device | 
+ **device** | [**JSAPIDeviceResource***](JSAPIDeviceResource.md)| device | 
 
 ### Return type
 
@@ -445,7 +445,7 @@ JSAPIDevicesApi*apiInstance = [[JSAPIDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **device** | [**JSAPIDeviceResource***](JSAPIDeviceResource*.md)| device | 
+ **device** | [**JSAPIDeviceResource***](JSAPIDeviceResource.md)| device | 
  **_id** | **NSNumber***| id | 
 
 ### Return type

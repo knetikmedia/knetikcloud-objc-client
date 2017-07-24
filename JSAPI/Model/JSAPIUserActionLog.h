@@ -3,7 +3,7 @@
 
 /**
 * Knetik Platform API Documentation latest 
-* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+* This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 *
 * OpenAPI spec version: latest 
 * Contact: support@knetik.com
@@ -42,5 +42,7 @@
 /* The id of the user that took the action, if any. Read-only if not posting with LOGS_ADMIN [optional]
  */
 @property(nonatomic) NSNumber* userId;
+
++ (NSDictionary *)modalDictionary;
 
 @end

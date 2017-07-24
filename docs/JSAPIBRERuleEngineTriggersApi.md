@@ -49,7 +49,7 @@ JSAPIBRERuleEngineTriggersApi*apiInstance = [[JSAPIBRERuleEngineTriggersApi allo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breTriggerResource** | [**JSAPIBreTriggerResource***](JSAPIBreTriggerResource*.md)| The BRE trigger resource object | [optional] 
+ **breTriggerResource** | [**JSAPIBreTriggerResource***](JSAPIBreTriggerResource.md)| The BRE trigger resource object | [optional] 
 
 ### Return type
 
@@ -290,7 +290,7 @@ JSAPIBRERuleEngineTriggersApi*apiInstance = [[JSAPIBRERuleEngineTriggersApi allo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eventName** | **NSString***| The trigger event name | 
- **breTriggerResource** | [**JSAPIBreTriggerResource***](JSAPIBreTriggerResource*.md)| The BRE trigger resource object | [optional] 
+ **breTriggerResource** | [**JSAPIBreTriggerResource***](JSAPIBreTriggerResource.md)| The BRE trigger resource object | [optional] 
 
 ### Return type
 

@@ -113,7 +113,7 @@ JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pollResource** | [**JSAPIPollResource***](JSAPIPollResource*.md)| The poll object | [optional] 
+ **pollResource** | [**JSAPIPollResource***](JSAPIPollResource.md)| The poll object | [optional] 
 
 ### Return type
 
@@ -168,7 +168,7 @@ JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pollTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The poll template resource object | [optional] 
+ **pollTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The poll template resource object | [optional] 
 
 ### Return type
 
@@ -616,7 +616,7 @@ JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The poll id | 
- **pollResource** | [**JSAPIPollResource***](JSAPIPollResource*.md)| The poll object | [optional] 
+ **pollResource** | [**JSAPIPollResource***](JSAPIPollResource.md)| The poll object | [optional] 
 
 ### Return type
 
@@ -673,7 +673,7 @@ JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **pollTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The poll template resource object | [optional] 
+ **pollTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The poll template resource object | [optional] 
 
 ### Return type
 

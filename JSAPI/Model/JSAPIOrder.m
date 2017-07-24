@@ -17,7 +17,12 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"ascending": @"ascending", @"direction": @"direction", @"ignoreCase": @"ignore_case", @"nullHandling": @"null_handling", @"_property": @"property" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"ascending": @"ascending", @"direction": @"direction", @"ignoreCase": @"ignore_case", @"nullHandling": @"null_handling", @"_property": @"property" };
 }
 
 /**
@@ -28,6 +33,7 @@
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
   NSArray *optionalProperties = @[@"ascending", @"direction", @"ignoreCase", @"nullHandling", @"_property"];
+
   return [optionalProperties containsObject:propertyName];
 }
 

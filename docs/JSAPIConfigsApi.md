@@ -47,7 +47,7 @@ JSAPIConfigsApi*apiInstance = [[JSAPIConfigsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | [**JSAPIConfig***](JSAPIConfig*.md)| The config object | [optional] 
+ **config** | [**JSAPIConfig***](JSAPIConfig.md)| The config object | [optional] 
 
 ### Return type
 
@@ -271,7 +271,7 @@ JSAPIConfigsApi*apiInstance = [[JSAPIConfigsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **NSString***| The config name | 
- **config** | [**JSAPIConfig***](JSAPIConfig*.md)| The config object | [optional] 
+ **config** | [**JSAPIConfig***](JSAPIConfig.md)| The config object | [optional] 
 
 ### Return type
 

@@ -62,7 +62,7 @@ JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsAp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **achievement** | [**JSAPIAchievementDefinitionResource***](JSAPIAchievementDefinitionResource*.md)| The achievement definition | [optional] 
+ **achievement** | [**JSAPIAchievementDefinitionResource***](JSAPIAchievementDefinitionResource.md)| The achievement definition | [optional] 
 
 ### Return type
 
@@ -117,7 +117,7 @@ JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsAp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The achievement template to be created | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The achievement template to be created | [optional] 
 
 ### Return type
 
@@ -1038,7 +1038,7 @@ JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsAp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **NSString***| The name of the achievement | 
- **achievement** | [**JSAPIAchievementDefinitionResource***](JSAPIAchievementDefinitionResource*.md)| The achievement definition | [optional] 
+ **achievement** | [**JSAPIAchievementDefinitionResource***](JSAPIAchievementDefinitionResource.md)| The achievement definition | [optional] 
 
 ### Return type
 
@@ -1095,7 +1095,7 @@ JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsAp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the template | 
- **template** | [**JSAPITemplateResource***](JSAPITemplateResource*.md)| The updated template | [optional] 
+ **template** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The updated template | [optional] 
 
 ### Return type
 

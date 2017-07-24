@@ -47,7 +47,7 @@ JSAPIDispositionsApi*apiInstance = [[JSAPIDispositionsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disposition** | [**JSAPIDispositionResource***](JSAPIDispositionResource*.md)| The new disposition record | [optional] 
+ **disposition** | [**JSAPIDispositionResource***](JSAPIDispositionResource.md)| The new disposition record | [optional] 
 
 ### Return type
 
