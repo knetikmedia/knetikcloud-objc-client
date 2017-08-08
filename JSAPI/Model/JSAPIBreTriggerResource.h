@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBreTriggerParameterDefinition.h"
+@protocol JSAPIBreTriggerParameterDefinition;
+@class JSAPIBreTriggerParameterDefinition;
+
 
 
 @protocol JSAPIBreTriggerResource

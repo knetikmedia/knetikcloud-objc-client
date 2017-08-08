@@ -1,7 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIBehaviorDefinitionResource.h"
+#import "JSAPIInvoiceResource.h"
 #import "JSAPIPageResourceStoreItemTemplateResource_.h"
 #import "JSAPIPageResourceStoreItem_.h"
+#import "JSAPIQuickBuyRequest.h"
 #import "JSAPIResult.h"
 #import "JSAPIStoreItem.h"
 #import "JSAPIStoreItemTemplateResource.h"
@@ -74,7 +76,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteItemTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -91,7 +93,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteStoreItemWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -233,6 +235,23 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
     page: (NSNumber*) page
     order: (NSString*) order
     completionHandler: (void (^)(JSAPIPageResourceStoreItem_* output, NSError* error)) handler;
+
+
+/// One-step purchase and pay for a single SKU item from a user's wallet
+/// Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+///
+/// @param quickBuyRequest Quick buy details (optional)
+/// 
+///  code:200 message:"Item has been purchased, invoice provided in response",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found",
+///  code:409 message:"Invoice total does not match SKU price"
+///
+/// @return JSAPIInvoiceResource*
+-(NSURLSessionTask*) quickBuyWithQuickBuyRequest: (JSAPIQuickBuyRequest*) quickBuyRequest
+    completionHandler: (void (^)(JSAPIInvoiceResource* output, NSError* error)) handler;
 
 
 /// Update an item template

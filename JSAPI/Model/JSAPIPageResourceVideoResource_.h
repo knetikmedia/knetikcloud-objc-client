@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIVideoResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIVideoResource;
+@class JSAPIVideoResource;
+
 
 
 @protocol JSAPIPageResourceVideoResource_

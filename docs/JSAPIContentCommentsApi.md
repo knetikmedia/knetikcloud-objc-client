@@ -284,7 +284,7 @@ No authorization required
 # **updateComment**
 ```objc
 -(NSURLSessionTask*) updateCommentWithId: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -299,7 +299,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @789; // The comment id
-NSString* content = content_example; // The comment content (optional)
+JSAPIStringWrapper* content = [[JSAPIStringWrapper alloc] init]; // The comment content (optional)
 
 JSAPIContentCommentsApi*apiInstance = [[JSAPIContentCommentsApi alloc] init];
 
@@ -318,7 +318,7 @@ JSAPIContentCommentsApi*apiInstance = [[JSAPIContentCommentsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The comment id | 
- **content** | **NSString***| The comment content | [optional] 
+ **content** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The comment content | [optional] 
 
 ### Return type
 

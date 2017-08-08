@@ -17,6 +17,13 @@
 #import "JSAPIActivityEntitlementResource.h"
 #import "JSAPIActivityUserResource.h"
 #import "JSAPISelectedSettingResource.h"
+@protocol JSAPIActivityEntitlementResource;
+@class JSAPIActivityEntitlementResource;
+@protocol JSAPIActivityUserResource;
+@class JSAPIActivityUserResource;
+@protocol JSAPISelectedSettingResource;
+@class JSAPISelectedSettingResource;
+
 
 
 @protocol JSAPIActivityOccurrenceResource

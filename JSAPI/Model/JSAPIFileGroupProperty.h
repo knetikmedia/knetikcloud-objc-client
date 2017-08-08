@@ -16,6 +16,11 @@
 
 #import "JSAPIFileProperty.h"
 #import "JSAPIProperty.h"
+@protocol JSAPIFileProperty;
+@class JSAPIFileProperty;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIFileGroupProperty

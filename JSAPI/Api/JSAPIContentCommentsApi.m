@@ -5,6 +5,7 @@
 #import "JSAPICommentSearch.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 
 
 @interface JSAPIContentCommentsApi ()
@@ -417,7 +418,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) updateCommentWithId: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {

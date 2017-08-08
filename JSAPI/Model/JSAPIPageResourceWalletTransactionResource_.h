@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIWalletTransactionResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIWalletTransactionResource;
+@class JSAPIWalletTransactionResource;
+
 
 
 @protocol JSAPIPageResourceWalletTransactionResource_

@@ -247,7 +247,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setSubscriptionPaymentMethodWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    paymentMethodId: (NSNumber*) paymentMethodId
+    paymentMethodId: (JSAPIIntWrapper*) paymentMethodId
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -265,7 +265,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSNumber* inventoryId = @56; // The id of the user's inventory
-NSNumber* paymentMethodId = 56; // The id of the payment method (optional)
+JSAPIIntWrapper* paymentMethodId = [[JSAPIIntWrapper alloc] init]; // The id of the payment method (optional)
 
 JSAPIUsersSubscriptionsApi*apiInstance = [[JSAPIUsersSubscriptionsApi alloc] init];
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
- **paymentMethodId** | **NSNumber***| The id of the payment method | [optional] 
+ **paymentMethodId** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The id of the payment method | [optional] 
 
 ### Return type
 
@@ -307,13 +307,13 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setSubscriptionStatusWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
 Set the status of a subscription
 
-The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
 
 ### Example 
 ```objc
@@ -325,7 +325,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSNumber* inventoryId = @56; // The id of the user's inventory
-NSString* status = status_example; // The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
+JSAPIStringWrapper* status = [[JSAPIStringWrapper alloc] init]; // The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
 
 JSAPIUsersSubscriptionsApi*apiInstance = [[JSAPIUsersSubscriptionsApi alloc] init];
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
- **status** | **NSString***| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
+ **status** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
 
 ### Return type
 
@@ -367,7 +367,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setUserSubscriptionPlanWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    planId: (NSString*) planId
+    planId: (JSAPIStringWrapper*) planId
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -383,7 +383,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSNumber* inventoryId = @56; // The id of the user's inventory
-NSString* planId = planId_example; // The id of the new plan. Must be from the same subscription (optional)
+JSAPIStringWrapper* planId = [[JSAPIStringWrapper alloc] init]; // The id of the new plan. Must be from the same subscription (optional)
 
 JSAPIUsersSubscriptionsApi*apiInstance = [[JSAPIUsersSubscriptionsApi alloc] init];
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
- **planId** | **NSString***| The id of the new plan. Must be from the same subscription | [optional] 
+ **planId** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The id of the new plan. Must be from the same subscription | [optional] 
 
 ### Return type
 

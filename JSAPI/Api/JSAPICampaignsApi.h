@@ -40,7 +40,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addChallengeToCampaignWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     completionHandler: (void (^)(NSError* error)) handler;
@@ -89,7 +89,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCampaignWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -106,7 +106,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCampaignTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -224,7 +224,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeChallengeFromCampaignWithCampaignId: (NSNumber*) campaignId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;

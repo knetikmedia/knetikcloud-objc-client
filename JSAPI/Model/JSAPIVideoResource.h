@@ -19,6 +19,17 @@
 #import "JSAPISimpleReferenceResourceLong_.h"
 #import "JSAPISimpleReferenceResourceString_.h"
 #import "JSAPISimpleUserResource.h"
+@protocol JSAPICommentResource;
+@class JSAPICommentResource;
+@protocol JSAPIContributionResource;
+@class JSAPIContributionResource;
+@protocol JSAPISimpleReferenceResourceLong_;
+@class JSAPISimpleReferenceResourceLong_;
+@protocol JSAPISimpleReferenceResourceString_;
+@class JSAPISimpleReferenceResourceString_;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+
 
 
 @protocol JSAPIVideoResource

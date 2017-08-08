@@ -16,6 +16,11 @@
 
 #import "JSAPIBillingReport.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBillingReport;
+@class JSAPIBillingReport;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBillingReport_

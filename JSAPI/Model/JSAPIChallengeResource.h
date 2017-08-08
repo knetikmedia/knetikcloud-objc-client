@@ -17,6 +17,13 @@
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
 #import "JSAPISchedule.h"
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPIRewardSetResource;
+@class JSAPIRewardSetResource;
+@protocol JSAPISchedule;
+@class JSAPISchedule;
+
 
 
 @protocol JSAPIChallengeResource

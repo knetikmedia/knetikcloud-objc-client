@@ -15,6 +15,9 @@
 
 
 #import "JSAPIKeyValuePairStringString_.h"
+@protocol JSAPIKeyValuePairStringString_;
+@class JSAPIKeyValuePairStringString_;
+
 
 
 @protocol JSAPITemplateEmailResource

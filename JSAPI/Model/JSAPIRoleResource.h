@@ -15,6 +15,9 @@
 
 
 #import "JSAPIPermissionResource.h"
+@protocol JSAPIPermissionResource;
+@class JSAPIPermissionResource;
+
 
 
 @protocol JSAPIRoleResource

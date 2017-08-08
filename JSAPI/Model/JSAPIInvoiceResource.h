@@ -16,6 +16,11 @@
 
 #import "JSAPIInvoiceItemResource.h"
 #import "JSAPISimpleUserResource.h"
+@protocol JSAPIInvoiceItemResource;
+@class JSAPIInvoiceItemResource;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+
 
 
 @protocol JSAPIInvoiceResource

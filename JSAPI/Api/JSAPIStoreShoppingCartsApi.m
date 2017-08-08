@@ -6,10 +6,12 @@
 #import "JSAPICartShippableResponse.h"
 #import "JSAPICartShippingAddressRequest.h"
 #import "JSAPICouponDefinition.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCartSummary_.h"
 #import "JSAPIResult.h"
 #import "JSAPISampleCountriesResponse.h"
 #import "JSAPISkuRequest.h"
+#import "JSAPIStringWrapper.h"
 
 
 @interface JSAPIStoreShoppingCartsApi ()
@@ -710,7 +712,7 @@ NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) setCartCurrencyWithId: (NSString*) _id
-    currencyCode: (NSString*) currencyCode
+    currencyCode: (JSAPIStringWrapper*) currencyCode
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -782,7 +784,7 @@ NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) setCartOwnerWithId: (NSString*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {

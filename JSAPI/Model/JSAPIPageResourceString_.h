@@ -15,6 +15,9 @@
 
 
 #import "JSAPIOrder.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceString_

@@ -16,6 +16,11 @@
 
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPIRewardSetResource;
+@class JSAPIRewardSetResource;
+
 
 
 @protocol JSAPICampaignResource

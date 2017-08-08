@@ -16,6 +16,11 @@
 
 #import "JSAPIArtistResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIArtistResource;
+@class JSAPIArtistResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceArtistResource_

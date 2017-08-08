@@ -16,6 +16,11 @@
 
 #import "JSAPILevelingResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPILevelingResource;
+@class JSAPILevelingResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceLevelingResource_

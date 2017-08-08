@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**getInvoiceLogs**](JSAPIInvoicesApi.md#getinvoicelogs) | **GET** /invoices/{id}/logs | List invoice logs
 [**getInvoices**](JSAPIInvoicesApi.md#getinvoices) | **GET** /invoices | Retrieve invoices
 [**getPaymentStatuses**](JSAPIInvoicesApi.md#getpaymentstatuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
-[**payInvoice**](JSAPIInvoicesApi.md#payinvoice) | **POST** /invoices/{id}/payments | Trigger payment of an invoice
+[**payInvoice**](JSAPIInvoicesApi.md#payinvoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
 [**setBundledInvoiceItemFulfillmentStatus**](JSAPIInvoicesApi.md#setbundledinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 [**setExternalRef**](JSAPIInvoicesApi.md#setexternalref) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 [**setInvoiceItemFulfillmentStatus**](JSAPIInvoicesApi.md#setinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -402,7 +402,7 @@ No authorization required
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
-Trigger payment of an invoice
+Pay an invoice using a saved payment method
 
 ### Example 
 ```objc
@@ -413,11 +413,11 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @56; // The id of the invoice
-JSAPIPayBySavedMethodRequest* request = [[JSAPIPayBySavedMethodRequest alloc] init]; // Payment info (optional)
+JSAPIPayBySavedMethodRequest* request = [[JSAPIPayBySavedMethodRequest alloc] init]; // The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited. (optional)
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
-// Trigger payment of an invoice
+// Pay an invoice using a saved payment method
 [apiInstance payInvoiceWithId:_id
               request:request
           completionHandler: ^(NSError* error) {
@@ -432,7 +432,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **request** | [**JSAPIPayBySavedMethodRequest***](JSAPIPayBySavedMethodRequest.md)| Payment info | [optional] 
+ **request** | [**JSAPIPayBySavedMethodRequest***](JSAPIPayBySavedMethodRequest.md)| The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited. | [optional] 
 
 ### Return type
 
@@ -454,7 +454,7 @@ void (empty response body)
 -(NSURLSessionTask*) setBundledInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
     bundleSku: (NSString*) bundleSku
     sku: (NSString*) sku
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -473,7 +473,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 NSNumber* _id = @56; // The id of the invoice
 NSString* bundleSku = @"bundleSku_example"; // The sku of the bundle in the invoice that contains the given target
 NSString* sku = @"sku_example"; // The sku of an item in the bundle in the invoice
-NSString* status = status_example; // The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
+JSAPIStringWrapper* status = [[JSAPIStringWrapper alloc] init]; // The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
  **_id** | **NSNumber***| The id of the invoice | 
  **bundleSku** | **NSString***| The sku of the bundle in the invoice that contains the given target | 
  **sku** | **NSString***| The sku of an item in the bundle in the invoice | 
- **status** | **NSString***| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
+ **status** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
 
 ### Return type
 
@@ -516,7 +516,7 @@ void (empty response body)
 # **setExternalRef**
 ```objc
 -(NSURLSessionTask*) setExternalRefWithId: (NSNumber*) _id
-    externalRef: (NSString*) externalRef
+    externalRef: (JSAPIStringWrapper*) externalRef
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -531,7 +531,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @56; // The id of the invoice
-NSString* externalRef = externalRef_example; // External reference info (optional)
+JSAPIStringWrapper* externalRef = [[JSAPIStringWrapper alloc] init]; // External reference info (optional)
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
@@ -550,7 +550,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **externalRef** | **NSString***| External reference info | [optional] 
+ **externalRef** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| External reference info | [optional] 
 
 ### Return type
 
@@ -571,7 +571,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
     sku: (NSString*) sku
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -589,7 +589,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* _id = @56; // The id of the invoice
 NSString* sku = @"sku_example"; // The sku of an item in the invoice
-NSString* status = status_example; // The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
+JSAPIStringWrapper* status = [[JSAPIStringWrapper alloc] init]; // The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
  **sku** | **NSString***| The sku of an item in the invoice | 
- **status** | **NSString***| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
+ **status** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
 
 ### Return type
 
@@ -630,7 +630,7 @@ void (empty response body)
 # **setOrderNotes**
 ```objc
 -(NSURLSessionTask*) setOrderNotesWithId: (NSNumber*) _id
-    orderNotes: (NSString*) orderNotes
+    orderNotes: (JSAPIStringWrapper*) orderNotes
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -645,7 +645,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @56; // The id of the invoice
-NSString* orderNotes = orderNotes_example; // Payment status info (optional)
+JSAPIStringWrapper* orderNotes = [[JSAPIStringWrapper alloc] init]; // Payment status info (optional)
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
@@ -664,7 +664,7 @@ JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the invoice | 
- **orderNotes** | **NSString***| Payment status info | [optional] 
+ **orderNotes** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| Payment status info | [optional] 
 
 ### Return type
 

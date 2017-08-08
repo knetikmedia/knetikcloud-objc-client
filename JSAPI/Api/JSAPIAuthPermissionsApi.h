@@ -53,7 +53,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deletePermissionWithPermission: (NSString*) permission
     force: (NSNumber*) force
     completionHandler: (void (^)(NSError* error)) handler;

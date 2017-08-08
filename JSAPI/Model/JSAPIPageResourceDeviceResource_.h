@@ -16,6 +16,11 @@
 
 #import "JSAPIDeviceResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIDeviceResource;
+@class JSAPIDeviceResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceDeviceResource_

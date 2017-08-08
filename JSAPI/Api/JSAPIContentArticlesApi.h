@@ -70,7 +70,7 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteArticleWithId: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -87,7 +87,7 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteArticleTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;

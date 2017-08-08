@@ -15,6 +15,9 @@
 
 
 #import "JSAPILeaderboardEntryResource.h"
+@protocol JSAPILeaderboardEntryResource;
+@class JSAPILeaderboardEntryResource;
+
 
 
 @protocol JSAPILeaderboardResource

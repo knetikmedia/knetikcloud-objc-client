@@ -55,7 +55,7 @@ extern NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteBRECategoryTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;

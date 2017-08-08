@@ -11,6 +11,7 @@
 #import "JSAPIQuestionResource.h"
 #import "JSAPIQuestionTemplateResource.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 
 
 @interface JSAPIGamificationTriviaApi ()
@@ -140,7 +141,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) addQuestionTagWithId: (NSString*) _id
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -225,7 +226,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSNumber*
 ///
--(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (NSString*) tag
+-(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (JSAPIStringWrapper*) tag
     filterSearch: (NSString*) filterSearch
     filterIdset: (NSString*) filterIdset
     filterCategory: (NSString*) filterCategory
@@ -259,7 +260,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
         queryParams[@"filter_type"] = filterType;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterImportId != nil) {
         queryParams[@"filter_import_id"] = filterImportId;
@@ -1481,7 +1482,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
         queryParams[@"filter_type"] = filterType;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterImportId != nil) {
         queryParams[@"filter_import_id"] = filterImportId;
@@ -1577,7 +1578,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
         queryParams[@"filter_type"] = filterType;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -1662,7 +1663,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (publishNow != nil) {
-        queryParams[@"publish_now"] = publishNow;
+        queryParams[@"publish_now"] = [publishNow isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -1860,7 +1861,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
         queryParams[@"filter_type"] = filterType;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterImportId != nil) {
         queryParams[@"filter_import_id"] = filterImportId;
@@ -2330,7 +2331,7 @@ NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode = 234513;
         queryParams[@"filter_type"] = filterType;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterImportId != nil) {
         queryParams[@"filter_import_id"] = filterImportId;

@@ -338,10 +338,10 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
         queryParams[@"filter_name"] = filterName;
     }
     if (filterEnabled != nil) {
-        queryParams[@"filter_enabled"] = filterEnabled;
+        queryParams[@"filter_enabled"] = [filterEnabled isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterSystem != nil) {
-        queryParams[@"filter_system"] = filterSystem;
+        queryParams[@"filter_system"] = [filterSystem isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterTrigger != nil) {
         queryParams[@"filter_trigger"] = filterTrigger;

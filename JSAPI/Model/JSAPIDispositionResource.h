@@ -15,6 +15,9 @@
 
 
 #import "JSAPISimpleUserResource.h"
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+
 
 
 @protocol JSAPIDispositionResource

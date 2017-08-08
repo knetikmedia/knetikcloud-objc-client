@@ -15,6 +15,9 @@
 
 
 #import "JSAPIImportJobOutputResource.h"
+@protocol JSAPIImportJobOutputResource;
+@class JSAPIImportJobOutputResource;
+
 
 
 @protocol JSAPIImportJobResource

@@ -3,6 +3,7 @@
 #import "JSAPIApiClient.h"
 #import "JSAPIPageResourceSimpleUserResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 
 
 @interface JSAPIUsersFriendshipsApi ()
@@ -373,7 +374,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) redeemFriendshipTokenWithUserId: (NSString*) userId
-    token: (NSString*) token
+    token: (JSAPIStringWrapper*) token
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

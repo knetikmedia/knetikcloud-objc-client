@@ -15,6 +15,9 @@
 
 
 #import "JSAPIActivityEntitlementResource.h"
+@protocol JSAPIActivityEntitlementResource;
+@class JSAPIActivityEntitlementResource;
+
 
 
 @protocol JSAPIActivityOccurrenceJoinResult

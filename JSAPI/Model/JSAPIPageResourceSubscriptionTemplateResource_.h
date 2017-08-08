@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPISubscriptionTemplateResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPISubscriptionTemplateResource;
+@class JSAPISubscriptionTemplateResource;
+
 
 
 @protocol JSAPIPageResourceSubscriptionTemplateResource_

@@ -15,6 +15,9 @@
 
 
 #import "JSAPIPropertyDefinitionResource.h"
+@protocol JSAPIPropertyDefinitionResource;
+@class JSAPIPropertyDefinitionResource;
+
 
 
 @protocol JSAPITemplateResource

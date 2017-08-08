@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIRewardSetResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIRewardSetResource;
+@class JSAPIRewardSetResource;
+
 
 
 @protocol JSAPIPageResourceRewardSetResource_

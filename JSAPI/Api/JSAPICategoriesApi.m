@@ -336,7 +336,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
         queryParams[@"filter_search"] = filterSearch;
     }
     if (filterActive != nil) {
-        queryParams[@"filter_active"] = filterActive;
+        queryParams[@"filter_active"] = [filterActive isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;

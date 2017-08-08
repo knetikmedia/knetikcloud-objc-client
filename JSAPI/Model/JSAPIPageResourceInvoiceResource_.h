@@ -16,6 +16,11 @@
 
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIInvoiceResource;
+@class JSAPIInvoiceResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceInvoiceResource_

@@ -3,11 +3,13 @@
 #import "JSAPIContributionResource.h"
 #import "JSAPIDispositionResource.h"
 #import "JSAPIFlagResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIPageResourceDispositionResource_.h"
 #import "JSAPIPageResourceVideoRelationshipResource_.h"
 #import "JSAPIPageResourceVideoResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIVideoRelationshipResource.h"
 #import "JSAPIVideoResource.h"
 #import "JSAPIApi.h"
@@ -45,9 +47,9 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addUserToVideoWhitelistWithId: (NSNumber*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -97,7 +99,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addVideoContributorWithVideoId: (NSNumber*) videoId
     contributionResource: (JSAPIContributionResource*) contributionResource
     completionHandler: (void (^)(NSError* error)) handler;
@@ -117,7 +119,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///
 /// @return JSAPIFlagResource*
 -(NSURLSessionTask*) addVideoFlagWithVideoId: (NSNumber*) videoId
-    reason: (NSString*) reason
+    reason: (JSAPIStringWrapper*) reason
     completionHandler: (void (^)(JSAPIFlagResource* output, NSError* error)) handler;
 
 
@@ -168,7 +170,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteVideoWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -185,7 +187,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteVideoCommentWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -202,7 +204,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteVideoDispositionWithDispositionId: (NSNumber*) dispositionId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -218,7 +220,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteVideoFlagWithVideoId: (NSNumber*) videoId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -235,7 +237,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteVideoRelationshipWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -395,7 +397,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeUserFromVideoWhitelistWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -413,7 +415,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeVideoContributorWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -431,7 +433,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateVideoWithId: (NSNumber*) _id
     videoResource: (JSAPIVideoResource*) videoResource
     completionHandler: (void (^)(NSError* error)) handler;
@@ -450,10 +452,10 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateVideoCommentWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -470,10 +472,10 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateVideoRelationshipWithVideoId: (NSNumber*) videoId
     relationshipId: (NSNumber*) relationshipId
-    details: (NSString*) details
+    details: (JSAPIStringWrapper*) details
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -488,7 +490,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) viewVideoWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 

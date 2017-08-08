@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ascending** | **NSNumber*** |  | [optional] 
+**descending** | **NSNumber*** |  | [optional] 
 **direction** | **NSString*** |  | [optional] 
 **ignoreCase** | **NSNumber*** |  | [optional] 
 **nullHandling** | **NSString*** |  | [optional] 

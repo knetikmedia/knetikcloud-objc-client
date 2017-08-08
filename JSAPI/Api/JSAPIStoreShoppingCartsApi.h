@@ -4,10 +4,12 @@
 #import "JSAPICartShippableResponse.h"
 #import "JSAPICartShippingAddressRequest.h"
 #import "JSAPICouponDefinition.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCartSummary_.h"
 #import "JSAPIResult.h"
 #import "JSAPISampleCountriesResponse.h"
 #import "JSAPISkuRequest.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIApi.h"
 
 /**
@@ -43,7 +45,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addCustomDiscountWithId: (NSString*) _id
     customDiscount: (JSAPICouponDefinition*) customDiscount
     completionHandler: (void (^)(NSError* error)) handler;
@@ -61,7 +63,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addDiscountToCartWithId: (NSString*) _id
     skuRequest: (JSAPISkuRequest*) skuRequest
     completionHandler: (void (^)(NSError* error)) handler;
@@ -79,7 +81,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addItemToCartWithId: (NSString*) _id
     cartItemRequest: (JSAPICartItemRequest*) cartItemRequest
     completionHandler: (void (^)(NSError* error)) handler;
@@ -185,7 +187,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeDiscountFromCartWithId: (NSString*) _id
     code: (NSString*) code
     completionHandler: (void (^)(NSError* error)) handler;
@@ -203,9 +205,9 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setCartCurrencyWithId: (NSString*) _id
-    currencyCode: (NSString*) currencyCode
+    currencyCode: (JSAPIStringWrapper*) currencyCode
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -221,9 +223,9 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setCartOwnerWithId: (NSString*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -239,7 +241,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateItemInCartWithId: (NSString*) _id
     cartItemRequest: (JSAPICartItemRequest*) cartItemRequest
     completionHandler: (void (^)(NSError* error)) handler;
@@ -257,7 +259,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateShippingAddressWithId: (NSString*) _id
     cartShippingAddressRequest: (JSAPICartShippingAddressRequest*) cartShippingAddressRequest
     completionHandler: (void (^)(NSError* error)) handler;

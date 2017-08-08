@@ -18,6 +18,15 @@
 #import "JSAPICartShippingAddressRequest.h"
 #import "JSAPICartShippingOption.h"
 #import "JSAPICouponDefinition.h"
+@protocol JSAPICartLineItem;
+@class JSAPICartLineItem;
+@protocol JSAPICartShippingAddressRequest;
+@class JSAPICartShippingAddressRequest;
+@protocol JSAPICartShippingOption;
+@class JSAPICartShippingOption;
+@protocol JSAPICouponDefinition;
+@class JSAPICouponDefinition;
+
 
 
 @protocol JSAPICart

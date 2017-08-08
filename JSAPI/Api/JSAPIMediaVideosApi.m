@@ -5,11 +5,13 @@
 #import "JSAPIContributionResource.h"
 #import "JSAPIDispositionResource.h"
 #import "JSAPIFlagResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIPageResourceDispositionResource_.h"
 #import "JSAPIPageResourceVideoRelationshipResource_.h"
 #import "JSAPIPageResourceVideoResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIVideoRelationshipResource.h"
 #import "JSAPIVideoResource.h"
 
@@ -69,7 +71,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) addUserToVideoWhitelistWithId: (NSNumber*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -340,7 +342,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 ///  @returns JSAPIFlagResource*
 ///
 -(NSURLSessionTask*) addVideoFlagWithVideoId: (NSNumber*) videoId
-    reason: (NSString*) reason
+    reason: (JSAPIStringWrapper*) reason
     completionHandler: (void (^)(JSAPIFlagResource* output, NSError* error)) handler {
     // verify the required parameter 'videoId' is set
     if (videoId == nil) {
@@ -958,7 +960,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (excludeFlagged != nil) {
-        queryParams[@"exclude_flagged"] = excludeFlagged;
+        queryParams[@"exclude_flagged"] = [excludeFlagged isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;
@@ -1371,7 +1373,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (excludeFlagged != nil) {
-        queryParams[@"exclude_flagged"] = excludeFlagged;
+        queryParams[@"exclude_flagged"] = [excludeFlagged isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterVideosByUploader != nil) {
         queryParams[@"filter_videos_by_uploader"] = filterVideosByUploader;
@@ -1392,16 +1394,16 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
         queryParams[@"filter_videos_by_author"] = filterVideosByAuthor;
     }
     if (filterHasAuthor != nil) {
-        queryParams[@"filter_has_author"] = filterHasAuthor;
+        queryParams[@"filter_has_author"] = [filterHasAuthor isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterHasUploader != nil) {
-        queryParams[@"filter_has_uploader"] = filterHasUploader;
+        queryParams[@"filter_has_uploader"] = [filterHasUploader isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterRelatedTo != nil) {
         queryParams[@"filter_related_to"] = filterRelatedTo;
     }
     if (filterFriends != nil) {
-        queryParams[@"filter_friends"] = filterFriends;
+        queryParams[@"filter_friends"] = [filterFriends isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterDisposition != nil) {
         queryParams[@"filter_disposition"] = filterDisposition;
@@ -1710,7 +1712,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) updateVideoCommentWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'videoId' is set
     if (videoId == nil) {
@@ -1799,7 +1801,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) updateVideoRelationshipWithVideoId: (NSNumber*) videoId
     relationshipId: (NSNumber*) relationshipId
-    details: (NSString*) details
+    details: (JSAPIStringWrapper*) details
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'videoId' is set
     if (videoId == nil) {

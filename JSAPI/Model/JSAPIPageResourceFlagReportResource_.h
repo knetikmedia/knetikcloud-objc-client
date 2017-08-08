@@ -16,6 +16,11 @@
 
 #import "JSAPIFlagReportResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIFlagReportResource;
+@class JSAPIFlagReportResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceFlagReportResource_

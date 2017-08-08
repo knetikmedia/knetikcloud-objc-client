@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) incrementAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
         completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler;
 ```
 
@@ -892,7 +892,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The user's id
 NSString* achievementName = @"achievementName_example"; // The achievement's name
-NSNumber* progress = 56; // The amount to add to the progress value (optional)
+JSAPIIntWrapper* progress = [[JSAPIIntWrapper alloc] init]; // The amount to add to the progress value (optional)
 
 JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsApi alloc] init];
 
@@ -916,7 +916,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The user&#39;s id | 
  **achievementName** | **NSString***| The achievement&#39;s name | 
- **progress** | **NSNumber***| The amount to add to the progress value | [optional] 
+ **progress** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The amount to add to the progress value | [optional] 
 
 ### Return type
 
@@ -937,7 +937,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) setAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
         completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler;
 ```
 
@@ -955,7 +955,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The user's id
 NSString* achievementName = @"achievementName_example"; // The achievement's name
-NSNumber* progress = 56; // The new progress value (optional)
+JSAPIIntWrapper* progress = [[JSAPIIntWrapper alloc] init]; // The new progress value (optional)
 
 JSAPIGamificationAchievementsApi*apiInstance = [[JSAPIGamificationAchievementsApi alloc] init];
 
@@ -979,7 +979,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The user&#39;s id | 
  **achievementName** | **NSString***| The achievement&#39;s name | 
- **progress** | **NSNumber***| The new progress value | [optional] 
+ **progress** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The new progress value | [optional] 
 
 ### Return type
 

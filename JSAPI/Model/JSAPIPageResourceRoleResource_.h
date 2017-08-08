@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIRoleResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIRoleResource;
+@class JSAPIRoleResource;
+
 
 
 @protocol JSAPIPageResourceRoleResource_

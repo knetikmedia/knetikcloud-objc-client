@@ -16,6 +16,11 @@
 
 #import "JSAPISimpleReferenceResourceInt_.h"
 #import "JSAPISimpleUserResource.h"
+@protocol JSAPISimpleReferenceResourceInt_;
+@class JSAPISimpleReferenceResourceInt_;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+
 
 
 @protocol JSAPIUserItemLogResource

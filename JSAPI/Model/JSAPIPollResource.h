@@ -17,6 +17,13 @@
 #import "JSAPINestedCategory.h"
 #import "JSAPIPollAnswerResource.h"
 #import "JSAPIProperty.h"
+@protocol JSAPINestedCategory;
+@class JSAPINestedCategory;
+@protocol JSAPIPollAnswerResource;
+@class JSAPIPollAnswerResource;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIPollResource

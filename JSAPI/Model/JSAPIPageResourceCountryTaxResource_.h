@@ -16,6 +16,11 @@
 
 #import "JSAPICountryTaxResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICountryTaxResource;
+@class JSAPICountryTaxResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCountryTaxResource_

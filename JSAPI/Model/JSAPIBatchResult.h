@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBatchReturn.h"
+@protocol JSAPIBatchReturn;
+@class JSAPIBatchReturn;
+
 
 
 @protocol JSAPIBatchResult

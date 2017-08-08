@@ -16,6 +16,11 @@
 
 #import "JSAPICurrencyResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICurrencyResource;
+@class JSAPICurrencyResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCurrencyResource_

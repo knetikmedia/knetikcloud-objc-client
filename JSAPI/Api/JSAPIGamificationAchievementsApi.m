@@ -3,6 +3,7 @@
 #import "JSAPIApiClient.h"
 #import "JSAPIAchievementDefinitionResource.h"
 #import "JSAPIBreTriggerResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceAchievementDefinitionResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceUserAchievementGroupResource_.h"
@@ -604,7 +605,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
         queryParams[@"filter_name"] = filterName;
     }
     if (filterHidden != nil) {
-        queryParams[@"filter_hidden"] = filterHidden;
+        queryParams[@"filter_hidden"] = [filterHidden isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;
@@ -616,7 +617,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
         queryParams[@"order"] = order;
     }
     if (filterDerived != nil) {
-        queryParams[@"filter_derived"] = filterDerived;
+        queryParams[@"filter_derived"] = [filterDerived isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -855,7 +856,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterAchievementDerived != nil) {
-        queryParams[@"filter_achievement_derived"] = filterAchievementDerived;
+        queryParams[@"filter_achievement_derived"] = [filterAchievementDerived isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterAchievementTagset != nil) {
         queryParams[@"filter_achievement_tagset"] = filterAchievementTagset;
@@ -953,7 +954,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterAchievementDerived != nil) {
-        queryParams[@"filter_achievement_derived"] = filterAchievementDerived;
+        queryParams[@"filter_achievement_derived"] = [filterAchievementDerived isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterAchievementTagset != nil) {
         queryParams[@"filter_achievement_tagset"] = filterAchievementTagset;
@@ -1034,7 +1035,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterAchievementDerived != nil) {
-        queryParams[@"filter_achievement_derived"] = filterAchievementDerived;
+        queryParams[@"filter_achievement_derived"] = [filterAchievementDerived isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterAchievementTagset != nil) {
         queryParams[@"filter_achievement_tagset"] = filterAchievementTagset;
@@ -1101,7 +1102,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) incrementAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -1190,7 +1191,7 @@ NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

@@ -15,6 +15,9 @@
 
 
 #import "JSAPIDiscount.h"
+@protocol JSAPIDiscount;
+@class JSAPIDiscount;
+
 
 
 @protocol JSAPICartLineItem

@@ -38,7 +38,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addSearchIndexWithType: (NSString*) type
     _id: (NSString*) _id
     object: (NSObject*) object
@@ -56,7 +56,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addSearchMappingsWithMappings: (NSArray<JSAPISearchReferenceMapping>*) mappings
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -73,7 +73,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteSearchIndexWithType: (NSString*) type
     _id: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -90,7 +90,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteSearchIndexesWithType: (NSString*) type
     completionHandler: (void (^)(NSError* error)) handler;
 

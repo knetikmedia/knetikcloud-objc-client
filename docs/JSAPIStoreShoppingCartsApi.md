@@ -525,7 +525,7 @@ void (empty response body)
 # **setCartCurrency**
 ```objc
 -(NSURLSessionTask*) setCartCurrencyWithId: (NSString*) _id
-    currencyCode: (NSString*) currencyCode
+    currencyCode: (JSAPIStringWrapper*) currencyCode
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -542,7 +542,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* _id = @"_id_example"; // The id of the cart
-NSString* currencyCode = currencyCode_example; // The code of the currency (optional)
+JSAPIStringWrapper* currencyCode = [[JSAPIStringWrapper alloc] init]; // The code of the currency (optional)
 
 JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] init];
 
@@ -561,7 +561,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **currencyCode** | **NSString***| The code of the currency | [optional] 
+ **currencyCode** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The code of the currency | [optional] 
 
 ### Return type
 
@@ -581,7 +581,7 @@ void (empty response body)
 # **setCartOwner**
 ```objc
 -(NSURLSessionTask*) setCartOwnerWithId: (NSString*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -596,7 +596,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* _id = @"_id_example"; // The id of the cart
-NSNumber* userId = 56; // The id of the user (optional)
+JSAPIIntWrapper* userId = [[JSAPIIntWrapper alloc] init]; // The id of the user (optional)
 
 JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] init];
 
@@ -615,7 +615,7 @@ JSAPIStoreShoppingCartsApi*apiInstance = [[JSAPIStoreShoppingCartsApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the cart | 
- **userId** | **NSNumber***| The id of the user | [optional] 
+ **userId** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The id of the user | [optional] 
 
 ### Return type
 

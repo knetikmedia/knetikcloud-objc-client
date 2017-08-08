@@ -15,6 +15,9 @@
 
 
 #import "JSAPIPaymentMethodTypeResource.h"
+@protocol JSAPIPaymentMethodTypeResource;
+@class JSAPIPaymentMethodTypeResource;
+
 
 
 @protocol JSAPIPaymentMethodResource

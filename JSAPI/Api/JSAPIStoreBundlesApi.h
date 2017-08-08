@@ -71,7 +71,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteBundleItemWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -88,7 +88,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteBundleTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;

@@ -52,7 +52,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteConfigWithName: (NSString*) name
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -107,7 +107,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateConfigWithName: (NSString*) name
     config: (JSAPIConfig*) config
     completionHandler: (void (^)(NSError* error)) handler;

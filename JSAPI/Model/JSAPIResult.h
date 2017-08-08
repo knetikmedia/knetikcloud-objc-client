@@ -15,6 +15,9 @@
 
 
 #import "JSAPIErrorResource.h"
+@protocol JSAPIErrorResource;
+@class JSAPIErrorResource;
+
 
 
 @protocol JSAPIResult

@@ -17,6 +17,13 @@
 #import "JSAPIAnswerResource.h"
 #import "JSAPINestedCategory.h"
 #import "JSAPIProperty.h"
+@protocol JSAPIAnswerResource;
+@class JSAPIAnswerResource;
+@protocol JSAPINestedCategory;
+@class JSAPINestedCategory;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIQuestionResource

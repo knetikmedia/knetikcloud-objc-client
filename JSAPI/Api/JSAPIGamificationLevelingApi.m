@@ -2,6 +2,7 @@
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
 #import "JSAPIBreTriggerResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPILevelingResource.h"
 #import "JSAPIPageResourceLevelingResource_.h"
 #import "JSAPIPageResourceUserLevelingResource_.h"
@@ -562,7 +563,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) incrementProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -651,7 +652,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

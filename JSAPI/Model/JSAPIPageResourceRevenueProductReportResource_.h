@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIRevenueProductReportResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIRevenueProductReportResource;
+@class JSAPIRevenueProductReportResource;
+
 
 
 @protocol JSAPIPageResourceRevenueProductReportResource_

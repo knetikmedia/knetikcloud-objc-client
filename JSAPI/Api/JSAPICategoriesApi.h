@@ -71,7 +71,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCategoryWithId: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -88,7 +88,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCategoryTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;

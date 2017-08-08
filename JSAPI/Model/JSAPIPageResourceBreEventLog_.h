@@ -16,6 +16,11 @@
 
 #import "JSAPIBreEventLog.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBreEventLog;
+@class JSAPIBreEventLog;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBreEventLog_

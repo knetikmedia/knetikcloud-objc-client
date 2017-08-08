@@ -128,6 +128,8 @@ Import the following:
 #import <JSAPI/JSAPIExpressionObject_.h>
 #import <JSAPI/JSAPIExpressionResource.h>
 #import <JSAPI/JSAPIFacebookToken.h>
+#import <JSAPI/JSAPIFattMerchantPaymentMethod.h>
+#import <JSAPI/JSAPIFattMerchantPaymentMethodRequest.h>
 #import <JSAPI/JSAPIFinalizeBillingAgreementRequest.h>
 #import <JSAPI/JSAPIFinalizePayPalPaymentRequest.h>
 #import <JSAPI/JSAPIFlagReportResource.h>
@@ -144,6 +146,7 @@ Import the following:
 #import <JSAPI/JSAPIIOConfig.h>
 #import <JSAPI/JSAPIImportJobOutputResource.h>
 #import <JSAPI/JSAPIImportJobResource.h>
+#import <JSAPI/JSAPIIntWrapper.h>
 #import <JSAPI/JSAPIIntegerOperationResource.h>
 #import <JSAPI/JSAPIInventorySubscriptionResource.h>
 #import <JSAPI/JSAPIInvoiceCreateRequest.h>
@@ -253,6 +256,7 @@ Import the following:
 #import <JSAPI/JSAPIPasswordResetRequest.h>
 #import <JSAPI/JSAPIPayBySavedMethodRequest.h>
 #import <JSAPI/JSAPIPaymentAuthorizationResource.h>
+#import <JSAPI/JSAPIPaymentMethodDetails.h>
 #import <JSAPI/JSAPIPaymentMethodResource.h>
 #import <JSAPI/JSAPIPaymentMethodTypeResource.h>
 #import <JSAPI/JSAPIPermissionResource.h>
@@ -267,6 +271,7 @@ Import the following:
 #import <JSAPI/JSAPIPropertyFieldResource.h>
 #import <JSAPI/JSAPIQuestionResource.h>
 #import <JSAPI/JSAPIQuestionTemplateResource.h>
+#import <JSAPI/JSAPIQuickBuyRequest.h>
 #import <JSAPI/JSAPIRawEmailResource.h>
 #import <JSAPI/JSAPIRawSMSResource.h>
 #import <JSAPI/JSAPIReactivateSubscriptionRequest.h>
@@ -300,6 +305,7 @@ Import the following:
 #import <JSAPI/JSAPIStateTaxResource.h>
 #import <JSAPI/JSAPIStoreItemTemplateResource.h>
 #import <JSAPI/JSAPIStringOperationResource.h>
+#import <JSAPI/JSAPIStringWrapper.h>
 #import <JSAPI/JSAPIStripeCreatePaymentMethod.h>
 #import <JSAPI/JSAPIStripePaymentRequest.h>
 #import <JSAPI/JSAPISubscriptionCreditResource.h>
@@ -363,6 +369,7 @@ Import the following:
 #import <JSAPI/JSAPIIntegerProperty.h>
 #import <JSAPI/JSAPIIntegerPropertyDefinitionResource.h>
 #import <JSAPI/JSAPILimitedGettable.h>
+#import <JSAPI/JSAPILogLevelEvent.h>
 #import <JSAPI/JSAPILongProperty.h>
 #import <JSAPI/JSAPILongPropertyDefinitionResource.h>
 #import <JSAPI/JSAPINewCustomerEvent.h>
@@ -431,6 +438,7 @@ Import the following:
 #import <JSAPI/JSAPIMessagingApi.h>
 #import <JSAPI/JSAPIPaymentsApi.h>
 #import <JSAPI/JSAPIPaymentsAppleApi.h>
+#import <JSAPI/JSAPIPaymentsFattMerchantApi.h>
 #import <JSAPI/JSAPIPaymentsGoogleApi.h>
 #import <JSAPI/JSAPIPaymentsOptimalApi.h>
 #import <JSAPI/JSAPIPaymentsPayPalClassicApi.h>
@@ -783,7 +791,7 @@ Class | Method | HTTP request | Description
 *JSAPIInvoicesApi* | [**getInvoiceLogs**](docs/JSAPIInvoicesApi.md#getinvoicelogs) | **GET** /invoices/{id}/logs | List invoice logs
 *JSAPIInvoicesApi* | [**getInvoices**](docs/JSAPIInvoicesApi.md#getinvoices) | **GET** /invoices | Retrieve invoices
 *JSAPIInvoicesApi* | [**getPaymentStatuses**](docs/JSAPIInvoicesApi.md#getpaymentstatuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
-*JSAPIInvoicesApi* | [**payInvoice**](docs/JSAPIInvoicesApi.md#payinvoice) | **POST** /invoices/{id}/payments | Trigger payment of an invoice
+*JSAPIInvoicesApi* | [**payInvoice**](docs/JSAPIInvoicesApi.md#payinvoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
 *JSAPIInvoicesApi* | [**setBundledInvoiceItemFulfillmentStatus**](docs/JSAPIInvoicesApi.md#setbundledinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 *JSAPIInvoicesApi* | [**setExternalRef**](docs/JSAPIInvoicesApi.md#setexternalref) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 *JSAPIInvoicesApi* | [**setInvoiceItemFulfillmentStatus**](docs/JSAPIInvoicesApi.md#setinvoiceitemfulfillmentstatus) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -850,6 +858,7 @@ Class | Method | HTTP request | Description
 *JSAPIPaymentsApi* | [**paymentCapture**](docs/JSAPIPaymentsApi.md#paymentcapture) | **POST** /payment/authorizations/{id}/capture | Capture an existing invoice payment authorization
 *JSAPIPaymentsApi* | [**updatePaymentMethod**](docs/JSAPIPaymentsApi.md#updatepaymentmethod) | **PUT** /users/{user_id}/payment-methods/{id} | Update an existing payment method for a user
 *JSAPIPaymentsAppleApi* | [**verifyAppleReceipt**](docs/JSAPIPaymentsAppleApi.md#verifyapplereceipt) | **POST** /payment/provider/apple/receipt | Pay invoice with Apple receipt
+*JSAPIPaymentsFattMerchantApi* | [**createOrUpdateFattMerchantPaymentMethod**](docs/JSAPIPaymentsFattMerchantApi.md#createorupdatefattmerchantpaymentmethod) | **PUT** /payment/provider/fattmerchant/payment-methods | Create or update a FattMerchant payment method for a user
 *JSAPIPaymentsGoogleApi* | [**handleGooglePayment**](docs/JSAPIPaymentsGoogleApi.md#handlegooglepayment) | **POST** /payment/provider/google/payments | Mark an invoice paid with Google
 *JSAPIPaymentsOptimalApi* | [**silentPostOptimal**](docs/JSAPIPaymentsOptimalApi.md#silentpostoptimal) | **POST** /payment/provider/optimal/silent | Initiate silent post with Optimal
 *JSAPIPaymentsPayPalClassicApi* | [**createPayPalBillingAgreementUrl**](docs/JSAPIPaymentsPayPalClassicApi.md#createpaypalbillingagreementurl) | **POST** /payment/provider/paypal/classic/agreements/start | Create a PayPal Classic billing agreement for the user
@@ -903,6 +912,7 @@ Class | Method | HTTP request | Description
 *JSAPIStoreApi* | [**getStore**](docs/JSAPIStoreApi.md#getstore) | **GET** /store | Get a listing of store items
 *JSAPIStoreApi* | [**getStoreItem**](docs/JSAPIStoreApi.md#getstoreitem) | **GET** /store/items/{id} | Get a single store item
 *JSAPIStoreApi* | [**getStoreItems**](docs/JSAPIStoreApi.md#getstoreitems) | **GET** /store/items | List and search store items
+*JSAPIStoreApi* | [**quickBuy**](docs/JSAPIStoreApi.md#quickbuy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 *JSAPIStoreApi* | [**updateItemTemplate**](docs/JSAPIStoreApi.md#updateitemtemplate) | **PUT** /store/items/templates/{id} | Update an item template
 *JSAPIStoreApi* | [**updateStoreItem**](docs/JSAPIStoreApi.md#updatestoreitem) | **PUT** /store/items/{id} | Update a store item
 *JSAPIStoreBundlesApi* | [**createBundleItem**](docs/JSAPIStoreBundlesApi.md#createbundleitem) | **POST** /store/bundles | Create a bundle item
@@ -1162,6 +1172,8 @@ Class | Method | HTTP request | Description
  - [JSAPIExpressionObject_](docs/JSAPIExpressionObject_.md)
  - [JSAPIExpressionResource](docs/JSAPIExpressionResource.md)
  - [JSAPIFacebookToken](docs/JSAPIFacebookToken.md)
+ - [JSAPIFattMerchantPaymentMethod](docs/JSAPIFattMerchantPaymentMethod.md)
+ - [JSAPIFattMerchantPaymentMethodRequest](docs/JSAPIFattMerchantPaymentMethodRequest.md)
  - [JSAPIFinalizeBillingAgreementRequest](docs/JSAPIFinalizeBillingAgreementRequest.md)
  - [JSAPIFinalizePayPalPaymentRequest](docs/JSAPIFinalizePayPalPaymentRequest.md)
  - [JSAPIFlagReportResource](docs/JSAPIFlagReportResource.md)
@@ -1178,6 +1190,7 @@ Class | Method | HTTP request | Description
  - [JSAPIIOConfig](docs/JSAPIIOConfig.md)
  - [JSAPIImportJobOutputResource](docs/JSAPIImportJobOutputResource.md)
  - [JSAPIImportJobResource](docs/JSAPIImportJobResource.md)
+ - [JSAPIIntWrapper](docs/JSAPIIntWrapper.md)
  - [JSAPIIntegerOperationResource](docs/JSAPIIntegerOperationResource.md)
  - [JSAPIInventorySubscriptionResource](docs/JSAPIInventorySubscriptionResource.md)
  - [JSAPIInvoiceCreateRequest](docs/JSAPIInvoiceCreateRequest.md)
@@ -1287,6 +1300,7 @@ Class | Method | HTTP request | Description
  - [JSAPIPasswordResetRequest](docs/JSAPIPasswordResetRequest.md)
  - [JSAPIPayBySavedMethodRequest](docs/JSAPIPayBySavedMethodRequest.md)
  - [JSAPIPaymentAuthorizationResource](docs/JSAPIPaymentAuthorizationResource.md)
+ - [JSAPIPaymentMethodDetails](docs/JSAPIPaymentMethodDetails.md)
  - [JSAPIPaymentMethodResource](docs/JSAPIPaymentMethodResource.md)
  - [JSAPIPaymentMethodTypeResource](docs/JSAPIPaymentMethodTypeResource.md)
  - [JSAPIPermissionResource](docs/JSAPIPermissionResource.md)
@@ -1301,6 +1315,7 @@ Class | Method | HTTP request | Description
  - [JSAPIPropertyFieldResource](docs/JSAPIPropertyFieldResource.md)
  - [JSAPIQuestionResource](docs/JSAPIQuestionResource.md)
  - [JSAPIQuestionTemplateResource](docs/JSAPIQuestionTemplateResource.md)
+ - [JSAPIQuickBuyRequest](docs/JSAPIQuickBuyRequest.md)
  - [JSAPIRawEmailResource](docs/JSAPIRawEmailResource.md)
  - [JSAPIRawSMSResource](docs/JSAPIRawSMSResource.md)
  - [JSAPIReactivateSubscriptionRequest](docs/JSAPIReactivateSubscriptionRequest.md)
@@ -1334,6 +1349,7 @@ Class | Method | HTTP request | Description
  - [JSAPIStateTaxResource](docs/JSAPIStateTaxResource.md)
  - [JSAPIStoreItemTemplateResource](docs/JSAPIStoreItemTemplateResource.md)
  - [JSAPIStringOperationResource](docs/JSAPIStringOperationResource.md)
+ - [JSAPIStringWrapper](docs/JSAPIStringWrapper.md)
  - [JSAPIStripeCreatePaymentMethod](docs/JSAPIStripeCreatePaymentMethod.md)
  - [JSAPIStripePaymentRequest](docs/JSAPIStripePaymentRequest.md)
  - [JSAPISubscriptionCreditResource](docs/JSAPISubscriptionCreditResource.md)
@@ -1397,6 +1413,7 @@ Class | Method | HTTP request | Description
  - [JSAPIIntegerProperty](docs/JSAPIIntegerProperty.md)
  - [JSAPIIntegerPropertyDefinitionResource](docs/JSAPIIntegerPropertyDefinitionResource.md)
  - [JSAPILimitedGettable](docs/JSAPILimitedGettable.md)
+ - [JSAPILogLevelEvent](docs/JSAPILogLevelEvent.md)
  - [JSAPILongProperty](docs/JSAPILongProperty.md)
  - [JSAPILongPropertyDefinitionResource](docs/JSAPILongPropertyDefinitionResource.md)
  - [JSAPINewCustomerEvent](docs/JSAPINewCustomerEvent.md)

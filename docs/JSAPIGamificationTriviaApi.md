@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **addQuestionTag**
 ```objc
 -(NSURLSessionTask*) addQuestionTagWithId: (NSString*) _id
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -111,7 +111,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* _id = @"_id_example"; // The id of the question
-NSString* tag = tag_example; // The new tag (optional)
+JSAPIStringWrapper* tag = [[JSAPIStringWrapper alloc] init]; // The new tag (optional)
 
 JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] init];
 
@@ -130,7 +130,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The id of the question | 
- **tag** | **NSString***| The new tag | [optional] 
+ **tag** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new tag | [optional] 
 
 ### Return type
 
@@ -149,7 +149,7 @@ void (empty response body)
 
 # **addTagToQuestionsBatch**
 ```objc
--(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (NSString*) tag
+-(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (JSAPIStringWrapper*) tag
     filterSearch: (NSString*) filterSearch
     filterIdset: (NSString*) filterIdset
     filterCategory: (NSString*) filterCategory
@@ -173,7 +173,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-NSString* tag = tag_example; // The tag to add (optional)
+JSAPIStringWrapper* tag = [[JSAPIStringWrapper alloc] init]; // The tag to add (optional)
 NSString* filterSearch = @"filterSearch_example"; // Filter for documents whose question, answers or tags contains provided string (optional)
 NSString* filterIdset = @"filterIdset_example"; // Filter for documents whose id is in the comma separated list provided (optional)
 NSString* filterCategory = @"filterCategory_example"; // Filter for questions with specified category, by id (optional)
@@ -209,7 +209,7 @@ JSAPIGamificationTriviaApi*apiInstance = [[JSAPIGamificationTriviaApi alloc] ini
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag** | **NSString***| The tag to add | [optional] 
+ **tag** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The tag to add | [optional] 
  **filterSearch** | **NSString***| Filter for documents whose question, answers or tags contains provided string | [optional] 
  **filterIdset** | **NSString***| Filter for documents whose id is in the comma separated list provided | [optional] 
  **filterCategory** | **NSString***| Filter for questions with specified category, by id | [optional] 

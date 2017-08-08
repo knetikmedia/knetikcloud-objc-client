@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIUserBaseResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIUserBaseResource;
+@class JSAPIUserBaseResource;
+
 
 
 @protocol JSAPIPageResourceUserBaseResource_

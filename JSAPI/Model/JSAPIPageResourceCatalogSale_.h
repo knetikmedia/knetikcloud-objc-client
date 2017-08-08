@@ -16,6 +16,11 @@
 
 #import "JSAPICatalogSale.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICatalogSale;
+@class JSAPICatalogSale;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCatalogSale_

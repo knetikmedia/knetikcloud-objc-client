@@ -16,6 +16,11 @@
 
 #import "JSAPIAchievementDefinitionResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIAchievementDefinitionResource;
+@class JSAPIAchievementDefinitionResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceAchievementDefinitionResource_

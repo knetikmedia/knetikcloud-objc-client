@@ -16,6 +16,11 @@
 
 #import "JSAPIEntitlementItem.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIEntitlementItem;
+@class JSAPIEntitlementItem;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceEntitlementItem_

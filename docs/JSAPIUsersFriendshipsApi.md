@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 # **redeemFriendshipToken**
 ```objc
 -(NSURLSessionTask*) redeemFriendshipTokenWithUserId: (NSString*) userId
-    token: (NSString*) token
+    token: (JSAPIStringWrapper*) token
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -267,7 +267,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* userId = @"userId_example"; // The id of the user or 'me' if logged in
-NSString* token = token_example; // The invite token (optional)
+JSAPIStringWrapper* token = [[JSAPIStringWrapper alloc] init]; // The invite token (optional)
 
 JSAPIUsersFriendshipsApi*apiInstance = [[JSAPIUsersFriendshipsApi alloc] init];
 
@@ -286,7 +286,7 @@ JSAPIUsersFriendshipsApi*apiInstance = [[JSAPIUsersFriendshipsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSString***| The id of the user or &#39;me&#39; if logged in | 
- **token** | **NSString***| The invite token | [optional] 
+ **token** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The invite token | [optional] 
 
 ### Return type
 

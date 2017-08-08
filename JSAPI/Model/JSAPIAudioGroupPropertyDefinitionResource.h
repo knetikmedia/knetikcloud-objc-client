@@ -16,6 +16,11 @@
 
 #import "JSAPIFileGroupPropertyDefinitionResource.h"
 #import "JSAPIPropertyFieldListResource.h"
+@protocol JSAPIFileGroupPropertyDefinitionResource;
+@class JSAPIFileGroupPropertyDefinitionResource;
+@protocol JSAPIPropertyFieldListResource;
+@class JSAPIPropertyFieldListResource;
+
 
 
 @protocol JSAPIAudioGroupPropertyDefinitionResource

@@ -15,6 +15,9 @@
 
 
 #import "JSAPISettingOption.h"
+@protocol JSAPISettingOption;
+@class JSAPISettingOption;
+
 
 
 @protocol JSAPIAvailableSettingResource

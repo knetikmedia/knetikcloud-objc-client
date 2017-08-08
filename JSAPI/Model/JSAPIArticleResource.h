@@ -16,6 +16,11 @@
 
 #import "JSAPINestedCategory.h"
 #import "JSAPIProperty.h"
+@protocol JSAPINestedCategory;
+@class JSAPINestedCategory;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIArticleResource

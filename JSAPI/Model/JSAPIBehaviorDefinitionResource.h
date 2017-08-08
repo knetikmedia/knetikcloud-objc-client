@@ -16,6 +16,11 @@
 
 #import "JSAPIBehavior.h"
 #import "JSAPIPropertyFieldResource.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+@protocol JSAPIPropertyFieldResource;
+@class JSAPIPropertyFieldResource;
+
 
 
 @protocol JSAPIBehaviorDefinitionResource

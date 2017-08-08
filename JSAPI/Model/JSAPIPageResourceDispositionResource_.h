@@ -16,6 +16,11 @@
 
 #import "JSAPIDispositionResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIDispositionResource;
+@class JSAPIDispositionResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceDispositionResource_

@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBreRuleLog.h"
+@protocol JSAPIBreRuleLog;
+@class JSAPIBreRuleLog;
+
 
 
 @protocol JSAPIBreEventLog

@@ -275,7 +275,7 @@ NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterSystem != nil) {
-        queryParams[@"filter_system"] = filterSystem;
+        queryParams[@"filter_system"] = [filterSystem isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterCategory != nil) {
         queryParams[@"filter_category"] = filterCategory;

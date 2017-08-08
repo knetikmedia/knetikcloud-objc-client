@@ -16,6 +16,11 @@
 
 #import "JSAPIBehavior.h"
 #import "JSAPIProperty.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIItem

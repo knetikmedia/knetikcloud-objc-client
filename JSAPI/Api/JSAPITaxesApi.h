@@ -72,7 +72,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCountryTaxWithCountryCodeIso3: (NSString*) countryCodeIso3
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -89,7 +89,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteStateTaxWithCountryCodeIso3: (NSString*) countryCodeIso3
     stateCode: (NSString*) stateCode
     completionHandler: (void (^)(NSError* error)) handler;

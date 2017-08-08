@@ -15,6 +15,9 @@
 
 
 #import "JSAPIExpressionResource.h"
+@protocol JSAPIExpressionResource;
+@class JSAPIExpressionResource;
+
 
 
 @protocol JSAPIDoubleOperationResource

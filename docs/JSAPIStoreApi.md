@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getStore**](JSAPIStoreApi.md#getstore) | **GET** /store | Get a listing of store items
 [**getStoreItem**](JSAPIStoreApi.md#getstoreitem) | **GET** /store/items/{id} | Get a single store item
 [**getStoreItems**](JSAPIStoreApi.md#getstoreitems) | **GET** /store/items | List and search store items
+[**quickBuy**](JSAPIStoreApi.md#quickbuy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 [**updateItemTemplate**](JSAPIStoreApi.md#updateitemtemplate) | **PUT** /store/items/templates/{id} | Update an item template
 [**updateStoreItem**](JSAPIStoreApi.md#updatestoreitem) | **PUT** /store/items/{id} | Update a store item
 
@@ -619,6 +620,61 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **quickBuy**
+```objc
+-(NSURLSessionTask*) quickBuyWithQuickBuyRequest: (JSAPIQuickBuyRequest*) quickBuyRequest
+        completionHandler: (void (^)(JSAPIInvoiceResource* output, NSError* error)) handler;
+```
+
+One-step purchase and pay for a single SKU item from a user's wallet
+
+Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+JSAPIQuickBuyRequest* quickBuyRequest = [[JSAPIQuickBuyRequest alloc] init]; // Quick buy details (optional)
+
+JSAPIStoreApi*apiInstance = [[JSAPIStoreApi alloc] init];
+
+// One-step purchase and pay for a single SKU item from a user's wallet
+[apiInstance quickBuyWithQuickBuyRequest:quickBuyRequest
+          completionHandler: ^(JSAPIInvoiceResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIStoreApi->quickBuy: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quickBuyRequest** | [**JSAPIQuickBuyRequest***](JSAPIQuickBuyRequest.md)| Quick buy details | [optional] 
+
+### Return type
+
+[**JSAPIInvoiceResource***](JSAPIInvoiceResource.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

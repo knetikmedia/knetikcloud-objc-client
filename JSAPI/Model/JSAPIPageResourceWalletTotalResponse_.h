@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIWalletTotalResponse.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIWalletTotalResponse;
+@class JSAPIWalletTotalResponse;
+
 
 
 @protocol JSAPIPageResourceWalletTotalResponse_

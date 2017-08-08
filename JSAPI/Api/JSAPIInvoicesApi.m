@@ -9,6 +9,7 @@
 #import "JSAPIPageResourceInvoiceResource_.h"
 #import "JSAPIPayBySavedMethodRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 
 
 @interface JSAPIInvoicesApi ()
@@ -517,11 +518,11 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Trigger payment of an invoice
+/// Pay an invoice using a saved payment method
 /// 
 ///  @param _id The id of the invoice 
 ///
-///  @param request Payment info (optional)
+///  @param request The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited. (optional)
 ///
 ///  @returns void
 ///
@@ -604,7 +605,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 -(NSURLSessionTask*) setBundledInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
     bundleSku: (NSString*) bundleSku
     sku: (NSString*) sku
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -715,7 +716,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) setExternalRefWithId: (NSNumber*) _id
-    externalRef: (NSString*) externalRef
+    externalRef: (JSAPIStringWrapper*) externalRef
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -790,7 +791,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setInvoiceItemFulfillmentStatusWithId: (NSNumber*) _id
     sku: (NSString*) sku
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -887,7 +888,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) setOrderNotesWithId: (NSNumber*) _id
-    orderNotes: (NSString*) orderNotes
+    orderNotes: (JSAPIStringWrapper*) orderNotes
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {

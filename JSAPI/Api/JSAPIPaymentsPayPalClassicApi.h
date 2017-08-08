@@ -86,7 +86,7 @@ extern NSInteger kJSAPIPaymentsPayPalClassicApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) finalizePayPalCheckoutWithRequest: (JSAPIFinalizePayPalPaymentRequest*) request
     completionHandler: (void (^)(NSError* error)) handler;
 

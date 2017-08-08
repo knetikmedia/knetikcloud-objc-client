@@ -9,6 +9,7 @@
 #import "JSAPIQuestionResource.h"
 #import "JSAPIQuestionTemplateResource.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIApi.h"
 
 /**
@@ -62,9 +63,9 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addQuestionTagWithId: (NSString*) _id
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -88,7 +89,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSNumber*
--(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (NSString*) tag
+-(NSURLSessionTask*) addTagToQuestionsBatchWithTag: (JSAPIStringWrapper*) tag
     filterSearch: (NSString*) filterSearch
     filterIdset: (NSString*) filterIdset
     filterCategory: (NSString*) filterCategory
@@ -159,7 +160,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteImportJobWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -175,7 +176,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteQuestionWithId: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -192,7 +193,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteQuestionAnswersWithQuestionId: (NSString*) questionId
     _id: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -210,7 +211,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteQuestionTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -472,7 +473,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeQuestionTagWithId: (NSString*) _id
     tag: (NSString*) tag
     completionHandler: (void (^)(NSError* error)) handler;
@@ -579,7 +580,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateQuestionAnswerWithQuestionId: (NSString*) questionId
     _id: (NSString*) _id
     answer: (JSAPIAnswerResource*) answer

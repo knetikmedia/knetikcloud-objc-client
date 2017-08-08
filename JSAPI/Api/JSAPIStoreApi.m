@@ -2,8 +2,10 @@
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
 #import "JSAPIBehaviorDefinitionResource.h"
+#import "JSAPIInvoiceResource.h"
 #import "JSAPIPageResourceStoreItemTemplateResource_.h"
 #import "JSAPIPageResourceStoreItem_.h"
+#import "JSAPIQuickBuyRequest.h"
 #import "JSAPIResult.h"
 #import "JSAPIStoreItem.h"
 #import "JSAPIStoreItemTemplateResource.h"
@@ -127,7 +129,7 @@ NSInteger kJSAPIStoreApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (cascade != nil) {
-        queryParams[@"cascade"] = cascade;
+        queryParams[@"cascade"] = [cascade isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -534,13 +536,13 @@ NSInteger kJSAPIStoreApiMissingParamErrorCode = 234513;
         queryParams[@"page"] = page;
     }
     if (useCatalog != nil) {
-        queryParams[@"use_catalog"] = useCatalog;
+        queryParams[@"use_catalog"] = [useCatalog isEqual:@(YES)] ? @"true" : @"false";
     }
     if (ignoreLocation != nil) {
-        queryParams[@"ignore_location"] = ignoreLocation;
+        queryParams[@"ignore_location"] = [ignoreLocation isEqual:@(YES)] ? @"true" : @"false";
     }
     if (inStockOnly != nil) {
-        queryParams[@"in_stock_only"] = inStockOnly;
+        queryParams[@"in_stock_only"] = [inStockOnly isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -719,10 +721,10 @@ NSInteger kJSAPIStoreApiMissingParamErrorCode = 234513;
         queryParams[@"filter_unique_key"] = filterUniqueKey;
     }
     if (filterPublished != nil) {
-        queryParams[@"filter_published"] = filterPublished;
+        queryParams[@"filter_published"] = [filterPublished isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterDisplayable != nil) {
-        queryParams[@"filter_displayable"] = filterDisplayable;
+        queryParams[@"filter_displayable"] = [filterDisplayable isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterStart != nil) {
         queryParams[@"filter_start"] = filterStart;
@@ -799,6 +801,61 @@ NSInteger kJSAPIStoreApiMissingParamErrorCode = 234513;
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
                                     handler((JSAPIPageResourceStoreItem_*)data, error);
+                                }
+                            }];
+}
+
+///
+/// One-step purchase and pay for a single SKU item from a user's wallet
+/// Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+///  @param quickBuyRequest Quick buy details (optional)
+///
+///  @returns JSAPIInvoiceResource*
+///
+-(NSURLSessionTask*) quickBuyWithQuickBuyRequest: (JSAPIQuickBuyRequest*) quickBuyRequest
+    completionHandler: (void (^)(JSAPIInvoiceResource* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/store/quick-buy"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"OAuth2"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = quickBuyRequest;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIInvoiceResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIInvoiceResource*)data, error);
                                 }
                             }];
 }
@@ -910,7 +967,7 @@ NSInteger kJSAPIStoreApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (cascade != nil) {
-        queryParams[@"cascade"] = cascade;
+        queryParams[@"cascade"] = [cascade isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

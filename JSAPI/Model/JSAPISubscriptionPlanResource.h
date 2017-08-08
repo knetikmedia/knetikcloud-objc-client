@@ -15,6 +15,9 @@
 
 
 #import "JSAPIProperty.h"
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPISubscriptionPlanResource

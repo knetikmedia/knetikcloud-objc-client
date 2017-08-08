@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBatchRequest.h"
+@protocol JSAPIBatchRequest;
+@class JSAPIBatchRequest;
+
 
 
 @protocol JSAPIBatch

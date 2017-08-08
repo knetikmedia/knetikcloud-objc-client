@@ -34,7 +34,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteMaintenanceWithCompletionHandler: 
     (void (^)(NSError* error)) handler;
 
@@ -65,7 +65,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setMaintenanceWithMaintenance: (JSAPIMaintenance*) maintenance
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -81,7 +81,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateMaintenanceWithMaintenance: (JSAPIMaintenance*) maintenance
     completionHandler: (void (^)(NSError* error)) handler;
 

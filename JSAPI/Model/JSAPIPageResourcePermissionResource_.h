@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIPermissionResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIPermissionResource;
+@class JSAPIPermissionResource;
+
 
 
 @protocol JSAPIPageResourcePermissionResource_

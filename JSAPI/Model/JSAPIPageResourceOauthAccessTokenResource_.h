@@ -16,6 +16,11 @@
 
 #import "JSAPIOauthAccessTokenResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIOauthAccessTokenResource;
+@class JSAPIOauthAccessTokenResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceOauthAccessTokenResource_

@@ -15,6 +15,9 @@
 
 
 #import "JSAPIUserAchievementResource.h"
+@protocol JSAPIUserAchievementResource;
+@class JSAPIUserAchievementResource;
+
 
 
 @protocol JSAPIUserAchievementGroupResource

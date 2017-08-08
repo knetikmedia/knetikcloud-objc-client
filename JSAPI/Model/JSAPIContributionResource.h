@@ -15,6 +15,9 @@
 
 
 #import "JSAPISimpleReferenceResourceLong_.h"
+@protocol JSAPISimpleReferenceResourceLong_;
+@class JSAPISimpleReferenceResourceLong_;
+
 
 
 @protocol JSAPIContributionResource

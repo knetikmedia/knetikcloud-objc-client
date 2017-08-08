@@ -16,6 +16,11 @@
 
 #import "JSAPIRewardCurrencyResource.h"
 #import "JSAPIRewardItemResource.h"
+@protocol JSAPIRewardCurrencyResource;
+@class JSAPIRewardCurrencyResource;
+@protocol JSAPIRewardItemResource;
+@class JSAPIRewardItemResource;
+
 
 
 @protocol JSAPIRewardSetResource

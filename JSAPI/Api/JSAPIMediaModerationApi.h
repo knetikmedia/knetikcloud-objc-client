@@ -75,7 +75,7 @@ extern NSInteger kJSAPIMediaModerationApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateModerationReportWithId: (NSNumber*) _id
     flagReportResource: (JSAPIFlagReportResource*) flagReportResource
     completionHandler: (void (^)(NSError* error)) handler;

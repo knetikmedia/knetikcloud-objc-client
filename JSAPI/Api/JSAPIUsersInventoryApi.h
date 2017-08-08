@@ -64,7 +64,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) checkUserEntitlementItemWithUserId: (NSString*) userId
     itemId: (NSNumber*) itemId
     sku: (NSString*) sku
@@ -116,7 +116,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteEntitlementItemWithEntitlementId: (NSNumber*) entitlementId
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -133,7 +133,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteEntitlementTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -325,7 +325,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) grantUserEntitlementWithUserId: (NSNumber*) userId
     grantRequest: (JSAPIEntitlementGrantRequest*) grantRequest
     completionHandler: (void (^)(NSError* error)) handler;
@@ -344,7 +344,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateEntitlementItemWithEntitlementId: (NSNumber*) entitlementId
     cascade: (NSNumber*) cascade
     entitlementItem: (JSAPIEntitlementItem*) entitlementItem
@@ -382,7 +382,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateUserInventoryBehaviorDataWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
     data: (NSObject*) data
@@ -402,7 +402,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateUserInventoryExpiresWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
     timestamp: (NSNumber*) timestamp
@@ -422,7 +422,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateUserInventoryStatusWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
     inventoryStatus: (NSString*) inventoryStatus
@@ -443,7 +443,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) useUserEntitlementItemWithUserId: (NSString*) userId
     itemId: (NSNumber*) itemId
     sku: (NSString*) sku

@@ -16,6 +16,11 @@
 
 #import "JSAPICampaignResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICampaignResource;
+@class JSAPICampaignResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCampaignResource_

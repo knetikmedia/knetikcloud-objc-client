@@ -140,7 +140,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (force != nil) {
-        queryParams[@"force"] = force;
+        queryParams[@"force"] = [force isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -321,6 +321,10 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 ///
 /// List and search roles
 /// 
+///  @param filterName Filter for roles that have a name starting with specified string (optional)
+///
+///  @param filterRole Filter for roles that have a role starting with specified string (optional)
+///
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -329,7 +333,9 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 ///
 ///  @returns JSAPIPageResourceRoleResource_*
 ///
--(NSURLSessionTask*) getRolesWithSize: (NSNumber*) size
+-(NSURLSessionTask*) getRolesWithFilterName: (NSString*) filterName
+    filterRole: (NSString*) filterRole
+    size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
     completionHandler: (void (^)(JSAPIPageResourceRoleResource_* output, NSError* error)) handler {
@@ -338,6 +344,12 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (filterName != nil) {
+        queryParams[@"filter_name"] = filterName;
+    }
+    if (filterRole != nil) {
+        queryParams[@"filter_role"] = filterRole;
+    }
     if (size != nil) {
         queryParams[@"size"] = size;
     }

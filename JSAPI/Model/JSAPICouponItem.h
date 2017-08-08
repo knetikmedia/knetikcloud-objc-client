@@ -18,6 +18,15 @@
 #import "JSAPIProperty.h"
 #import "JSAPISku.h"
 #import "JSAPIStoreItem.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPISku;
+@class JSAPISku;
+@protocol JSAPIStoreItem;
+@class JSAPIStoreItem;
+
 
 
 @protocol JSAPICouponItem

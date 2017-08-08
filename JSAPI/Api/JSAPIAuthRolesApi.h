@@ -55,7 +55,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteRoleWithRole: (NSString*) role
     force: (NSNumber*) force
     completionHandler: (void (^)(NSError* error)) handler;
@@ -96,6 +96,8 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 /// List and search roles
 /// 
 ///
+/// @param filterName Filter for roles that have a name starting with specified string (optional)
+/// @param filterRole Filter for roles that have a role starting with specified string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
 /// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -107,7 +109,9 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIPageResourceRoleResource_*
--(NSURLSessionTask*) getRolesWithSize: (NSNumber*) size
+-(NSURLSessionTask*) getRolesWithFilterName: (NSString*) filterName
+    filterRole: (NSString*) filterRole
+    size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
     completionHandler: (void (^)(JSAPIPageResourceRoleResource_* output, NSError* error)) handler;

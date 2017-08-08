@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIStoreItem.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIStoreItem;
+@class JSAPIStoreItem;
+
 
 
 @protocol JSAPIPageResourceStoreItem_

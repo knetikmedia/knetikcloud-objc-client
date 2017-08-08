@@ -147,7 +147,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (validateSettings != nil) {
-        queryParams[@"validateSettings"] = validateSettings;
+        queryParams[@"validateSettings"] = [validateSettings isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -1152,7 +1152,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
         queryParams[@"filter_end_date"] = filterEndDate;
     }
     if (filterCampaigns != nil) {
-        queryParams[@"filter_campaigns"] = filterCampaigns;
+        queryParams[@"filter_campaigns"] = [filterCampaigns isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterChallenge != nil) {
         queryParams[@"filter_challenge"] = filterChallenge;
@@ -1376,10 +1376,10 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterTemplate != nil) {
-        queryParams[@"filter_template"] = filterTemplate;
+        queryParams[@"filter_template"] = [filterTemplate isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterActiveCampaign != nil) {
-        queryParams[@"filter_active_campaign"] = filterActiveCampaign;
+        queryParams[@"filter_active_campaign"] = [filterActiveCampaign isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterStartDate != nil) {
         queryParams[@"filter_start_date"] = filterStartDate;

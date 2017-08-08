@@ -53,7 +53,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteClientWithClientKey: (NSString*) clientKey
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -121,7 +121,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setClientGrantTypesWithClientKey: (NSString*) clientKey
     grantList: (NSArray<NSString*>*) grantList
     completionHandler: (void (^)(NSError* error)) handler;
@@ -139,7 +139,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setClientRedirectUrisWithClientKey: (NSString*) clientKey
     redirectList: (NSArray<NSString*>*) redirectList
     completionHandler: (void (^)(NSError* error)) handler;

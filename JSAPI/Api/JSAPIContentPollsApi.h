@@ -4,6 +4,7 @@
 #import "JSAPIPollResource.h"
 #import "JSAPIPollResponseResource.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIApi.h"
 
@@ -42,7 +43,7 @@ extern NSInteger kJSAPIContentPollsApiMissingParamErrorCode;
 ///
 /// @return JSAPIPollResponseResource*
 -(NSURLSessionTask*) answerPollWithId: (NSString*) _id
-    answerKey: (NSString*) answerKey
+    answerKey: (JSAPIStringWrapper*) answerKey
     completionHandler: (void (^)(JSAPIPollResponseResource* output, NSError* error)) handler;
 
 
@@ -89,7 +90,7 @@ extern NSInteger kJSAPIContentPollsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deletePollWithId: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -106,7 +107,7 @@ extern NSInteger kJSAPIContentPollsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deletePollTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;

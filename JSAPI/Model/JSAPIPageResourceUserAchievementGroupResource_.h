@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIUserAchievementGroupResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIUserAchievementGroupResource;
+@class JSAPIUserAchievementGroupResource;
+
 
 
 @protocol JSAPIPageResourceUserAchievementGroupResource_

@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIUserRelationshipResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIUserRelationshipResource;
+@class JSAPIUserRelationshipResource;
+
 
 
 @protocol JSAPIPageResourceUserRelationshipResource_

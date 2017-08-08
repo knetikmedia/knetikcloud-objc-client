@@ -16,6 +16,7 @@
 
 
 
+
 @protocol JSAPIOrder
 @end
 
@@ -23,6 +24,8 @@
 
 
 @property(nonatomic) NSNumber* ascending;
+
+@property(nonatomic) NSNumber* descending;
 
 @property(nonatomic) NSString* direction;
 

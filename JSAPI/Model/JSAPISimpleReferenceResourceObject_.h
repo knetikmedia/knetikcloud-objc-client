@@ -16,6 +16,7 @@
 
 
 
+
 @protocol JSAPISimpleReferenceResourceObject_
 @end
 

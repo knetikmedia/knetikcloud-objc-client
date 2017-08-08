@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIPageResourceSimpleUserResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIApi.h"
 
 /**
@@ -36,7 +37,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addFriendWithUserId: (NSString*) userId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
@@ -110,9 +111,9 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) redeemFriendshipTokenWithUserId: (NSString*) userId
-    token: (NSString*) token
+    token: (JSAPIStringWrapper*) token
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -128,7 +129,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeOrDeclineFriendWithUserId: (NSString*) userId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;

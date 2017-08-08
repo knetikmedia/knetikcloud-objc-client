@@ -16,6 +16,11 @@
 
 #import "JSAPIForwardLog.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIForwardLog;
+@class JSAPIForwardLog;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceForwardLog_

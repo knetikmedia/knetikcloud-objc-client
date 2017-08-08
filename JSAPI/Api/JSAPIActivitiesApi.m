@@ -130,7 +130,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (test != nil) {
-        queryParams[@"test"] = test;
+        queryParams[@"test"] = [test isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -400,7 +400,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterTemplate != nil) {
-        queryParams[@"filter_template"] = filterTemplate;
+        queryParams[@"filter_template"] = [filterTemplate isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterName != nil) {
         queryParams[@"filter_name"] = filterName;

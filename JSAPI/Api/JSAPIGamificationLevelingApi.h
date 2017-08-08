@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIBreTriggerResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPILevelingResource.h"
 #import "JSAPIPageResourceLevelingResource_.h"
 #import "JSAPIPageResourceUserLevelingResource_.h"
@@ -55,7 +56,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteLevelWithName: (NSString*) name
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -168,10 +169,10 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) incrementProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -188,10 +189,10 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(NSError* error)) handler;
 
 

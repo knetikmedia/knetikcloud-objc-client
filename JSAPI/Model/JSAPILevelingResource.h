@@ -16,6 +16,11 @@
 
 #import "JSAPIProperty.h"
 #import "JSAPITierResource.h"
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPITierResource;
+@class JSAPITierResource;
+
 
 
 @protocol JSAPILevelingResource

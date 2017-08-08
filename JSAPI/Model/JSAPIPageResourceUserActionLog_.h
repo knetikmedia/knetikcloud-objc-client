@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIUserActionLog.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIUserActionLog;
+@class JSAPIUserActionLog;
+
 
 
 @protocol JSAPIPageResourceUserActionLog_

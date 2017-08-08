@@ -70,7 +70,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteArtistWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -87,7 +87,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteArtistTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -181,7 +181,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateArtistWithId: (NSNumber*) _id
     artistResource: (JSAPIArtistResource*) artistResource
     completionHandler: (void (^)(NSError* error)) handler;

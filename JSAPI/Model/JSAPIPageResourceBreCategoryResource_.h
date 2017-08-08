@@ -16,6 +16,11 @@
 
 #import "JSAPIBreCategoryResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBreCategoryResource;
+@class JSAPIBreCategoryResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBreCategoryResource_

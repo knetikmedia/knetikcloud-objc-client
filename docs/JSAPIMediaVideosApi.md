@@ -33,7 +33,7 @@ Method | HTTP request | Description
 # **addUserToVideoWhitelist**
 ```objc
 -(NSURLSessionTask*) addUserToVideoWhitelistWithId: (NSNumber*) _id
-    userId: (NSNumber*) userId
+    userId: (JSAPIIntWrapper*) userId
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -50,7 +50,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @789; // The video id
-NSNumber* userId = 56; // The user id (optional)
+JSAPIIntWrapper* userId = [[JSAPIIntWrapper alloc] init]; // The user id (optional)
 
 JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 
@@ -69,7 +69,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The video id | 
- **userId** | **NSNumber***| The user id | [optional] 
+ **userId** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The user id | [optional] 
 
 ### Return type
 
@@ -253,7 +253,7 @@ void (empty response body)
 # **addVideoFlag**
 ```objc
 -(NSURLSessionTask*) addVideoFlagWithVideoId: (NSNumber*) videoId
-    reason: (NSString*) reason
+    reason: (JSAPIStringWrapper*) reason
         completionHandler: (void (^)(JSAPIFlagResource* output, NSError* error)) handler;
 ```
 
@@ -268,7 +268,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* videoId = @789; // The video id
-NSString* reason = reason_example; // The flag reason (optional)
+JSAPIStringWrapper* reason = [[JSAPIStringWrapper alloc] init]; // The flag reason (optional)
 
 JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 
@@ -290,7 +290,7 @@ JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
- **reason** | **NSString***| The flag reason | [optional] 
+ **reason** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The flag reason | [optional] 
 
 ### Return type
 
@@ -1237,7 +1237,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) updateVideoCommentWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -1253,7 +1253,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* videoId = @789; // The video id
 NSNumber* _id = @789; // The comment id
-NSString* content = content_example; // The comment content (optional)
+JSAPIStringWrapper* content = [[JSAPIStringWrapper alloc] init]; // The comment content (optional)
 
 JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 
@@ -1274,7 +1274,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
  **_id** | **NSNumber***| The comment id | 
- **content** | **NSString***| The comment content | [optional] 
+ **content** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The comment content | [optional] 
 
 ### Return type
 
@@ -1295,7 +1295,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) updateVideoRelationshipWithVideoId: (NSNumber*) videoId
     relationshipId: (NSNumber*) relationshipId
-    details: (NSString*) details
+    details: (JSAPIStringWrapper*) details
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -1311,7 +1311,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* videoId = @789; // The video id
 NSNumber* relationshipId = @789; // The relationship id
-NSString* details = details_example; // The video relationship details (optional)
+JSAPIStringWrapper* details = [[JSAPIStringWrapper alloc] init]; // The video relationship details (optional)
 
 JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
 
@@ -1332,7 +1332,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
  **relationshipId** | **NSNumber***| The relationship id | 
- **details** | **NSString***| The video relationship details | [optional] 
+ **details** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The video relationship details | [optional] 
 
 ### Return type
 

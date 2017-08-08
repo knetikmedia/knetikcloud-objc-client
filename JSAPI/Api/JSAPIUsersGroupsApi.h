@@ -108,7 +108,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteGroupWithUniqueName: (NSString*) uniqueName
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -125,7 +125,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteGroupTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -251,7 +251,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeGroupMemberWithUniqueName: (NSString*) uniqueName
     userId: (NSNumber*) userId
     completionHandler: (void (^)(NSError* error)) handler;
@@ -269,7 +269,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateGroupWithUniqueName: (NSString*) uniqueName
     groupResource: (JSAPIGroupResource*) groupResource
     completionHandler: (void (^)(NSError* error)) handler;
@@ -288,7 +288,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateGroupMemberStatusWithUniqueName: (NSString*) uniqueName
     userId: (NSNumber*) userId
     status: (NSString*) status

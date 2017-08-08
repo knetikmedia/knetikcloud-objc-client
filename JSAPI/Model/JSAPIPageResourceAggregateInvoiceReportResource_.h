@@ -16,6 +16,11 @@
 
 #import "JSAPIAggregateInvoiceReportResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIAggregateInvoiceReportResource;
+@class JSAPIAggregateInvoiceReportResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceAggregateInvoiceReportResource_

@@ -52,7 +52,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteBRETriggerWithEventName: (NSString*) eventName
     completionHandler: (void (^)(NSError* error)) handler;
 

@@ -16,6 +16,11 @@
 
 #import "JSAPIContributionResource.h"
 #import "JSAPIProperty.h"
+@protocol JSAPIContributionResource;
+@class JSAPIContributionResource;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+
 
 
 @protocol JSAPIArtistResource

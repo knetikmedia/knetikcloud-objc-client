@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIUserInventoryResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIUserInventoryResource;
+@class JSAPIUserInventoryResource;
+
 
 
 @protocol JSAPIPageResourceUserInventoryResource_

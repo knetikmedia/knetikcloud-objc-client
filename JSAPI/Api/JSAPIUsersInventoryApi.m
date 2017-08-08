@@ -240,7 +240,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (cascade != nil) {
-        queryParams[@"cascade"] = cascade;
+        queryParams[@"cascade"] = [cascade isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -807,7 +807,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (inactive != nil) {
-        queryParams[@"inactive"] = inactive;
+        queryParams[@"inactive"] = [inactive isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;
@@ -1088,7 +1088,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (inactive != nil) {
-        queryParams[@"inactive"] = inactive;
+        queryParams[@"inactive"] = [inactive isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;
@@ -1269,7 +1269,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (cascade != nil) {
-        queryParams[@"cascade"] = cascade;
+        queryParams[@"cascade"] = [cascade isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

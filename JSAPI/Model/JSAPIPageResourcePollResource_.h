@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIPollResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIPollResource;
+@class JSAPIPollResource;
+
 
 
 @protocol JSAPIPageResourcePollResource_

@@ -4,6 +4,7 @@
 #import "JSAPIPageResourceUserBaseResource_.h"
 #import "JSAPIPasswordResetRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIUserResource.h"
 #import "JSAPIApi.h"
@@ -41,9 +42,9 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) addUserTagWithUserId: (NSNumber*) userId
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -75,7 +76,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteUserTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -201,7 +202,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) passwordResetWithId: (NSNumber*) _id
     varNewPasswordRequest: (JSAPINewPasswordRequest*) varNewPasswordRequest
     completionHandler: (void (^)(NSError* error)) handler;
@@ -235,7 +236,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) removeUserTagWithUserId: (NSNumber*) userId
     tag: (NSString*) tag
     completionHandler: (void (^)(NSError* error)) handler;
@@ -253,9 +254,9 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setPasswordWithId: (NSNumber*) _id
-    password: (NSString*) password
+    password: (JSAPIStringWrapper*) password
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -270,7 +271,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) startPasswordResetWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -286,7 +287,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) submitPasswordResetWithPasswordReset: (JSAPIPasswordResetRequest*) passwordReset
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -303,7 +304,7 @@ extern NSInteger kJSAPIUsersApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateUserWithId: (NSString*) _id
     userResource: (JSAPIUserResource*) userResource
     completionHandler: (void (^)(NSError* error)) handler;

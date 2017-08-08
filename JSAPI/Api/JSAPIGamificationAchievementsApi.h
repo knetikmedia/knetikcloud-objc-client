@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIAchievementDefinitionResource.h"
 #import "JSAPIBreTriggerResource.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceAchievementDefinitionResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceUserAchievementGroupResource_.h"
@@ -73,7 +74,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteAchievementWithName: (NSString*) name
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -90,7 +91,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteAchievementTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -317,7 +318,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 /// @return JSAPIUserAchievementGroupResource*
 -(NSURLSessionTask*) incrementAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler;
 
 
@@ -337,7 +338,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 /// @return JSAPIUserAchievementGroupResource*
 -(NSURLSessionTask*) setAchievementProgressWithUserId: (NSNumber*) userId
     achievementName: (NSString*) achievementName
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
     completionHandler: (void (^)(JSAPIUserAchievementGroupResource* output, NSError* error)) handler;
 
 

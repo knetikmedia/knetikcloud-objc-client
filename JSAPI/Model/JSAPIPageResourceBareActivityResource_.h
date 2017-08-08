@@ -16,6 +16,11 @@
 
 #import "JSAPIBareActivityResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBareActivityResource;
+@class JSAPIBareActivityResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBareActivityResource_

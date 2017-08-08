@@ -16,6 +16,11 @@
 
 #import "JSAPIMapStringObject_.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIMapStringObject_;
+@class JSAPIMapStringObject_;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceMapStringObject_

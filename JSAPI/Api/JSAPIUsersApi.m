@@ -6,6 +6,7 @@
 #import "JSAPIPageResourceUserBaseResource_.h"
 #import "JSAPIPasswordResetRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
 #import "JSAPIUserResource.h"
 
@@ -65,7 +66,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) addUserTagWithUserId: (NSNumber*) userId
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -891,7 +892,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) setPasswordWithId: (NSNumber*) _id
-    password: (NSString*) password
+    password: (JSAPIStringWrapper*) password
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {

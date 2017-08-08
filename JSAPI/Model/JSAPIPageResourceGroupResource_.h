@@ -16,6 +16,11 @@
 
 #import "JSAPIGroupResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIGroupResource;
+@class JSAPIGroupResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceGroupResource_

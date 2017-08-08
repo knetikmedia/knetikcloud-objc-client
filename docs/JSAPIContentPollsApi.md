@@ -21,7 +21,7 @@ Method | HTTP request | Description
 # **answerPoll**
 ```objc
 -(NSURLSessionTask*) answerPollWithId: (NSString*) _id
-    answerKey: (NSString*) answerKey
+    answerKey: (JSAPIStringWrapper*) answerKey
         completionHandler: (void (^)(JSAPIPollResponseResource* output, NSError* error)) handler;
 ```
 
@@ -36,7 +36,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* _id = @"_id_example"; // The poll id
-NSString* answerKey = answerKey_example; // The answer key (optional)
+JSAPIStringWrapper* answerKey = [[JSAPIStringWrapper alloc] init]; // The answer key (optional)
 
 JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 
@@ -58,7 +58,7 @@ JSAPIContentPollsApi*apiInstance = [[JSAPIContentPollsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSString***| The poll id | 
- **answerKey** | **NSString***| The answer key | [optional] 
+ **answerKey** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The answer key | [optional] 
 
 ### Return type
 

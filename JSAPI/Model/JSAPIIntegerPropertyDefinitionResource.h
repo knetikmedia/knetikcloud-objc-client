@@ -16,6 +16,11 @@
 
 #import "JSAPIPropertyDefinitionResource.h"
 #import "JSAPIPropertyFieldListResource.h"
+@protocol JSAPIPropertyDefinitionResource;
+@class JSAPIPropertyDefinitionResource;
+@protocol JSAPIPropertyFieldListResource;
+@class JSAPIPropertyFieldListResource;
+
 
 
 @protocol JSAPIIntegerPropertyDefinitionResource

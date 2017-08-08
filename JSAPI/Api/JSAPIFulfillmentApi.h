@@ -52,7 +52,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteFulfillmentTypeWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -105,7 +105,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateFulfillmentTypeWithId: (NSNumber*) _id
     fulfillmentType: (JSAPIFulfillmentType*) fulfillmentType
     completionHandler: (void (^)(NSError* error)) handler;

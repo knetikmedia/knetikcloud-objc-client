@@ -16,6 +16,11 @@
 
 #import "JSAPIImportJobResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIImportJobResource;
+@class JSAPIImportJobResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceImportJobResource_

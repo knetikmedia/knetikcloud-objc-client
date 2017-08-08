@@ -16,6 +16,11 @@
 
 #import "JSAPIBroadcastableEvent.h"
 #import "JSAPICustomerConfig.h"
+@protocol JSAPIBroadcastableEvent;
+@class JSAPIBroadcastableEvent;
+@protocol JSAPICustomerConfig;
+@class JSAPICustomerConfig;
+
 
 
 @protocol JSAPINewCustomerEvent

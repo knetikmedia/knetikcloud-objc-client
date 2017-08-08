@@ -16,6 +16,11 @@
 
 #import "JSAPIProperty.h"
 #import "JSAPIUserRelationshipReferenceResource.h"
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPIUserRelationshipReferenceResource;
+@class JSAPIUserRelationshipReferenceResource;
+
 
 
 @protocol JSAPIUserResource

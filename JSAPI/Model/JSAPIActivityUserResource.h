@@ -16,6 +16,11 @@
 
 #import "JSAPIMetricResource.h"
 #import "JSAPISimpleUserResource.h"
+@protocol JSAPIMetricResource;
+@class JSAPIMetricResource;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+
 
 
 @protocol JSAPIActivityUserResource

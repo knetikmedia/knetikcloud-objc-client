@@ -15,6 +15,9 @@
 
 
 #import "JSAPIFileProperty.h"
+@protocol JSAPIFileProperty;
+@class JSAPIFileProperty;
+
 
 
 @protocol JSAPIImageProperty

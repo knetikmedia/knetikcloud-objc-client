@@ -15,6 +15,9 @@
 
 
 #import "JSAPIUserActivityResultsResource.h"
+@protocol JSAPIUserActivityResultsResource;
+@class JSAPIUserActivityResultsResource;
+
 
 
 @protocol JSAPIActivityOccurrenceResultsResource

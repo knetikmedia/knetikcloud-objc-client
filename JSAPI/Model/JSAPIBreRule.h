@@ -16,6 +16,11 @@
 
 #import "JSAPIActionResource.h"
 #import "JSAPIPredicateOperation.h"
+@protocol JSAPIActionResource;
+@class JSAPIActionResource;
+@protocol JSAPIPredicateOperation;
+@class JSAPIPredicateOperation;
+
 
 
 @protocol JSAPIBreRule

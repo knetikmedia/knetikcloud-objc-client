@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) incrementProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -438,7 +438,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSString* name = @"name_example"; // The level schema name
-NSNumber* progress = 56; // The amount of progress to add (optional)
+JSAPIIntWrapper* progress = [[JSAPIIntWrapper alloc] init]; // The amount of progress to add (optional)
 
 JSAPIGamificationLevelingApi*apiInstance = [[JSAPIGamificationLevelingApi alloc] init];
 
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **name** | **NSString***| The level schema name | 
- **progress** | **NSNumber***| The amount of progress to add | [optional] 
+ **progress** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The amount of progress to add | [optional] 
 
 ### Return type
 
@@ -480,7 +480,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setProgressWithUserId: (NSNumber*) userId
     name: (NSString*) name
-    progress: (NSNumber*) progress
+    progress: (JSAPIIntWrapper*) progress
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -498,7 +498,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSString* name = @"name_example"; // The level schema name
-NSNumber* progress = 56; // The new progress amount (optional)
+JSAPIIntWrapper* progress = [[JSAPIIntWrapper alloc] init]; // The new progress amount (optional)
 
 JSAPIGamificationLevelingApi*apiInstance = [[JSAPIGamificationLevelingApi alloc] init];
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **name** | **NSString***| The level schema name | 
- **progress** | **NSNumber***| The new progress amount | [optional] 
+ **progress** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The new progress amount | [optional] 
 
 ### Return type
 

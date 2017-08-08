@@ -16,6 +16,11 @@
 
 #import "JSAPIBreGlobalResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBreGlobalResource;
+@class JSAPIBreGlobalResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBreGlobalResource_

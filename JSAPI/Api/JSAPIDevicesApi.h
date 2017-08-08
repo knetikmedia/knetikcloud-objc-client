@@ -71,7 +71,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteDeviceWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -88,7 +88,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteDeviceUserWithId: (NSNumber*) _id
     userId: (NSNumber*) userId
     completionHandler: (void (^)(NSError* error)) handler;
@@ -106,7 +106,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteDeviceUsersWithId: (NSNumber*) _id
     filterId: (NSString*) filterId
     completionHandler: (void (^)(NSError* error)) handler;

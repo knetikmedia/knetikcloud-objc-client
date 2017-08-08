@@ -54,7 +54,7 @@ extern NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteBRERuleWithId: (NSString*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -133,7 +133,7 @@ extern NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) setBRERuleWithId: (NSString*) _id
     enabled: (JSAPIBooleanResource*) enabled
     completionHandler: (void (^)(NSError* error)) handler;

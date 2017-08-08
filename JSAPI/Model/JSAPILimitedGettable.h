@@ -16,6 +16,11 @@
 
 #import "JSAPIBehavior.h"
 #import "JSAPILimitedGettableGroup.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+@protocol JSAPILimitedGettableGroup;
+@class JSAPILimitedGettableGroup;
+
 
 
 @protocol JSAPILimitedGettable

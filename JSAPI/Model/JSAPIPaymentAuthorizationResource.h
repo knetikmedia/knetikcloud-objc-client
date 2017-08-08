@@ -15,6 +15,9 @@
 
 
 #import "JSAPISimpleReferenceResourceInt_.h"
+@protocol JSAPISimpleReferenceResourceInt_;
+@class JSAPISimpleReferenceResourceInt_;
+
 
 
 @protocol JSAPIPaymentAuthorizationResource

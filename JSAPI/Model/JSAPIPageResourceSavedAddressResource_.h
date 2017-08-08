@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPISavedAddressResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPISavedAddressResource;
+@class JSAPISavedAddressResource;
+
 
 
 @protocol JSAPIPageResourceSavedAddressResource_

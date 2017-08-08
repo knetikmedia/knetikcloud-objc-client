@@ -17,6 +17,13 @@
 #import "JSAPIPaymentMethodResource.h"
 #import "JSAPISimpleUserResource.h"
 #import "JSAPISubscriptionCreditResource.h"
+@protocol JSAPIPaymentMethodResource;
+@class JSAPIPaymentMethodResource;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
+@protocol JSAPISubscriptionCreditResource;
+@class JSAPISubscriptionCreditResource;
+
 
 
 @protocol JSAPIInventorySubscriptionResource

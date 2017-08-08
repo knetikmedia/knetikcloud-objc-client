@@ -143,7 +143,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (excludeResolved != nil) {
-        queryParams[@"exclude_resolved"] = excludeResolved;
+        queryParams[@"exclude_resolved"] = [excludeResolved isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterContext != nil) {
         queryParams[@"filter_context"] = filterContext;

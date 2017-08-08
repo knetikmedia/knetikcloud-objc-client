@@ -231,7 +231,9 @@ Name | Type | Description  | Notes
 
 # **getRoles**
 ```objc
--(NSURLSessionTask*) getRolesWithSize: (NSNumber*) size
+-(NSURLSessionTask*) getRolesWithFilterName: (NSString*) filterName
+    filterRole: (NSString*) filterRole
+    size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
         completionHandler: (void (^)(JSAPIPageResourceRoleResource_* output, NSError* error)) handler;
@@ -247,6 +249,8 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
+NSString* filterName = @"filterName_example"; // Filter for roles that have a name starting with specified string (optional)
+NSString* filterRole = @"filterRole_example"; // Filter for roles that have a role starting with specified string (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
 NSString* order = @"order_example"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -254,7 +258,9 @@ NSString* order = @"order_example"; // A comma separated list of sorting require
 JSAPIAuthRolesApi*apiInstance = [[JSAPIAuthRolesApi alloc] init];
 
 // List and search roles
-[apiInstance getRolesWithSize:size
+[apiInstance getRolesWithFilterName:filterName
+              filterRole:filterRole
+              size:size
               page:page
               order:order
           completionHandler: ^(JSAPIPageResourceRoleResource_* output, NSError* error) {
@@ -271,6 +277,8 @@ JSAPIAuthRolesApi*apiInstance = [[JSAPIAuthRolesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterName** | **NSString***| Filter for roles that have a name starting with specified string | [optional] 
+ **filterRole** | **NSString***| Filter for roles that have a role starting with specified string | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 

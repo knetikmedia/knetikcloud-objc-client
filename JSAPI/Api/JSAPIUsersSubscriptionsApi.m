@@ -1,10 +1,12 @@
 #import "JSAPIUsersSubscriptionsApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIInventorySubscriptionResource.h"
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIReactivateSubscriptionRequest.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPISubscriptionPriceOverrideRequest.h"
 
 
@@ -408,7 +410,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setSubscriptionPaymentMethodWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    paymentMethodId: (NSNumber*) paymentMethodId
+    paymentMethodId: (JSAPIIntWrapper*) paymentMethodId
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -486,7 +488,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the status of a subscription
-/// The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+/// Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -497,7 +499,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setSubscriptionStatusWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    status: (NSString*) status
+    status: (JSAPIStringWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -597,7 +599,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setUserSubscriptionPlanWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    planId: (NSString*) planId
+    planId: (JSAPIStringWrapper*) planId
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

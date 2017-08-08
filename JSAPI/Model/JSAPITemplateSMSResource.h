@@ -15,6 +15,9 @@
 
 
 #import "JSAPILocalizer.h"
+@protocol JSAPILocalizer;
+@class JSAPILocalizer;
+
 
 
 @protocol JSAPITemplateSMSResource

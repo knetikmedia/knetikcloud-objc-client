@@ -16,6 +16,11 @@
 
 #import "JSAPIFulfillmentType.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIFulfillmentType;
+@class JSAPIFulfillmentType;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceFulfillmentType_

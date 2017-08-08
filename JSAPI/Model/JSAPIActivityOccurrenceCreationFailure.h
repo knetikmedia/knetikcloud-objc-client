@@ -15,6 +15,9 @@
 
 
 #import "JSAPIActivityOccurrenceJoinResult.h"
+@protocol JSAPIActivityOccurrenceJoinResult;
+@class JSAPIActivityOccurrenceJoinResult;
+
 
 
 @protocol JSAPIActivityOccurrenceCreationFailure

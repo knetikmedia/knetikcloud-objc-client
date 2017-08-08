@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBroadcastableEvent.h"
+@protocol JSAPIBroadcastableEvent;
+@class JSAPIBroadcastableEvent;
+
 
 
 @protocol JSAPICacheClearEvent

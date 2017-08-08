@@ -17,6 +17,13 @@
 #import "JSAPIDatabaseConfig.h"
 #import "JSAPIIOConfig.h"
 #import "JSAPIS3Config.h"
+@protocol JSAPIDatabaseConfig;
+@class JSAPIDatabaseConfig;
+@protocol JSAPIIOConfig;
+@class JSAPIIOConfig;
+@protocol JSAPIS3Config;
+@class JSAPIS3Config;
+
 
 
 @protocol JSAPICustomerConfig

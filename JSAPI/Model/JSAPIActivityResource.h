@@ -18,6 +18,15 @@
 #import "JSAPIAvailableSettingResource.h"
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
+@protocol JSAPIActivityEntitlementResource;
+@class JSAPIActivityEntitlementResource;
+@protocol JSAPIAvailableSettingResource;
+@class JSAPIAvailableSettingResource;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPIRewardSetResource;
+@class JSAPIRewardSetResource;
+
 
 
 @protocol JSAPIActivityResource

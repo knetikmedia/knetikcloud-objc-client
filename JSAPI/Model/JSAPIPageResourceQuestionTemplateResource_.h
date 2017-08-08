@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPIQuestionTemplateResource.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPIQuestionTemplateResource;
+@class JSAPIQuestionTemplateResource;
+
 
 
 @protocol JSAPIPageResourceQuestionTemplateResource_

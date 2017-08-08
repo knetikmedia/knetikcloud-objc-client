@@ -15,6 +15,9 @@
 
 
 #import "JSAPIUserActivityResults.h"
+@protocol JSAPIUserActivityResults;
+@class JSAPIUserActivityResults;
+
 
 
 @protocol JSAPIActivityOccurrenceResults

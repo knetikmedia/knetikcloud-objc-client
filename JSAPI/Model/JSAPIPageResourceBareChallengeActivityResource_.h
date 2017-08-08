@@ -16,6 +16,11 @@
 
 #import "JSAPIBareChallengeActivityResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBareChallengeActivityResource;
+@class JSAPIBareChallengeActivityResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBareChallengeActivityResource_

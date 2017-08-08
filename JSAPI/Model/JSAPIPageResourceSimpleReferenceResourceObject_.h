@@ -16,6 +16,11 @@
 
 #import "JSAPIOrder.h"
 #import "JSAPISimpleReferenceResourceObject_.h"
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+@protocol JSAPISimpleReferenceResourceObject_;
+@class JSAPISimpleReferenceResourceObject_;
+
 
 
 @protocol JSAPIPageResourceSimpleReferenceResourceObject_

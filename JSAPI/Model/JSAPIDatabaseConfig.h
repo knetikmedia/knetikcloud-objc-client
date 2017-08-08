@@ -16,6 +16,11 @@
 
 #import "JSAPIMongoDatabaseConfig.h"
 #import "JSAPISqlDatabaseConfig.h"
+@protocol JSAPIMongoDatabaseConfig;
+@class JSAPIMongoDatabaseConfig;
+@protocol JSAPISqlDatabaseConfig;
+@class JSAPISqlDatabaseConfig;
+
 
 
 @protocol JSAPIDatabaseConfig

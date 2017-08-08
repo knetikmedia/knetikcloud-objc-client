@@ -38,7 +38,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) sendRawEmailWithRawEmailResource: (JSAPIRawEmailResource*) rawEmailResource
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -54,7 +54,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) sendRawSMSWithRawSMSResource: (JSAPIRawSMSResource*) rawSMSResource
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -70,7 +70,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) sendTemplatedEmailWithMessageResource: (JSAPITemplateEmailResource*) messageResource
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -86,7 +86,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) sendTemplatedSMSWithTemplateSMSResource: (JSAPITemplateSMSResource*) templateSMSResource
     completionHandler: (void (^)(NSError* error)) handler;
 

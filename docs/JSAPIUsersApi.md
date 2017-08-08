@@ -25,7 +25,7 @@ Method | HTTP request | Description
 # **addUserTag**
 ```objc
 -(NSURLSessionTask*) addUserTagWithUserId: (NSNumber*) userId
-    tag: (NSString*) tag
+    tag: (JSAPIStringWrapper*) tag
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -40,7 +40,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* userId = @56; // The id of the user
-NSString* tag = tag_example; // tag
+JSAPIStringWrapper* tag = [[JSAPIStringWrapper alloc] init]; // tag
 
 JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
@@ -59,7 +59,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
- **tag** | **NSString***| tag | 
+ **tag** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| tag | 
 
 ### Return type
 
@@ -670,7 +670,7 @@ void (empty response body)
 # **setPassword**
 ```objc
 -(NSURLSessionTask*) setPasswordWithId: (NSNumber*) _id
-    password: (NSString*) password
+    password: (JSAPIStringWrapper*) password
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -687,7 +687,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* _id = @56; // The id of the user
-NSString* password = password_example; // The new plain text password (optional)
+JSAPIStringWrapper* password = [[JSAPIStringWrapper alloc] init]; // The new plain text password (optional)
 
 JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 
@@ -706,7 +706,7 @@ JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The id of the user | 
- **password** | **NSString***| The new plain text password | [optional] 
+ **password** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new plain text password | [optional] 
 
 ### Return type
 

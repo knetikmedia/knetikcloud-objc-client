@@ -16,6 +16,11 @@
 
 #import "JSAPICartSummary.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICartSummary;
+@class JSAPICartSummary;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCartSummary_

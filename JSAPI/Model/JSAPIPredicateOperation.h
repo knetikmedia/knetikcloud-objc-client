@@ -16,6 +16,11 @@
 
 #import "JSAPIExpressionObject_.h"
 #import "JSAPIOperator.h"
+@protocol JSAPIExpressionObject_;
+@class JSAPIExpressionObject_;
+@protocol JSAPIOperator;
+@class JSAPIOperator;
+
 
 
 @protocol JSAPIPredicateOperation

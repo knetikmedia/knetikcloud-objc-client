@@ -15,6 +15,9 @@
 
 
 #import "JSAPIActionVariableResource.h"
+@protocol JSAPIActionVariableResource;
+@class JSAPIActionVariableResource;
+
 
 
 @protocol JSAPIActionResource

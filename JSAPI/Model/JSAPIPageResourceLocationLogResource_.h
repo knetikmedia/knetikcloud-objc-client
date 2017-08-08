@@ -16,6 +16,11 @@
 
 #import "JSAPILocationLogResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPILocationLogResource;
+@class JSAPILocationLogResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceLocationLogResource_

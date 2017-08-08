@@ -17,6 +17,13 @@
 #import "JSAPIItemBehaviorDefinitionResource.h"
 #import "JSAPIPropertyDefinitionResource.h"
 #import "JSAPITemplateResource.h"
+@protocol JSAPIItemBehaviorDefinitionResource;
+@class JSAPIItemBehaviorDefinitionResource;
+@protocol JSAPIPropertyDefinitionResource;
+@class JSAPIPropertyDefinitionResource;
+@protocol JSAPITemplateResource;
+@class JSAPITemplateResource;
+
 
 
 @protocol JSAPIStoreItemTemplateResource

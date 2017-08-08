@@ -50,7 +50,7 @@ extern NSInteger kJSAPIPaymentsXsollaApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) receiveXsollaNotificationWithCompletionHandler: 
     (void (^)(NSError* error)) handler;
 

@@ -16,6 +16,11 @@
 
 #import "JSAPIClientResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIClientResource;
+@class JSAPIClientResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceClientResource_

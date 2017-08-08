@@ -19,6 +19,17 @@
 #import "JSAPISku.h"
 #import "JSAPIStoreItem.h"
 #import "JSAPISubscriptionPlan.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
+@protocol JSAPISku;
+@class JSAPISku;
+@protocol JSAPIStoreItem;
+@class JSAPIStoreItem;
+@protocol JSAPISubscriptionPlan;
+@class JSAPISubscriptionPlan;
+
 
 
 @protocol JSAPISubscription

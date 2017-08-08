@@ -3,6 +3,7 @@
 #import "JSAPICommentSearch.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPIApi.h"
 
 /**
@@ -53,7 +54,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteCommentWithId: (NSNumber*) _id
     completionHandler: (void (^)(NSError* error)) handler;
 
@@ -128,9 +129,9 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateCommentWithId: (NSNumber*) _id
-    content: (NSString*) content
+    content: (JSAPIStringWrapper*) content
     completionHandler: (void (^)(NSError* error)) handler;
 
 

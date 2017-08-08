@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBehavior.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
+
 
 
 @protocol JSAPIPreReqEntitlement

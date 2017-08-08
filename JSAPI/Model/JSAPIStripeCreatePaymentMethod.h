@@ -14,6 +14,10 @@
 */
 
 
+#import "JSAPIPaymentMethodDetails.h"
+@protocol JSAPIPaymentMethodDetails;
+@class JSAPIPaymentMethodDetails;
+
 
 
 @protocol JSAPIStripeCreatePaymentMethod
@@ -21,6 +25,9 @@
 
 @interface JSAPIStripeCreatePaymentMethod : JSAPIObject
 
+/* Additional optional details to store on the payment method. If included, all fields in the details will override any defaults [optional]
+ */
+@property(nonatomic) JSAPIPaymentMethodDetails* details;
 /* A token from Stripe to identify payment info to be tied to the customer 
  */
 @property(nonatomic) NSString* token;

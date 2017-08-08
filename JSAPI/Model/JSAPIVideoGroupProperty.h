@@ -16,6 +16,11 @@
 
 #import "JSAPIFileGroupProperty.h"
 #import "JSAPIFileProperty.h"
+@protocol JSAPIFileGroupProperty;
+@class JSAPIFileGroupProperty;
+@protocol JSAPIFileProperty;
+@class JSAPIFileProperty;
+
 
 
 @protocol JSAPIVideoGroupProperty

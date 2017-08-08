@@ -16,6 +16,11 @@
 
 #import "JSAPIChallengeResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIChallengeResource;
+@class JSAPIChallengeResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceChallengeResource_

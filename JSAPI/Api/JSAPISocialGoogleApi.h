@@ -35,7 +35,7 @@ extern NSInteger kJSAPISocialGoogleApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) linkAccounts1WithGoogleToken: (JSAPIGoogleToken*) googleToken
     completionHandler: (void (^)(NSError* error)) handler;
 

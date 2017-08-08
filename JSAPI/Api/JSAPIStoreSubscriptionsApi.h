@@ -71,7 +71,7 @@ extern NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteSubscriptionWithId: (NSNumber*) _id
     planId: (NSString*) planId
     completionHandler: (void (^)(NSError* error)) handler;
@@ -89,7 +89,7 @@ extern NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) deleteSubscriptionTemplateWithId: (NSString*) _id
     cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
@@ -177,7 +177,7 @@ extern NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) processSubscriptionsWithCompletionHandler: 
     (void (^)(NSError* error)) handler;
 
@@ -194,7 +194,7 @@ extern NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return 
+/// @return void
 -(NSURLSessionTask*) updateSubscriptionWithId: (NSNumber*) _id
     subscriptionResource: (JSAPISubscriptionResource*) subscriptionResource
     completionHandler: (void (^)(NSError* error)) handler;

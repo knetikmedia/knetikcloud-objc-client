@@ -705,7 +705,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterActive != nil) {
-        queryParams[@"filter_active"] = filterActive;
+        queryParams[@"filter_active"] = [filterActive isEqual:@(YES)] ? @"true" : @"false";
     }
     if (size != nil) {
         queryParams[@"size"] = size;

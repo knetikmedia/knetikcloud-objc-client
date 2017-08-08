@@ -6,6 +6,7 @@
 #import "JSAPIPollResource.h"
 #import "JSAPIPollResponseResource.h"
 #import "JSAPIResult.h"
+#import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
 
 
@@ -64,7 +65,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 ///  @returns JSAPIPollResponseResource*
 ///
 -(NSURLSessionTask*) answerPollWithId: (NSString*) _id
-    answerKey: (NSString*) answerKey
+    answerKey: (JSAPIStringWrapper*) answerKey
     completionHandler: (void (^)(JSAPIPollResponseResource* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {

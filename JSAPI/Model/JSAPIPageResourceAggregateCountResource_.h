@@ -16,6 +16,11 @@
 
 #import "JSAPIAggregateCountResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIAggregateCountResource;
+@class JSAPIAggregateCountResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceAggregateCountResource_

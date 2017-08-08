@@ -16,6 +16,7 @@
 
 
 
+
 @protocol JSAPISimpleReferenceResourceInt_
 @end
 

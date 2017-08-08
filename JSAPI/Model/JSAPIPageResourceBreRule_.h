@@ -16,6 +16,11 @@
 
 #import "JSAPIBreRule.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBreRule;
+@class JSAPIBreRule;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBreRule_

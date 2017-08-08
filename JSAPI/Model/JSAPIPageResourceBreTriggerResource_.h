@@ -16,6 +16,11 @@
 
 #import "JSAPIBreTriggerResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPIBreTriggerResource;
+@class JSAPIBreTriggerResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceBreTriggerResource_

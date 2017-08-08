@@ -111,7 +111,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
         queryParams[@"end_date"] = endDate;
     }
     if (combineEndpoints != nil) {
-        queryParams[@"combine_endpoints"] = combineEndpoints;
+        queryParams[@"combine_endpoints"] = [combineEndpoints isEqual:@(YES)] ? @"true" : @"false";
     }
     if (method != nil) {
         queryParams[@"method"] = method;
@@ -226,7 +226,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
         queryParams[@"end_date"] = endDate;
     }
     if (combineEndpoints != nil) {
-        queryParams[@"combine_endpoints"] = combineEndpoints;
+        queryParams[@"combine_endpoints"] = [combineEndpoints isEqual:@(YES)] ? @"true" : @"false";
     }
     if (method != nil) {
         queryParams[@"method"] = method;
@@ -341,7 +341,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
         queryParams[@"end_date"] = endDate;
     }
     if (combineEndpoints != nil) {
-        queryParams[@"combine_endpoints"] = combineEndpoints;
+        queryParams[@"combine_endpoints"] = [combineEndpoints isEqual:@(YES)] ? @"true" : @"false";
     }
     if (method != nil) {
         queryParams[@"method"] = method;
@@ -456,7 +456,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
         queryParams[@"end_date"] = endDate;
     }
     if (combineEndpoints != nil) {
-        queryParams[@"combine_endpoints"] = combineEndpoints;
+        queryParams[@"combine_endpoints"] = [combineEndpoints isEqual:@(YES)] ? @"true" : @"false";
     }
     if (method != nil) {
         queryParams[@"method"] = method;
@@ -571,7 +571,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
         queryParams[@"end_date"] = endDate;
     }
     if (combineEndpoints != nil) {
-        queryParams[@"combine_endpoints"] = combineEndpoints;
+        queryParams[@"combine_endpoints"] = [combineEndpoints isEqual:@(YES)] ? @"true" : @"false";
     }
     if (method != nil) {
         queryParams[@"method"] = method;

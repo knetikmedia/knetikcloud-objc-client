@@ -138,7 +138,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (force != nil) {
-        queryParams[@"force"] = force;
+        queryParams[@"force"] = [force isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

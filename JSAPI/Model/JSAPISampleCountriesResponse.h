@@ -15,6 +15,9 @@
 
 
 #import "JSAPICountry.h"
+@protocol JSAPICountry;
+@class JSAPICountry;
+
 
 
 @protocol JSAPISampleCountriesResponse

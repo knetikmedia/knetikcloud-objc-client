@@ -16,6 +16,11 @@
 
 #import "JSAPICommentResource.h"
 #import "JSAPIOrder.h"
+@protocol JSAPICommentResource;
+@class JSAPICommentResource;
+@protocol JSAPIOrder;
+@class JSAPIOrder;
+
 
 
 @protocol JSAPIPageResourceCommentResource_

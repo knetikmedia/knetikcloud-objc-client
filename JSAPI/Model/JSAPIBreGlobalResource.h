@@ -15,6 +15,9 @@
 
 
 #import "JSAPIBreGlobalScopeDefinition.h"
+@protocol JSAPIBreGlobalScopeDefinition;
+@class JSAPIBreGlobalScopeDefinition;
+
 
 
 @protocol JSAPIBreGlobalResource

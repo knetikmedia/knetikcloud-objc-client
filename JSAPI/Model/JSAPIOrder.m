@@ -22,7 +22,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"ascending": @"ascending", @"direction": @"direction", @"ignoreCase": @"ignore_case", @"nullHandling": @"null_handling", @"_property": @"property" };
+  return @{ @"ascending": @"ascending", @"descending": @"descending", @"direction": @"direction", @"ignoreCase": @"ignore_case", @"nullHandling": @"null_handling", @"_property": @"property" };
 }
 
 /**
@@ -32,7 +32,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"ascending", @"direction", @"ignoreCase", @"nullHandling", @"_property"];
+  NSArray *optionalProperties = @[@"ascending", @"descending", @"direction", @"ignoreCase", @"nullHandling", @"_property"];
 
   return [optionalProperties containsObject:propertyName];
 }

@@ -201,7 +201,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     if (filterEnabledCurrencies != nil) {
-        queryParams[@"filter_enabled_currencies"] = filterEnabledCurrencies;
+        queryParams[@"filter_enabled_currencies"] = [filterEnabledCurrencies isEqual:@(YES)] ? @"true" : @"false";
     }
     if (filterType != nil) {
         queryParams[@"filter_type"] = filterType;
