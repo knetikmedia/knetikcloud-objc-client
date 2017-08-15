@@ -516,8 +516,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 NSString* *grantType = @"client_credentials"; // Grant type (default to client_credentials)
 NSString* *clientId = @"knetik"; // The id of the client (default to knetik)
 NSString* *clientSecret = @"clientSecret_example"; // The secret key of the client.  Used only with a grant_type of client_credentials (optional)
-NSString* *username = @"username_example"; // The username of the client.  Used only with a grant_type of password (optional)
-NSString* *password = @"password_example"; // The password of the client.  Used only with a grant_type of password (optional)
+NSString* *username = @"username_example"; // The username of the client. Used only with a grant_type of password (optional)
+NSString* *password = @"password_example"; // The password of the client. Used only with a grant_type of password (optional)
+NSString* *token = @"token_example"; // The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) (optional)
+NSString* *refreshToken = @"refreshToken_example"; // The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token (optional)
 
 JSAPIAccessTokenApi *apiInstance = [[JSAPIAccessTokenApi alloc] init];
 
@@ -527,6 +529,8 @@ JSAPIAccessTokenApi *apiInstance = [[JSAPIAccessTokenApi alloc] init];
     clientSecret:clientSecret
     username:username
     password:password
+    token:token
+    refreshToken:refreshToken
               completionHandler: ^(JSAPIOAuth2Resource* output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);

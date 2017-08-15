@@ -14,6 +14,8 @@ Method | HTTP request | Description
     clientSecret: (NSString*) clientSecret
     username: (NSString*) username
     password: (NSString*) password
+    token: (NSString*) token
+    refreshToken: (NSString*) refreshToken
         completionHandler: (void (^)(JSAPIOAuth2Resource* output, NSError* error)) handler;
 ```
 
@@ -25,8 +27,10 @@ Get access token
 NSString* grantType = @"client_credentials"; // Grant type (default to client_credentials)
 NSString* clientId = @"knetik"; // The id of the client (default to knetik)
 NSString* clientSecret = @"clientSecret_example"; // The secret key of the client.  Used only with a grant_type of client_credentials (optional)
-NSString* username = @"username_example"; // The username of the client.  Used only with a grant_type of password (optional)
-NSString* password = @"password_example"; // The password of the client.  Used only with a grant_type of password (optional)
+NSString* username = @"username_example"; // The username of the client. Used only with a grant_type of password (optional)
+NSString* password = @"password_example"; // The password of the client. Used only with a grant_type of password (optional)
+NSString* token = @"token_example"; // The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) (optional)
+NSString* refreshToken = @"refreshToken_example"; // The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token (optional)
 
 JSAPIAccessTokenApi*apiInstance = [[JSAPIAccessTokenApi alloc] init];
 
@@ -36,6 +40,8 @@ JSAPIAccessTokenApi*apiInstance = [[JSAPIAccessTokenApi alloc] init];
               clientSecret:clientSecret
               username:username
               password:password
+              token:token
+              refreshToken:refreshToken
           completionHandler: ^(JSAPIOAuth2Resource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -53,8 +59,10 @@ Name | Type | Description  | Notes
  **grantType** | **NSString***| Grant type | [default to client_credentials]
  **clientId** | **NSString***| The id of the client | [default to knetik]
  **clientSecret** | **NSString***| The secret key of the client.  Used only with a grant_type of client_credentials | [optional] 
- **username** | **NSString***| The username of the client.  Used only with a grant_type of password | [optional] 
- **password** | **NSString***| The password of the client.  Used only with a grant_type of password | [optional] 
+ **username** | **NSString***| The username of the client. Used only with a grant_type of password | [optional] 
+ **password** | **NSString***| The password of the client. Used only with a grant_type of password | [optional] 
+ **token** | **NSString***| The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) | [optional] 
+ **refreshToken** | **NSString***| The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token | [optional] 
 
 ### Return type
 

@@ -29,8 +29,10 @@ extern NSInteger kJSAPIAccessTokenApiMissingParamErrorCode;
 /// @param grantType Grant type (default to client_credentials)
 /// @param clientId The id of the client (default to knetik)
 /// @param clientSecret The secret key of the client.  Used only with a grant_type of client_credentials (optional)
-/// @param username The username of the client.  Used only with a grant_type of password (optional)
-/// @param password The password of the client.  Used only with a grant_type of password (optional)
+/// @param username The username of the client. Used only with a grant_type of password (optional)
+/// @param password The password of the client. Used only with a grant_type of password (optional)
+/// @param token The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) (optional)
+/// @param refreshToken The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token (optional)
 /// 
 ///  code:200 message:"OK"
 ///
@@ -40,6 +42,8 @@ extern NSInteger kJSAPIAccessTokenApiMissingParamErrorCode;
     clientSecret: (NSString*) clientSecret
     username: (NSString*) username
     password: (NSString*) password
+    token: (NSString*) token
+    refreshToken: (NSString*) refreshToken
     completionHandler: (void (^)(JSAPIOAuth2Resource* output, NSError* error)) handler;
 
 

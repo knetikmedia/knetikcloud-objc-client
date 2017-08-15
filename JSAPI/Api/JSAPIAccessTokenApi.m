@@ -58,9 +58,13 @@ NSInteger kJSAPIAccessTokenApiMissingParamErrorCode = 234513;
 ///
 ///  @param clientSecret The secret key of the client.  Used only with a grant_type of client_credentials (optional)
 ///
-///  @param username The username of the client.  Used only with a grant_type of password (optional)
+///  @param username The username of the client. Used only with a grant_type of password (optional)
 ///
-///  @param password The password of the client.  Used only with a grant_type of password (optional)
+///  @param password The password of the client. Used only with a grant_type of password (optional)
+///
+///  @param token The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) (optional)
+///
+///  @param refreshToken The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token (optional)
 ///
 ///  @returns JSAPIOAuth2Resource*
 ///
@@ -69,6 +73,8 @@ NSInteger kJSAPIAccessTokenApiMissingParamErrorCode = 234513;
     clientSecret: (NSString*) clientSecret
     username: (NSString*) username
     password: (NSString*) password
+    token: (NSString*) token
+    refreshToken: (NSString*) refreshToken
     completionHandler: (void (^)(JSAPIOAuth2Resource* output, NSError* error)) handler {
     // verify the required parameter 'grantType' is set
     if (grantType == nil) {
@@ -131,6 +137,12 @@ NSInteger kJSAPIAccessTokenApiMissingParamErrorCode = 234513;
     }
     if (password) {
         formParams[@"password"] = password;
+    }
+    if (token) {
+        formParams[@"token"] = token;
+    }
+    if (refreshToken) {
+        formParams[@"refresh_token"] = refreshToken;
     }
 
     return [self.apiClient requestWithPath: resourcePath
