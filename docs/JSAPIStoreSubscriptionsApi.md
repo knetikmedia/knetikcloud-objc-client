@@ -27,11 +27,6 @@ Creates a subscription item and associated plans
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPISubscriptionResource* subscriptionResource = [[JSAPISubscriptionResource alloc] init]; // The subscription to be created (optional)
 
@@ -61,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,11 +77,6 @@ Subscription Templates define a type of subscription and the properties they hav
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPISubscriptionTemplateResource* subscriptionTemplateResource = [[JSAPISubscriptionTemplateResource alloc] init]; // The new subscription template (optional)
 
@@ -116,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,11 +128,6 @@ Must not be locked or a migration target
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the subscription
 NSString* planId = @"planId_example"; // The id of the plan
@@ -172,7 +157,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,11 +177,6 @@ Delete a subscription template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 NSString* cascade = @"cascade_example"; // force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -226,7 +206,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -295,11 +275,6 @@ Subscription Templates define a type of subscription and the properties they hav
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 
@@ -329,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -350,11 +325,6 @@ List and search subscription templates
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -390,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -465,11 +435,6 @@ Processes subscriptions and charge dues
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 
 JSAPIStoreSubscriptionsApi*apiInstance = [[JSAPIStoreSubscriptionsApi alloc] init];
@@ -492,7 +457,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -514,11 +479,6 @@ Will not remove plans left out
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the subscription
 JSAPISubscriptionResource* subscriptionResource = [[JSAPISubscriptionResource alloc] init]; // The subscription resource object (optional)
@@ -548,7 +508,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -568,11 +528,6 @@ Update a subscription template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 JSAPISubscriptionTemplateResource* subscriptionTemplateResource = [[JSAPISubscriptionTemplateResource alloc] init]; // The subscription template resource object (optional)
@@ -605,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

@@ -47,11 +47,6 @@ Add an answer to a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* questionId = @"questionId_example"; // The id of the question
 JSAPIAnswerResource* answer = [[JSAPIAnswerResource alloc] init]; // The new answer (optional)
@@ -84,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,11 +99,6 @@ Add a tag to a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 JSAPIStringWrapper* tag = [[JSAPIStringWrapper alloc] init]; // The new tag (optional)
@@ -138,7 +128,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,11 +157,6 @@ All questions that dont't have the tag and match filters will have it added. The
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIStringWrapper* tag = [[JSAPIStringWrapper alloc] init]; // The tag to add (optional)
 NSString* filterSearch = @"filterSearch_example"; // Filter for documents whose question, answers or tags contains provided string (optional)
@@ -225,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -246,11 +231,6 @@ Set up a job to import a set of trivia questions from a cvs file at a remote url
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIImportJobResource* request = [[JSAPIImportJobResource alloc] init]; // The new import job (optional)
 
@@ -280,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -299,11 +279,6 @@ Create a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIQuestionResource* question = [[JSAPIQuestionResource alloc] init]; // The new question (optional)
 
@@ -333,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -354,11 +329,6 @@ Question templates define a type of question and the properties they have
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIQuestionTemplateResource* questionTemplateResource = [[JSAPIQuestionTemplateResource alloc] init]; // The question template resource object (optional)
 
@@ -388,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -409,11 +379,6 @@ Also deletes all questions that were imported by it
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @789; // The id of the job
 
@@ -440,7 +405,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -459,11 +424,6 @@ Delete a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 
@@ -490,7 +450,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -510,11 +470,6 @@ Remove an answer from a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* questionId = @"questionId_example"; // The id of the question
 NSString* _id = @"_id_example"; // The id of the answer
@@ -544,7 +499,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -566,11 +521,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 NSString* cascade = @"cascade_example"; // The value needed to delete used templates (optional)
@@ -600,7 +550,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -619,11 +569,6 @@ Get an import job
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @789; // The id of the job
 
@@ -653,7 +598,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -678,11 +623,6 @@ Get a list of import job
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* filterVendor = @"filterVendor_example"; // Filter for jobs by vendor id (optional)
 NSString* filterCategory = @"filterCategory_example"; // Filter for jobs by category id (optional)
@@ -730,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -749,11 +689,6 @@ Get a single question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 
@@ -783,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -803,11 +738,6 @@ Get an answer for a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* questionId = @"questionId_example"; // The id of the question
 NSString* _id = @"_id_example"; // The id of the answer
@@ -840,7 +770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -859,11 +789,6 @@ List the answers available for a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* questionId = @"questionId_example"; // The id of the question
 
@@ -893,7 +818,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -914,11 +839,6 @@ The 'since' parameter is important to avoid getting a full list of all questions
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* since = @789; // Timestamp in seconds (optional)
 
@@ -948,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -967,11 +887,6 @@ List the tags for a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 
@@ -1001,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1020,11 +935,6 @@ Get a single question template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 
@@ -1054,7 +964,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1075,11 +985,6 @@ List and search question templates
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -1115,7 +1020,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1144,11 +1049,6 @@ List and search questions
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -1208,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1235,11 +1135,6 @@ This is also provided by the list endpoint so you don't need to call this for pa
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* filterSearch = @"filterSearch_example"; // Filter for documents whose question, answers or tags contains provided string (optional)
 NSString* filterIdset = @"filterIdset_example"; // Filter for documents whose id is in the comma separated list provided (optional)
@@ -1287,7 +1182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1309,11 +1204,6 @@ Will process the CSV file and add new questions asynchronously. The status of th
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @789; // The id of the job
 NSNumber* publishNow = @true; // Whether the new questions should be published live immediately
@@ -1346,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1366,11 +1256,6 @@ Remove a tag from a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 NSString* tag = @"tag_example"; // The tag to remove
@@ -1400,7 +1285,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1429,11 +1314,6 @@ ll questions that have the tag and match filters will have it removed. The retur
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* tag = @"tag_example"; // The tag to remove
 NSString* filterSearch = @"filterSearch_example"; // Filter for documents whose question, answers or tags contains provided string (optional)
@@ -1487,7 +1367,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1510,11 +1390,6 @@ For performance reasons, search & category filters are mutually exclusive. If ca
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* filterSearch = @"filterSearch_example"; // Filter for tags starting with the given text (optional)
 NSString* filterCategory = @"filterCategory_example"; // Filter for tags on questions from a specific category (optional)
@@ -1550,7 +1425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1572,11 +1447,6 @@ Changes should be made before process is started for there to be any effect.
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @789; // The id of the job
 JSAPIImportJobResource* request = [[JSAPIImportJobResource alloc] init]; // The updated job (optional)
@@ -1609,7 +1479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1629,11 +1499,6 @@ Update a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the question
 JSAPIQuestionResource* question = [[JSAPIQuestionResource alloc] init]; // The updated question (optional)
@@ -1666,7 +1531,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1687,11 +1552,6 @@ Update an answer for a question
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* questionId = @"questionId_example"; // The id of the question
 NSString* _id = @"_id_example"; // The id of the answer
@@ -1724,7 +1584,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1744,11 +1604,6 @@ Update a question template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 JSAPIQuestionTemplateResource* questionTemplateResource = [[JSAPIQuestionTemplateResource alloc] init]; // The question template resource object (optional)
@@ -1781,7 +1636,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1809,11 +1664,6 @@ Will update all questions that match filters used (or all questions in system if
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIQuestionResource* question = [[JSAPIQuestionResource alloc] init]; // New values for a set of question fields (optional)
 NSString* filterSearch = @"filterSearch_example"; // Filter for documents whose question, answers or tags contains provided string (optional)
@@ -1864,7 +1714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

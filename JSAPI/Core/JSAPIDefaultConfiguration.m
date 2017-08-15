@@ -104,7 +104,14 @@
 
 - (NSDictionary *) authSettings {
     return @{
-               @"OAuth2":
+               @"oauth2_client_credentials_grant":
+                   @{
+                       @"type": @"oauth",
+                       @"in": @"header",
+                       @"key": @"Authorization",
+                       @"value": [self getAccessToken]
+                   },
+               @"oauth2_password_grant":
                    @{
                        @"type": @"oauth",
                        @"in": @"header",

@@ -29,11 +29,6 @@ Add your vote to a poll
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The poll id
 JSAPIStringWrapper* answerKey = [[JSAPIStringWrapper alloc] init]; // The answer key (optional)
@@ -66,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -87,11 +82,6 @@ Polls are blobs of text with titles, a category and assets. Formatting and displ
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIPollResource* pollResource = [[JSAPIPollResource alloc] init]; // The poll object (optional)
 
@@ -121,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -142,11 +132,6 @@ Poll templates define a type of poll and the properties they have
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPITemplateResource* pollTemplateResource = [[JSAPITemplateResource alloc] init]; // The poll template resource object (optional)
 
@@ -176,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,11 +180,6 @@ Delete an existing poll
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The poll id
 
@@ -226,7 +206,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -248,11 +228,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 NSString* cascade = @"cascade_example"; // The value needed to delete used templates (optional)
@@ -282,7 +257,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -349,11 +324,6 @@ Get poll answer
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The poll id
 
@@ -383,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -402,11 +372,6 @@ Get a single poll template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 
@@ -436,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -457,11 +422,6 @@ List and search poll templates
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -497,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -587,11 +547,6 @@ Update an existing poll
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The poll id
 JSAPIPollResource* pollResource = [[JSAPIPollResource alloc] init]; // The poll object (optional)
@@ -624,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -644,11 +599,6 @@ Update a poll template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 JSAPITemplateResource* pollTemplateResource = [[JSAPITemplateResource alloc] init]; // The poll template resource object (optional)
@@ -681,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

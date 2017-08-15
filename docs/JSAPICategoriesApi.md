@@ -27,11 +27,6 @@ Create a new category
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPICategoryResource* category = [[JSAPICategoryResource alloc] init]; // The category to create (optional)
 
@@ -61,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,11 +77,6 @@ Templates define a type of category and the properties they have
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPITemplateResource* template = [[JSAPITemplateResource alloc] init]; // The template to create (optional)
 
@@ -116,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -135,11 +125,6 @@ Delete an existing category
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the category to be deleted
 
@@ -166,7 +151,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -188,11 +173,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 NSString* cascade = @"cascade_example"; // The value needed to delete used templates (optional)
@@ -222,7 +202,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -353,11 +333,6 @@ Get a single category template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 
@@ -387,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,11 +383,6 @@ List and search category templates
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -448,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -520,11 +490,6 @@ Update an existing category
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the category
 JSAPICategoryResource* category = [[JSAPICategoryResource alloc] init]; // The category to update (optional)
@@ -557,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -577,11 +542,6 @@ Update a category template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 JSAPITemplateResource* template = [[JSAPITemplateResource alloc] init]; // The updated template information (optional)
@@ -614,7 +574,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

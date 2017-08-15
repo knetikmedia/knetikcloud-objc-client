@@ -18,11 +18,6 @@ Create a payment token that should be used to forward the user to Xsolla so they
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIXsollaPaymentRequest* request = [[JSAPIXsollaPaymentRequest alloc] init]; // The payment request to be sent to XSolla (optional)
 
@@ -52,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

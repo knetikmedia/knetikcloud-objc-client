@@ -19,11 +19,6 @@ Stores customer information and creates a payment method that can be used to pay
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIFattMerchantPaymentMethodRequest* request = [[JSAPIFattMerchantPaymentMethodRequest alloc] init]; // Request containing payment method information for user (optional)
 
@@ -53,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

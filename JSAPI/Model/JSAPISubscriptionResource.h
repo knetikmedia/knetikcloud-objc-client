@@ -14,8 +14,11 @@
 */
 
 
+#import "JSAPIBehavior.h"
 #import "JSAPIProperty.h"
 #import "JSAPISubscriptionPlanResource.h"
+@protocol JSAPIBehavior;
+@class JSAPIBehavior;
 @protocol JSAPIProperty;
 @class JSAPIProperty;
 @protocol JSAPISubscriptionPlanResource;
@@ -34,6 +37,9 @@
 /* Who can purchase this subscription [optional]
  */
 @property(nonatomic) NSString* availability;
+/* The behaviors linked to the item, describing various options and interactions. May not be included in item lists [optional]
+ */
+@property(nonatomic) NSArray<JSAPIBehavior>* behaviors;
 /* A category for filtering items [optional]
  */
 @property(nonatomic) NSString* category;

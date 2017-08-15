@@ -20,11 +20,6 @@ Get a list of available actions
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* filterCategory = @"filterCategory_example"; // Filter for actions that are within a specific category (optional)
 NSString* filterName = @"filterName_example"; // Filter for actions that have names containing the given string (optional)
@@ -63,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

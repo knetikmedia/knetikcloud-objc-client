@@ -82,7 +82,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -137,7 +137,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -206,7 +206,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -280,7 +280,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -416,7 +416,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -485,7 +485,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -513,6 +513,8 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 ///
 /// List and search articles
 /// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
+///  @param filterActiveOnly Filter for articles that are active (true) or inactive (false) (optional)
+///
 ///  @param filterCategory Filter for articles from a specific category by id (optional)
 ///
 ///  @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
@@ -531,7 +533,8 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 ///
 ///  @returns JSAPIPageResourceArticleResource_*
 ///
--(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
+-(NSURLSessionTask*) getArticlesWithFilterActiveOnly: (NSNumber*) filterActiveOnly
+    filterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
     filterTagIntersection: (NSString*) filterTagIntersection
     filterTagExclusion: (NSString*) filterTagExclusion
@@ -545,6 +548,9 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (filterActiveOnly != nil) {
+        queryParams[@"filter_active_only"] = [filterActiveOnly isEqual:@(YES)] ? @"true" : @"false";
+    }
     if (filterCategory != nil) {
         queryParams[@"filter_category"] = filterCategory;
     }
@@ -655,7 +661,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -727,7 +733,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

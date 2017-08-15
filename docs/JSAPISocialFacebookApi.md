@@ -19,11 +19,6 @@ Links the current user account to a facebook account, using the acccess token fr
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIFacebookToken* facebookToken = [[JSAPIFacebookToken alloc] init]; // The token from facebook (optional)
 
@@ -50,7 +45,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

@@ -24,11 +24,6 @@ Retrieve invoice counts aggregated by time ranges
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* currencyCode = @"currencyCode_example"; // The code for a currency to get sales data for
 NSString* granularity = @"day"; // The time duration to aggregate by (optional) (default to day)
@@ -79,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

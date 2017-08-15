@@ -19,11 +19,6 @@ Post a new score/stat for an activity occurrence without ending the occurrence i
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIMetricResource* metric = [[JSAPIMetricResource alloc] init]; // The new metric (optional)
 
@@ -50,7 +45,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

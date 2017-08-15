@@ -31,11 +31,6 @@ Create an invoice(s) by providing a cart GUID. Note that there may be multiple i
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIInvoiceCreateRequest* req = [[JSAPIInvoiceCreateRequest alloc] init]; // Invoice to be created (optional)
 
@@ -65,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,11 +123,6 @@ Retrieve an invoice
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 
@@ -162,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -183,11 +173,6 @@ List invoice logs
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
@@ -223,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -260,11 +245,6 @@ Without INVOICES_ADMIN permission the results are automatically filtered for onl
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* filterUser = @56; // The id of a user to get invoices for. Automtically added if not being called with admin permissions. (optional)
 NSString* filterEmail = @"filterEmail_example"; // Filters invoices by customer's email. Admins only. (optional)
@@ -342,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -406,11 +386,6 @@ Pay an invoice using a saved payment method
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 JSAPIPayBySavedMethodRequest* request = [[JSAPIPayBySavedMethodRequest alloc] init]; // The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited. (optional)
@@ -440,7 +415,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -464,11 +439,6 @@ This allows external fulfillment systems to report success or failure. Fulfillme
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 NSString* bundleSku = @"bundleSku_example"; // The sku of the bundle in the invoice that contains the given target
@@ -504,7 +474,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -524,11 +494,6 @@ Set the external reference of an invoice
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 JSAPIStringWrapper* externalRef = [[JSAPIStringWrapper alloc] init]; // External reference info (optional)
@@ -558,7 +523,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -581,11 +546,6 @@ This allows external fulfillment systems to report success or failure. Fulfillme
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 NSString* sku = @"sku_example"; // The sku of an item in the invoice
@@ -618,7 +578,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -638,11 +598,6 @@ Set the order notes of an invoice
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 JSAPIStringWrapper* orderNotes = [[JSAPIStringWrapper alloc] init]; // Payment status info (optional)
@@ -672,7 +627,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -694,11 +649,6 @@ This may trigger fulfillment if setting the status to 'paid'. This is mainly int
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 JSAPIInvoicePaymentStatusRequest* request = [[JSAPIInvoicePaymentStatusRequest alloc] init]; // Payment status info (optional)
@@ -728,7 +678,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -748,11 +698,6 @@ Set or update billing info
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* _id = @56; // The id of the invoice
 JSAPIAddressResource* billingInfoRequest = [[JSAPIAddressResource alloc] init]; // Address info (optional)
@@ -782,7 +727,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

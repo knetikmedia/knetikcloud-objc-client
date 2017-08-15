@@ -28,11 +28,6 @@ Articles are blobs of text with titles, a category and assets. Formatting and di
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIArticleResource* articleResource = [[JSAPIArticleResource alloc] init]; // The new article (optional)
 
@@ -62,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,11 +78,6 @@ Article Templates define a type of article and the properties they have
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPITemplateResource* articleTemplateResource = [[JSAPITemplateResource alloc] init]; // The article template resource object (optional)
 
@@ -117,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,11 +126,6 @@ Delete an existing article
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The article id
 
@@ -167,7 +152,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -189,11 +174,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 NSString* cascade = @"cascade_example"; // The value needed to delete used templates (optional)
@@ -223,7 +203,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -290,11 +270,6 @@ Get a single article template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 
@@ -324,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -345,11 +320,6 @@ List and search article templates
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
@@ -385,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -396,7 +366,8 @@ Name | Type | Description  | Notes
 
 # **getArticles**
 ```objc
--(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
+-(NSURLSessionTask*) getArticlesWithFilterActiveOnly: (NSNumber*) filterActiveOnly
+    filterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
     filterTagIntersection: (NSString*) filterTagIntersection
     filterTagExclusion: (NSString*) filterTagExclusion
@@ -414,6 +385,7 @@ Get a list of articles with optional filtering. Assets will not be filled in on 
 ### Example 
 ```objc
 
+NSNumber* filterActiveOnly = @true; // Filter for articles that are active (true) or inactive (false) (optional)
 NSString* filterCategory = @"filterCategory_example"; // Filter for articles from a specific category by id (optional)
 NSString* filterTagset = @"filterTagset_example"; // Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
 NSString* filterTagIntersection = @"filterTagIntersection_example"; // Filter for articles with all of a specified set of tags (separated by comma) (optional)
@@ -426,7 +398,8 @@ NSString* order = @"id:ASC"; // A comma separated list of sorting requirements i
 JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 
 // List and search articles
-[apiInstance getArticlesWithFilterCategory:filterCategory
+[apiInstance getArticlesWithFilterActiveOnly:filterActiveOnly
+              filterCategory:filterCategory
               filterTagset:filterTagset
               filterTagIntersection:filterTagIntersection
               filterTagExclusion:filterTagExclusion
@@ -448,6 +421,7 @@ JSAPIContentArticlesApi*apiInstance = [[JSAPIContentArticlesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterActiveOnly** | **NSNumber***| Filter for articles that are active (true) or inactive (false) | [optional] 
  **filterCategory** | **NSString***| Filter for articles from a specific category by id | [optional] 
  **filterTagset** | **NSString***| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
  **filterTagIntersection** | **NSString***| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
@@ -483,11 +457,6 @@ Update an existing article
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The article id
 JSAPIArticleResource* articleResource = [[JSAPIArticleResource alloc] init]; // The article object (optional)
@@ -520,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -540,11 +509,6 @@ Update an article template
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* _id = @"_id_example"; // The id of the template
 JSAPITemplateResource* articleTemplateResource = [[JSAPITemplateResource alloc] init]; // The article template resource object (optional)
@@ -577,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

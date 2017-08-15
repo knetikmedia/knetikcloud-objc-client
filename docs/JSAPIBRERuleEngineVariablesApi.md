@@ -20,11 +20,6 @@ Types include integer, string, user and invoice. These are used to qualify trigg
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 
 JSAPIBRERuleEngineVariablesApi*apiInstance = [[JSAPIBRERuleEngineVariablesApi alloc] init];
@@ -50,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,11 +69,6 @@ Used to lookup users to fill in a user constant for example. Only types marked a
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSString* name = @"name_example"; // The name of the type
 NSString* filterName = @"filterName_example"; // Filter results by those with names starting with this string (optional)
@@ -117,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

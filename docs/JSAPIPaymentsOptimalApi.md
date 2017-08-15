@@ -19,11 +19,6 @@ Will return the url for a hosted payment endpoint to post to. See Optimal docume
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIOptimalPaymentRequest* request = [[JSAPIOptimalPaymentRequest alloc] init]; // The payment request to initiate (optional)
 
@@ -53,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

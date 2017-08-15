@@ -80,7 +80,7 @@ NSInteger kJSAPIPaymentsFattMerchantApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"OAuth2"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

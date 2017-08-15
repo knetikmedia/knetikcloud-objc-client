@@ -558,7 +558,8 @@ Class | Method | HTTP request | Description
 *JSAPIActivitiesApi* | [**updateActivity**](docs/JSAPIActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
 *JSAPIActivitiesApi* | [**updateActivityOccurrence**](docs/JSAPIActivitiesApi.md#updateactivityoccurrence) | **PUT** /activity-occurrences/{activity_occurrence_id}/status | Updated the status of an activity occurrence
 *JSAPIActivitiesApi* | [**updateActivityTemplate**](docs/JSAPIActivitiesApi.md#updateactivitytemplate) | **PUT** /activities/templates/{id} | Update an activity template
-*JSAPIAmazonWebServicesS3Api* | [**getSignedS3URL**](docs/JSAPIAmazonWebServicesS3Api.md#getsigneds3url) | **GET** /amazon/s3/signedposturl | Get a signed S3 URL
+*JSAPIAmazonWebServicesS3Api* | [**getDownloadURL**](docs/JSAPIAmazonWebServicesS3Api.md#getdownloadurl) | **GET** /amazon/s3/downloadurl | Get a temporary signed S3 URL for download
+*JSAPIAmazonWebServicesS3Api* | [**getSignedS3URL**](docs/JSAPIAmazonWebServicesS3Api.md#getsigneds3url) | **GET** /amazon/s3/signedposturl | Get a signed S3 URL for upload
 *JSAPIAuthClientsApi* | [**createClient**](docs/JSAPIAuthClientsApi.md#createclient) | **POST** /auth/clients | Create a new client
 *JSAPIAuthClientsApi* | [**deleteClient**](docs/JSAPIAuthClientsApi.md#deleteclient) | **DELETE** /auth/clients/{client_key} | Delete a client
 *JSAPIAuthClientsApi* | [**getClient**](docs/JSAPIAuthClientsApi.md#getclient) | **GET** /auth/clients/{client_key} | Get a single client
@@ -1445,13 +1446,21 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## OAuth2
+## oauth2_client_credentials_grant
 
 - **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: /oauth/token
+- **Flow**: application
+- **Authorization URL**: 
 - **Scopes**: 
- - **global**: global
+ - **read write**: read write
+
+## oauth2_password_grant
+
+- **Type**: OAuth
+- **Flow**: password
+- **Authorization URL**: 
+- **Scopes**: 
+ - **read write**: read write
 
 
 ## Author

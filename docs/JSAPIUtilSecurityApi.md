@@ -23,11 +23,6 @@ A log entry is recorded everytime a user requests a new token. Standard paginati
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 NSNumber* userId = @56; // The user id (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
@@ -66,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,11 +80,6 @@ Returns the authentication token details. Use /users endpoint for detailed user'
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 
 JSAPIUtilSecurityApi*apiInstance = [[JSAPIUtilSecurityApi alloc] init];
@@ -115,7 +105,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

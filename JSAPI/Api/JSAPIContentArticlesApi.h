@@ -148,6 +148,7 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 /// List and search articles
 /// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
 ///
+/// @param filterActiveOnly Filter for articles that are active (true) or inactive (false) (optional)
 /// @param filterCategory Filter for articles from a specific category by id (optional)
 /// @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
 /// @param filterTagIntersection Filter for articles with all of a specified set of tags (separated by comma) (optional)
@@ -164,7 +165,8 @@ extern NSInteger kJSAPIContentArticlesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIPageResourceArticleResource_*
--(NSURLSessionTask*) getArticlesWithFilterCategory: (NSString*) filterCategory
+-(NSURLSessionTask*) getArticlesWithFilterActiveOnly: (NSNumber*) filterActiveOnly
+    filterCategory: (NSString*) filterCategory
     filterTagset: (NSString*) filterTagset
     filterTagIntersection: (NSString*) filterTagIntersection
     filterTagExclusion: (NSString*) filterTagExclusion

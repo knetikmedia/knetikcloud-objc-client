@@ -22,11 +22,6 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPICreateBillingAgreementRequest* request = [[JSAPICreateBillingAgreementRequest alloc] init]; // The request to create a PayPal billing agreement (optional)
 
@@ -56,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,11 +72,6 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPICreatePayPalPaymentRequest* request = [[JSAPICreatePayPalPaymentRequest alloc] init]; // The request to create a PayPal payment token (optional)
 
@@ -111,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,11 +122,6 @@ Returns the ID of the new payment method created for the user for the billing ag
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIFinalizeBillingAgreementRequest* request = [[JSAPIFinalizeBillingAgreementRequest alloc] init]; // The request to finalize a PayPal billing agreement (optional)
 
@@ -166,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -187,11 +172,6 @@ The invoice will be marked paid/failed by asynchronous IPN callback.
 
 ### Example 
 ```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
 
 JSAPIFinalizePayPalPaymentRequest* request = [[JSAPIFinalizePayPalPaymentRequest alloc] init]; // The request to finalize the payment (optional)
 
@@ -218,7 +198,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
