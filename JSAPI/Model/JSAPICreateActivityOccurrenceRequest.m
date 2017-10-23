@@ -1,0 +1,40 @@
+#import "JSAPICreateActivityOccurrenceRequest.h"
+
+@implementation JSAPICreateActivityOccurrenceRequest
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    // initialize property's default value, if any
+    
+  }
+  return self;
+}
+
+
+/**
+ * Maps json key to property name.
+ * This method is used by `JSONModel`.
+ */
++ (JSONKeyMapper *)keyMapper {
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[self modalDictionary]];
+}
+
++ (NSDictionary *)modalDictionary {
+
+  return @{ @"activityId": @"activity_id", @"challengeActivityId": @"challenge_activity_id", @"entitlement": @"entitlement", @"eventId": @"event_id", @"settings": @"settings", @"simulated": @"simulated", @"status": @"status", @"users": @"users" };
+}
+
+/**
+ * Indicates whether the property with the given name is optional.
+ * If `propertyName` is optional, then return `YES`, otherwise return `NO`.
+ * This method is used by `JSONModel`.
+ */
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+
+  NSArray *optionalProperties = @[@"activityId", @"challengeActivityId", @"entitlement", @"eventId", @"settings", @"simulated", @"status", @"users"];
+
+  return [optionalProperties containsObject:propertyName];
+}
+
+@end

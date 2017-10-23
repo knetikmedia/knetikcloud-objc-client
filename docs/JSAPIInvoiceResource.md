@@ -1,0 +1,51 @@
+# JSAPIInvoiceResource
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**billingAddress1** | **NSString*** | Line one of the customer&#39;s billing address | [optional] 
+**billingAddress2** | **NSString*** | Line two of the customer&#39;s billing address | [optional] 
+**billingCityName** | **NSString*** | The city for the customer&#39;s billing address | [optional] 
+**billingCountryName** | **NSString*** | The country for the customer&#39;s billing address | [optional] 
+**billingFullName** | **NSString*** | The customer&#39;s name for the billing address | [optional] 
+**billingPostalCode** | **NSString*** | The postal code for the customer&#39;s billing address | [optional] 
+**billingStateName** | **NSString*** | The state for the customer&#39;s billing address | [optional] 
+**cartId** | **NSString*** | The guid of the cart this invoice came from | [optional] 
+**createdDate** | **NSNumber*** | The date the invoice was created, unix timestamp in seconds | [optional] 
+**currency** | **NSString*** | The code for the currency invoice prices are in | [optional] 
+**currentFulfillmentStatus** | **NSString*** | The fulfillment status of the invoice | [optional] 
+**currentPaymentStatus** | **NSString*** | The payment status of the invoice | [optional] 
+**discount** | **NSNumber*** | The amount of money saved through coupons | [optional] 
+**email** | **NSString*** | The customer&#39;s email address | [optional] 
+**externalRef** | **NSString*** | An external reference to filter on | [optional] 
+**fedTax** | **NSNumber*** | The amount of federal tax added | [optional] 
+**grandTotal** | **NSNumber*** | The final price of the invoice | [optional] 
+**_id** | **NSNumber*** | The id of the invoice | [optional] 
+**invoiceNumber** | **NSString*** | A reference number for the invoice | [optional] 
+**items** | [**NSArray&lt;JSAPIInvoiceItemResource&gt;***](JSAPIInvoiceItemResource.md) | A list of items within the invoice | [optional] 
+**namePrefix** | **NSString*** | The customer&#39;s name prefix | [optional] 
+**orderNotes** | **NSString*** | Notes about the order | [optional] 
+**parentInvoiceId** | **NSNumber*** | The id of an invoice this is a child of | [optional] 
+**paymentMethodId** | **NSNumber*** | The id of a saved payment method used to pay for the invoice | [optional] 
+**phone** | **NSString*** | The customer&#39;s phone number | [optional] 
+**phoneNumber** | **NSString*** | The customer&#39;s phone number | [optional] 
+**remainingBalance** | **NSNumber*** | The remaining price of the invoice (after any payments made so far) | [optional] 
+**shipping** | **NSNumber*** | The shipping cost | [optional] 
+**shippingAddress1** | **NSString*** | Line one of the customer&#39;s shipping address | [optional] 
+**shippingAddress2** | **NSString*** | Line two of the customer&#39;s shipping address | [optional] 
+**shippingCityName** | **NSString*** | The city for the customer&#39;s shipping address | [optional] 
+**shippingCountryName** | **NSString*** | The country for the customer&#39;s shipping address | [optional] 
+**shippingFullName** | **NSString*** | The customer&#39;s name for the shipping address | [optional] 
+**shippingPostalCode** | **NSString*** | The postal code for the customer&#39;s shipping address | [optional] 
+**shippingStateName** | **NSString*** | The state for the customer&#39;s shipping address | [optional] 
+**sort** | **NSNumber*** | A number to use in sorting items. default 500. | [optional] 
+**stateTax** | **NSNumber*** | The amount of state tax added | [optional] 
+**subtotal** | **NSNumber*** | The sum price of all items before shipping, coupons and tax | [optional] 
+**updatedDate** | **NSNumber*** | The date the invoice was last updated, unix timestamp in seconds | [optional] 
+**user** | [**JSAPISimpleUserResource***](JSAPISimpleUserResource.md) | The owner of the invoice | [optional] 
+**vendorId** | **NSNumber*** | The id of the vendor | [optional] 
+**vendorName** | **NSString*** | The name of the invoice | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
