@@ -407,6 +407,7 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 /// @param _id The challenge_activity id
 /// @param challengeId The challenge id
 /// @param challengeActivityResource The challenge activity resource object (optional)
+/// @param validateSettings Whether to validate the settings being sent against the available settings on the base activity. (optional) (default to false)
 /// 
 ///  code:204 message:"No Content",
 ///  code:400 message:"Bad Request",
@@ -418,6 +419,7 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 -(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
+    validateSettings: (NSNumber*) validateSettings
     completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
 
 
