@@ -6,10 +6,12 @@
 #import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIPageResourceDispositionResource_.h"
+#import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceVideoRelationshipResource_.h"
 #import "JSAPIPageResourceVideoResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
+#import "JSAPITemplateResource.h"
 #import "JSAPIVideoRelationshipResource.h"
 #import "JSAPIVideoResource.h"
 #import "JSAPIApi.h"
@@ -159,6 +161,22 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIDispositionResource* output, NSError* error)) handler;
 
 
+/// Create a video template
+/// Video Templates define a type of video and the properties they have
+///
+/// @param videoTemplateResource The video template resource object (optional)
+/// 
+///  code:201 message:"Created",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPITemplateResource*
+-(NSURLSessionTask*) createVideoTemplateWithVideoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
+
+
 /// Deletes a video from the system if no resources are attached to it
 /// 
 ///
@@ -240,6 +258,24 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 /// @return void
 -(NSURLSessionTask*) deleteVideoRelationshipWithVideoId: (NSNumber*) videoId
     _id: (NSNumber*) _id
+    completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Delete a video template
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+///
+/// @param _id The id of the template
+/// @param cascade The value needed to delete used templates (optional)
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return void
+-(NSURLSessionTask*) deleteVideoTemplateWithId: (NSString*) _id
+    cascade: (NSString*) cascade
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -339,6 +375,42 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
     size: (NSNumber*) size
     page: (NSNumber*) page
     completionHandler: (void (^)(JSAPIPageResourceVideoRelationshipResource_* output, NSError* error)) handler;
+
+
+/// Get a single video template
+/// 
+///
+/// @param _id The id of the template
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPITemplateResource*
+-(NSURLSessionTask*) getVideoTemplateWithId: (NSString*) _id
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
+
+
+/// List and search video templates
+/// 
+///
+/// @param size The number of objects returned per page (optional) (default to 25)
+/// @param page The number of the page returned, starting with 1 (optional) (default to 1)
+/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIPageResourceTemplateResource_*
+-(NSURLSessionTask*) getVideoTemplatesWithSize: (NSNumber*) size
+    page: (NSNumber*) page
+    order: (NSString*) order
+    completionHandler: (void (^)(JSAPIPageResourceTemplateResource_* output, NSError* error)) handler;
 
 
 /// Search videos using the documented filters
@@ -477,6 +549,24 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
     relationshipId: (NSNumber*) relationshipId
     details: (JSAPIStringWrapper*) details
     completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Update a video template
+/// 
+///
+/// @param _id The id of the template
+/// @param videoTemplateResource The video template resource object (optional)
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPITemplateResource*
+-(NSURLSessionTask*) updateVideoTemplateWithId: (NSString*) _id
+    videoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
 
 
 /// Increment a video's view count

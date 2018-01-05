@@ -8,10 +8,12 @@
 #import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceCommentResource_.h"
 #import "JSAPIPageResourceDispositionResource_.h"
+#import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceVideoRelationshipResource_.h"
 #import "JSAPIPageResourceVideoResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
+#import "JSAPITemplateResource.h"
 #import "JSAPIVideoRelationshipResource.h"
 #import "JSAPIVideoResource.h"
 
@@ -549,6 +551,61 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Create a video template
+/// Video Templates define a type of video and the properties they have
+///  @param videoTemplateResource The video template resource object (optional)
+///
+///  @returns JSAPITemplateResource*
+///
+-(NSURLSessionTask*) createVideoTemplateWithVideoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/videos/templates"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = videoTemplateResource;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPITemplateResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPITemplateResource*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Deletes a video from the system if no resources are attached to it
 /// 
 ///  @param _id The video id 
@@ -882,6 +939,80 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Delete a video template
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+///  @param _id The id of the template 
+///
+///  @param cascade The value needed to delete used templates (optional)
+///
+///  @returns void
+///
+-(NSURLSessionTask*) deleteVideoTemplateWithId: (NSString*) _id
+    cascade: (NSString*) cascade
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIMediaVideosApiErrorDomain code:kJSAPIMediaVideosApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/videos/templates/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (cascade != nil) {
+        queryParams[@"cascade"] = cascade;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`
@@ -1312,6 +1443,143 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
                                     handler((JSAPIPageResourceVideoRelationshipResource_*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Get a single video template
+/// 
+///  @param _id The id of the template 
+///
+///  @returns JSAPITemplateResource*
+///
+-(NSURLSessionTask*) getVideoTemplateWithId: (NSString*) _id
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIMediaVideosApiErrorDomain code:kJSAPIMediaVideosApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/videos/templates/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPITemplateResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPITemplateResource*)data, error);
+                                }
+                            }];
+}
+
+///
+/// List and search video templates
+/// 
+///  @param size The number of objects returned per page (optional, default to 25)
+///
+///  @param page The number of the page returned, starting with 1 (optional, default to 1)
+///
+///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
+///
+///  @returns JSAPIPageResourceTemplateResource_*
+///
+-(NSURLSessionTask*) getVideoTemplatesWithSize: (NSNumber*) size
+    page: (NSNumber*) page
+    order: (NSString*) order
+    completionHandler: (void (^)(JSAPIPageResourceTemplateResource_* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/videos/templates"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (size != nil) {
+        queryParams[@"size"] = size;
+    }
+    if (page != nil) {
+        queryParams[@"page"] = page;
+    }
+    if (order != nil) {
+        queryParams[@"order"] = order;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIPageResourceTemplateResource_*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIPageResourceTemplateResource_*)data, error);
                                 }
                             }];
 }
@@ -1873,6 +2141,78 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
                                     handler(error);
+                                }
+                            }];
+}
+
+///
+/// Update a video template
+/// 
+///  @param _id The id of the template 
+///
+///  @param videoTemplateResource The video template resource object (optional)
+///
+///  @returns JSAPITemplateResource*
+///
+-(NSURLSessionTask*) updateVideoTemplateWithId: (NSString*) _id
+    videoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+    completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIMediaVideosApiErrorDomain code:kJSAPIMediaVideosApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/media/videos/templates/{id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = videoTemplateResource;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPITemplateResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPITemplateResource*)data, error);
                                 }
                             }];
 }

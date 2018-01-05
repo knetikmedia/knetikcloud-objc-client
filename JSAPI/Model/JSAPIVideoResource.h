@@ -16,6 +16,7 @@
 
 #import "JSAPICommentResource.h"
 #import "JSAPIContributionResource.h"
+#import "JSAPIProperty.h"
 #import "JSAPISimpleReferenceResourceLong_.h"
 #import "JSAPISimpleReferenceResourceString_.h"
 #import "JSAPISimpleUserResource.h"
@@ -23,6 +24,8 @@
 @class JSAPICommentResource;
 @protocol JSAPIContributionResource;
 @class JSAPIContributionResource;
+@protocol JSAPIProperty;
+@class JSAPIProperty;
 @protocol JSAPISimpleReferenceResourceLong_;
 @class JSAPISimpleReferenceResourceLong_;
 @protocol JSAPISimpleReferenceResourceString_;
@@ -40,6 +43,9 @@
 /* Whether the video is available, based on various factors [optional]
  */
 @property(nonatomic) NSNumber* active;
+/* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type [optional]
+ */
+@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
 /* The original artist of the media [optional]
  */
 @property(nonatomic) JSAPISimpleReferenceResourceLong_* author;
@@ -106,6 +112,9 @@
 /* The tags for the video [optional]
  */
 @property(nonatomic) NSArray<NSString*>* tags;
+/* A video template this video is validated against (private). May be null and no validation of additional_properties will be done [optional]
+ */
+@property(nonatomic) NSString* template;
 /* The country of a thumbnail version. Typically a url [optional]
  */
 @property(nonatomic) NSString* thumbnail;

@@ -1,6 +1,6 @@
 # JSAPIMediaVideosApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,22 +11,27 @@ Method | HTTP request | Description
 [**addVideoFlag**](JSAPIMediaVideosApi.md#addvideoflag) | **POST** /media/videos/{video_id}/moderation | Add a new flag
 [**addVideoRelationships**](JSAPIMediaVideosApi.md#addvideorelationships) | **POST** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
 [**createVideoDisposition**](JSAPIMediaVideosApi.md#createvideodisposition) | **POST** /media/videos/{video_id}/dispositions | Create a video disposition
+[**createVideoTemplate**](JSAPIMediaVideosApi.md#createvideotemplate) | **POST** /media/videos/templates | Create a video template
 [**deleteVideo**](JSAPIMediaVideosApi.md#deletevideo) | **DELETE** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
 [**deleteVideoComment**](JSAPIMediaVideosApi.md#deletevideocomment) | **DELETE** /media/videos/{video_id}/comments/{id} | Delete a video comment
 [**deleteVideoDisposition**](JSAPIMediaVideosApi.md#deletevideodisposition) | **DELETE** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
 [**deleteVideoFlag**](JSAPIMediaVideosApi.md#deletevideoflag) | **DELETE** /media/videos/{video_id}/moderation | Delete a flag
 [**deleteVideoRelationship**](JSAPIMediaVideosApi.md#deletevideorelationship) | **DELETE** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
+[**deleteVideoTemplate**](JSAPIMediaVideosApi.md#deletevideotemplate) | **DELETE** /media/videos/templates/{id} | Delete a video template
 [**getUserVideos**](JSAPIMediaVideosApi.md#getuservideos) | **GET** /users/{user_id}/videos | Get user videos
 [**getVideo**](JSAPIMediaVideosApi.md#getvideo) | **GET** /media/videos/{id} | Loads a specific video details
 [**getVideoComments**](JSAPIMediaVideosApi.md#getvideocomments) | **GET** /media/videos/{video_id}/comments | Returns a page of comments for a video
 [**getVideoDispositions**](JSAPIMediaVideosApi.md#getvideodispositions) | **GET** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
 [**getVideoRelationships**](JSAPIMediaVideosApi.md#getvideorelationships) | **GET** /media/videos/{video_id}/related | Returns a page of video relationships
+[**getVideoTemplate**](JSAPIMediaVideosApi.md#getvideotemplate) | **GET** /media/videos/templates/{id} | Get a single video template
+[**getVideoTemplates**](JSAPIMediaVideosApi.md#getvideotemplates) | **GET** /media/videos/templates | List and search video templates
 [**getVideos**](JSAPIMediaVideosApi.md#getvideos) | **GET** /media/videos | Search videos using the documented filters
 [**removeUserFromVideoWhitelist**](JSAPIMediaVideosApi.md#removeuserfromvideowhitelist) | **DELETE** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
 [**removeVideoContributor**](JSAPIMediaVideosApi.md#removevideocontributor) | **DELETE** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
 [**updateVideo**](JSAPIMediaVideosApi.md#updatevideo) | **PUT** /media/videos/{id} | Modifies a video&#39;s details
 [**updateVideoComment**](JSAPIMediaVideosApi.md#updatevideocomment) | **PUT** /media/videos/{video_id}/comments/{id}/content | Update a video comment
 [**updateVideoRelationship**](JSAPIMediaVideosApi.md#updatevideorelationship) | **PUT** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
+[**updateVideoTemplate**](JSAPIMediaVideosApi.md#updatevideotemplate) | **PUT** /media/videos/templates/{id} | Update a video template
 [**viewVideo**](JSAPIMediaVideosApi.md#viewvideo) | **POST** /media/videos/{id}/views | Increment a video&#39;s view count
 
 
@@ -442,6 +447,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **createVideoTemplate**
+```objc
+-(NSURLSessionTask*) createVideoTemplateWithVideoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+        completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
+```
+
+Create a video template
+
+Video Templates define a type of video and the properties they have
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+JSAPITemplateResource* videoTemplateResource = [[JSAPITemplateResource alloc] init]; // The video template resource object (optional)
+
+JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
+
+// Create a video template
+[apiInstance createVideoTemplateWithVideoTemplateResource:videoTemplateResource
+          completionHandler: ^(JSAPITemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIMediaVideosApi->createVideoTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **videoTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The video template resource object | [optional] 
+
+### Return type
+
+[**JSAPITemplateResource***](JSAPITemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteVideo**
 ```objc
 -(NSURLSessionTask*) deleteVideoWithId: (NSNumber*) _id
@@ -699,6 +762,65 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **NSNumber***| The video id | 
  **_id** | **NSNumber***| The relationship id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteVideoTemplate**
+```objc
+-(NSURLSessionTask*) deleteVideoTemplateWithId: (NSString*) _id
+    cascade: (NSString*) cascade
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Delete a video template
+
+If cascade = 'detach', it will force delete the template even if it's attached to other objects
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* _id = @"_id_example"; // The id of the template
+NSString* cascade = @"cascade_example"; // The value needed to delete used templates (optional)
+
+JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
+
+// Delete a video template
+[apiInstance deleteVideoTemplateWithId:_id
+              cascade:cascade
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling JSAPIMediaVideosApi->deleteVideoTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+ **cascade** | **NSString***| The value needed to delete used templates | [optional] 
 
 ### Return type
 
@@ -1019,6 +1141,126 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**JSAPIPageResourceVideoRelationshipResource_***](JSAPIPageResourceVideoRelationshipResource_.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getVideoTemplate**
+```objc
+-(NSURLSessionTask*) getVideoTemplateWithId: (NSString*) _id
+        completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
+```
+
+Get a single video template
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* _id = @"_id_example"; // The id of the template
+
+JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
+
+// Get a single video template
+[apiInstance getVideoTemplateWithId:_id
+          completionHandler: ^(JSAPITemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIMediaVideosApi->getVideoTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+
+### Return type
+
+[**JSAPITemplateResource***](JSAPITemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getVideoTemplates**
+```objc
+-(NSURLSessionTask*) getVideoTemplatesWithSize: (NSNumber*) size
+    page: (NSNumber*) page
+    order: (NSString*) order
+        completionHandler: (void (^)(JSAPIPageResourceTemplateResource_* output, NSError* error)) handler;
+```
+
+List and search video templates
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
+NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
+NSString* order = @"id:ASC"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
+
+JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
+
+// List and search video templates
+[apiInstance getVideoTemplatesWithSize:size
+              page:page
+              order:order
+          completionHandler: ^(JSAPIPageResourceTemplateResource_* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIMediaVideosApi->getVideoTemplates: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
+ **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+
+### Return type
+
+[**JSAPIPageResourceTemplateResource_***](JSAPIPageResourceTemplateResource_.md)
 
 ### Authorization
 
@@ -1426,6 +1668,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateVideoTemplate**
+```objc
+-(NSURLSessionTask*) updateVideoTemplateWithId: (NSString*) _id
+    videoTemplateResource: (JSAPITemplateResource*) videoTemplateResource
+        completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
+```
+
+Update a video template
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* _id = @"_id_example"; // The id of the template
+JSAPITemplateResource* videoTemplateResource = [[JSAPITemplateResource alloc] init]; // The video template resource object (optional)
+
+JSAPIMediaVideosApi*apiInstance = [[JSAPIMediaVideosApi alloc] init];
+
+// Update a video template
+[apiInstance updateVideoTemplateWithId:_id
+              videoTemplateResource:videoTemplateResource
+          completionHandler: ^(JSAPITemplateResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIMediaVideosApi->updateVideoTemplate: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSString***| The id of the template | 
+ **videoTemplateResource** | [**JSAPITemplateResource***](JSAPITemplateResource.md)| The video template resource object | [optional] 
+
+### Return type
+
+[**JSAPITemplateResource***](JSAPITemplateResource.md)
 
 ### Authorization
 

@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"https://sandbox.knetikcloud.com";
+        _host = @"https://devsandbox.knetikcloud.com";
         _username = @"";
         _password = @"";
         _accessToken= @"";
