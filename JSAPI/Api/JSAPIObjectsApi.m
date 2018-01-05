@@ -1,7 +1,6 @@
 #import "JSAPIObjectsApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
-#import "JSAPIEntitlementItem.h"
 #import "JSAPIItemTemplateResource.h"
 #import "JSAPIObjectResource.h"
 #import "JSAPIPageResourceItemTemplateResource_.h"
@@ -659,7 +658,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 /// 
 ///  @param templateId The id of the template this object is part of 
 ///
-///  @param entitlementId The id of the entitlement 
+///  @param objectId The id of the object 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
 ///
@@ -668,9 +667,9 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) updateObjectItemWithTemplateId: (NSString*) templateId
-    entitlementId: (NSNumber*) entitlementId
+    objectId: (NSNumber*) objectId
     cascade: (NSNumber*) cascade
-    objectItem: (JSAPIEntitlementItem*) objectItem
+    objectItem: (JSAPIObjectResource*) objectItem
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'templateId' is set
     if (templateId == nil) {
@@ -683,11 +682,11 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'entitlementId' is set
-    if (entitlementId == nil) {
-        NSParameterAssert(entitlementId);
+    // verify the required parameter 'objectId' is set
+    if (objectId == nil) {
+        NSParameterAssert(objectId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"entitlementId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"objectId"] };
             NSError* error = [NSError errorWithDomain:kJSAPIObjectsApiErrorDomain code:kJSAPIObjectsApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
@@ -700,8 +699,8 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     if (templateId != nil) {
         pathParams[@"template_id"] = templateId;
     }
-    if (entitlementId != nil) {
-        pathParams[@"entitlement_id"] = entitlementId;
+    if (objectId != nil) {
+        pathParams[@"object_id"] = objectId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];

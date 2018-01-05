@@ -114,8 +114,8 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPITemplateResource* output, NSError* error)) handler;
 
 
-/// Removes a group from the system IF no resources are attached to it
-/// 
+/// Removes a group from the system
+/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
 ///
 /// @param uniqueName The group unique name
 /// 
@@ -180,6 +180,22 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 /// @return JSAPIGroupResource*
 -(NSURLSessionTask*) getGroupWithUniqueName: (NSString*) uniqueName
     completionHandler: (void (^)(JSAPIGroupResource* output, NSError* error)) handler;
+
+
+/// Get group ancestors
+/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+///
+/// @param uniqueName The group unique name
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSArray<JSAPIGroupResource>*
+-(NSURLSessionTask*) getGroupAncestorsWithUniqueName: (NSString*) uniqueName
+    completionHandler: (void (^)(NSArray<JSAPIGroupResource>* output, NSError* error)) handler;
 
 
 /// Get a user from a group
@@ -363,7 +379,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Update a group
-/// 
+/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
 ///
 /// @param uniqueName The group unique name
 /// @param groupResource The updated group (optional)

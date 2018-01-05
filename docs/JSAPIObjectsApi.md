@@ -505,9 +505,9 @@ Name | Type | Description  | Notes
 # **updateObjectItem**
 ```objc
 -(NSURLSessionTask*) updateObjectItemWithTemplateId: (NSString*) templateId
-    entitlementId: (NSNumber*) entitlementId
+    objectId: (NSNumber*) objectId
     cascade: (NSNumber*) cascade
-    objectItem: (JSAPIEntitlementItem*) objectItem
+    objectItem: (JSAPIObjectResource*) objectItem
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -525,15 +525,15 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* templateId = @"templateId_example"; // The id of the template this object is part of
-NSNumber* entitlementId = @56; // The id of the entitlement
+NSNumber* objectId = @56; // The id of the object
 NSNumber* cascade = @false; // Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
-JSAPIEntitlementItem* objectItem = [[JSAPIEntitlementItem alloc] init]; // The object item object (optional)
+JSAPIObjectResource* objectItem = [[JSAPIObjectResource alloc] init]; // The object item object (optional)
 
 JSAPIObjectsApi*apiInstance = [[JSAPIObjectsApi alloc] init];
 
 // Update an object
 [apiInstance updateObjectItemWithTemplateId:templateId
-              entitlementId:entitlementId
+              objectId:objectId
               cascade:cascade
               objectItem:objectItem
           completionHandler: ^(NSError* error) {
@@ -548,9 +548,9 @@ JSAPIObjectsApi*apiInstance = [[JSAPIObjectsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **NSString***| The id of the template this object is part of | 
- **entitlementId** | **NSNumber***| The id of the entitlement | 
+ **objectId** | **NSNumber***| The id of the object | 
  **cascade** | **NSNumber***| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **objectItem** | [**JSAPIEntitlementItem***](JSAPIEntitlementItem.md)| The object item object | [optional] 
+ **objectItem** | [**JSAPIObjectResource***](JSAPIObjectResource.md)| The object item object | [optional] 
 
 ### Return type
 

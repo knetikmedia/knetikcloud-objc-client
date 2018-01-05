@@ -301,6 +301,7 @@ Import the following:
 #import <JSAPI/JSAPISelectedSettingRequest.h>
 #import <JSAPI/JSAPISelectedSettingResource.h>
 #import <JSAPI/JSAPISettingOption.h>
+#import <JSAPI/JSAPISimpleGroupResource.h>
 #import <JSAPI/JSAPISimpleReferenceResourceInt_.h>
 #import <JSAPI/JSAPISimpleReferenceResourceLong_.h>
 #import <JSAPI/JSAPISimpleReferenceResourceObject_.h>
@@ -941,7 +942,8 @@ Class | Method | HTTP request | Description
 *JSAPIReportingUsageApi* | [**getUsageByYear**](docs/JSAPIReportingUsageApi.md#getusagebyyear) | **GET** /reporting/usage/year | Returns aggregated endpoint usage information by year
 *JSAPIReportingUsageApi* | [**getUsageEndpoints**](docs/JSAPIReportingUsageApi.md#getusageendpoints) | **GET** /reporting/usage/endpoints | Returns list of endpoints called (method and url)
 *JSAPIReportingUsersApi* | [**getUserRegistrations**](docs/JSAPIReportingUsersApi.md#getuserregistrations) | **GET** /reporting/users/registrations | Get user registration info
-*JSAPISearchApi* | [**searchIndex**](docs/JSAPISearchApi.md#searchindex) | **POST** /search/index/{type} | Search an index
+*JSAPISearchApi* | [**searchIndex**](docs/JSAPISearchApi.md#searchindex) | **POST** /search/index/{type} | Search an index with no template
+*JSAPISearchApi* | [**searchIndexWithTemplate**](docs/JSAPISearchApi.md#searchindexwithtemplate) | **POST** /search/index/{type}/{template} | Search an index with a template
 *JSAPISocialFacebookApi* | [**linkAccounts**](docs/JSAPISocialFacebookApi.md#linkaccounts) | **POST** /social/facebook/users | Link facebook account
 *JSAPISocialGoogleApi* | [**linkAccounts1**](docs/JSAPISocialGoogleApi.md#linkaccounts1) | **POST** /social/google/users | Link google account
 *JSAPIStoreApi* | [**createItemTemplate**](docs/JSAPIStoreApi.md#createitemtemplate) | **POST** /store/items/templates | Create an item template
@@ -1068,10 +1070,11 @@ Class | Method | HTTP request | Description
 *JSAPIUsersGroupsApi* | [**createGroup**](docs/JSAPIUsersGroupsApi.md#creategroup) | **POST** /users/groups | Create a group
 *JSAPIUsersGroupsApi* | [**createGroupMemberTemplate**](docs/JSAPIUsersGroupsApi.md#creategroupmembertemplate) | **POST** /users/groups/members/templates | Create an group member template
 *JSAPIUsersGroupsApi* | [**createGroupTemplate**](docs/JSAPIUsersGroupsApi.md#creategrouptemplate) | **POST** /users/groups/templates | Create a group template
-*JSAPIUsersGroupsApi* | [**deleteGroup**](docs/JSAPIUsersGroupsApi.md#deletegroup) | **DELETE** /users/groups/{unique_name} | Removes a group from the system IF no resources are attached to it
+*JSAPIUsersGroupsApi* | [**deleteGroup**](docs/JSAPIUsersGroupsApi.md#deletegroup) | **DELETE** /users/groups/{unique_name} | Removes a group from the system
 *JSAPIUsersGroupsApi* | [**deleteGroupMemberTemplate**](docs/JSAPIUsersGroupsApi.md#deletegroupmembertemplate) | **DELETE** /users/groups/members/templates/{id} | Delete an group member template
 *JSAPIUsersGroupsApi* | [**deleteGroupTemplate**](docs/JSAPIUsersGroupsApi.md#deletegrouptemplate) | **DELETE** /users/groups/templates/{id} | Delete a group template
 *JSAPIUsersGroupsApi* | [**getGroup**](docs/JSAPIUsersGroupsApi.md#getgroup) | **GET** /users/groups/{unique_name} | Loads a specific group&#39;s details
+*JSAPIUsersGroupsApi* | [**getGroupAncestors**](docs/JSAPIUsersGroupsApi.md#getgroupancestors) | **GET** /users/groups/{unique_name}/ancestors | Get group ancestors
 *JSAPIUsersGroupsApi* | [**getGroupMember**](docs/JSAPIUsersGroupsApi.md#getgroupmember) | **GET** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
 *JSAPIUsersGroupsApi* | [**getGroupMemberTemplate**](docs/JSAPIUsersGroupsApi.md#getgroupmembertemplate) | **GET** /users/groups/members/templates/{id} | Get a single group member template
 *JSAPIUsersGroupsApi* | [**getGroupMemberTemplates**](docs/JSAPIUsersGroupsApi.md#getgroupmembertemplates) | **GET** /users/groups/members/templates | List and search group member templates
@@ -1394,6 +1397,7 @@ Class | Method | HTTP request | Description
  - [JSAPISelectedSettingRequest](docs/JSAPISelectedSettingRequest.md)
  - [JSAPISelectedSettingResource](docs/JSAPISelectedSettingResource.md)
  - [JSAPISettingOption](docs/JSAPISettingOption.md)
+ - [JSAPISimpleGroupResource](docs/JSAPISimpleGroupResource.md)
  - [JSAPISimpleReferenceResourceInt_](docs/JSAPISimpleReferenceResourceInt_.md)
  - [JSAPISimpleReferenceResourceLong_](docs/JSAPISimpleReferenceResourceLong_.md)
  - [JSAPISimpleReferenceResourceObject_](docs/JSAPISimpleReferenceResourceObject_.md)

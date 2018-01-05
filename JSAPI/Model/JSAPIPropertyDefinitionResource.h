@@ -25,12 +25,27 @@
 
 @interface JSAPIPropertyDefinitionResource : JSAPIObject
 
+/* The description of the property [optional]
+ */
+@property(nonatomic) NSString* _description;
 /* A list of the fields on both the property definition and property of this type [optional]
  */
 @property(nonatomic) JSAPIPropertyFieldListResource* fieldList;
+/* The friendly front-facing name of the property [optional]
+ */
+@property(nonatomic) NSString* friendlyName;
 /* The name of the property 
  */
 @property(nonatomic) NSString* name;
+/* The JSON path to the option label [optional]
+ */
+@property(nonatomic) NSString* optionLabelPath;
+/* The JSON path to the option value [optional]
+ */
+@property(nonatomic) NSString* optionValuePath;
+/* URL of service containing the property options (assumed JSON array) [optional]
+ */
+@property(nonatomic) NSString* optionsUrl;
 /* Whether the property is required 
  */
 @property(nonatomic) NSNumber* required;

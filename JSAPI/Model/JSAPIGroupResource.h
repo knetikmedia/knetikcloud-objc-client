@@ -49,10 +49,13 @@
 /* The number of users in child groups [optional]
  */
 @property(nonatomic) NSNumber* subMemberCount;
+/* Tags for search [optional]
+ */
+@property(nonatomic) NSArray<NSString*>* tags;
 /* A group template this group is validated against. May be null and no validation of additional_properties will be done [optional]
  */
 @property(nonatomic) NSString* template;
-/* Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created 
+/* Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created. Default: random UUID [optional]
  */
 @property(nonatomic) NSString* uniqueName;
 

@@ -9,10 +9,11 @@ Method | HTTP request | Description
 [**createGroup**](JSAPIUsersGroupsApi.md#creategroup) | **POST** /users/groups | Create a group
 [**createGroupMemberTemplate**](JSAPIUsersGroupsApi.md#creategroupmembertemplate) | **POST** /users/groups/members/templates | Create an group member template
 [**createGroupTemplate**](JSAPIUsersGroupsApi.md#creategrouptemplate) | **POST** /users/groups/templates | Create a group template
-[**deleteGroup**](JSAPIUsersGroupsApi.md#deletegroup) | **DELETE** /users/groups/{unique_name} | Removes a group from the system IF no resources are attached to it
+[**deleteGroup**](JSAPIUsersGroupsApi.md#deletegroup) | **DELETE** /users/groups/{unique_name} | Removes a group from the system
 [**deleteGroupMemberTemplate**](JSAPIUsersGroupsApi.md#deletegroupmembertemplate) | **DELETE** /users/groups/members/templates/{id} | Delete an group member template
 [**deleteGroupTemplate**](JSAPIUsersGroupsApi.md#deletegrouptemplate) | **DELETE** /users/groups/templates/{id} | Delete a group template
 [**getGroup**](JSAPIUsersGroupsApi.md#getgroup) | **GET** /users/groups/{unique_name} | Loads a specific group&#39;s details
+[**getGroupAncestors**](JSAPIUsersGroupsApi.md#getgroupancestors) | **GET** /users/groups/{unique_name}/ancestors | Get group ancestors
 [**getGroupMember**](JSAPIUsersGroupsApi.md#getgroupmember) | **GET** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
 [**getGroupMemberTemplate**](JSAPIUsersGroupsApi.md#getgroupmembertemplate) | **GET** /users/groups/members/templates/{id} | Get a single group member template
 [**getGroupMemberTemplates**](JSAPIUsersGroupsApi.md#getgroupmembertemplates) | **GET** /users/groups/members/templates | List and search group member templates
@@ -328,7 +329,9 @@ Name | Type | Description  | Notes
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
-Removes a group from the system IF no resources are attached to it
+Removes a group from the system
+
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
 
 ### Example 
 ```objc
@@ -345,7 +348,7 @@ NSString* uniqueName = @"uniqueName_example"; // The group unique name
 
 JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 
-// Removes a group from the system IF no resources are attached to it
+// Removes a group from the system
 [apiInstance deleteGroupWithUniqueName:uniqueName
           completionHandler: ^(NSError* error) {
                         if (error) {
@@ -541,6 +544,56 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGroupAncestors**
+```objc
+-(NSURLSessionTask*) getGroupAncestorsWithUniqueName: (NSString*) uniqueName
+        completionHandler: (void (^)(NSArray<JSAPIGroupResource>* output, NSError* error)) handler;
+```
+
+Get group ancestors
+
+Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+
+### Example 
+```objc
+
+NSString* uniqueName = @"uniqueName_example"; // The group unique name
+
+JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
+
+// Get group ancestors
+[apiInstance getGroupAncestorsWithUniqueName:uniqueName
+          completionHandler: ^(NSArray<JSAPIGroupResource>* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersGroupsApi->getGroupAncestors: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniqueName** | **NSString***| The group unique name | 
+
+### Return type
+
+[**NSArray<JSAPIGroupResource>***](JSAPIGroupResource.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1130,6 +1183,8 @@ void (empty response body)
 ```
 
 Update a group
+
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
 
 ### Example 
 ```objc

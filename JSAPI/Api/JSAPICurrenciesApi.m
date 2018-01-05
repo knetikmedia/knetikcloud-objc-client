@@ -177,6 +177,8 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 ///
 /// List and search currencies
 /// 
+///  @param filterDefault Filter for the one currency that is set as default (true), or all that are not (false) (optional)
+///
 ///  @param filterEnabledCurrencies Filter for alternate currencies setup explicitely in system config (optional)
 ///
 ///  @param filterType Filter currencies by type.  Allowable values: ('virtual', 'real') (optional)
@@ -189,7 +191,8 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 ///
 ///  @returns JSAPIPageResourceCurrencyResource_*
 ///
--(NSURLSessionTask*) getCurrenciesWithFilterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
+-(NSURLSessionTask*) getCurrenciesWithFilterDefault: (NSNumber*) filterDefault
+    filterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
     filterType: (NSString*) filterType
     size: (NSNumber*) size
     page: (NSNumber*) page
@@ -200,6 +203,9 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (filterDefault != nil) {
+        queryParams[@"filter_default"] = [filterDefault isEqual:@(YES)] ? @"true" : @"false";
+    }
     if (filterEnabledCurrencies != nil) {
         queryParams[@"filter_enabled_currencies"] = [filterEnabledCurrencies isEqual:@(YES)] ? @"true" : @"false";
     }

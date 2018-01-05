@@ -31,7 +31,10 @@
 /* The unix timestamp in seconds the currency was added to the system [optional]
  */
 @property(nonatomic) NSNumber* createdDate;
-/* The decimal to multiply the system base currency (from config 'currency') to localize to this one. Should be 1 for the base currency itself. 
+/* Whether this is the default currency. All real money wallets will be in this currency, and the 'factor' on each currency is in relation to the default. There must be one default currency and the current will be changed if you set another as the default. Cannot be combined with virtual currency. Take extreme caution when changing [optional]
+ */
+@property(nonatomic) NSNumber* defaultCurrency;
+/* The decimal to multiply the default currency to localize to this one. Should be 1 for the default currency itself. 
  */
 @property(nonatomic) NSNumber* factor;
 /* The url for an icon of the currency [optional]

@@ -14,19 +14,21 @@
 */
 
 
-#import "JSAPIBroadcastableEvent.h"
-@protocol JSAPIBroadcastableEvent;
-@class JSAPIBroadcastableEvent;
 
 
 
-@protocol JSAPICacheClearEvent
+@protocol JSAPISimpleGroupResource
 @end
 
-@interface JSAPICacheClearEvent : JSAPIBroadcastableEvent
+@interface JSAPISimpleGroupResource : JSAPIObject
 
+/* The name of the group. Max 50 characters 
+ */
+@property(nonatomic) NSString* name;
+/* Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created. Default: random UUID [optional]
+ */
+@property(nonatomic) NSString* uniqueName;
 
-@property(nonatomic) NSNumber* teardown;
-
++ (NSDictionary *)modalDictionary;
 
 @end

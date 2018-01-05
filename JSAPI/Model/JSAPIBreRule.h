@@ -46,6 +46,9 @@
 /* The date the rule ceases to take effect, or null if never. Unix timestamp in seconds [optional]
  */
 @property(nonatomic) NSNumber* endDate;
+/* How many times the rule has been evaluated (it's conditions checked, whether it then runs or not) [optional]
+ */
+@property(nonatomic) NSNumber* evaluationCount;
 /* The event name of the trigger this rule runs for. Affects which parameters are available 
  */
 @property(nonatomic) NSString* eventName;
@@ -55,6 +58,9 @@
 /* The human readable name of the rule 
  */
 @property(nonatomic) NSString* name;
+/* How many times the rule has run [optional]
+ */
+@property(nonatomic) NSNumber* runCount;
 /* Used to sort rules to control the order they run in. Larger numbered sort values run first.  Default 500 [optional]
  */
 @property(nonatomic) NSNumber* sort;

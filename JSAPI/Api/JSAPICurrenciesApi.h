@@ -60,6 +60,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 /// List and search currencies
 /// 
 ///
+/// @param filterDefault Filter for the one currency that is set as default (true), or all that are not (false) (optional)
 /// @param filterEnabledCurrencies Filter for alternate currencies setup explicitely in system config (optional)
 /// @param filterType Filter currencies by type.  Allowable values: (&#39;virtual&#39;, &#39;real&#39;) (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -73,7 +74,8 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIPageResourceCurrencyResource_*
--(NSURLSessionTask*) getCurrenciesWithFilterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
+-(NSURLSessionTask*) getCurrenciesWithFilterDefault: (NSNumber*) filterDefault
+    filterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
     filterType: (NSString*) filterType
     size: (NSNumber*) size
     page: (NSNumber*) page

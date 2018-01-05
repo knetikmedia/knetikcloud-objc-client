@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "JSAPIEntitlementItem.h"
 #import "JSAPIItemTemplateResource.h"
 #import "JSAPIObjectResource.h"
 #import "JSAPIPageResourceItemTemplateResource_.h"
@@ -180,7 +179,7 @@ extern NSInteger kJSAPIObjectsApiMissingParamErrorCode;
 /// 
 ///
 /// @param templateId The id of the template this object is part of
-/// @param entitlementId The id of the entitlement
+/// @param objectId The id of the object
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 /// @param objectItem The object item object (optional)
 /// 
@@ -192,9 +191,9 @@ extern NSInteger kJSAPIObjectsApiMissingParamErrorCode;
 ///
 /// @return void
 -(NSURLSessionTask*) updateObjectItemWithTemplateId: (NSString*) templateId
-    entitlementId: (NSNumber*) entitlementId
+    objectId: (NSNumber*) objectId
     cascade: (NSNumber*) cascade
-    objectItem: (JSAPIEntitlementItem*) objectItem
+    objectItem: (JSAPIObjectResource*) objectItem
     completionHandler: (void (^)(NSError* error)) handler;
 
 

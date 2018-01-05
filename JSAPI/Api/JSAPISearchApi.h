@@ -24,7 +24,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
-/// Search an index
+/// Search an index with no template
 /// The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
 ///
 /// @param type The index type
@@ -40,6 +40,30 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 ///
 /// @return JSAPIPageResourceMapStringObject_*
 -(NSURLSessionTask*) searchIndexWithType: (NSString*) type
+    query: (NSObject*) query
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+    completionHandler: (void (^)(JSAPIPageResourceMapStringObject_* output, NSError* error)) handler;
+
+
+/// Search an index with a template
+/// The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+///
+/// @param type The index type
+/// @param template The index template
+/// @param query The query to be used for the search (optional)
+/// @param size The number of documents returned per page (optional) (default to 25)
+/// @param page The number of the page returned, starting with 1 (optional) (default to 1)
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIPageResourceMapStringObject_*
+-(NSURLSessionTask*) searchIndexWithTemplateWithType: (NSString*) type
+    template: (NSString*) template
     query: (NSObject*) query
     size: (NSNumber*) size
     page: (NSNumber*) page

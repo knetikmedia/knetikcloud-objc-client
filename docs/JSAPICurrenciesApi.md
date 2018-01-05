@@ -122,7 +122,8 @@ void (empty response body)
 
 # **getCurrencies**
 ```objc
--(NSURLSessionTask*) getCurrenciesWithFilterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
+-(NSURLSessionTask*) getCurrenciesWithFilterDefault: (NSNumber*) filterDefault
+    filterEnabledCurrencies: (NSNumber*) filterEnabledCurrencies
     filterType: (NSString*) filterType
     size: (NSNumber*) size
     page: (NSNumber*) page
@@ -143,6 +144,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
+NSNumber* filterDefault = @true; // Filter for the one currency that is set as default (true), or all that are not (false) (optional)
 NSNumber* filterEnabledCurrencies = @true; // Filter for alternate currencies setup explicitely in system config (optional)
 NSString* filterType = @"filterType_example"; // Filter currencies by type.  Allowable values: ('virtual', 'real') (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
@@ -152,7 +154,8 @@ NSString* order = @"name:ASC"; // A comma separated list of sorting requirements
 JSAPICurrenciesApi*apiInstance = [[JSAPICurrenciesApi alloc] init];
 
 // List and search currencies
-[apiInstance getCurrenciesWithFilterEnabledCurrencies:filterEnabledCurrencies
+[apiInstance getCurrenciesWithFilterDefault:filterDefault
+              filterEnabledCurrencies:filterEnabledCurrencies
               filterType:filterType
               size:size
               page:page
@@ -171,6 +174,7 @@ JSAPICurrenciesApi*apiInstance = [[JSAPICurrenciesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterDefault** | **NSNumber***| Filter for the one currency that is set as default (true), or all that are not (false) | [optional] 
  **filterEnabledCurrencies** | **NSNumber***| Filter for alternate currencies setup explicitely in system config | [optional] 
  **filterType** | **NSString***| Filter currencies by type.  Allowable values: (&#39;virtual&#39;, &#39;real&#39;) | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]

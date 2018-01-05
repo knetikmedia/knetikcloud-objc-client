@@ -39,7 +39,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"fieldList": @"field_list", @"name": @"name", @"required": @"required", @"type": @"type" };
+  return @{ @"_description": @"description", @"fieldList": @"field_list", @"friendlyName": @"friendly_name", @"name": @"name", @"optionLabelPath": @"option_label_path", @"optionValuePath": @"option_value_path", @"optionsUrl": @"options_url", @"required": @"required", @"type": @"type" };
 }
 
 /**
@@ -49,7 +49,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"fieldList", ];
+  NSArray *optionalProperties = @[@"_description", @"fieldList", @"friendlyName", @"optionLabelPath", @"optionValuePath", @"optionsUrl", ];
 
   return [optionalProperties containsObject:propertyName];
 }

@@ -388,8 +388,8 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Removes a group from the system IF no resources are attached to it
-/// 
+/// Removes a group from the system
+/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
 ///  @param uniqueName The group unique name 
 ///
 ///  @returns void
@@ -667,6 +667,74 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
                                     handler((JSAPIGroupResource*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Get group ancestors
+/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+///  @param uniqueName The group unique name 
+///
+///  @returns NSArray<JSAPIGroupResource>*
+///
+-(NSURLSessionTask*) getGroupAncestorsWithUniqueName: (NSString*) uniqueName
+    completionHandler: (void (^)(NSArray<JSAPIGroupResource>* output, NSError* error)) handler {
+    // verify the required parameter 'uniqueName' is set
+    if (uniqueName == nil) {
+        NSParameterAssert(uniqueName);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uniqueName"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/groups/{unique_name}/ancestors"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (uniqueName != nil) {
+        pathParams[@"unique_name"] = uniqueName;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSArray<JSAPIGroupResource>*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSArray<JSAPIGroupResource>*)data, error);
                                 }
                             }];
 }
@@ -1382,7 +1450,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a group
-/// 
+/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
 ///  @param uniqueName The group unique name 
 ///
 ///  @param groupResource The updated group (optional)

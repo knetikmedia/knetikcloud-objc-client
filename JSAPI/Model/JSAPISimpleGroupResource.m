@@ -1,6 +1,6 @@
-#import "JSAPIBreRule.h"
+#import "JSAPISimpleGroupResource.h"
 
-@implementation JSAPIBreRule
+@implementation JSAPISimpleGroupResource
 
 - (instancetype)init {
   self = [super init];
@@ -22,7 +22,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"actions": @"actions", @"condition": @"condition", @"conditionText": @"condition_text", @"_description": @"description", @"enabled": @"enabled", @"endDate": @"end_date", @"evaluationCount": @"evaluation_count", @"eventName": @"event_name", @"_id": @"id", @"name": @"name", @"runCount": @"run_count", @"sort": @"sort", @"startDate": @"start_date", @"systemRule": @"system_rule" };
+  return @{ @"name": @"name", @"uniqueName": @"unique_name" };
 }
 
 /**
@@ -32,7 +32,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"condition", @"conditionText", @"_description", @"enabled", @"endDate", @"evaluationCount", @"_id", @"runCount", @"sort", @"startDate", @"systemRule"];
+  NSArray *optionalProperties = @[@"uniqueName"];
 
   return [optionalProperties containsObject:propertyName];
 }
