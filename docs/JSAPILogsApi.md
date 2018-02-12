@@ -1,6 +1,6 @@
 # JSAPILogsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 ```
 
 Add a user log entry
+
+<b>Permissions Needed:</b> owner
 
 ### Example 
 ```objc
@@ -74,6 +76,8 @@ void (empty response body)
 
 Get an existing BRE event log entry by id
 
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -117,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -130,10 +134,13 @@ Name | Type | Description  | Notes
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
+    filterRuleId: (NSString*) filterRuleId
         completionHandler: (void (^)(JSAPIPageResourceBreEventLog_* output, NSError* error)) handler;
 ```
 
 Returns a list of BRE event log entries
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Example 
 ```objc
@@ -152,6 +159,7 @@ NSString* filterEventId = @"filterEventId_example"; // Filter event logs by requ
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
 NSString* order = @"id:DESC"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:DESC)
+NSString* filterRuleId = @"filterRuleId_example"; // Filter event logs by request id (optional)
 
 JSAPILogsApi*apiInstance = [[JSAPILogsApi alloc] init];
 
@@ -162,6 +170,7 @@ JSAPILogsApi*apiInstance = [[JSAPILogsApi alloc] init];
               size:size
               page:page
               order:order
+              filterRuleId:filterRuleId
           completionHandler: ^(JSAPIPageResourceBreEventLog_* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -182,6 +191,7 @@ Name | Type | Description  | Notes
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:DESC]
+ **filterRuleId** | **NSString***| Filter event logs by request id | [optional] 
 
 ### Return type
 
@@ -193,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -205,6 +215,8 @@ Name | Type | Description  | Notes
 ```
 
 Get an existing forward log entry by id
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Example 
 ```objc
@@ -249,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -259,6 +271,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) getBREForwardLogsWithFilterStartDate: (NSString*) filterStartDate
     filterEndDate: (NSString*) filterEndDate
     filterStatusCode: (NSNumber*) filterStatusCode
+    filterUrl: (NSNumber*) filterUrl
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -266,6 +279,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns a list of forward log entries
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Example 
 ```objc
@@ -281,6 +296,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 NSString* filterStartDate = @"filterStartDate_example"; // A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 NSString* filterEndDate = @"filterEndDate_example"; // A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 NSNumber* filterStatusCode = @56; // Filter forward logs by http status code (optional)
+NSNumber* filterUrl = @56; // Filter forward logs by URL starting with... (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
 NSString* order = @"id:DESC"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:DESC)
@@ -291,6 +307,7 @@ JSAPILogsApi*apiInstance = [[JSAPILogsApi alloc] init];
 [apiInstance getBREForwardLogsWithFilterStartDate:filterStartDate
               filterEndDate:filterEndDate
               filterStatusCode:filterStatusCode
+              filterUrl:filterUrl
               size:size
               page:page
               order:order
@@ -311,6 +328,7 @@ Name | Type | Description  | Notes
  **filterStartDate** | **NSString***| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
  **filterEndDate** | **NSString***| A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
  **filterStatusCode** | **NSNumber***| Filter forward logs by http status code | [optional] 
+ **filterUrl** | **NSNumber***| Filter forward logs by URL starting with... | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:DESC]
@@ -325,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -337,6 +355,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns a user log entry by id
+
+<b>Permissions Needed:</b> LOGS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -381,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -397,6 +417,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns a page of user logs entries
+
+<b>Permissions Needed:</b> LOGS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -453,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

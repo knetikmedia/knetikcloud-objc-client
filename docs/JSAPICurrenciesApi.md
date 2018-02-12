@@ -1,6 +1,6 @@
 # JSAPICurrenciesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,8 @@ Method | HTTP request | Description
 ```
 
 Create a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Example 
 ```objc
@@ -75,6 +77,8 @@ Name | Type | Description  | Notes
 
 Delete a currency
 
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -115,7 +119,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -132,6 +136,8 @@ void (empty response body)
 ```
 
 List and search currencies
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -191,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -203,6 +209,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single currency
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -247,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -260,6 +268,8 @@ Name | Type | Description  | Notes
 ```
 
 Update a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Example 
 ```objc

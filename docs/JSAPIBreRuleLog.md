@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actions** | [**NSArray&lt;JSAPIBreActionLog&gt;***](JSAPIBreActionLog.md) | The actions of the BRE rule | [optional] 
 **ran** | **NSNumber*** | Whether the rule ran | [optional] 
 **reason** | **NSString*** | The reason for the rule | [optional] 
 **ruleEndDate** | **NSNumber*** | The end date of the rule in seconds | [optional] 

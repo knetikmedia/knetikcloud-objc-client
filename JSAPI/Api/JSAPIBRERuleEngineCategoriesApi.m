@@ -55,7 +55,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a BRE category template
-/// Templates define a type of BRE category and the properties they have
+/// Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param template The category template to create (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a BRE category template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -154,7 +154,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -184,7 +184,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// List categories
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -217,7 +217,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -247,7 +247,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single category
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
 ///  @param name The category name 
 ///
 ///  @returns JSAPIBreCategoryResource*
@@ -285,7 +285,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -315,7 +315,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single BRE category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -353,7 +353,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -383,7 +383,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search BRE category templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -422,7 +422,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -452,7 +452,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a category
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN
 ///  @param name The category name 
 ///
 ///  @param category The updated BRE category information (optional)
@@ -524,7 +524,7 @@ NSInteger kJSAPIBRERuleEngineCategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a BRE category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param template The updated category template definition (optional)

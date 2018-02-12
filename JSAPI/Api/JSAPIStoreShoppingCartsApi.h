@@ -34,7 +34,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Adds a custom discount to the cart
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN
 ///
 /// @param _id The id of the cart
 /// @param customDiscount The details of the discount to add (optional)
@@ -52,7 +52,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Adds a discount coupon to the cart
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param skuRequest The request of the sku (optional)
@@ -70,7 +70,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Add an item to the cart
-/// Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+/// Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param cartItemRequest The cart item request object (optional)
@@ -88,7 +88,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Create a cart
-/// You don't have to have a user to create a cart but the API requires authentication to checkout
+/// You don't have to have a user to create a cart but the API requires authentication to checkout. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param owner Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required (optional)
 /// @param currencyCode Set the currency for the cart, by currency code. May be disallowed by site settings. (optional)
@@ -106,7 +106,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Returns the cart with the given GUID
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// 
@@ -122,7 +122,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Get a list of carts
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param filterOwnerId Filter by the id of the owner (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -144,7 +144,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Returns whether a cart requires shipping
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// 
@@ -160,7 +160,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Get the list of available shipping countries per vendor
-/// Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+/// Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// 
@@ -176,7 +176,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Removes a discount coupon from the cart
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param code The SKU code of the coupon to remove
@@ -194,7 +194,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Sets the currency to use for the cart
-/// May be disallowed by site settings.
+/// May be disallowed by site settings. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param currencyCode The code of the currency (optional)
@@ -212,7 +212,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Sets the owner of a cart if none is set already
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param userId The id of the user (optional)
@@ -230,7 +230,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Changes the quantity of an item already in the cart
-/// A quantity of zero will remove the item from the cart altogether.
+/// A quantity of zero will remove the item from the cart altogether. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param cartItemRequest The cart item request object (optional)
@@ -248,7 +248,7 @@ extern NSInteger kJSAPIStoreShoppingCartsApiMissingParamErrorCode;
 
 
 /// Modifies or sets the order shipping address
-/// 
+/// <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 ///
 /// @param _id The id of the cart
 /// @param cartShippingAddressRequest The cart shipping address request object (optional)

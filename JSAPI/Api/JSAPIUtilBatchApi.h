@@ -27,7 +27,7 @@ extern NSInteger kJSAPIUtilBatchApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get batch result with token
-/// Tokens expire in 24 hours
+/// Tokens expire in 24 hours. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param token token
 /// 
@@ -45,7 +45,7 @@ extern NSInteger kJSAPIUtilBatchApiMissingParamErrorCode;
 
 
 /// Request to run API call given the method, content type, path url, and body of request
-/// Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service
+/// Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param batch The batch object (optional)
 /// 

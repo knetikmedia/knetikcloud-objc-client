@@ -1,9 +1,10 @@
 # JSAPIActivitiesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addUser**](JSAPIActivitiesApi.md#adduser) | **POST** /activity-occurrences/{activity_occurrence_id}/users | Add a user to an occurrence
 [**createActivity**](JSAPIActivitiesApi.md#createactivity) | **POST** /activities | Create an activity
 [**createActivityOccurrence**](JSAPIActivitiesApi.md#createactivityoccurrence) | **POST** /activity-occurrences | Create a new activity occurrence. Ex: start a game
 [**createActivityTemplate**](JSAPIActivitiesApi.md#createactivitytemplate) | **POST** /activities/templates | Create a activity template
@@ -15,11 +16,84 @@ Method | HTTP request | Description
 [**getActivityTemplate**](JSAPIActivitiesApi.md#getactivitytemplate) | **GET** /activities/templates/{id} | Get a single activity template
 [**getActivityTemplates**](JSAPIActivitiesApi.md#getactivitytemplates) | **GET** /activities/templates | List and search activity templates
 [**listActivityOccurrences**](JSAPIActivitiesApi.md#listactivityoccurrences) | **GET** /activity-occurrences | List activity occurrences
+[**removeUser**](JSAPIActivitiesApi.md#removeuser) | **DELETE** /activity-occurrences/{activity_occurrence_id}/users/{user_id} | Remove a user from an occurrence
 [**setActivityOccurrenceResults**](JSAPIActivitiesApi.md#setactivityoccurrenceresults) | **POST** /activity-occurrences/{activity_occurrence_id}/results | Sets the status of an activity occurrence to FINISHED and logs metrics
+[**setActivityOccurrenceSettings**](JSAPIActivitiesApi.md#setactivityoccurrencesettings) | **PUT** /activity-occurrences/{activity_occurrence_id}/settings | Sets the settings of an activity occurrence
+[**setUserStatus**](JSAPIActivitiesApi.md#setuserstatus) | **PUT** /activity-occurrences/{activity_occurrence_id}/users/{user_id}/status | Set a user&#39;s status within an occurrence
 [**updateActivity**](JSAPIActivitiesApi.md#updateactivity) | **PUT** /activities/{id} | Update an activity
-[**updateActivityOccurrence**](JSAPIActivitiesApi.md#updateactivityoccurrence) | **PUT** /activity-occurrences/{activity_occurrence_id}/status | Updated the status of an activity occurrence
+[**updateActivityOccurrenceStatus**](JSAPIActivitiesApi.md#updateactivityoccurrencestatus) | **PUT** /activity-occurrences/{activity_occurrence_id}/status | Update the status of an activity occurrence
 [**updateActivityTemplate**](JSAPIActivitiesApi.md#updateactivitytemplate) | **PUT** /activities/templates/{id} | Update an activity template
 
+
+# **addUser**
+```objc
+-(NSURLSessionTask*) addUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    test: (NSNumber*) test
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+    userId: (JSAPIIntWrapper*) userId
+        completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
+```
+
+Add a user to an occurrence
+
+If called with no body, defaults to the user making the call.
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
+NSNumber* test = @false; // if true, indicates that the user should NOT be added. This can be used to test for eligibility (optional) (default to false)
+NSNumber* bypassRestrictions = @false; // if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+JSAPIIntWrapper* userId = [[JSAPIIntWrapper alloc] init]; // The id of the user, or null for 'caller' (optional)
+
+JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
+
+// Add a user to an occurrence
+[apiInstance addUserWithActivityOccurrenceId:activityOccurrenceId
+              test:test
+              bypassRestrictions:bypassRestrictions
+              userId:userId
+          completionHandler: ^(JSAPIActivityOccurrenceResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIActivitiesApi->addUser: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
+ **test** | **NSNumber***| if true, indicates that the user should NOT be added. This can be used to test for eligibility | [optional] [default to false]
+ **bypassRestrictions** | **NSNumber***| if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN | [optional] [default to false]
+ **userId** | [**JSAPIIntWrapper***](JSAPIIntWrapper.md)| The id of the user, or null for &#39;caller&#39; | [optional] 
+
+### Return type
+
+[**JSAPIActivityOccurrenceResource***](JSAPIActivityOccurrenceResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createActivity**
 ```objc
@@ -28,6 +102,8 @@ Method | HTTP request | Description
 ```
 
 Create an activity
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -86,7 +162,7 @@ Name | Type | Description  | Notes
 
 Create a new activity occurrence. Ex: start a game
 
-Has to enforce extra rules if not used as an admin
+Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -147,7 +223,7 @@ Name | Type | Description  | Notes
 
 Create a activity template
 
-Activity Templates define a type of activity and the properties they have
+Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -205,6 +281,8 @@ Name | Type | Description  | Notes
 
 Delete an activity
 
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -245,7 +323,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -259,7 +337,7 @@ void (empty response body)
 
 Delete a activity template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -304,7 +382,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -321,6 +399,8 @@ void (empty response body)
 ```
 
 List activity definitions
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -380,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -392,6 +472,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single activity
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -436,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -448,6 +530,8 @@ Name | Type | Description  | Notes
 ```
 
 Load a single activity occurrence details
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -492,7 +576,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -504,6 +588,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single activity template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -548,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -562,6 +648,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search activity templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -612,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -631,6 +719,8 @@ Name | Type | Description  | Notes
 
 List activity occurrences
 
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -643,7 +733,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* filterActivity = @"filterActivity_example"; // Filter for occurrences of the given activity ID (optional)
-NSString* filterStatus = @"filterStatus_example"; // Filter for occurrences of the given activity ID (optional)
+NSString* filterStatus = @"filterStatus_example"; // Filter for occurrences in the given status (optional)
 NSNumber* filterEvent = @56; // Filter for occurrences played during the given event (optional)
 NSNumber* filterChallenge = @56; // Filter for occurrences played within the given challenge (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
@@ -675,7 +765,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterActivity** | **NSString***| Filter for occurrences of the given activity ID | [optional] 
- **filterStatus** | **NSString***| Filter for occurrences of the given activity ID | [optional] 
+ **filterStatus** | **NSString***| Filter for occurrences in the given status | [optional] 
  **filterEvent** | **NSNumber***| Filter for occurrences played during the given event | [optional] 
  **filterChallenge** | **NSNumber***| Filter for occurrences played within the given challenge | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
@@ -692,7 +782,72 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **removeUser**
+```objc
+-(NSURLSessionTask*) removeUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    ban: (NSNumber*) ban
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Remove a user from an occurrence
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
+NSString* userId = @"userId_example"; // The id of the user, or 'me'
+NSNumber* ban = @false; // if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin (optional) (default to false)
+NSNumber* bypassRestrictions = @false; // if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+
+JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
+
+// Remove a user from an occurrence
+[apiInstance removeUserWithActivityOccurrenceId:activityOccurrenceId
+              userId:userId
+              ban:ban
+              bypassRestrictions:bypassRestrictions
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling JSAPIActivitiesApi->removeUser: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
+ **userId** | **NSString***| The id of the user, or &#39;me&#39; | 
+ **ban** | **NSNumber***| if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin | [optional] [default to false]
+ **bypassRestrictions** | **NSNumber***| if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -705,6 +860,8 @@ Name | Type | Description  | Notes
 ```
 
 Sets the status of an activity occurrence to FINISHED and logs metrics
+
+In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
 
 ### Example 
 ```objc
@@ -757,6 +914,130 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **setActivityOccurrenceSettings**
+```objc
+-(NSURLSessionTask*) setActivityOccurrenceSettingsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    settings: (JSAPIActivityOccurrenceSettingsResource*) settings
+        completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
+```
+
+Sets the settings of an activity occurrence
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
+JSAPIActivityOccurrenceSettingsResource* settings = [[JSAPIActivityOccurrenceSettingsResource alloc] init]; // The new settings (optional)
+
+JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
+
+// Sets the settings of an activity occurrence
+[apiInstance setActivityOccurrenceSettingsWithActivityOccurrenceId:activityOccurrenceId
+              settings:settings
+          completionHandler: ^(JSAPIActivityOccurrenceResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIActivitiesApi->setActivityOccurrenceSettings: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
+ **settings** | [**JSAPIActivityOccurrenceSettingsResource***](JSAPIActivityOccurrenceSettingsResource.md)| The new settings | [optional] 
+
+### Return type
+
+[**JSAPIActivityOccurrenceResource***](JSAPIActivityOccurrenceResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setUserStatus**
+```objc
+-(NSURLSessionTask*) setUserStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    status: (NSString*) status
+        completionHandler: (void (^)(JSAPIActivityUserResource* output, NSError* error)) handler;
+```
+
+Set a user's status within an occurrence
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
+NSString* userId = @"userId_example"; // The id of the user
+NSString* status = status_example; // The new status (optional)
+
+JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
+
+// Set a user's status within an occurrence
+[apiInstance setUserStatusWithActivityOccurrenceId:activityOccurrenceId
+              userId:userId
+              status:status
+          completionHandler: ^(JSAPIActivityUserResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIActivitiesApi->setUserStatus: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
+ **userId** | **NSString***| The id of the user | 
+ **status** | **NSString***| The new status | [optional] 
+
+### Return type
+
+[**JSAPIActivityUserResource***](JSAPIActivityUserResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateActivity**
 ```objc
 -(NSURLSessionTask*) updateActivityWithId: (NSNumber*) _id
@@ -765,6 +1046,8 @@ Name | Type | Description  | Notes
 ```
 
 Update an activity
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -817,16 +1100,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateActivityOccurrence**
+# **updateActivityOccurrenceStatus**
 ```objc
--(NSURLSessionTask*) updateActivityOccurrenceWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceStatus: (NSString*) activityOccurrenceStatus
+-(NSURLSessionTask*) updateActivityOccurrenceStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    activityOccurrenceStatus: (JSAPIValueWrapperString_*) activityOccurrenceStatus
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
-Updated the status of an activity occurrence
+Update the status of an activity occurrence
 
-If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
 
 ### Example 
 ```objc
@@ -840,16 +1123,16 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
-NSString* activityOccurrenceStatus = activityOccurrenceStatus_example; // The activity occurrence status object (optional)
+JSAPIValueWrapperString_* activityOccurrenceStatus = [[JSAPIValueWrapperString_ alloc] init]; // The activity occurrence status object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
-// Updated the status of an activity occurrence
-[apiInstance updateActivityOccurrenceWithActivityOccurrenceId:activityOccurrenceId
+// Update the status of an activity occurrence
+[apiInstance updateActivityOccurrenceStatusWithActivityOccurrenceId:activityOccurrenceId
               activityOccurrenceStatus:activityOccurrenceStatus
           completionHandler: ^(NSError* error) {
                         if (error) {
-                            NSLog(@"Error calling JSAPIActivitiesApi->updateActivityOccurrence: %@", error);
+                            NSLog(@"Error calling JSAPIActivitiesApi->updateActivityOccurrenceStatus: %@", error);
                         }
                     }];
 ```
@@ -859,7 +1142,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
- **activityOccurrenceStatus** | **NSString***| The activity occurrence status object | [optional] 
+ **activityOccurrenceStatus** | [**JSAPIValueWrapperString_***](JSAPIValueWrapperString_.md)| The activity occurrence status object | [optional] 
 
 ### Return type
 
@@ -884,6 +1167,8 @@ void (empty response body)
 ```
 
 Update an activity template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc

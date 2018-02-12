@@ -25,7 +25,7 @@ extern NSInteger kJSAPIReportingUsersApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get user registration info
-/// Get user registration counts grouped by time range
+/// Get user registration counts grouped by time range. <br><br><b>Permissions Needed:</b> REPORTING_USER_ADMIN
 ///
 /// @param granularity The time duration to aggregate by (optional) (default to day)
 /// @param startDate The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time (optional)

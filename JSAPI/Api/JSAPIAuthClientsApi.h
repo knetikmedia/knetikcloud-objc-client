@@ -27,7 +27,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientResource The client resource object (optional)
 /// 
@@ -43,7 +43,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// Delete a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientKey The key of the client
 /// 
@@ -59,7 +59,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// Get a single client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientKey The key of the client
 /// 
@@ -75,7 +75,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// List available client grant types
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -90,7 +90,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// List and search clients
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -110,7 +110,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// Set grant types for a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientKey The key of the client
 /// @param grantList A list of unique grant types (optional)
@@ -128,7 +128,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// Set redirect uris for a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientKey The key of the client
 /// @param redirectList A list of unique redirect uris (optional)
@@ -146,7 +146,7 @@ extern NSInteger kJSAPIAuthClientsApiMissingParamErrorCode;
 
 
 /// Update a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///
 /// @param clientKey The key of the client
 /// @param clientResource The client resource object (optional)

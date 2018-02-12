@@ -22,7 +22,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"activityId": @"activity_id", @"additionalProperties": @"additional_properties", @"challengeId": @"challenge_id", @"entitlement": @"entitlement", @"_id": @"id", @"rewardSet": @"reward_set", @"settings": @"settings", @"template": @"template" };
+  return @{ @"activityId": @"activity_id", @"additionalProperties": @"additional_properties", @"challengeId": @"challenge_id", @"coreSettings": @"core_settings", @"entitlement": @"entitlement", @"_id": @"id", @"rewardSet": @"reward_set", @"settings": @"settings", @"template": @"template" };
 }
 
 /**
@@ -32,7 +32,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"additionalProperties", @"challengeId", @"entitlement", @"_id", @"rewardSet", @"settings", @"template"];
+  NSArray *optionalProperties = @[@"additionalProperties", @"challengeId", @"coreSettings", @"entitlement", @"_id", @"rewardSet", @"settings", @"template"];
 
   return [optionalProperties containsObject:propertyName];
 }

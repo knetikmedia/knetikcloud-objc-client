@@ -1,6 +1,6 @@
 # JSAPIStoreShoppingCartsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,6 +27,8 @@ Method | HTTP request | Description
 ```
 
 Adds a custom discount to the cart
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN
 
 ### Example 
 ```objc
@@ -85,6 +87,8 @@ void (empty response body)
 
 Adds a discount coupon to the cart
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -142,7 +146,7 @@ void (empty response body)
 
 Add an item to the cart
 
-Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -201,7 +205,7 @@ void (empty response body)
 
 Create a cart
 
-You don't have to have a user to create a cart but the API requires authentication to checkout
+You don't have to have a user to create a cart but the API requires authentication to checkout. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -262,6 +266,8 @@ Name | Type | Description  | Notes
 
 Returns the cart with the given GUID
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -305,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -320,6 +326,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a list of carts
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -373,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -385,6 +393,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns whether a cart requires shipping
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -429,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -442,7 +452,7 @@ Name | Type | Description  | Notes
 
 Get the list of available shipping countries per vendor
 
-Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -487,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -500,6 +510,8 @@ Name | Type | Description  | Notes
 ```
 
 Removes a discount coupon from the cart
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -544,7 +556,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -558,7 +570,7 @@ void (empty response body)
 
 Sets the currency to use for the cart
 
-May be disallowed by site settings.
+May be disallowed by site settings. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -617,6 +629,8 @@ void (empty response body)
 
 Sets the owner of a cart if none is set already
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -674,7 +688,7 @@ void (empty response body)
 
 Changes the quantity of an item already in the cart
 
-A quantity of zero will remove the item from the cart altogether.
+A quantity of zero will remove the item from the cart altogether. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -732,6 +746,8 @@ void (empty response body)
 ```
 
 Modifies or sets the order shipping address
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Example 
 ```objc

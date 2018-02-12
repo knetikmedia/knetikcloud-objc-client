@@ -1,6 +1,6 @@
 # JSAPIStoreBundlesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 Create a bundle item
 
-The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
+The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 
 ### Example 
 ```objc
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 Create a bundle template
 
-Bundle Templates define a type of bundle and the properties they have.
+Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 
 ### Example 
 ```objc
@@ -143,6 +143,8 @@ Name | Type | Description  | Notes
 
 Delete a bundle item
 
+<b>Permissions Needed:</b> BUNDLES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -183,7 +185,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -196,6 +198,8 @@ void (empty response body)
 ```
 
 Delete a bundle template
+
+<b>Permissions Needed:</b> BUNDLES_ADMIN
 
 ### Example 
 ```objc
@@ -240,7 +244,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -252,6 +256,8 @@ void (empty response body)
 ```
 
 Get a single bundle item
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -296,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -309,7 +315,7 @@ Name | Type | Description  | Notes
 
 Get a single bundle template
 
-Bundle Templates define a type of bundle and the properties they have.
+Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -354,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -368,6 +374,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search bundle templates
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -418,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -432,6 +440,8 @@ Name | Type | Description  | Notes
 ```
 
 Update a bundle item
+
+<b>Permissions Needed:</b> BUNDLES_ADMIN
 
 ### Example 
 ```objc
@@ -495,6 +505,8 @@ Name | Type | Description  | Notes
 ```
 
 Update a bundle template
+
+<b>Permissions Needed:</b> BUNDLES_ADMIN
 
 ### Example 
 ```objc

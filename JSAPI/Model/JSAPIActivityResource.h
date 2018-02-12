@@ -16,12 +16,15 @@
 
 #import "JSAPIActivityEntitlementResource.h"
 #import "JSAPIAvailableSettingResource.h"
+#import "JSAPICoreActivitySettings.h"
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
 @protocol JSAPIActivityEntitlementResource;
 @class JSAPIActivityEntitlementResource;
 @protocol JSAPIAvailableSettingResource;
 @class JSAPIAvailableSettingResource;
+@protocol JSAPICoreActivitySettings;
+@class JSAPICoreActivitySettings;
 @protocol JSAPIProperty;
 @class JSAPIProperty;
 @protocol JSAPIRewardSetResource;
@@ -37,6 +40,9 @@
 /* A map of additional properties keyed on the property name. Used to further describe an activity. While settings will vary from one activity occurrence (a game) to another, additional properties are shared by all the occurrences of this activity. Ex: Activity Logo, Disclaimer, Greeting, etc. Validated against template if one exists for activities [optional]
  */
 @property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+/* Defines core settings about the activity that affect how it can be created/played by users. [optional]
+ */
+@property(nonatomic) JSAPICoreActivitySettings* coreSettings;
 /* The date/time this resource was created in seconds since unix epoch [optional]
  */
 @property(nonatomic) NSNumber* createdDate;
@@ -73,7 +79,7 @@
 /* An activity template this activity is validated against (private). May be null and no validation of additional_properties will be done [optional]
  */
 @property(nonatomic) NSString* templateId;
-/* The type of the activity 
+/* The type of the activity [optional]
  */
 @property(nonatomic) NSString* type;
 /* The unique key (for static reference in code) of the activity [optional]

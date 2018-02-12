@@ -54,7 +54,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a new disposition
-/// 
+/// <b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
 ///  @param disposition The new disposition record (optional)
 ///
 ///  @returns JSAPIDispositionResource*
@@ -109,7 +109,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a disposition
-/// 
+/// <b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
 ///  @param _id The id of the disposition record 
 ///
 ///  @returns void
@@ -147,7 +147,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -177,7 +177,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a disposition
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the disposition record 
 ///
 ///  @returns JSAPIDispositionResource*
@@ -215,7 +215,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -245,7 +245,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a list of disposition counts
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context=video:47 (optional)
 ///
 ///  @param filterOwner Filter for dispositions from a specific user by id or 'me' (optional)
@@ -278,7 +278,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -308,7 +308,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of dispositions
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context=video:47 (optional)
 ///
 ///  @param filterOwner Filter for dispositions from a specific user by id or 'me' (optional)
@@ -359,7 +359,7 @@ NSInteger kJSAPIDispositionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

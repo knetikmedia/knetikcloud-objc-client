@@ -54,7 +54,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a list of countries
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSArray<JSAPICountryResource>*
 ///
 -(NSURLSessionTask*) getCountriesWithCompletionHandler: 
@@ -76,7 +76,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -106,7 +106,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get the iso3 code of your country
-/// Determined by geo ip location
+/// Determined by geo ip location. <br><br><b>Permissions Needed:</b> ANY
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) getCountryByGeoLocationWithCompletionHandler: 
@@ -128,7 +128,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -158,7 +158,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a list of a country's states
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @returns NSArray<JSAPIStateResource>*
@@ -196,7 +196,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -226,7 +226,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get the currency information of your country
-/// Determined by geo ip location, currency to country mapping and a fallback setting
+/// Determined by geo ip location, currency to country mapping and a fallback setting. <br><br><b>Permissions Needed:</b> ANY
 ///  @returns JSAPICurrencyResource*
 ///
 -(NSURLSessionTask*) getCurrencyByGeoLocationWithCompletionHandler: 
@@ -248,7 +248,7 @@ NSInteger kJSAPILocationsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

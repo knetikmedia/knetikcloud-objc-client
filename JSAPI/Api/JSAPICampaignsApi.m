@@ -56,7 +56,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a challenge to a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///  @param _id The id of the campaign 
 ///
 ///  @param challengeId The id of the challenge (optional)
@@ -128,7 +128,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///  @param campaignResource The campaign resource object (optional)
 ///
 ///  @returns JSAPICampaignResource*
@@ -183,7 +183,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a campaign template
-/// Campaign Templates define a type of campaign and the properties they have
+/// Campaign Templates define a type of campaign and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param campaignTemplateResource The campaign template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -238,7 +238,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///  @param _id The campaign id 
 ///
 ///  @returns void
@@ -276,7 +276,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -306,7 +306,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a campaign template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -350,7 +350,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -380,7 +380,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a single campaign
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The campaign id 
 ///
 ///  @returns JSAPICampaignResource*
@@ -418,7 +418,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -448,7 +448,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// List the challenges associated with a campaign
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The campaign id 
 ///
 ///  @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
@@ -516,7 +516,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -546,7 +546,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single campaign template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -584,7 +584,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -614,7 +614,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search campaign templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -653,7 +653,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -683,7 +683,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search campaigns
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterActive Filter for campaigns that are active (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -728,7 +728,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -758,7 +758,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Remove a challenge from a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///  @param campaignId The campaign id 
 ///
 ///  @param _id The challenge id 
@@ -813,7 +813,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -843,7 +843,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///  @param _id The campaign id 
 ///
 ///  @param campaignResource The campaign resource object (optional)
@@ -915,7 +915,7 @@ NSInteger kJSAPICampaignsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an campaign template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param campaignTemplateResource The campaign template resource object (optional)

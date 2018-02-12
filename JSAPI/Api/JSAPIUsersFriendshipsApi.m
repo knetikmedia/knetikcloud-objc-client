@@ -53,7 +53,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a friend
-/// As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+/// As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' if logged in 
 ///
 ///  @param _id The id of the user to befriend 
@@ -138,7 +138,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get friends list
-/// 
+/// <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' 
 ///
 ///  @param filterUsername Filter for friends with the given username (optional)
@@ -200,7 +200,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -230,7 +230,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the invite token
-/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
 ///  @param userId The id of the user or 'me' if logged in 
 ///
 ///  @returns NSString*
@@ -268,7 +268,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -298,7 +298,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get pending invites
-/// Invites that the specified user received
+/// Invites that the specified user received. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -348,7 +348,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -378,7 +378,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Redeem friendship token
-/// Immediately connects the requested user with the user mapped by the provided invite token
+/// Immediately connects the requested user with the user mapped by the provided invite token. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' if logged in 
 ///
 ///  @param token The invite token (optional)
@@ -450,7 +450,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Remove or decline a friend
-/// 
+/// <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' if logged in 
 ///
 ///  @param _id The id of the user to befriend 
@@ -505,7 +505,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

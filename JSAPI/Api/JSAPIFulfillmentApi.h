@@ -26,7 +26,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a fulfillment type
-/// 
+/// <b>Permissions Needed:</b> FULFILLMENT_ADMIN
 ///
 /// @param type The fulfillment type (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 
 
 /// Delete a fulfillment type
-/// 
+/// <b>Permissions Needed:</b> FULFILLMENT_ADMIN
 ///
 /// @param _id The id
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 
 
 /// Get a single fulfillment type
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id
 /// 
@@ -74,7 +74,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 
 
 /// List and search fulfillment types
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 
 
 /// Update a fulfillment type
-/// 
+/// <b>Permissions Needed:</b> FULFILLMENT_ADMIN
 ///
 /// @param _id The id
 /// @param fulfillmentType The fulfillment type (optional)

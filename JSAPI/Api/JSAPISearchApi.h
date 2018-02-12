@@ -24,7 +24,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Count matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// 
@@ -40,7 +40,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Count matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param query The query to be used for the search (optional)
@@ -58,7 +58,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Count matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -76,7 +76,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Count matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -96,7 +96,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Get document with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -114,7 +114,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Get document with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -134,7 +134,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Explain matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -152,7 +152,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Explain matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -172,7 +172,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Explain matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -192,7 +192,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Explain matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param _id The index id
@@ -214,7 +214,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Search an index with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param query The query to be used for the search (optional)
@@ -232,7 +232,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Search an index with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// 
@@ -248,7 +248,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Search an index with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -266,7 +266,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Search an index with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -286,7 +286,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Get indices
-/// This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -301,7 +301,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Get mapping with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// 
@@ -317,7 +317,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Get mapping with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -335,7 +335,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Validate matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// 
@@ -351,7 +351,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Validate matches with no template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param query The query to be used for the search (optional)
@@ -369,7 +369,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Validate matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template
@@ -387,7 +387,7 @@ extern NSInteger kJSAPISearchApiMissingParamErrorCode;
 
 
 /// Validate matches with a template
-/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+/// This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>. <br><br><b>Permissions Needed:</b> SEARCH_ADMIN
 ///
 /// @param type The index type
 /// @param template The index template

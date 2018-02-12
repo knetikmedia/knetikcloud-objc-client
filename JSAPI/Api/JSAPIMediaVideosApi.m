@@ -65,7 +65,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds a user to a video's whitelist
-/// Whitelisted users can view video regardless of privacy setting.
+/// Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param _id The video id 
 ///
 ///  @param userId The user id (optional)
@@ -137,7 +137,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds a new video in the system
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoResource The video object (optional)
 ///
 ///  @returns JSAPIVideoResource*
@@ -192,7 +192,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a new video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id  
 ///
 ///  @param commentResource The comment object (optional)
@@ -264,7 +264,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds a contributor to a video
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param contributionResource The contribution object (optional)
@@ -336,7 +336,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a new flag
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param reason The flag reason (optional)
@@ -408,7 +408,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds one or more existing videos as related to this one
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param videoRelationshipResource The video relationship object  (optional)
@@ -480,7 +480,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a video disposition
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param dispositionResource The disposition object (optional)
@@ -552,7 +552,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a video template
-/// Video Templates define a type of video and the properties they have
+/// Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param videoTemplateResource The video template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -607,7 +607,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Deletes a video from the system if no resources are attached to it
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param _id The video id 
 ///
 ///  @returns void
@@ -645,7 +645,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -675,7 +675,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param _id The comment id 
@@ -730,7 +730,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -760,7 +760,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a video disposition
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param dispositionId The disposition id 
 ///
 ///  @returns void
@@ -798,7 +798,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -828,7 +828,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a flag
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @returns void
@@ -866,7 +866,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -896,7 +896,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a video's relationship
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param _id The relationship id 
@@ -951,7 +951,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -981,7 +981,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a video template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -1025,7 +1025,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1055,7 +1055,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Get user videos
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param userId The user id 
 ///
 ///  @param excludeFlagged Skip videos that have been flagged by the current user (optional, default to true)
@@ -1111,7 +1111,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1141,7 +1141,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Loads a specific video details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param _id The video id 
 ///
 ///  @returns JSAPIVideoResource*
@@ -1179,7 +1179,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1209,7 +1209,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of comments for a video
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param videoId The video id 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -1259,7 +1259,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1289,7 +1289,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of dispositions for a video
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param videoId The video id 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -1339,7 +1339,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1369,7 +1369,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of video relationships
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param videoId The video id 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -1419,7 +1419,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1449,7 +1449,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single video template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -1487,7 +1487,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1517,7 +1517,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search video templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -1556,7 +1556,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1586,7 +1586,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Search videos using the documented filters
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param excludeFlagged Skip videos that have been flagged by the current user (optional, default to true)
 ///
 ///  @param filterVideosByUploader Filter for videos by uploader id (optional)
@@ -1697,7 +1697,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1727,7 +1727,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Removes a user from a video's whitelist
-/// Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+/// Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param _id The user id 
@@ -1782,7 +1782,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1812,7 +1812,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Removes a contributor from a video
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param _id The contributor id 
@@ -1867,7 +1867,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1897,7 +1897,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Modifies a video's details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param _id The video id 
 ///
 ///  @param videoResource The video object (optional)
@@ -1969,7 +1969,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param _id The comment id 
@@ -2058,7 +2058,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a video's relationship details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///  @param videoId The video id 
 ///
 ///  @param relationshipId The relationship id 
@@ -2147,7 +2147,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a video template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param videoTemplateResource The video template resource object (optional)
@@ -2219,7 +2219,7 @@ NSInteger kJSAPIMediaVideosApiMissingParamErrorCode = 234513;
 
 ///
 /// Increment a video's view count
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The video id 
 ///
 ///  @returns void

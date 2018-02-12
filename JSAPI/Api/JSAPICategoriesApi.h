@@ -29,7 +29,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///
 /// @param category The category to create (optional)
 /// 
@@ -45,7 +45,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Create a category template
-/// Templates define a type of category and the properties they have
+/// Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param template The template to create (optional)
 /// 
@@ -61,7 +61,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Delete an existing category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///
 /// @param _id The id of the category to be deleted
 /// 
@@ -77,7 +77,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Delete a category template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -95,7 +95,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// List and search categories with optional filters
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterSearch Filter for categories whose names begin with provided string (optional)
 /// @param filterActive Filter for categories that are specifically active or inactive (optional)
@@ -119,7 +119,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Get a single category
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the category to retrieve
 /// 
@@ -135,7 +135,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Get a single category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -151,7 +151,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// List and search category templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -171,7 +171,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// List all trivia tags in the system
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -189,7 +189,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Update an existing category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///
 /// @param _id The id of the category
 /// @param category The category to update (optional)
@@ -207,7 +207,7 @@ extern NSInteger kJSAPICategoriesApiMissingParamErrorCode;
 
 
 /// Update a category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param template The updated template information (optional)

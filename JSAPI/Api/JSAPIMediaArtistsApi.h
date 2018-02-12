@@ -28,7 +28,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Adds a new artist in the system
-/// Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+/// Adds a new artist in the system. Use specific media contributions endpoint to add contributions. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param artistResource The new artist (optional)
 /// 
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Create an artist template
-/// Artist Templates define a type of artist and the properties they have
+/// Artist Templates define a type of artist and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param artistTemplateResource The artist template resource object (optional)
 /// 
@@ -60,7 +60,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Removes an artist from the system IF no resources are attached to it
-/// 
+/// <b>Permissions Needed:</b> ARTISTS_ADMIN
 ///
 /// @param _id The artist id
 /// 
@@ -76,7 +76,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Delete an artist template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Loads a specific artist details
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The artist id
 /// @param showContributions The number of contributions to show fetch (optional)
@@ -112,7 +112,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Get a single artist template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -128,7 +128,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// List and search artist templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -148,7 +148,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Search for artists
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterArtistsByName Filter for artists which name *STARTS* with the given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -170,7 +170,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Modifies an artist details
-/// 
+/// <b>Permissions Needed:</b> ARTISTS_ADMIN
 ///
 /// @param _id The artist id
 /// @param artistResource The new artist (optional)
@@ -188,7 +188,7 @@ extern NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode;
 
 
 /// Update an artist template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param artistTemplateResource The artist template resource object (optional)

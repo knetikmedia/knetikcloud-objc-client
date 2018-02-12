@@ -53,7 +53,7 @@ NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Lookup a specific expression
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///  @param type Specifiy the type of expression as returned by the listing endpoint 
 ///
 ///  @returns JSAPIExpressionResource*
@@ -91,7 +91,7 @@ NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -120,8 +120,8 @@ NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get a list of supported expressions to use in conditions or actions.
-/// Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+/// Get a list of supported expressions to use in conditions or actions
+/// Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///  @param filterTypeGroup Filter for expressions by type group (optional)
 ///
 ///  @returns NSArray<JSAPIExpressionResource>*
@@ -148,7 +148,7 @@ NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -178,7 +178,7 @@ NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the textual representation of an expression
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///  @param expression The expression resource to be converted (optional)
 ///
 ///  @returns JSAPIStringWrapper*

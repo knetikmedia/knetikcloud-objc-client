@@ -28,7 +28,7 @@
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type [optional]
  */
 @property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
-/* A description of the group. Max 250 characters [optional]
+/* A description of the group [optional]
  */
 @property(nonatomic) NSString* _description;
 /* The number of users in the group [optional]

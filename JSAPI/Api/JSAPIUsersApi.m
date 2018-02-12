@@ -1,7 +1,10 @@
 #import "JSAPIUsersApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
+#import "JSAPIChatMessageRequest.h"
+#import "JSAPIChatMessageResource.h"
 #import "JSAPINewPasswordRequest.h"
+#import "JSAPIPageResourceChatMessageResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIPageResourceUserBaseResource_.h"
 #import "JSAPIPasswordResetRequest.h"
@@ -58,7 +61,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a tag to a user
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param tag tag 
@@ -141,7 +144,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a user template
-/// User Templates define a type of user and the properties they have
+/// User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param userTemplateResource The user template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -196,7 +199,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a user template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -240,7 +243,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -269,8 +272,88 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get a list of direct messages with this user
+/// <b>Permissions Needed:</b> ANY
+///  @param recipientId The user id 
+///
+///  @param size The number of objects returned per page (optional, default to 25)
+///
+///  @param page The number of the page returned, starting with 1 (optional, default to 1)
+///
+///  @returns JSAPIPageResourceChatMessageResource_*
+///
+-(NSURLSessionTask*) getDirectMessages1WithRecipientId: (NSNumber*) recipientId
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+    completionHandler: (void (^)(JSAPIPageResourceChatMessageResource_* output, NSError* error)) handler {
+    // verify the required parameter 'recipientId' is set
+    if (recipientId == nil) {
+        NSParameterAssert(recipientId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"recipientId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersApiErrorDomain code:kJSAPIUsersApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/users/{recipient_id}/messages"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (recipientId != nil) {
+        pathParams[@"recipient_id"] = recipientId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (size != nil) {
+        queryParams[@"size"] = size;
+    }
+    if (page != nil) {
+        queryParams[@"page"] = page;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIPageResourceChatMessageResource_*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIPageResourceChatMessageResource_*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get a single user
-/// Additional private info is included as USERS_ADMIN
+/// Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 ///  @param _id The id of the user or 'me' 
 ///
 ///  @returns JSAPIUserResource*
@@ -308,7 +391,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -338,7 +421,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// List tags for a user
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @returns NSArray<NSString*>*
@@ -376,7 +459,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -406,7 +489,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single user template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -444,7 +527,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -474,7 +557,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search user templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -513,7 +596,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -543,7 +626,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search users
-/// Additional private info is included as USERS_ADMIN
+/// Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 ///  @param filterDisplayname Filter for users whose display name starts with provided string. (optional)
 ///
 ///  @param filterEmail Filter for users whose email starts with provided string. Requires USERS_ADMIN permission (optional)
@@ -654,7 +737,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -684,7 +767,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Choose a new password after a reset
-/// Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+/// Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 ///  @param _id The id of the user 
 ///
 ///  @param varNewPasswordRequest The new password request object (optional)
@@ -755,8 +838,80 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Send a user message
+/// 
+///  @param recipientId The user id 
+///
+///  @param chatMessageRequest The chat message request (optional)
+///
+///  @returns JSAPIChatMessageResource*
+///
+-(NSURLSessionTask*) postUserMessageWithRecipientId: (NSNumber*) recipientId
+    chatMessageRequest: (JSAPIChatMessageRequest*) chatMessageRequest
+    completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler {
+    // verify the required parameter 'recipientId' is set
+    if (recipientId == nil) {
+        NSParameterAssert(recipientId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"recipientId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersApiErrorDomain code:kJSAPIUsersApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/{recipient_id}/messages"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (recipientId != nil) {
+        pathParams[@"recipient_id"] = recipientId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = chatMessageRequest;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIChatMessageResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIChatMessageResource*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Register a new user
-/// Password should be in plain text and will be encrypted on receipt. Use SSL for security
+/// Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 ///  @param userResource The user resource object (optional)
 ///
 ///  @returns JSAPIUserResource*
@@ -811,7 +966,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Remove a tag from a user
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param tag The tag to remove 
@@ -866,7 +1021,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -896,7 +1051,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Set a user's password
-/// Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+/// Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
 ///  @param _id The id of the user 
 ///
 ///  @param password The new plain text password (optional)
@@ -968,7 +1123,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Reset a user's password
-/// A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+/// A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
 ///  @param _id The id of the user 
 ///
 ///  @returns void
@@ -1036,7 +1191,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Reset a user's password without user id
-/// A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+/// A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
 ///  @param passwordReset An object containing one of three methods to look up a user (optional)
 ///
 ///  @returns void
@@ -1091,7 +1246,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a user
-/// Password will not be edited on this endpoint, use password specific endpoints.
+/// Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param _id The id of the user or 'me' 
 ///
 ///  @param userResource The user resource object (optional)
@@ -1163,7 +1318,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a user template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param userTemplateResource The user template resource object (optional)

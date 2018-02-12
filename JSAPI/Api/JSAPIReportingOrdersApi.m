@@ -52,7 +52,7 @@ NSInteger kJSAPIReportingOrdersApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve invoice counts aggregated by time ranges
-/// 
+/// <b>Permissions Needed:</b> REPORTING_ORDERS_ADMIN
 ///  @param currencyCode The code for a currency to get sales data for 
 ///
 ///  @param granularity The time duration to aggregate by (optional, default to day)
@@ -132,7 +132,7 @@ NSInteger kJSAPIReportingOrdersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

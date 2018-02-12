@@ -1,14 +1,18 @@
 #import "JSAPIUsersGroupsApi.h"
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
+#import "JSAPIChatMessageRequest.h"
+#import "JSAPIChatMessageResource.h"
 #import "JSAPIGroupMemberResource.h"
 #import "JSAPIGroupResource.h"
+#import "JSAPIPageResourceChatMessageResource_.h"
 #import "JSAPIPageResourceGroupMemberResource_.h"
 #import "JSAPIPageResourceGroupResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
+#import "JSAPIValueWrapperBoolean_.h"
 
 
 @interface JSAPIUsersGroupsApi ()
@@ -58,7 +62,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds a new member to the group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN or self if open
 ///  @param uniqueName The group unique name 
 ///
 ///  @param user The id and status for a user to add to the group 
@@ -141,7 +145,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds multiple members to the group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param uniqueName The group unique name 
 ///
 ///  @param users The id and status for a list of users to add to the group 
@@ -224,7 +228,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param groupResource The new group (optional)
 ///
 ///  @returns JSAPIGroupResource*
@@ -279,7 +283,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an group member template
-/// GroupMember Templates define a type of group member and the properties they have
+/// GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param groupMemberTemplateResource The group member template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -334,7 +338,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a group template
-/// Group Templates define a type of group and the properties they have
+/// Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param groupTemplateResource The group template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -389,7 +393,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Removes a group from the system
-/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param uniqueName The group unique name 
 ///
 ///  @returns void
@@ -427,7 +431,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -457,7 +461,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an group member template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -501,7 +505,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -531,7 +535,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a group template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -575,7 +579,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -604,8 +608,108 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Loads a specific group's details
+/// Enable or disable notification of group messages
 /// 
+///  @param uniqueName The group unique name 
+///
+///  @param userId The user id of the member or 'me' 
+///
+///  @param disabled disabled 
+///
+///  @returns void
+///
+-(NSURLSessionTask*) disableGroupNotificationWithUniqueName: (NSString*) uniqueName
+    userId: (NSString*) userId
+    disabled: (JSAPIValueWrapperBoolean_*) disabled
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'uniqueName' is set
+    if (uniqueName == nil) {
+        NSParameterAssert(uniqueName);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uniqueName"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'disabled' is set
+    if (disabled == nil) {
+        NSParameterAssert(disabled);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"disabled"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/groups/{unique_name}/members/{user_id}/messages/disabled"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (uniqueName != nil) {
+        pathParams[@"unique_name"] = uniqueName;
+    }
+    if (userId != nil) {
+        pathParams[@"user_id"] = userId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = disabled;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Loads a specific group's details
+/// <b>Permissions Needed:</b> ANY
 ///  @param uniqueName The group unique name 
 ///
 ///  @returns JSAPIGroupResource*
@@ -643,7 +747,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -673,7 +777,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get group ancestors
-/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
 ///  @param uniqueName The group unique name 
 ///
 ///  @returns NSArray<JSAPIGroupResource>*
@@ -711,10 +815,10 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -741,7 +845,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a user from a group
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param uniqueName The group unique name 
 ///
 ///  @param userId The id of the user 
@@ -796,7 +900,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -826,7 +930,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single group member template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -864,7 +968,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -894,7 +998,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search group member templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -933,7 +1037,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -963,7 +1067,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Lists members of the group
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param uniqueName The group unique name 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -1019,7 +1123,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1048,8 +1152,88 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get a list of group messages
+/// <b>Permissions Needed:</b> ANY
+///  @param uniqueName The group unique name 
+///
+///  @param size The number of objects returned per page (optional, default to 25)
+///
+///  @param page The number of the page returned, starting with 1 (optional, default to 1)
+///
+///  @returns JSAPIPageResourceChatMessageResource_*
+///
+-(NSURLSessionTask*) getGroupMessagesWithUniqueName: (NSString*) uniqueName
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+    completionHandler: (void (^)(JSAPIPageResourceChatMessageResource_* output, NSError* error)) handler {
+    // verify the required parameter 'uniqueName' is set
+    if (uniqueName == nil) {
+        NSParameterAssert(uniqueName);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uniqueName"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/groups/{unique_name}/messages"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (uniqueName != nil) {
+        pathParams[@"unique_name"] = uniqueName;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (size != nil) {
+        queryParams[@"size"] = size;
+    }
+    if (page != nil) {
+        queryParams[@"page"] = page;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIPageResourceChatMessageResource_*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIPageResourceChatMessageResource_*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Get a single group template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -1087,7 +1271,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1117,7 +1301,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search group templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -1156,7 +1340,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1186,7 +1370,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// List groups a user is in
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param userId The id of the user 
 ///
 ///  @param filterChildren Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent. (optional)
@@ -1230,7 +1414,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1260,7 +1444,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search groups
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterTemplate Filter for groups using a specific template, by id (optional)
 ///
 ///  @param filterMemberCount Filters groups by member count. Multiple values possible for range search. Format: filter_member_count=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count=GT,14,LT,17 (optional)
@@ -1335,7 +1519,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1364,8 +1548,80 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Removes a user from a group
+/// Send a group message
 /// 
+///  @param uniqueName The group unique name 
+///
+///  @param chatMessageRequest The chat message request (optional)
+///
+///  @returns JSAPIChatMessageResource*
+///
+-(NSURLSessionTask*) postGroupMessageWithUniqueName: (NSString*) uniqueName
+    chatMessageRequest: (JSAPIChatMessageRequest*) chatMessageRequest
+    completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler {
+    // verify the required parameter 'uniqueName' is set
+    if (uniqueName == nil) {
+        NSParameterAssert(uniqueName);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uniqueName"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIUsersGroupsApiErrorDomain code:kJSAPIUsersGroupsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/groups/{unique_name}/messages"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (uniqueName != nil) {
+        pathParams[@"unique_name"] = uniqueName;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = chatMessageRequest;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIChatMessageResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIChatMessageResource*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Removes a user from a group
+/// <b>Permissions Needed:</b> GROUP_ADMIN or self if open
 ///  @param uniqueName The group unique name 
 ///
 ///  @param userId The id of the user to remove 
@@ -1420,7 +1676,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1450,7 +1706,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a group
-/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
 ///  @param uniqueName The group unique name 
 ///
 ///  @param groupResource The updated group (optional)
@@ -1522,7 +1778,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Change a user's order
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param uniqueName The group unique name 
 ///
 ///  @param userId The user id of the member to modify 
@@ -1622,7 +1878,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Change a user's membership properties
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param uniqueName The group unique name 
 ///
 ///  @param userId The user id of the member to modify 
@@ -1722,7 +1978,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Change a user's status
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///  @param uniqueName The group unique name 
 ///
 ///  @param userId The user id of the member to modify 
@@ -1822,7 +2078,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an group member template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param groupMemberTemplateResource The group member template resource object (optional)
@@ -1894,7 +2150,7 @@ NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a group template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param groupTemplateResource The group template resource object (optional)

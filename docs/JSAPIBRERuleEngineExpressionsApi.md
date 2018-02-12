@@ -1,11 +1,11 @@
 # JSAPIBRERuleEngineExpressionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getBREExpression**](JSAPIBRERuleEngineExpressionsApi.md#getbreexpression) | **GET** /bre/expressions/{type} | Lookup a specific expression
-[**getBREExpressions**](JSAPIBRERuleEngineExpressionsApi.md#getbreexpressions) | **GET** /bre/expressions | Get a list of supported expressions to use in conditions or actions.
+[**getBREExpressions**](JSAPIBRERuleEngineExpressionsApi.md#getbreexpressions) | **GET** /bre/expressions | Get a list of supported expressions to use in conditions or actions
 [**getExpressionAsText**](JSAPIBRERuleEngineExpressionsApi.md#getexpressionastext) | **POST** /bre/expressions | Returns the textual representation of an expression
 
 
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 ```
 
 Lookup a specific expression
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```objc
@@ -60,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -71,9 +73,9 @@ Name | Type | Description  | Notes
         completionHandler: (void (^)(NSArray<JSAPIExpressionResource>* output, NSError* error)) handler;
 ```
 
-Get a list of supported expressions to use in conditions or actions.
+Get a list of supported expressions to use in conditions or actions
 
-Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```objc
@@ -90,7 +92,7 @@ NSString* filterTypeGroup = @"filterTypeGroup_example"; // Filter for expression
 
 JSAPIBRERuleEngineExpressionsApi*apiInstance = [[JSAPIBRERuleEngineExpressionsApi alloc] init];
 
-// Get a list of supported expressions to use in conditions or actions.
+// Get a list of supported expressions to use in conditions or actions
 [apiInstance getBREExpressionsWithFilterTypeGroup:filterTypeGroup
           completionHandler: ^(NSArray<JSAPIExpressionResource>* output, NSError* error) {
                         if (output) {
@@ -118,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -130,6 +132,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns the textual representation of an expression
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```objc

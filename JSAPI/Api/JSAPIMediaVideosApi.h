@@ -38,7 +38,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Adds a user to a video's whitelist
-/// Whitelisted users can view video regardless of privacy setting.
+/// Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param _id The video id
 /// @param userId The user id (optional)
@@ -56,7 +56,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Adds a new video in the system
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoResource The video object (optional)
 /// 
@@ -72,7 +72,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Add a new video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id 
 /// @param commentResource The comment object (optional)
@@ -90,7 +90,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Adds a contributor to a video
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param contributionResource The contribution object (optional)
@@ -108,7 +108,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Add a new flag
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param reason The flag reason (optional)
@@ -126,7 +126,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Adds one or more existing videos as related to this one
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param videoRelationshipResource The video relationship object  (optional)
@@ -144,7 +144,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Create a video disposition
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param dispositionResource The disposition object (optional)
@@ -162,7 +162,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Create a video template
-/// Video Templates define a type of video and the properties they have
+/// Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param videoTemplateResource The video template resource object (optional)
 /// 
@@ -178,7 +178,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Deletes a video from the system if no resources are attached to it
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param _id The video id
 /// 
@@ -194,7 +194,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Delete a video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param _id The comment id
@@ -212,7 +212,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Delete a video disposition
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param dispositionId The disposition id
 /// 
@@ -228,7 +228,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Delete a flag
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// 
@@ -244,7 +244,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Delete a video's relationship
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param _id The relationship id
@@ -262,7 +262,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Delete a video template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -280,7 +280,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Get user videos
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param userId The user id
 /// @param excludeFlagged Skip videos that have been flagged by the current user (optional) (default to true)
@@ -302,7 +302,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Loads a specific video details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param _id The video id
 /// 
@@ -318,7 +318,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Returns a page of comments for a video
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param videoId The video id
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -338,7 +338,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Returns a page of dispositions for a video
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param videoId The video id
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -358,7 +358,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Returns a page of video relationships
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param videoId The video id
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -378,7 +378,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Get a single video template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -394,7 +394,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// List and search video templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -414,7 +414,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Search videos using the documented filters
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param excludeFlagged Skip videos that have been flagged by the current user (optional) (default to true)
 /// @param filterVideosByUploader Filter for videos by uploader id (optional)
@@ -458,7 +458,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Removes a user from a video's whitelist
-/// Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+/// Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param _id The user id
@@ -476,7 +476,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Removes a contributor from a video
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param _id The contributor id
@@ -494,7 +494,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Modifies a video's details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param _id The video id
 /// @param videoResource The video object (optional)
@@ -512,7 +512,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Update a video comment
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param _id The comment id
@@ -532,7 +532,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Update a video's relationship details
-/// 
+/// <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 ///
 /// @param videoId The video id
 /// @param relationshipId The relationship id
@@ -552,7 +552,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Update a video template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param videoTemplateResource The video template resource object (optional)
@@ -570,7 +570,7 @@ extern NSInteger kJSAPIMediaVideosApiMissingParamErrorCode;
 
 
 /// Increment a video's view count
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The video id
 /// 

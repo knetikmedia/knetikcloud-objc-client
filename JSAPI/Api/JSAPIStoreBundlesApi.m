@@ -54,7 +54,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a bundle item
-/// The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
+/// The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
 ///
 ///  @param bundleItem The bundle item object (optional)
@@ -115,7 +115,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a bundle template
-/// Bundle Templates define a type of bundle and the properties they have.
+/// Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param bundleTemplateResource The new bundle template (optional)
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -170,7 +170,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a bundle item
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param _id The id of the bundle 
 ///
 ///  @returns void
@@ -208,7 +208,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -238,7 +238,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a bundle template
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -282,7 +282,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -312,7 +312,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single bundle item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the bundle 
 ///
 ///  @returns JSAPIBundleItem*
@@ -350,7 +350,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -380,7 +380,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single bundle template
-/// Bundle Templates define a type of bundle and the properties they have.
+/// Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> ANY
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -418,7 +418,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -448,7 +448,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search bundle templates
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -487,7 +487,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -517,7 +517,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a bundle item
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param _id The id of the bundle 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
@@ -595,7 +595,7 @@ NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a bundle template
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param bundleTemplateResource The bundle template resource object (optional)

@@ -26,7 +26,7 @@ extern NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Returns the authentication log for a user
-/// A log entry is recorded everytime a user requests a new token. Standard pagination available
+/// A log entry is recorded everytime a user requests a new token. Standard pagination available. <br><br><b>Permissions Needed:</b> SECURITY_ADMIN
 ///
 /// @param userId The user id (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -48,7 +48,7 @@ extern NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode;
 
 
 /// Returns the authentication token details. Use /users endpoint for detailed user's info
-/// 
+/// <b>Permissions Needed:</b> SECURITY_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",

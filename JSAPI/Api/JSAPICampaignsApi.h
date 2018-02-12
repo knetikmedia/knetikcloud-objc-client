@@ -29,7 +29,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add a challenge to a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///
 /// @param _id The id of the campaign
 /// @param challengeId The id of the challenge (optional)
@@ -47,7 +47,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Create a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///
 /// @param campaignResource The campaign resource object (optional)
 /// 
@@ -63,7 +63,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Create a campaign template
-/// Campaign Templates define a type of campaign and the properties they have
+/// Campaign Templates define a type of campaign and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param campaignTemplateResource The campaign template resource object (optional)
 /// 
@@ -79,7 +79,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Delete a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///
 /// @param _id The campaign id
 /// 
@@ -95,7 +95,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Delete a campaign template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -113,7 +113,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Returns a single campaign
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The campaign id
 /// 
@@ -129,7 +129,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// List the challenges associated with a campaign
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The campaign id
 /// @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
@@ -155,7 +155,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Get a single campaign template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -171,7 +171,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// List and search campaign templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -191,7 +191,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// List and search campaigns
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterActive Filter for campaigns that are active (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -213,7 +213,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Remove a challenge from a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///
 /// @param campaignId The campaign id
 /// @param _id The challenge id
@@ -231,7 +231,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Update a campaign
-/// 
+/// <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 ///
 /// @param _id The campaign id
 /// @param campaignResource The campaign resource object (optional)
@@ -249,7 +249,7 @@ extern NSInteger kJSAPICampaignsApiMissingParamErrorCode;
 
 
 /// Update an campaign template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param campaignTemplateResource The campaign template resource object (optional)

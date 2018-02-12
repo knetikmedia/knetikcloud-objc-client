@@ -52,7 +52,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns aggregated endpoint usage information by day
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -137,7 +137,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -167,7 +167,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns aggregated endpoint usage information by hour
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -252,7 +252,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -282,7 +282,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns aggregated endpoint usage information by minute
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -367,7 +367,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -397,7 +397,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns aggregated endpoint usage information by month
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -482,7 +482,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -512,7 +512,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns aggregated endpoint usage information by year
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -597,7 +597,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -627,7 +627,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns list of endpoints called (method and url)
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///  @param startDate The beginning of the range being requested, unix timestamp in seconds 
 ///
 ///  @param endDate The ending of the range being requested, unix timestamp in seconds 
@@ -682,7 +682,7 @@ NSInteger kJSAPIReportingUsageApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

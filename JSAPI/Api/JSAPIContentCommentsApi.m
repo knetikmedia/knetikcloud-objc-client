@@ -54,7 +54,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a new comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///  @param commentResource The comment to be added (optional)
 ///
 ///  @returns JSAPICommentResource*
@@ -109,7 +109,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///  @param _id The comment id 
 ///
 ///  @returns void
@@ -147,7 +147,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -177,7 +177,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 
 ///
 /// Return a comment
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The comment id 
 ///
 ///  @returns JSAPICommentResource*
@@ -215,7 +215,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -245,7 +245,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of comments
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param context Get comments by context type 
 ///
 ///  @param contextId Get comments by context id 
@@ -312,7 +312,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -342,7 +342,7 @@ NSInteger kJSAPIContentCommentsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///  @param _id The comment id 
 ///
 ///  @param content The comment content (optional)

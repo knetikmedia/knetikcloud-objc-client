@@ -37,10 +37,10 @@
 /* The description of the device [optional]
  */
 @property(nonatomic) NSString* _description;
-/* The type of device. Use mobile to specifically register mobile devices. This particular type will be used to send and receive notifications [optional]
+/* The type of device. Use mobile_device to specifically register mobile devices. This particular type will be used to send and receive notifications [optional]
  */
 @property(nonatomic) NSString* deviceType;
-/* The unique ID for this device [optional]
+/* The unique ID for this device. Cannot be changed after creation. Default: random [optional]
  */
 @property(nonatomic) NSString* _id;
 /* The physical location of the device, coordinates or named place (office, living room, etc) [optional]

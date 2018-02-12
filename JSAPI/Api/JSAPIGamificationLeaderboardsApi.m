@@ -53,7 +53,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieves leaderboard details and paginated entries
-/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
+/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource. <br><br><b>Permissions Needed:</b> ANY
 ///  @param contextType The context type for the leaderboard 
 ///
 ///  @param contextId The context id for the leaderboard 
@@ -126,7 +126,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -156,7 +156,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieves a specific user entry with rank
-/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
+/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. <br><br><b>Permissions Needed:</b> ANY
 ///  @param contextType The context type for the leaderboard 
 ///
 ///  @param contextId The context id for the leaderboard 
@@ -228,7 +228,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -258,7 +258,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a list of available leaderboard strategy names
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSArray<NSString*>*
 ///
 -(NSURLSessionTask*) getLeaderboardStrategiesWithCompletionHandler: 
@@ -280,7 +280,7 @@ NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

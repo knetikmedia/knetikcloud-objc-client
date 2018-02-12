@@ -26,7 +26,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///
 /// @param permissionResource The permission resource object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 
 
 /// Delete a permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///
 /// @param permission The permission value
 /// @param force If true, removes permission assigned to roles (optional)
@@ -60,7 +60,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 
 
 /// Get a single permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///
 /// @param permission The permission value
 /// 
@@ -76,7 +76,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 
 
 /// List and search permissions
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -96,7 +96,7 @@ extern NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode;
 
 
 /// Update a permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///
 /// @param permission The permission value
 /// @param permissionResource The permission resource object (optional)

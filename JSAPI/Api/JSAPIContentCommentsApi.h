@@ -27,7 +27,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add a new comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///
 /// @param commentResource The comment to be added (optional)
 /// 
@@ -43,7 +43,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 
 
 /// Delete a comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///
 /// @param _id The comment id
 /// 
@@ -59,7 +59,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 
 
 /// Return a comment
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The comment id
 /// 
@@ -75,7 +75,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 
 
 /// Returns a page of comments
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param context Get comments by context type
 /// @param contextId Get comments by context id
@@ -97,7 +97,7 @@ extern NSInteger kJSAPIContentCommentsApiMissingParamErrorCode;
 
 
 /// Update a comment
-/// 
+/// <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
 ///
 /// @param _id The comment id
 /// @param content The comment content (optional)

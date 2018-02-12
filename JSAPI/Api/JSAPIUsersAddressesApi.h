@@ -26,7 +26,7 @@ extern NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///
 /// @param userId The id of the user
 /// @param savedAddressResource The new address (optional)
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode;
 
 
 /// Delete an address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///
 /// @param userId The id of the user
 /// @param _id The id of the address
@@ -62,7 +62,7 @@ extern NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode;
 
 
 /// Get a single address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///
 /// @param userId The id of the user
 /// @param _id The id of the address
@@ -80,7 +80,7 @@ extern NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode;
 
 
 /// List and search addresses
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///
 /// @param userId The id of the user
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -102,7 +102,7 @@ extern NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode;
 
 
 /// Update an address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///
 /// @param userId The id of the user
 /// @param _id The id of the address

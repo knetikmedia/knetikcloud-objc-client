@@ -16,13 +16,19 @@
 
 #import "JSAPIActivityEntitlementResource.h"
 #import "JSAPIActivityUserResource.h"
+#import "JSAPICoreActivityOccurrenceSettings.h"
 #import "JSAPISelectedSettingResource.h"
+#import "JSAPISimpleUserResource.h"
 @protocol JSAPIActivityEntitlementResource;
 @class JSAPIActivityEntitlementResource;
 @protocol JSAPIActivityUserResource;
 @class JSAPIActivityUserResource;
+@protocol JSAPICoreActivityOccurrenceSettings;
+@class JSAPICoreActivityOccurrenceSettings;
 @protocol JSAPISelectedSettingResource;
 @class JSAPISelectedSettingResource;
+@protocol JSAPISimpleUserResource;
+@class JSAPISimpleUserResource;
 
 
 
@@ -34,9 +40,15 @@
 /* The id of the activity 
  */
 @property(nonatomic) NSNumber* activityId;
+/* The ids of banned users that cannot join the occurrence. See occurrence-user delete endpoint [optional]
+ */
+@property(nonatomic) NSArray<NSNumber*>* bans;
 /* The id of the challenge activity (as part of the event, required if eventId set) [optional]
  */
 @property(nonatomic) NSNumber* challengeActivityId;
+/* Defines core settings about the activity occurrence that affect how it behaves in the system. Validated against core settings in activity/challenge-activity. [optional]
+ */
+@property(nonatomic) JSAPICoreActivityOccurrenceSettings* coreSettings;
 /* The date this occurrence was created, unix timestamp in seconds [optional]
  */
 @property(nonatomic) NSNumber* createdDate;
@@ -46,6 +58,9 @@
 /* The id of the event [optional]
  */
 @property(nonatomic) NSNumber* eventId;
+/* The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well [optional]
+ */
+@property(nonatomic) JSAPISimpleUserResource* host;
 /* The id of the activity occurrence [optional]
  */
 @property(nonatomic) NSNumber* _id;

@@ -14,6 +14,9 @@
 */
 
 
+#import "JSAPIBreActionLog.h"
+@protocol JSAPIBreActionLog;
+@class JSAPIBreActionLog;
 
 
 
@@ -22,6 +25,9 @@
 
 @interface JSAPIBreRuleLog : JSAPIObject
 
+/* The actions of the BRE rule [optional]
+ */
+@property(nonatomic) NSArray<JSAPIBreActionLog>* actions;
 /* Whether the rule ran [optional]
  */
 @property(nonatomic) NSNumber* ran;

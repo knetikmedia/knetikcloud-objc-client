@@ -26,7 +26,7 @@ extern NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///
 /// @param rewardSetResource The reward set resource object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode;
 
 
 /// Delete a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///
 /// @param _id The reward id
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode;
 
 
 /// Get a single reward set
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The reward id
 /// 
@@ -74,7 +74,7 @@ extern NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode;
 
 
 /// List and search reward sets
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode;
 
 
 /// Update a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///
 /// @param _id The reward id
 /// @param rewardSetResource The reward set resource object (optional)

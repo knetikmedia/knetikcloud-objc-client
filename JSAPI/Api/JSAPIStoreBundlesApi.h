@@ -27,7 +27,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a bundle item
-/// The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
+/// The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 /// @param bundleItem The bundle item object (optional)
@@ -45,7 +45,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Create a bundle template
-/// Bundle Templates define a type of bundle and the properties they have.
+/// Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param bundleTemplateResource The new bundle template (optional)
 /// 
@@ -61,7 +61,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Delete a bundle item
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param _id The id of the bundle
 /// 
@@ -77,7 +77,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Delete a bundle template
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
@@ -95,7 +95,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Get a single bundle item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the bundle
 /// 
@@ -111,7 +111,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Get a single bundle template
-/// Bundle Templates define a type of bundle and the properties they have.
+/// Bundle Templates define a type of bundle and the properties they have. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the template
 /// 
@@ -127,7 +127,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// List and search bundle templates
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -147,7 +147,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Update a bundle item
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param _id The id of the bundle
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
@@ -167,7 +167,7 @@ extern NSInteger kJSAPIStoreBundlesApiMissingParamErrorCode;
 
 
 /// Update a bundle template
-/// 
+/// <b>Permissions Needed:</b> BUNDLES_ADMIN
 ///
 /// @param _id The id of the template
 /// @param bundleTemplateResource The bundle template resource object (optional)

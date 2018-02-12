@@ -26,7 +26,7 @@ extern NSInteger kJSAPIBRERuleEngineVariablesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get a list of variable types available
-/// Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing.
+/// Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_VARIABLES_USER
 ///
 /// 
 ///  code:200 message:"OK",
@@ -41,7 +41,7 @@ extern NSInteger kJSAPIBRERuleEngineVariablesApiMissingParamErrorCode;
 
 
 /// List valid values for a type
-/// Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here.
+/// Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_VARIABLES_USER
 ///
 /// @param name The name of the type
 /// @param filterName Filter results by those with names starting with this string (optional)

@@ -54,7 +54,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a shipping item
-/// A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
+/// A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> SHIPPING_ADMIN
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
 ///
 ///  @param shippingItem The shipping item object (optional)
@@ -170,7 +170,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a shipping item
-/// 
+/// <b>Permissions Needed:</b> SHIPPING_ADMIN
 ///  @param _id The id of the shipping item 
 ///
 ///  @returns void
@@ -208,7 +208,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -238,7 +238,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a shipping template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -282,7 +282,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -312,7 +312,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single shipping item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the shipping item 
 ///
 ///  @returns JSAPIShippingItem*
@@ -350,7 +350,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -380,7 +380,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single shipping template
-/// Shipping Templates define a type of shipping and the properties they have.
+/// Shipping Templates define a type of shipping and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -418,7 +418,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -448,7 +448,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search shipping templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -487,7 +487,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -517,7 +517,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a shipping item
-/// 
+/// <b>Permissions Needed:</b> SHIPPING_ADMIN
 ///  @param _id The id of the shipping item 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
@@ -595,7 +595,7 @@ NSInteger kJSAPIStoreShippingApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a shipping template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param shippingTemplateResource The shipping template resource object (optional)

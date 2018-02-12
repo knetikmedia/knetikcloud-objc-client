@@ -26,7 +26,7 @@ extern NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Lookup a specific expression
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///
 /// @param type Specifiy the type of expression as returned by the listing endpoint
 /// 
@@ -41,8 +41,8 @@ extern NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIExpressionResource* output, NSError* error)) handler;
 
 
-/// Get a list of supported expressions to use in conditions or actions.
-/// Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+/// Get a list of supported expressions to use in conditions or actions
+/// Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///
 /// @param filterTypeGroup Filter for expressions by type group (optional)
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIBRERuleEngineExpressionsApiMissingParamErrorCode;
 
 
 /// Returns the textual representation of an expression
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 ///
 /// @param expression The expression resource to be converted (optional)
 /// 

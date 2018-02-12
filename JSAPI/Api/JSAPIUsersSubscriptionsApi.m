@@ -57,7 +57,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get details about a user's subscription
-/// 
+/// <b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -112,7 +112,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -142,7 +142,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get details about a user's subscriptions
-/// 
+/// <b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @returns NSArray<JSAPIInventorySubscriptionResource>*
@@ -180,7 +180,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -210,7 +210,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Reactivate a subscription and charge fee
-/// 
+/// <b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -299,7 +299,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set a new date to bill a subscription on
-/// 
+/// <b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -399,7 +399,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the payment method to use for a subscription
-/// May send null to use floating default
+/// May send null to use floating default. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -488,7 +488,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the status of a subscription
-/// Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+/// Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -588,7 +588,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set a new subscription plan for a user
-/// 
+/// <b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 
@@ -677,7 +677,7 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set a new subscription price for a user
-/// This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+/// This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param inventoryId The id of the user's inventory 

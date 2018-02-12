@@ -28,7 +28,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///
 /// @param vendor The vendor (optional)
 /// 
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Create a vendor template
-/// Vendor Templates define a type of vendor and the properties they have.
+/// Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param vendorTemplateResource The new vendor template (optional)
 /// 
@@ -60,7 +60,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Delete a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///
 /// @param _id The id of the vendor
 /// 
@@ -76,7 +76,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Delete a vendor template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Get a single vendor
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the vendor
 /// 
@@ -110,7 +110,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Get a single vendor template
-/// Vendor Templates define a type of vendor and the properties they have.
+/// Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -126,11 +126,11 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// List and search vendor templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
-/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -146,7 +146,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// List and search vendors
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterName Filters vendors by name starting with the text provided in the filter (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -168,7 +168,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Update a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///
 /// @param _id The id of the vendor
 /// @param vendor The vendor (optional)
@@ -186,7 +186,7 @@ extern NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode;
 
 
 /// Update a vendor template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param vendorTemplateResource The vendor template resource object (optional)

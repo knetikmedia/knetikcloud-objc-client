@@ -30,7 +30,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Returns the user's wallet for the given currency code
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///
 /// @param userId The ID of the user for whom wallet is being retrieved
 /// @param currencyCode Currency code of the user&#39;s wallet
@@ -48,7 +48,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// Retrieve a user's wallet transactions
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///
 /// @param userId The ID of the user for whom wallet transactions are being retrieved
 /// @param currencyCode Currency code of the user&#39;s wallet
@@ -80,7 +80,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// List all of a user's wallets
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///
 /// @param userId The ID of the user for whom wallets are being retrieved
 /// 
@@ -96,7 +96,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// Retrieves a summation of wallet balances by currency code
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -111,7 +111,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// Retrieve wallet transactions across the system
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///
 /// @param filterInvoice Filter for transactions from a specific invoice (optional)
 /// @param filterType Filter for transactions with specified type (optional)
@@ -147,7 +147,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// Retrieve a list of wallets across the system
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -167,7 +167,7 @@ extern NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode;
 
 
 /// Updates the balance for a user's wallet
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///
 /// @param userId The ID of the user for whom wallet is being modified
 /// @param currencyCode Currency code of the user&#39;s wallet

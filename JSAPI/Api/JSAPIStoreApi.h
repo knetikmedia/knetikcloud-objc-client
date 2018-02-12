@@ -31,7 +31,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create an item template
-/// Item Templates define a type of item and the properties they have.
+/// Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param itemTemplateResource The new item template (optional)
 /// 
@@ -47,7 +47,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Create a store item
-/// SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints.
+/// SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints. <br><br><b>Permissions Needed:</b> STORE_ADMIN
 ///
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 /// @param storeItem The store item object (optional)
@@ -65,7 +65,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Delete an item template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
@@ -83,7 +83,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Delete a store item
-/// 
+/// <b>Permissions Needed:</b> STORE_ADMIN
 ///
 /// @param _id The id of the item
 /// 
@@ -99,7 +99,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// List available item behaviors
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",
@@ -114,7 +114,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Get a single item template
-/// Item Templates define a type of item and the properties they have.
+/// Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -130,7 +130,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// List and search item templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -150,7 +150,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Get a single store item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the item
 /// 
@@ -166,7 +166,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// List and search store items
-/// If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase.
+/// If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase. br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param filterNameSearch Filter for items whose name starts with a given string. (optional)
 /// @param filterUniqueKey Filter for items whose unique_key is a given string. (optional)
@@ -214,7 +214,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// One-step purchase and pay for a single SKU item from a user's wallet
-/// Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+/// Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted. <br><br><b>Permissions Needed:</b> PAYMENTS_USER and owner, or PAYMENTS_ADMIN
 ///
 /// @param quickBuyRequest Quick buy details (optional)
 /// 
@@ -231,7 +231,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Update an item template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param itemTemplateResource The item template resource object (optional)
@@ -249,7 +249,7 @@ extern NSInteger kJSAPIStoreApiMissingParamErrorCode;
 
 
 /// Update a store item
-/// 
+/// <b>Permissions Needed:</b> STORE_ADMIN
 ///
 /// @param _id The id of the item
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)

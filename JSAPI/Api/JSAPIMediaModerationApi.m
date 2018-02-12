@@ -55,7 +55,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a flag
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param flagResource The flag resource object (optional)
 ///
 ///  @returns JSAPIFlagResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a flag
-/// 
+/// <b>Permissions Needed:</b> MODERATION_ADMIN or owner
 ///  @param contextName The name of the context (optional)
 ///
 ///  @param contextId The id of the context (optional)
@@ -149,7 +149,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -179,7 +179,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of flags
-/// 
+/// <b>Permissions Needed:</b> MODERATION_ADMIN or owner
 ///  @param filterContext Filter by flag context (optional)
 ///
 ///  @param filterContextId Filter by flag context ID (optional)
@@ -230,7 +230,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -260,7 +260,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a flag report
-/// 
+/// <b>Permissions Needed:</b> MODERATION_ADMIN
 ///  @param _id The flag report id 
 ///
 ///  @returns JSAPIFlagReportResource*
@@ -298,7 +298,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -328,7 +328,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of flag reports
-/// Context can be either a free-form string or a pre-defined context name
+/// Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 ///  @param excludeResolved Ignore resolved context (optional, default to true)
 ///
 ///  @param filterContext Filter by moderation context (optional)
@@ -379,7 +379,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -409,7 +409,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a flag report
-/// Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
+/// Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 ///  @param _id The flag report id 
 ///
 ///  @param flagReportResource The new flag report (optional)

@@ -26,7 +26,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add a friend
-/// As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+/// As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///
 /// @param userId The id of the user or &#39;me&#39; if logged in
 /// @param _id The id of the user to befriend
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 
 
 /// Get friends list
-/// 
+/// <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param filterUsername Filter for friends with the given username (optional)
@@ -68,7 +68,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 
 
 /// Returns the invite token
-/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
 ///
 /// @param userId The id of the user or &#39;me&#39; if logged in
 /// 
@@ -84,7 +84,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 
 
 /// Get pending invites
-/// Invites that the specified user received
+/// Invites that the specified user received. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -104,7 +104,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 
 
 /// Redeem friendship token
-/// Immediately connects the requested user with the user mapped by the provided invite token
+/// Immediately connects the requested user with the user mapped by the provided invite token. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///
 /// @param userId The id of the user or &#39;me&#39; if logged in
 /// @param token The invite token (optional)
@@ -122,7 +122,7 @@ extern NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode;
 
 
 /// Remove or decline a friend
-/// 
+/// <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///
 /// @param userId The id of the user or &#39;me&#39; if logged in
 /// @param _id The id of the user to befriend

@@ -1,6 +1,6 @@
 # JSAPIPaymentsOptimalApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Initiate silent post with Optimal
 
-Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
+Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner
 
 ### Example 
 ```objc

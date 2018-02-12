@@ -30,7 +30,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add a user log entry
-/// 
+/// <b>Permissions Needed:</b> owner
 ///
 /// @param logEntry The user log entry to be added (optional)
 /// 
@@ -46,7 +46,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 
 
 /// Get an existing BRE event log entry by id
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///
 /// @param _id The BRE event log entry id
 /// 
@@ -62,7 +62,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 
 
 /// Returns a list of BRE event log entries
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///
 /// @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 /// @param filterEventName Filter event logs by event name (optional)
@@ -70,6 +70,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
 /// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:DESC)
+/// @param filterRuleId Filter event logs by request id (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -84,11 +85,12 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
+    filterRuleId: (NSString*) filterRuleId
     completionHandler: (void (^)(JSAPIPageResourceBreEventLog_* output, NSError* error)) handler;
 
 
 /// Get an existing forward log entry by id
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///
 /// @param _id The forward log entry id
 /// 
@@ -104,11 +106,12 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 
 
 /// Returns a list of forward log entries
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///
 /// @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 /// @param filterEndDate A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 /// @param filterStatusCode Filter forward logs by http status code (optional)
+/// @param filterUrl Filter forward logs by URL starting with... (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
 /// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:DESC)
@@ -123,6 +126,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 -(NSURLSessionTask*) getBREForwardLogsWithFilterStartDate: (NSString*) filterStartDate
     filterEndDate: (NSString*) filterEndDate
     filterStatusCode: (NSNumber*) filterStatusCode
+    filterUrl: (NSNumber*) filterUrl
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -130,7 +134,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 
 
 /// Returns a user log entry by id
-/// 
+/// <b>Permissions Needed:</b> LOGS_ADMIN or owner
 ///
 /// @param _id The user log entry id
 /// 
@@ -146,7 +150,7 @@ extern NSInteger kJSAPILogsApiMissingParamErrorCode;
 
 
 /// Returns a page of user logs entries
-/// 
+/// <b>Permissions Needed:</b> LOGS_ADMIN or owner
 ///
 /// @param filterUser Filter for actions taken by a specific user by id (optional)
 /// @param filterActionName Filter for actions of a specific name (optional)

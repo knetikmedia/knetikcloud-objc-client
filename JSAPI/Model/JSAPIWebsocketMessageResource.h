@@ -17,19 +17,20 @@
 
 
 
-@protocol JSAPIIOConfig
+@protocol JSAPIWebsocketMessageResource
 @end
 
-@interface JSAPIIOConfig : JSAPIObject
+@interface JSAPIWebsocketMessageResource : JSAPIObject
 
-
-@property(nonatomic) NSString* customer;
-
-@property(nonatomic) NSNumber* enabled;
-
-@property(nonatomic) NSString* environment;
-
-@property(nonatomic) NSString* product;
+/* The body of the outgoing message. 
+ */
+@property(nonatomic) NSObject* content;
+/* A message type to inform websocket recipient how to parse content [optional]
+ */
+@property(nonatomic) NSString* messageType;
+/* A list of user ids to send the message to. 
+ */
+@property(nonatomic) NSArray<NSNumber*>* recipients;
 
 + (NSDictionary *)modalDictionary;
 

@@ -55,7 +55,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param roleResource The role resource object (optional)
 ///
 ///  @returns JSAPIRoleResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param role The role value 
 ///
 ///  @param force If true, removes role from users/clients (optional)
@@ -154,7 +154,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -184,7 +184,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get roles for a client
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param clientKey The client key 
 ///
 ///  @returns NSArray<JSAPIRoleResource>*
@@ -222,7 +222,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -252,7 +252,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param role The role value 
 ///
 ///  @returns JSAPIRoleResource*
@@ -290,7 +290,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -320,7 +320,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search roles
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param filterName Filter for roles that have a name starting with specified string (optional)
 ///
 ///  @param filterRole Filter for roles that have a role starting with specified string (optional)
@@ -371,7 +371,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -401,7 +401,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get roles for a user
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param userId The user's id 
 ///
 ///  @returns NSArray<JSAPIRoleResource>*
@@ -439,7 +439,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -469,7 +469,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set roles for a client
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param clientKey The client key 
 ///
 ///  @param rolesList The list of unique roles (optional)
@@ -541,7 +541,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set permissions for a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param role The role value 
 ///
 ///  @param permissionsList The list of unique permissions (optional)
@@ -613,7 +613,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set roles for a user
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param userId The user's id 
 ///
 ///  @param rolesList The list of unique roles (optional)
@@ -685,7 +685,7 @@ NSInteger kJSAPIAuthRolesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///  @param role The role value 
 ///
 ///  @param roleResource The role resource object (optional)

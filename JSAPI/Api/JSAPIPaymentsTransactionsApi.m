@@ -55,7 +55,7 @@ NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get the details for a single transaction
-/// 
+/// <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
 ///  @param _id id 
 ///
 ///  @returns JSAPITransactionResource*
@@ -93,7 +93,7 @@ NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -123,7 +123,7 @@ NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search transactions
-/// 
+/// <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
 ///  @param filterInvoice Filter for transactions from a specific invoice (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -168,7 +168,7 @@ NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -198,7 +198,7 @@ NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Refund a payment transaction, in full or in part
-/// Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds.
+/// Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. <br><br><b>Permissions Needed:</b> PAYMENTS_ADMIN
 ///  @param _id The id of the transaction to refund 
 ///
 ///  @param request Request containing refund details (optional)

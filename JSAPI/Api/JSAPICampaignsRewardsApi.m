@@ -53,7 +53,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///  @param rewardSetResource The reward set resource object (optional)
 ///
 ///  @returns JSAPIRewardSetResource*
@@ -108,7 +108,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///  @param _id The reward id 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single reward set
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The reward id 
 ///
 ///  @returns JSAPIRewardSetResource*
@@ -214,7 +214,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -244,7 +244,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search reward sets
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -283,7 +283,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -313,7 +313,7 @@ NSInteger kJSAPICampaignsRewardsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a reward set
-/// 
+/// <b>Permissions Needed:</b> REWARDS_ADMIN
 ///  @param _id The reward id 
 ///
 ///  @param rewardSetResource The reward set resource object (optional)

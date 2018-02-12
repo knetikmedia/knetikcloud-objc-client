@@ -52,7 +52,7 @@ NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get details for a template property type
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param type type 
 ///
 ///  @returns JSAPIPropertyFieldListResource*
@@ -90,7 +90,7 @@ NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -120,7 +120,7 @@ NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode = 234513;
 
 ///
 /// List template property types
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSArray<JSAPIPropertyFieldListResource>*
 ///
 -(NSURLSessionTask*) getTemplatePropertyTypesWithCompletionHandler: 
@@ -142,7 +142,7 @@ NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

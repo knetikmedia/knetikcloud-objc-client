@@ -25,7 +25,7 @@ extern NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get details for a template property type
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param type type
 /// 
@@ -41,7 +41,7 @@ extern NSInteger kJSAPITemplatesPropertiesApiMissingParamErrorCode;
 
 
 /// List template property types
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",

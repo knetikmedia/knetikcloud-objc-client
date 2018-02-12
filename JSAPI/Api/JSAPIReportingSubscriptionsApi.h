@@ -25,7 +25,7 @@ extern NSInteger kJSAPIReportingSubscriptionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get a list of available subscription reports in most recent first order
-/// 
+/// <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)

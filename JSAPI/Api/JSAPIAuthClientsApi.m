@@ -54,7 +54,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientResource The client resource object (optional)
 ///
 ///  @returns JSAPIClientResource*
@@ -109,7 +109,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientKey The key of the client 
 ///
 ///  @returns void
@@ -147,7 +147,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -177,7 +177,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientKey The key of the client 
 ///
 ///  @returns JSAPIClientResource*
@@ -215,7 +215,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -245,7 +245,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// List available client grant types
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @returns NSArray<JSAPIGrantTypeResource>*
 ///
 -(NSURLSessionTask*) getClientGrantTypesWithCompletionHandler: 
@@ -267,7 +267,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -297,7 +297,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search clients
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -336,7 +336,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -366,7 +366,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set grant types for a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientKey The key of the client 
 ///
 ///  @param grantList A list of unique grant types (optional)
@@ -438,7 +438,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set redirect uris for a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientKey The key of the client 
 ///
 ///  @param redirectList A list of unique redirect uris (optional)
@@ -510,7 +510,7 @@ NSInteger kJSAPIAuthClientsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a client
-/// 
+/// <b>Permissions Needed:</b> CLIENTS_ADMIN
 ///  @param clientKey The key of the client 
 ///
 ///  @param clientResource The client resource object (optional)

@@ -52,7 +52,7 @@ NSInteger kJSAPIReportingUsersApiMissingParamErrorCode = 234513;
 
 ///
 /// Get user registration info
-/// Get user registration counts grouped by time range
+/// Get user registration counts grouped by time range. <br><br><b>Permissions Needed:</b> REPORTING_USER_ADMIN
 ///  @param granularity The time duration to aggregate by (optional, default to day)
 ///
 ///  @param startDate The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time (optional)
@@ -103,7 +103,7 @@ NSInteger kJSAPIReportingUsersApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

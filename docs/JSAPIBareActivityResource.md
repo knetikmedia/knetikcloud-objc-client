@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **name** | **NSString*** | The user friendly name of that resource | 
 **shortDescription** | **NSString*** | The user friendly name of that resource. Defaults to blank string | [optional] 
 **template** | **NSNumber*** | Whether this activity is a template for other activities. Default: false | [optional] 
-**type** | **NSString*** | The type of the activity | 
+**type** | **NSString*** | The type of the activity | [optional] 
 **uniqueKey** | **NSString*** | The unique key (for static reference in code) of the activity | [optional] 
 **updatedDate** | **NSNumber*** | The date/time this resource was last updated in seconds since unix epoch | [optional] 
 

@@ -53,7 +53,7 @@ NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the authentication log for a user
-/// A log entry is recorded everytime a user requests a new token. Standard pagination available
+/// A log entry is recorded everytime a user requests a new token. Standard pagination available. <br><br><b>Permissions Needed:</b> SECURITY_ADMIN
 ///  @param userId The user id (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -98,7 +98,7 @@ NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -128,7 +128,7 @@ NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the authentication token details. Use /users endpoint for detailed user's info
-/// 
+/// <b>Permissions Needed:</b> SECURITY_ADMIN
 ///  @returns JSAPITokenDetailsResource*
 ///
 -(NSURLSessionTask*) getUserTokenDetailsWithCompletionHandler: 
@@ -150,7 +150,7 @@ NSInteger kJSAPIUtilSecurityApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

@@ -24,7 +24,7 @@ extern NSInteger kJSAPIUtilHealthApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get health info
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",

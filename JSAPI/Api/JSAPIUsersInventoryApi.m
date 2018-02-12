@@ -61,7 +61,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds an item to the user inventory
-/// The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+/// The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param _id The id of the user 
 ///
 ///  @param userInventoryAddRequest The user inventory add request object (optional)
@@ -133,7 +133,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Check for access to an item without consuming
-/// Useful for pre-check and accounts for all various buisness rules
+/// Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///  @param userId The id of the user to check for or 'me' for logged in user 
 ///
 ///  @param itemId The id of the item 
@@ -194,7 +194,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -224,7 +224,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
 ///
 ///  @param entitlementItem The entitlement item object (optional)
@@ -285,7 +285,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an entitlement template
-/// Entitlement templates define a type of entitlement and the properties they have
+/// Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param template The entitlement template to be created (optional)
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -340,7 +340,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param entitlementId The id of the entitlement 
 ///
 ///  @returns void
@@ -378,7 +378,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -408,7 +408,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an entitlement template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -452,7 +452,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -482,7 +482,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single entitlement item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param entitlementId The id of the entitlement 
 ///
 ///  @returns JSAPIEntitlementItem*
@@ -520,7 +520,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -550,7 +550,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search entitlement items
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterTemplate Filter for entitlements using a specified template (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -595,7 +595,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -625,7 +625,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -663,7 +663,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -693,7 +693,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search entitlement templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -732,7 +732,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -762,7 +762,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// List the user inventory entries for a given user
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///  @param _id The id of the user 
 ///
 ///  @param inactive If true, accepts inactive user inventories (optional, default to false)
@@ -848,7 +848,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -878,14 +878,14 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Get an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param userId The id of the inventory owner or 'me' for the logged in user 
 ///
 ///  @param _id The id of the user inventory 
 ///
 ///  @returns JSAPIUserInventoryResource*
 ///
--(NSURLSessionTask*) getUserInventoryWithUserId: (NSNumber*) userId
+-(NSURLSessionTask*) getUserInventoryWithUserId: (NSString*) userId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(JSAPIUserInventoryResource* output, NSError* error)) handler {
     // verify the required parameter 'userId' is set
@@ -933,7 +933,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -963,7 +963,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// List the log entries for this inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///  @param userId The id of the inventory owner or 'me' for the logged in user 
 ///
 ///  @param _id The id of the user inventory 
@@ -1030,7 +1030,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1060,7 +1060,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// List the user inventory entries for all users
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param inactive If true, accepts inactive user inventories (optional, default to false)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -1129,7 +1129,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1159,7 +1159,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Grant an entitlement
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param userId The id of the user to grant the entitlement to 
 ///
 ///  @param grantRequest grantRequest 
@@ -1242,7 +1242,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param entitlementId The id of the entitlement 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
@@ -1320,7 +1320,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param template The updated template (optional)
@@ -1392,7 +1392,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the behavior data for an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param _id The id of the user inventory 
@@ -1481,7 +1481,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the expiration date
-/// Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+/// Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param userId user_id 
 ///
 ///  @param _id The id of the user inventory 
@@ -1570,7 +1570,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the status for an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param _id The id of the user inventory 
@@ -1659,7 +1659,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 
 ///
 /// Use an item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///  @param userId The id of the user to check for or 'me' for logged in user 
 ///
 ///  @param itemId The id of the item 

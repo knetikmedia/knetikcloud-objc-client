@@ -52,7 +52,7 @@ NSInteger kJSAPIBRERuleEngineActionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a list of available actions
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_ACTIONS_USER
 ///  @param filterCategory Filter for actions that are within a specific category (optional)
 ///
 ///  @param filterName Filter for actions that have names containing the given string (optional)
@@ -97,7 +97,7 @@ NSInteger kJSAPIBRERuleEngineActionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

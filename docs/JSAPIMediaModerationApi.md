@@ -1,6 +1,6 @@
 # JSAPIMediaModerationApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 ```
 
 Add a flag
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -78,6 +80,8 @@ Name | Type | Description  | Notes
 
 Delete a flag
 
+<b>Permissions Needed:</b> MODERATION_ADMIN or owner
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -124,7 +128,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -140,6 +144,8 @@ void (empty response body)
 ```
 
 Returns a page of flags
+
+<b>Permissions Needed:</b> MODERATION_ADMIN or owner
 
 ### Example 
 ```objc
@@ -196,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -208,6 +214,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a flag report
+
+<b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Example 
 ```objc
@@ -252,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -269,7 +277,7 @@ Name | Type | Description  | Notes
 
 Returns a page of flag reports
 
-Context can be either a free-form string or a pre-defined context name
+Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Example 
 ```objc
@@ -326,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -340,7 +348,7 @@ Name | Type | Description  | Notes
 
 Update a flag report
 
-Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
+Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Example 
 ```objc

@@ -1,15 +1,20 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIActivityOccurrenceCreationFailure.h"
+#import "JSAPIActivityOccurrenceJoinResult.h"
 #import "JSAPIActivityOccurrenceResource.h"
 #import "JSAPIActivityOccurrenceResults.h"
 #import "JSAPIActivityOccurrenceResultsResource.h"
+#import "JSAPIActivityOccurrenceSettingsResource.h"
 #import "JSAPIActivityResource.h"
+#import "JSAPIActivityUserResource.h"
 #import "JSAPICreateActivityOccurrenceRequest.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceActivityOccurrenceResource_.h"
 #import "JSAPIPageResourceBareActivityResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
+#import "JSAPIValueWrapperString_.h"
 #import "JSAPIApi.h"
 
 /**
@@ -33,8 +38,30 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
-/// Create an activity
+/// Add a user to an occurrence
+/// If called with no body, defaults to the user making the call.
+///
+/// @param activityOccurrenceId The id of the activity occurrence
+/// @param test if true, indicates that the user should NOT be added. This can be used to test for eligibility (optional) (default to false)
+/// @param bypassRestrictions if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+/// @param userId The id of the user, or null for &#39;caller&#39; (optional)
 /// 
+///  code:201 message:"Sucessful creation",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Attempted to join an occurrence while missing required entitlement",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIActivityOccurrenceResource*
+-(NSURLSessionTask*) addUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    test: (NSNumber*) test
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+    userId: (JSAPIIntWrapper*) userId
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
+
+
+/// Create an activity
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///
 /// @param activityResource The activity resource object (optional)
 /// 
@@ -50,7 +77,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Create a new activity occurrence. Ex: start a game
-/// Has to enforce extra rules if not used as an admin
+/// Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 ///
 /// @param test if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings (optional) (default to false)
 /// @param activityOccurrenceResource The activity occurrence object (optional)
@@ -68,7 +95,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Create a activity template
-/// Activity Templates define a type of activity and the properties they have
+/// Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param activityTemplateResource The activity template resource object (optional)
 /// 
@@ -84,7 +111,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Delete an activity
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///
 /// @param _id The id of the activity
 /// 
@@ -100,7 +127,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Delete a activity template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -118,7 +145,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// List activity definitions
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterTemplate Filter for activities that are templates, or specifically not if false (optional)
 /// @param filterName Filter for activities that have a name starting with specified string (optional)
@@ -144,7 +171,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Get a single activity
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the activity
 /// 
@@ -160,7 +187,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Load a single activity occurrence details
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///
 /// @param activityOccurrenceId The id of the activity occurrence
 /// 
@@ -176,7 +203,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// Get a single activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -192,7 +219,7 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// List and search activity templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -212,10 +239,10 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 
 
 /// List activity occurrences
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///
 /// @param filterActivity Filter for occurrences of the given activity ID (optional)
-/// @param filterStatus Filter for occurrences of the given activity ID (optional)
+/// @param filterStatus Filter for occurrences in the given status (optional)
 /// @param filterEvent Filter for occurrences played during the given event (optional)
 /// @param filterChallenge Filter for occurrences played within the given challenge (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -239,8 +266,30 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIPageResourceActivityOccurrenceResource_* output, NSError* error)) handler;
 
 
-/// Sets the status of an activity occurrence to FINISHED and logs metrics
+/// Remove a user from an occurrence
 /// 
+///
+/// @param activityOccurrenceId The id of the activity occurrence
+/// @param userId The id of the user, or &#39;me&#39;
+/// @param ban if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin (optional) (default to false)
+/// @param bypassRestrictions if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return void
+-(NSURLSessionTask*) removeUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    ban: (NSNumber*) ban
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+    completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Sets the status of an activity occurrence to FINISHED and logs metrics
+/// In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
 ///
 /// @param activityOccurrenceId The id of the activity occurrence
 /// @param activityOccurrenceResults The activity occurrence object (optional)
@@ -257,8 +306,46 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIActivityOccurrenceResults* output, NSError* error)) handler;
 
 
-/// Update an activity
+/// Sets the settings of an activity occurrence
 /// 
+///
+/// @param activityOccurrenceId The id of the activity occurrence
+/// @param settings The new settings (optional)
+/// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIActivityOccurrenceResource*
+-(NSURLSessionTask*) setActivityOccurrenceSettingsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    settings: (JSAPIActivityOccurrenceSettingsResource*) settings
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler;
+
+
+/// Set a user's status within an occurrence
+/// 
+///
+/// @param activityOccurrenceId The id of the activity occurrence
+/// @param userId The id of the user
+/// @param status The new status (optional)
+/// 
+///  code:202 message:"Accepted",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIActivityUserResource*
+-(NSURLSessionTask*) setUserStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    status: (NSString*) status
+    completionHandler: (void (^)(JSAPIActivityUserResource* output, NSError* error)) handler;
+
+
+/// Update an activity
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///
 /// @param _id The id of the activity
 /// @param activityResource The activity resource object (optional)
@@ -275,8 +362,8 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIActivityResource* output, NSError* error)) handler;
 
 
-/// Updated the status of an activity occurrence
-/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+/// Update the status of an activity occurrence
+/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
 ///
 /// @param activityOccurrenceId The id of the activity occurrence
 /// @param activityOccurrenceStatus The activity occurrence status object (optional)
@@ -288,13 +375,13 @@ extern NSInteger kJSAPIActivitiesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return void
--(NSURLSessionTask*) updateActivityOccurrenceWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceStatus: (NSString*) activityOccurrenceStatus
+-(NSURLSessionTask*) updateActivityOccurrenceStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    activityOccurrenceStatus: (JSAPIValueWrapperString_*) activityOccurrenceStatus
     completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Update an activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param activityTemplateResource The activity template resource object (optional)

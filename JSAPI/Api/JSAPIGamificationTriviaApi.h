@@ -33,7 +33,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add an answer to a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionId The id of the question
 /// @param answer The new answer (optional)
@@ -51,7 +51,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Add a tag to a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// @param tag The new tag (optional)
@@ -69,7 +69,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Add a tag to a batch of questions
-/// All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
+/// All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param tag The tag to add (optional)
 /// @param filterSearch Filter for documents whose question, answers or tags contains provided string (optional)
@@ -101,7 +101,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Create an import job
-/// Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
+/// Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param request The new import job (optional)
 /// 
@@ -117,7 +117,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Create a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param question The new question (optional)
 /// 
@@ -133,7 +133,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Create a question template
-/// Question templates define a type of question and the properties they have
+/// Question templates define a type of question and the properties they have. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionTemplateResource The question template resource object (optional)
 /// 
@@ -149,7 +149,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Delete an import job
-/// Also deletes all questions that were imported by it
+/// Also deletes all questions that were imported by it. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the job
 /// 
@@ -165,7 +165,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Delete a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// 
@@ -181,7 +181,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Remove an answer from a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionId The id of the question
 /// @param _id The id of the answer
@@ -199,7 +199,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Delete a question template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -217,7 +217,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Get an import job
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the job
 /// 
@@ -233,7 +233,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Get a list of import job
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param filterVendor Filter for jobs by vendor id (optional)
 /// @param filterCategory Filter for jobs by category id (optional)
@@ -261,7 +261,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Get a single question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// 
@@ -277,7 +277,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Get an answer for a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionId The id of the question
 /// @param _id The id of the answer
@@ -295,7 +295,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List the answers available for a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionId The id of the question
 /// 
@@ -311,7 +311,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List question deltas in ascending order of updated date
-/// The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
+/// The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param since Timestamp in seconds (optional)
 /// 
@@ -327,7 +327,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List the tags for a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// 
@@ -343,7 +343,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Get a single question template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -359,7 +359,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List and search question templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -379,7 +379,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List and search questions
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -415,7 +415,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Count questions based on filters
-/// This is also provided by the list endpoint so you don't need to call this for pagination purposes
+/// This is also provided by the list endpoint so you don't need to call this for pagination purposes. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param filterSearch Filter for documents whose question, answers or tags contains provided string (optional)
 /// @param filterIdset Filter for documents whose id is in the comma separated list provided (optional)
@@ -443,7 +443,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Start processing an import job
-/// Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
+/// Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the job
 /// @param publishNow Whether the new questions should be published live immediately
@@ -461,7 +461,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Remove a tag from a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// @param tag The tag to remove
@@ -479,7 +479,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Remove a tag from a batch of questions
-/// ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
+/// ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param tag The tag to remove
 /// @param filterSearch Filter for documents whose question, answers or tags contains provided string (optional)
@@ -511,7 +511,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// List and search tags by the beginning of the string
-/// For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
+/// For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param filterSearch Filter for tags starting with the given text (optional)
 /// @param filterCategory Filter for tags on questions from a specific category (optional)
@@ -531,7 +531,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Update an import job
-/// Changes should be made before process is started for there to be any effect.
+/// Changes should be made before process is started for there to be any effect. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the job
 /// @param request The updated job (optional)
@@ -549,7 +549,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Update a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param _id The id of the question
 /// @param question The updated question (optional)
@@ -567,7 +567,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Update an answer for a question
-/// 
+/// <b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param questionId The id of the question
 /// @param _id The id of the answer
@@ -587,7 +587,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Update a question template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param questionTemplateResource The question template resource object (optional)
@@ -605,7 +605,7 @@ extern NSInteger kJSAPIGamificationTriviaApiMissingParamErrorCode;
 
 
 /// Bulk update questions
-/// Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
+/// Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 ///
 /// @param question New values for a set of question fields (optional)
 /// @param filterSearch Filter for documents whose question, answers or tags contains provided string (optional)

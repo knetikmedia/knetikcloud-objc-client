@@ -32,7 +32,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new achievement definition
-/// If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
+/// If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param achievement The achievement definition (optional)
 /// 
@@ -48,7 +48,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Create an achievement template
-/// Achievement templates define a type of achievement and the properties they have
+/// Achievement templates define a type of achievement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param template The achievement template to be created (optional)
 /// 
@@ -64,7 +64,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Delete an achievement definition
-/// Will also disable the associated generated rule, if any.
+/// Will also disable the associated generated rule, if any. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param name The name of the achievement
 /// 
@@ -80,7 +80,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Delete an achievement template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -98,7 +98,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Get a single achievement definition
-/// 
+/// <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
 ///
 /// @param name The name of the achievement
 /// 
@@ -114,7 +114,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Get a single achievement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -130,7 +130,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// List and search achievement templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -150,7 +150,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Get the list of triggers that can be used to trigger an achievement progress update
-/// 
+/// <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -165,7 +165,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Get all achievement definitions in the system
-/// 
+/// <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
 ///
 /// @param filterTagset Filter for achievements with specified tags (separated by comma) (optional)
 /// @param filterName Filter for achievements whose name contains a string (optional)
@@ -193,7 +193,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Get a list of derived achievements
-/// Used by other services that depend on achievements
+/// Used by other services that depend on achievements.  <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param name The name of the derived achievement
 /// 
@@ -209,7 +209,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Retrieve progress on a given achievement for a given user
-/// Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+/// Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// @param achievementName The achievement&#39;s name
@@ -227,7 +227,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Retrieve progress on achievements for a given user
-/// Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+/// Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
@@ -253,7 +253,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Retrieve progress on a given achievement for all users
-/// Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+/// Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param achievementName The achievement&#39;s name
 /// @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
@@ -279,7 +279,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Retrieve progress on achievements for all users
-/// Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+/// Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
 /// @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
@@ -303,7 +303,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Increment an achievement progress record for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// @param achievementName The achievement&#39;s name
@@ -323,7 +323,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Set an achievement progress record for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// @param achievementName The achievement&#39;s name
@@ -343,7 +343,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Update an achievement definition
-/// The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
+/// The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
 ///
 /// @param name The name of the achievement
 /// @param achievement The achievement definition (optional)
@@ -361,7 +361,7 @@ extern NSInteger kJSAPIGamificationAchievementsApiMissingParamErrorCode;
 
 
 /// Update an achievement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param template The updated template (optional)

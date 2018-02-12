@@ -34,7 +34,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Adds an item to the user inventory
-/// The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+/// The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param _id The id of the user
 /// @param userInventoryAddRequest The user inventory add request object (optional)
@@ -52,7 +52,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Check for access to an item without consuming
-/// Useful for pre-check and accounts for all various buisness rules
+/// Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///
 /// @param userId The id of the user to check for or &#39;me&#39; for logged in user
 /// @param itemId The id of the item
@@ -72,7 +72,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Create an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 /// @param entitlementItem The entitlement item object (optional)
@@ -90,7 +90,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Create an entitlement template
-/// Entitlement templates define a type of entitlement and the properties they have
+/// Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param template The entitlement template to be created (optional)
 /// 
@@ -106,7 +106,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Delete an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param entitlementId The id of the entitlement
 /// 
@@ -122,7 +122,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Delete an entitlement template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -140,7 +140,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Get a single entitlement item
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param entitlementId The id of the entitlement
 /// 
@@ -156,7 +156,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// List and search entitlement items
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterTemplate Filter for entitlements using a specified template (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -178,7 +178,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Get a single entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -194,7 +194,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// List and search entitlement templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -214,7 +214,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// List the user inventory entries for a given user
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///
 /// @param _id The id of the user
 /// @param inactive If true, accepts inactive user inventories (optional) (default to false)
@@ -246,7 +246,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Get an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
 /// @param _id The id of the user inventory
@@ -258,13 +258,13 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIUserInventoryResource*
--(NSURLSessionTask*) getUserInventoryWithUserId: (NSNumber*) userId
+-(NSURLSessionTask*) getUserInventoryWithUserId: (NSString*) userId
     _id: (NSNumber*) _id
     completionHandler: (void (^)(JSAPIUserInventoryResource* output, NSError* error)) handler;
 
 
 /// List the log entries for this inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///
 /// @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
 /// @param _id The id of the user inventory
@@ -286,7 +286,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// List the user inventory entries for all users
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param inactive If true, accepts inactive user inventories (optional) (default to false)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -316,7 +316,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Grant an entitlement
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param userId The id of the user to grant the entitlement to
 /// @param grantRequest grantRequest
@@ -334,7 +334,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Update an entitlement item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param entitlementId The id of the entitlement
 /// @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
@@ -354,7 +354,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Update an entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param template The updated template (optional)
@@ -372,7 +372,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Set the behavior data for an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param userId The id of the user
 /// @param _id The id of the user inventory
@@ -392,7 +392,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Set the expiration date
-/// Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+/// Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param userId user_id
 /// @param _id The id of the user inventory
@@ -412,7 +412,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Set the status for an inventory entry
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///
 /// @param userId The id of the user
 /// @param _id The id of the user inventory
@@ -432,7 +432,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 
 
 /// Use an item
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 ///
 /// @param userId The id of the user to check for or &#39;me&#39; for logged in user
 /// @param itemId The id of the item

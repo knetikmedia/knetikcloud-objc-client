@@ -27,7 +27,7 @@ extern NSInteger kJSAPIDispositionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add a new disposition
-/// 
+/// <b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
 ///
 /// @param disposition The new disposition record (optional)
 /// 
@@ -43,7 +43,7 @@ extern NSInteger kJSAPIDispositionsApiMissingParamErrorCode;
 
 
 /// Delete a disposition
-/// 
+/// <b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
 ///
 /// @param _id The id of the disposition record
 /// 
@@ -59,7 +59,7 @@ extern NSInteger kJSAPIDispositionsApiMissingParamErrorCode;
 
 
 /// Returns a disposition
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id The id of the disposition record
 /// 
@@ -75,7 +75,7 @@ extern NSInteger kJSAPIDispositionsApiMissingParamErrorCode;
 
 
 /// Returns a list of disposition counts
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
 /// @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
@@ -93,7 +93,7 @@ extern NSInteger kJSAPIDispositionsApiMissingParamErrorCode;
 
 
 /// Returns a page of dispositions
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
 /// @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)

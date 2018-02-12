@@ -25,7 +25,7 @@ extern NSInteger kJSAPIPaymentsOptimalApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Initiate silent post with Optimal
-/// Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
+/// Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner
 ///
 /// @param request The payment request to initiate (optional)
 /// 

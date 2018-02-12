@@ -25,7 +25,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Returns aggregated endpoint usage information by day
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -53,7 +53,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 
 
 /// Returns aggregated endpoint usage information by hour
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -81,7 +81,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 
 
 /// Returns aggregated endpoint usage information by minute
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -109,7 +109,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 
 
 /// Returns aggregated endpoint usage information by month
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -137,7 +137,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 
 
 /// Returns aggregated endpoint usage information by year
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -165,7 +165,7 @@ extern NSInteger kJSAPIReportingUsageApiMissingParamErrorCode;
 
 
 /// Returns list of endpoints called (method and url)
-/// 
+/// <b>Permissions Needed:</b> USAGE_ADMIN
 ///
 /// @param startDate The beginning of the range being requested, unix timestamp in seconds
 /// @param endDate The ending of the range being requested, unix timestamp in seconds

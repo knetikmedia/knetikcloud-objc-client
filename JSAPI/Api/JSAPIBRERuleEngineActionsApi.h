@@ -25,7 +25,7 @@ extern NSInteger kJSAPIBRERuleEngineActionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get a list of available actions
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_ACTIONS_USER
 ///
 /// @param filterCategory Filter for actions that are within a specific category (optional)
 /// @param filterName Filter for actions that have names containing the given string (optional)

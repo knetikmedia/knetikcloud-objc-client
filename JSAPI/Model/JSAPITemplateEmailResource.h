@@ -31,6 +31,9 @@
 /* A list of user ids to send the message to. 
  */
 @property(nonatomic) NSArray<NSNumber*>* recipients;
+/* The subject for email [optional]
+ */
+@property(nonatomic) NSString* subject;
 /* The key for the template 
  */
 @property(nonatomic) NSString* templateKey;

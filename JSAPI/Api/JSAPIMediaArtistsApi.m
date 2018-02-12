@@ -55,7 +55,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Adds a new artist in the system
-/// Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+/// Adds a new artist in the system. Use specific media contributions endpoint to add contributions. <br><br><b>Permissions Needed:</b> ANY
 ///  @param artistResource The new artist (optional)
 ///
 ///  @returns JSAPIArtistResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an artist template
-/// Artist Templates define a type of artist and the properties they have
+/// Artist Templates define a type of artist and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param artistTemplateResource The artist template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -165,7 +165,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Removes an artist from the system IF no resources are attached to it
-/// 
+/// <b>Permissions Needed:</b> ARTISTS_ADMIN
 ///  @param _id The artist id 
 ///
 ///  @returns void
@@ -203,7 +203,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -233,7 +233,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an artist template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -277,7 +277,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -307,7 +307,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Loads a specific artist details
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The artist id 
 ///
 ///  @param showContributions The number of contributions to show fetch (optional)
@@ -351,7 +351,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -381,7 +381,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single artist template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -419,7 +419,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -449,7 +449,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search artist templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -488,7 +488,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -518,7 +518,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Search for artists
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterArtistsByName Filter for artists which name *STARTS* with the given string (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -563,7 +563,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -593,7 +593,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Modifies an artist details
-/// 
+/// <b>Permissions Needed:</b> ARTISTS_ADMIN
 ///  @param _id The artist id 
 ///
 ///  @param artistResource The new artist (optional)
@@ -665,7 +665,7 @@ NSInteger kJSAPIMediaArtistsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an artist template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param artistTemplateResource The artist template resource object (optional)

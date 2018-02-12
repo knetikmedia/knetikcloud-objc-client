@@ -1,6 +1,6 @@
 # JSAPIUsersInventoryApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 Adds an item to the user inventory
 
-The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 Check for access to an item without consuming
 
-Useful for pre-check and accounts for all various buisness rules
+Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```objc
@@ -147,7 +147,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -160,6 +160,8 @@ void (empty response body)
 ```
 
 Create an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -220,7 +222,7 @@ Name | Type | Description  | Notes
 
 Create an entitlement template
 
-Entitlement templates define a type of entitlement and the properties they have
+Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -278,6 +280,8 @@ Name | Type | Description  | Notes
 
 Delete an entitlement item
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -318,7 +322,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -332,7 +336,7 @@ void (empty response body)
 
 Delete an entitlement template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -377,7 +381,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -389,6 +393,8 @@ void (empty response body)
 ```
 
 Get a single entitlement item
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -433,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -448,6 +454,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search entitlement items
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -501,7 +509,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -513,6 +521,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```objc
@@ -557,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -571,6 +581,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search entitlement templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```objc
@@ -621,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -641,6 +653,8 @@ Name | Type | Description  | Notes
 ```
 
 List the user inventory entries for a given user
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```objc
@@ -709,19 +723,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserInventory**
 ```objc
--(NSURLSessionTask*) getUserInventoryWithUserId: (NSNumber*) userId
+-(NSURLSessionTask*) getUserInventoryWithUserId: (NSString*) userId
     _id: (NSNumber*) _id
         completionHandler: (void (^)(JSAPIUserInventoryResource* output, NSError* error)) handler;
 ```
 
 Get an inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -734,7 +750,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-NSNumber* userId = @56; // The id of the inventory owner or 'me' for the logged in user
+NSString* userId = @"userId_example"; // The id of the inventory owner or 'me' for the logged in user
 NSNumber* _id = @56; // The id of the user inventory
 
 JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
@@ -756,7 +772,7 @@ JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **NSNumber***| The id of the inventory owner or &#39;me&#39; for the logged in user | 
+ **userId** | **NSString***| The id of the inventory owner or &#39;me&#39; for the logged in user | 
  **_id** | **NSNumber***| The id of the user inventory | 
 
 ### Return type
@@ -769,7 +785,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -784,6 +800,8 @@ Name | Type | Description  | Notes
 ```
 
 List the log entries for this inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```objc
@@ -837,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -856,6 +874,8 @@ Name | Type | Description  | Notes
 ```
 
 List the user inventory entries for all users
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -921,7 +941,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -934,6 +954,8 @@ Name | Type | Description  | Notes
 ```
 
 Grant an entitlement
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -992,6 +1014,8 @@ void (empty response body)
 ```
 
 Update an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -1052,6 +1076,8 @@ void (empty response body)
 ```
 
 Update an entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -1114,6 +1140,8 @@ Name | Type | Description  | Notes
 
 Set the behavior data for an inventory entry
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -1175,7 +1203,7 @@ void (empty response body)
 
 Set the expiration date
 
-Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```objc
@@ -1238,6 +1266,8 @@ void (empty response body)
 
 Set the status for an inventory entry
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -1299,6 +1329,8 @@ void (empty response body)
 ```
 
 Use an item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```objc

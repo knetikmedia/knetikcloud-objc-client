@@ -29,7 +29,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Add device users
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///
 /// @param userResources userResources
 /// @param _id id
@@ -47,7 +47,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Create a device
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param device device
 /// 
@@ -63,7 +63,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Create a device template
-/// Device Templates define a type of device and the properties they have
+/// Device Templates define a type of device and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param deviceTemplateResource The device template resource object (optional)
 /// 
@@ -79,7 +79,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Delete a device
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///
 /// @param _id id
 /// 
@@ -95,7 +95,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Delete an device template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -113,7 +113,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Delete a device user
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///
 /// @param _id The id of the device
 /// @param userId The user id of the device user
@@ -131,7 +131,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Delete all device users
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///
 /// @param _id The id of the device
 /// @param filterId Filter for device users to delete with a user id in a given comma separated list of ids (optional)
@@ -149,7 +149,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Get a single device
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///
 /// @param _id id
 /// 
@@ -165,7 +165,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Get a single device template
-/// 
+/// <b>Permissions Needed:</b> description
 ///
 /// @param _id The id of the template
 /// 
@@ -181,7 +181,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// List and search device templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or DEVICES_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -201,7 +201,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// List and search devices
-/// Get a list of devices with optional filtering
+/// Get a list of devices with optional filtering. <br><br><b>Permissions Needed:</b> DEVICES_ADMIN or user
 ///
 /// @param filterMake Filter for devices with specified make (optional)
 /// @param filterModel Filter for devices with specified model (optional)
@@ -233,7 +233,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Update a device
-/// 
+/// <b>Permissions Needed:</b> CUSTOMERS_ADMIN
 ///
 /// @param device device
 /// @param _id id
@@ -251,7 +251,7 @@ extern NSInteger kJSAPIDevicesApiMissingParamErrorCode;
 
 
 /// Update an device template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param deviceTemplateResource The device template resource object (optional)

@@ -55,7 +55,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a country tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param taxResource The tax object (optional)
 ///
 ///  @returns JSAPICountryTaxResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param taxResource The tax object (optional)
@@ -182,7 +182,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @returns void
@@ -220,7 +220,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -250,7 +250,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param stateCode The code of the state 
@@ -305,7 +305,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -335,7 +335,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single tax
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @returns JSAPICountryTaxResource*
@@ -373,7 +373,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -403,7 +403,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search taxes
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned (optional, default to 1)
@@ -442,7 +442,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -472,7 +472,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single state tax
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param stateCode The code of the state 
@@ -527,7 +527,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -557,7 +557,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search taxes across all countries
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> ANY
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned (optional, default to 1)
@@ -596,7 +596,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -626,7 +626,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search taxes within a country
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> ANY
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -682,7 +682,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -712,7 +712,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create or update a tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param taxResource The tax object (optional)
@@ -784,7 +784,7 @@ NSInteger kJSAPITaxesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create or update a state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///  @param countryCodeIso3 The iso3 code of the country 
 ///
 ///  @param stateCode The code of the state 

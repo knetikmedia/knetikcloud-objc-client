@@ -56,7 +56,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Add device users
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///  @param userResources userResources 
 ///
 ///  @param _id id 
@@ -139,7 +139,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a device
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param device device 
 ///
 ///  @returns JSAPIDeviceResource*
@@ -205,7 +205,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a device template
-/// Device Templates define a type of device and the properties they have
+/// Device Templates define a type of device and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param deviceTemplateResource The device template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -260,7 +260,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a device
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///  @param _id id 
 ///
 ///  @returns void
@@ -298,7 +298,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -328,7 +328,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an device template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -372,7 +372,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -402,7 +402,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a device user
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///  @param _id The id of the device 
 ///
 ///  @param userId The user id of the device user 
@@ -457,7 +457,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -487,7 +487,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete all device users
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///  @param _id The id of the device 
 ///
 ///  @param filterId Filter for device users to delete with a user id in a given comma separated list of ids (optional)
@@ -531,7 +531,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -561,7 +561,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single device
-/// 
+/// <b>Permissions Needed:</b> DEVICES_ADMIN or owner
 ///  @param _id id 
 ///
 ///  @returns JSAPIDeviceResource*
@@ -599,7 +599,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -629,7 +629,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single device template
-/// 
+/// <b>Permissions Needed:</b> description
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -667,7 +667,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -697,7 +697,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search device templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or DEVICES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -736,7 +736,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -766,7 +766,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search devices
-/// Get a list of devices with optional filtering
+/// Get a list of devices with optional filtering. <br><br><b>Permissions Needed:</b> DEVICES_ADMIN or user
 ///  @param filterMake Filter for devices with specified make (optional)
 ///
 ///  @param filterModel Filter for devices with specified model (optional)
@@ -841,7 +841,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -871,7 +871,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a device
-/// 
+/// <b>Permissions Needed:</b> CUSTOMERS_ADMIN
 ///  @param device device 
 ///
 ///  @param _id id 
@@ -954,7 +954,7 @@ NSInteger kJSAPIDevicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an device template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param deviceTemplateResource The device template resource object (optional)

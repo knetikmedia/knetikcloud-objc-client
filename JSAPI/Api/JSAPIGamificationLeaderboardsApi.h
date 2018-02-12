@@ -26,7 +26,7 @@ extern NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Retrieves leaderboard details and paginated entries
-/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
+/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param contextType The context type for the leaderboard
 /// @param contextId The context id for the leaderboard
@@ -50,7 +50,7 @@ extern NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode;
 
 
 /// Retrieves a specific user entry with rank
-/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
+/// The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param contextType The context type for the leaderboard
 /// @param contextId The context id for the leaderboard
@@ -70,7 +70,7 @@ extern NSInteger kJSAPIGamificationLeaderboardsApiMissingParamErrorCode;
 
 
 /// Get a list of available leaderboard strategy names
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",

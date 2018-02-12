@@ -28,7 +28,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param roleResource The role resource object (optional)
 /// 
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Delete a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param role The role value
 /// @param force If true, removes role from users/clients (optional)
@@ -62,7 +62,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Get roles for a client
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param clientKey The client key
 /// 
@@ -78,7 +78,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Get a single role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param role The role value
 /// 
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// List and search roles
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param filterName Filter for roles that have a name starting with specified string (optional)
 /// @param filterRole Filter for roles that have a role starting with specified string (optional)
@@ -118,7 +118,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Get roles for a user
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// 
@@ -134,7 +134,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Set roles for a client
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param clientKey The client key
 /// @param rolesList The list of unique roles (optional)
@@ -152,7 +152,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Set permissions for a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param role The role value
 /// @param permissionsList The list of unique permissions (optional)
@@ -170,7 +170,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Set roles for a user
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param userId The user&#39;s id
 /// @param rolesList The list of unique roles (optional)
@@ -188,7 +188,7 @@ extern NSInteger kJSAPIAuthRolesApiMissingParamErrorCode;
 
 
 /// Update a role
-/// 
+/// <b>Permissions Needed:</b> ROLES_ADMIN
 ///
 /// @param role The role value
 /// @param roleResource The role resource object (optional)

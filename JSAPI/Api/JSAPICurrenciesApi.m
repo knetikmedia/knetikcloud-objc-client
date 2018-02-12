@@ -53,7 +53,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///  @param currency The currency object (optional)
 ///
 ///  @returns JSAPICurrencyResource*
@@ -108,7 +108,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///  @param code The currency code 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search currencies
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterDefault Filter for the one currency that is set as default (true), or all that are not (false) (optional)
 ///
 ///  @param filterEnabledCurrencies Filter for alternate currencies setup explicitely in system config (optional)
@@ -233,7 +233,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -263,7 +263,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single currency
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param code The currency code 
 ///
 ///  @returns JSAPICurrencyResource*
@@ -301,7 +301,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -331,7 +331,7 @@ NSInteger kJSAPICurrenciesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///  @param code The currency code 
 ///
 ///  @param currency The currency object (optional)

@@ -1,6 +1,6 @@
 # JSAPIAuthRolesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,8 @@ Method | HTTP request | Description
 ```
 
 Create a new role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -81,6 +83,8 @@ Name | Type | Description  | Notes
 
 Delete a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -124,7 +128,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -136,6 +140,8 @@ void (empty response body)
 ```
 
 Get roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -180,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -192,6 +198,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -236,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -252,6 +260,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search roles
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -308,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -320,6 +330,8 @@ Name | Type | Description  | Notes
 ```
 
 Get roles for a user
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -364,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -377,6 +389,8 @@ Name | Type | Description  | Notes
 ```
 
 Set roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc
@@ -438,6 +452,8 @@ Name | Type | Description  | Notes
 
 Set permissions for a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -498,6 +514,8 @@ Name | Type | Description  | Notes
 
 Set roles for a user
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -557,6 +575,8 @@ Name | Type | Description  | Notes
 ```
 
 Update a role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```objc

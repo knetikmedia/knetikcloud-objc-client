@@ -52,7 +52,7 @@ NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a challenge event leaderboard details
-/// Lists all leaderboard entries with additional user details
+/// Lists all leaderboard entries with additional user details. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
 ///  @param filterEvent A sepecific challenge event id (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -97,7 +97,7 @@ NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -127,7 +127,7 @@ NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a challenge event participant details
-/// Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
+/// Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
 ///  @param filterEvent A sepecific challenge event id (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -172,7 +172,7 @@ NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

@@ -26,7 +26,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///
 /// @param currency The currency object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 
 
 /// Delete a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///
 /// @param code The currency code
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 
 
 /// List and search currencies
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterDefault Filter for the one currency that is set as default (true), or all that are not (false) (optional)
 /// @param filterEnabledCurrencies Filter for alternate currencies setup explicitely in system config (optional)
@@ -84,7 +84,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 
 
 /// Get a single currency
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param code The currency code
 /// 
@@ -100,7 +100,7 @@ extern NSInteger kJSAPICurrenciesApiMissingParamErrorCode;
 
 
 /// Update a currency
-/// 
+/// <b>Permissions Needed:</b> CURRENCIES_ADMIN
 ///
 /// @param code The currency code
 /// @param currency The currency object (optional)

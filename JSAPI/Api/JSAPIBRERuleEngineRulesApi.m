@@ -55,7 +55,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a rule
-/// Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/
+/// Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param breRule The BRE rule object (optional)
 ///
 ///  @returns JSAPIBreRule*
@@ -110,7 +110,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a rule
-/// May fail if there are existing rules against it. Cannot delete core rules
+/// May fail if there are existing rules against it. Cannot delete core rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param _id The id of the rule 
 ///
 ///  @returns void
@@ -148,7 +148,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -178,7 +178,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a string representation of the provided expression
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param expression The expression (optional)
 ///
 ///  @returns NSString*
@@ -233,7 +233,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single rule
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param _id The id of the rule 
 ///
 ///  @returns JSAPIBreRule*
@@ -271,7 +271,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -301,7 +301,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// List rules
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param filterName Filter for rules containing the given name (optional)
 ///
 ///  @param filterEnabled Filter for rules by active status, null for both (optional, default to null)
@@ -370,7 +370,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -400,7 +400,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Enable or disable a rule
-/// This is helpful for turning off systems rules which cannot be deleted or modified otherwise
+/// This is helpful for turning off systems rules which cannot be deleted or modified otherwise. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param _id The id of the rule 
 ///
 ///  @param enabled The boolean value (optional)
@@ -472,7 +472,7 @@ NSInteger kJSAPIBRERuleEngineRulesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a rule
-/// Cannot update system rules
+/// Cannot update system rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 ///  @param _id The id of the rule 
 ///
 ///  @param breRule The BRE rule object (optional)

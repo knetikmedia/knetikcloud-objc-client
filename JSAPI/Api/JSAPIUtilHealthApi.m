@@ -51,7 +51,7 @@ NSInteger kJSAPIUtilHealthApiMissingParamErrorCode = 234513;
 
 ///
 /// Get health info
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) getHealthWithCompletionHandler: 
@@ -73,7 +73,7 @@ NSInteger kJSAPIUtilHealthApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

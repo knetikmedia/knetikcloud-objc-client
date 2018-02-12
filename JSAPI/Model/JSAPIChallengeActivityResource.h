@@ -15,11 +15,14 @@
 
 
 #import "JSAPIActivityEntitlementResource.h"
+#import "JSAPICoreChallengeActivitySettings.h"
 #import "JSAPIProperty.h"
 #import "JSAPIRewardSetResource.h"
 #import "JSAPISelectedSettingResource.h"
 @protocol JSAPIActivityEntitlementResource;
 @class JSAPIActivityEntitlementResource;
+@protocol JSAPICoreChallengeActivitySettings;
+@class JSAPICoreChallengeActivitySettings;
 @protocol JSAPIProperty;
 @class JSAPIProperty;
 @protocol JSAPIRewardSetResource;
@@ -43,6 +46,9 @@
 /* The id of the challenge [optional]
  */
 @property(nonatomic) NSNumber* challengeId;
+/* Defines core settings about the activity that affect how it can be created/played by users. Values may be left null to inherit from parent activity. [optional]
+ */
+@property(nonatomic) JSAPICoreChallengeActivitySettings* coreSettings;
 /* The entitlement item needed to participate in the activity as part of this event. Null indicates free entry. When creating/updating only id is used. Item must be pre-existing [optional]
  */
 @property(nonatomic) JSAPIActivityEntitlementResource* entitlement;

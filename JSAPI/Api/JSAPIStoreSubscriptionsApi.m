@@ -55,7 +55,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Creates a subscription item and associated plans
-/// 
+/// <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 ///  @param subscriptionResource The subscription to be created (optional)
 ///
 ///  @returns JSAPISubscriptionResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a subscription template
-/// Subscription Templates define a type of subscription and the properties they have.
+/// Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param subscriptionTemplateResource The new subscription template (optional)
 ///
 ///  @returns JSAPISubscriptionTemplateResource*
@@ -165,7 +165,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a subscription plan
-/// Must not be locked or a migration target
+/// Must not be locked or a migration target. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 ///  @param _id The id of the subscription 
 ///
 ///  @param planId The id of the plan 
@@ -220,7 +220,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -250,7 +250,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a subscription template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -294,7 +294,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -324,7 +324,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a single subscription item and associated plans
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the subscription 
 ///
 ///  @returns JSAPISubscriptionResource*
@@ -362,7 +362,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -392,7 +392,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single subscription template
-/// Subscription Templates define a type of subscription and the properties they have.
+/// Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPISubscriptionTemplateResource*
@@ -430,7 +430,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -460,7 +460,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search subscription templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -499,7 +499,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -529,7 +529,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// List available subscription items and associated plans
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -568,7 +568,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -598,7 +598,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Processes subscriptions and charge dues
-/// 
+/// <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 ///  @returns void
 ///
 -(NSURLSessionTask*) processSubscriptionsWithCompletionHandler: 
@@ -650,7 +650,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Updates a subscription item and associated plans
-/// Will not remove plans left out
+/// Will not remove plans left out. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 ///  @param _id The id of the subscription 
 ///
 ///  @param subscriptionResource The subscription resource object (optional)
@@ -722,7 +722,7 @@ NSInteger kJSAPIStoreSubscriptionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a subscription template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param subscriptionTemplateResource The subscription template resource object (optional)

@@ -54,7 +54,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a coupon item
-/// SKUs have to be unique in the entire store.
+/// SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> COUPONS_ADMIN
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
 ///
 ///  @param couponItem The coupon item object (optional)
@@ -115,7 +115,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a coupon template
-/// Coupon Templates define a type of coupon and the properties they have.
+/// Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param couponTemplateResource The new coupon template (optional)
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -170,7 +170,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a coupon item
-/// 
+/// <b>Permissions Needed:</b> COUPONS_ADMIN
 ///  @param _id The id of the coupon 
 ///
 ///  @returns void
@@ -208,7 +208,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -238,7 +238,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a coupon template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -282,7 +282,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -312,7 +312,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single coupon item
-/// 
+/// <b>Permissions Needed:</b> COUPONS_ADMIN
 ///  @param _id The id of the coupon 
 ///
 ///  @returns JSAPICouponItem*
@@ -350,7 +350,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -380,7 +380,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a coupon by sku
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param sku A sku of the coupon 
 ///
 ///  @returns JSAPICouponItem*
@@ -418,7 +418,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -448,7 +448,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single coupon template
-/// Coupon Templates define a type of coupon and the properties they have.
+/// Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -486,7 +486,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -516,7 +516,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search coupon templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -555,7 +555,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -585,7 +585,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a coupon item
-/// 
+/// <b>Permissions Needed:</b> COUPONS_ADMIN
 ///  @param _id The id of the coupon 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
@@ -663,7 +663,7 @@ NSInteger kJSAPIStoreCouponsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a coupon template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param couponTemplateResource The coupon template resource object (optional)

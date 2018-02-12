@@ -30,7 +30,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a level schema
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param level The level schema definition (optional)
 /// 
@@ -46,7 +46,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Delete a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param name The level schema name
 /// 
@@ -62,7 +62,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Retrieve a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param name The level schema name
 /// 
@@ -78,7 +78,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Get the list of triggers that can be used to trigger a leveling progress update
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -93,7 +93,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// List and search levels
-/// Get a list of levels schemas with optional filtering
+/// Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param filterName Filter for level schemas whose name contains a given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -115,7 +115,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Get a user's progress for a given level schema
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN or self
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param name The level schema name
@@ -133,7 +133,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Get a user's progress for all level schemas
-/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
+/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param filterName Filter for level schemas whose name contains a given string (optional)
@@ -157,7 +157,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Update or create a leveling progress record for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param userId The id of the user
 /// @param name The level schema name
@@ -177,7 +177,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Set leveling progress for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param userId The id of the user
 /// @param name The level schema name
@@ -197,7 +197,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Update a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///
 /// @param name The level schema name
 /// @param varNewLevel The level schema definition (optional)

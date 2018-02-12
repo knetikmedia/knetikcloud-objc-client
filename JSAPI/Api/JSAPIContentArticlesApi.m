@@ -55,7 +55,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new article
-/// Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+/// Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.<br><br><b>Permissions:</b> ARTICLES_ADMIN
 ///  @param articleResource The new article (optional)
 ///
 ///  @returns JSAPIArticleResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an article template
-/// Article Templates define a type of article and the properties they have
+/// Article Templates define a type of article and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param articleTemplateResource The article template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -165,7 +165,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing article
-/// 
+/// <b>Permissions Needed:</b> ARTICLES_ADMIN
 ///  @param _id The article id 
 ///
 ///  @returns void
@@ -203,7 +203,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -233,7 +233,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an article template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -277,7 +277,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -307,7 +307,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single article
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The article id 
 ///
 ///  @returns JSAPIArticleResource*
@@ -345,7 +345,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -375,7 +375,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single article template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -413,7 +413,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -443,7 +443,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search article templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -482,7 +482,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -512,7 +512,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search articles
-/// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
+/// Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
 ///  @param filterActiveOnly Filter for articles that are active (true) or inactive (false) (optional)
 ///
 ///  @param filterCategory Filter for articles from a specific category by id (optional)
@@ -587,7 +587,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -617,7 +617,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an existing article
-/// 
+/// <b>Permissions Needed:</b> ARTICLES_ADMIN
 ///  @param _id The article id 
 ///
 ///  @param articleResource The article object (optional)
@@ -689,7 +689,7 @@ NSInteger kJSAPIContentArticlesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an article template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param articleTemplateResource The article template resource object (optional)

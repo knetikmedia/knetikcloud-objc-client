@@ -25,7 +25,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Delete maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///
 /// 
 ///  code:200 message:"OK",
@@ -40,7 +40,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 
 
 /// Get current maintenance info
-/// Get current maintenance info. 404 if no maintenance.
+/// Get current maintenance info. 404 if no maintenance. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"maintenance",
@@ -55,7 +55,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 
 
 /// Set current maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///
 /// @param maintenance The maintenance object (optional)
 /// 
@@ -71,7 +71,7 @@ extern NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode;
 
 
 /// Update current maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///
 /// @param maintenance The maintenance object (optional)
 /// 

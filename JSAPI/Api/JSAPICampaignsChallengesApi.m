@@ -59,7 +59,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a challenge
-/// Challenges do not run on their own.  They must be added to a campaign before events will spawn.
+/// Challenges do not run on their own.  They must be added to a campaign before events will spawn. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param challengeResource The challenge resource object (optional)
 ///
 ///  @returns JSAPIChallengeResource*
@@ -114,7 +114,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a challenge activity
-/// 
+/// <b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param challengeId The challenge id 
 ///
 ///  @param challengeActivityResource The challenge activity resource object (optional)
@@ -192,7 +192,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a challenge activity template
-/// Challenge Activity Templates define a type of challenge activity and the properties they have
+/// Challenge Activity Templates define a type of challenge activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param challengeActivityTemplateResource The challengeActivity template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -247,7 +247,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a challenge template
-/// Challenge Templates define a type of challenge and the properties they have
+/// Challenge Templates define a type of challenge and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param challengeTemplateResource The challenge template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -302,7 +302,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge
-/// 
+/// <b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param _id The challenge id 
 ///
 ///  @returns void
@@ -340,7 +340,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -370,7 +370,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge activity
-/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param _id The challenge_activity id 
 ///
 ///  @param challengeId The challenge id 
@@ -425,7 +425,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -455,7 +455,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge activity template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -499,7 +499,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -529,7 +529,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge event
-/// 
+/// <b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param _id The challenge event id 
 ///
 ///  @returns void
@@ -567,7 +567,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -597,7 +597,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a challenge template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -641,7 +641,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -671,7 +671,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a challenge
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The challenge id 
 ///
 ///  @returns JSAPIChallengeResource*
@@ -709,7 +709,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -739,7 +739,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search challenge activities
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param challengeId The challenge id 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -795,7 +795,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -825,7 +825,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single challenge activity
-/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> ANY
 ///  @param _id The challenge_activity id 
 ///
 ///  @param challengeId The challenge id 
@@ -880,7 +880,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -910,7 +910,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single challenge activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -948,7 +948,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -978,7 +978,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search challenge activity templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -1017,7 +1017,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1047,7 +1047,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a single challenge event details
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The challenge event id 
 ///
 ///  @returns JSAPIChallengeEventResource*
@@ -1085,7 +1085,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1115,7 +1115,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a list of challenge events
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the event start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 ///
 ///  @param filterEndDate A comma separated string without spaces.  First value is the operator to search on, second value is the event end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
@@ -1178,7 +1178,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1208,7 +1208,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single challenge template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -1246,7 +1246,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1276,7 +1276,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search challenge templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -1315,7 +1315,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1345,7 +1345,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a list of challenges
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterActiveCampaign Filter for challenges that are tied to active campaigns (optional)
 ///
 ///  @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
@@ -1402,7 +1402,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -1432,7 +1432,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a challenge
-/// If the challenge is a copy, changes will propagate to all the related challenges
+/// If the challenge is a copy, changes will propagate to all the related challenges. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param _id The challenge id 
 ///
 ///  @param challengeResource The challenge resource object (optional)
@@ -1504,7 +1504,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a challenge activity
-/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+/// A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 ///  @param _id The challenge_activity id 
 ///
 ///  @param challengeId The challenge id 
@@ -1599,7 +1599,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an challenge activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param challengeActivityTemplateResource The challengeActivity template resource object (optional)
@@ -1671,7 +1671,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a challenge template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param challengeTemplateResource The challenge template resource object (optional)

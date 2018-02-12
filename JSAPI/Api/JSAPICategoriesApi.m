@@ -56,7 +56,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///  @param category The category to create (optional)
 ///
 ///  @returns JSAPICategoryResource*
@@ -111,7 +111,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a category template
-/// Templates define a type of category and the properties they have
+/// Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param template The template to create (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -166,7 +166,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///  @param _id The id of the category to be deleted 
 ///
 ///  @returns void
@@ -204,7 +204,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -234,7 +234,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a category template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -278,7 +278,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -308,7 +308,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search categories with optional filters
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterSearch Filter for categories whose names begin with provided string (optional)
 ///
 ///  @param filterActive Filter for categories that are specifically active or inactive (optional)
@@ -359,7 +359,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -389,7 +389,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single category
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the category to retrieve 
 ///
 ///  @returns JSAPICategoryResource*
@@ -427,7 +427,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -457,7 +457,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -495,7 +495,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -525,7 +525,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search category templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -564,7 +564,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -594,7 +594,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// List all trivia tags in the system
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -627,7 +627,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -657,7 +657,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an existing category
-/// 
+/// <b>Permissions Needed:</b> CATEGORIES_ADMIN
 ///  @param _id The id of the category 
 ///
 ///  @param category The category to update (optional)
@@ -729,7 +729,7 @@ NSInteger kJSAPICategoriesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a category template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param template The updated template information (optional)

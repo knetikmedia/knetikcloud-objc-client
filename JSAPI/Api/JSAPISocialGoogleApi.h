@@ -25,7 +25,7 @@ extern NSInteger kJSAPISocialGoogleApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Link google account
-/// Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
+/// Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-google user token
 ///
 /// @param googleToken The token from google (optional)
 /// 

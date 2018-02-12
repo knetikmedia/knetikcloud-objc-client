@@ -53,7 +53,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///  @param catalogSale The catalog sale object (optional)
 ///
 ///  @returns JSAPICatalogSale*
@@ -108,7 +108,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///  @param _id The id of the sale 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single sale
-/// 
+/// <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 ///  @param _id The id of the sale 
 ///
 ///  @returns JSAPICatalogSale*
@@ -214,7 +214,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -244,7 +244,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search sales
-/// 
+/// <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -283,7 +283,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -313,7 +313,7 @@ NSInteger kJSAPIStoreSalesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///  @param _id The id of the sale 
 ///
 ///  @param catalogSale The catalog sale object (optional)

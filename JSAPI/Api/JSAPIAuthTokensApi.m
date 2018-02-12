@@ -53,7 +53,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete tokens by username, client id, or both
-/// 
+/// <b>Permissions Needed:</b> TOKENS_ADMIN
 ///  @param username The username of the user (optional)
 ///
 ///  @param clientId The id of the client (optional)
@@ -86,7 +86,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -116,7 +116,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single token by username and client id
-/// 
+/// <b>Permissions Needed:</b> TOKENS_ADMIN
 ///  @param username The username of the user 
 ///
 ///  @param clientId The id of the client 
@@ -171,7 +171,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -201,7 +201,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
 
 ///
 /// List usernames and client ids
-/// Token value not shown
+/// Token value not shown. <br><br><b>Permissions Needed:</b> TOKENS_ADMIN
 ///  @param filterClientId Filters for token whose client id matches provided string (optional)
 ///
 ///  @param filterUsername Filters for token whose username matches provided string (optional)
@@ -252,7 +252,7 @@ NSInteger kJSAPIAuthTokensApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

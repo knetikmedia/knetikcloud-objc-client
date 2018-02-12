@@ -57,7 +57,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the user's wallet for the given currency code
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///  @param userId The ID of the user for whom wallet is being retrieved 
 ///
 ///  @param currencyCode Currency code of the user's wallet 
@@ -112,7 +112,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -142,7 +142,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a user's wallet transactions
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///  @param userId The ID of the user for whom wallet transactions are being retrieved 
 ///
 ///  @param currencyCode Currency code of the user's wallet 
@@ -239,7 +239,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -269,7 +269,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// List all of a user's wallets
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN or owner
 ///  @param userId The ID of the user for whom wallets are being retrieved 
 ///
 ///  @returns NSArray<JSAPISimpleWallet>*
@@ -307,7 +307,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -337,7 +337,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieves a summation of wallet balances by currency code
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///  @returns JSAPIPageResourceWalletTotalResponse_*
 ///
 -(NSURLSessionTask*) getWalletBalancesWithCompletionHandler: 
@@ -359,7 +359,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -389,7 +389,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve wallet transactions across the system
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///  @param filterInvoice Filter for transactions from a specific invoice (optional)
 ///
 ///  @param filterType Filter for transactions with specified type (optional)
@@ -476,7 +476,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -506,7 +506,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a list of wallets across the system
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -545,7 +545,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -575,7 +575,7 @@ NSInteger kJSAPIPaymentsWalletsApiMissingParamErrorCode = 234513;
 
 ///
 /// Updates the balance for a user's wallet
-/// 
+/// <b>Permissions Needed:</b> WALLETS_ADMIN
 ///  @param userId The ID of the user for whom wallet is being modified 
 ///
 ///  @param currencyCode Currency code of the user's wallet 

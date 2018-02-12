@@ -59,7 +59,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an invoice
-/// Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+/// Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
 ///  @param req Invoice to be created (optional)
 ///
 ///  @returns NSArray<JSAPIInvoiceResource>*
@@ -114,7 +114,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Lists available fulfillment statuses
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSArray<NSString*>*
 ///
 -(NSURLSessionTask*) getFulFillmentStatusesWithCompletionHandler: 
@@ -136,7 +136,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -166,7 +166,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @returns JSAPIInvoiceResource*
@@ -204,7 +204,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -234,7 +234,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// List invoice logs
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -284,7 +284,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -314,7 +314,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve invoices
-/// Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+/// Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///  @param filterUser The id of a user to get invoices for. Automtically added if not being called with admin permissions. (optional)
 ///
 ///  @param filterEmail Filters invoices by customer's email. Admins only. (optional)
@@ -347,7 +347,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
 ///
-///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to 1)
+///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 ///
 ///  @returns JSAPIPageResourceInvoiceResource_*
 ///
@@ -437,7 +437,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -467,7 +467,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Lists available payment statuses
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @returns NSArray<NSString*>*
 ///
 -(NSURLSessionTask*) getPaymentStatusesWithCompletionHandler: 
@@ -489,7 +489,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -519,7 +519,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Pay an invoice using a saved payment method
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param request The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited. (optional)
@@ -591,7 +591,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the fulfillment status of a bundled invoice item
-/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param bundleSku The sku of the bundle in the invoice that contains the given target 
@@ -708,7 +708,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the external reference of an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param externalRef External reference info (optional)
@@ -780,7 +780,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the fulfillment status of an invoice item
-/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param sku The sku of an item in the invoice 
@@ -880,7 +880,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the order notes of an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param orderNotes Payment status info (optional)
@@ -952,7 +952,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set the payment status of an invoice
-/// This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+/// This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param request Payment status info (optional)
@@ -1024,7 +1024,7 @@ NSInteger kJSAPIInvoicesApiMissingParamErrorCode = 234513;
 
 ///
 /// Set or update billing info
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///  @param _id The id of the invoice 
 ///
 ///  @param billingInfoRequest Address info (optional)

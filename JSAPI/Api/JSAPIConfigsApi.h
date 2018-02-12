@@ -26,7 +26,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new config
-/// 
+/// <b>Permissions Needed:</b> TOPICS_ADMIN
 ///
 /// @param config The config object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 
 
 /// Delete an existing config
-/// 
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///
 /// @param name The config name
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 
 
 /// Get a single config
-/// Only configs that are public readable will be shown without admin access
+/// Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param name The config name
 /// 
@@ -74,12 +74,12 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 
 
 /// List and search configs
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterSearch Filter for configs whose name contains the given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned (optional) (default to 1)
-/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -96,7 +96,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 
 
 /// Update an existing config
-/// 
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///
 /// @param name The config name
 /// @param config The config object (optional)

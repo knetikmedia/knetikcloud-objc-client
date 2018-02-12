@@ -53,7 +53,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param savedAddressResource The new address (optional)
@@ -125,7 +125,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param _id The id of the address 
@@ -180,7 +180,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -210,7 +210,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param _id The id of the address 
@@ -265,7 +265,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -295,7 +295,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search addresses
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -351,7 +351,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -381,7 +381,7 @@ NSInteger kJSAPIUsersAddressesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an address
-/// 
+/// <b>Permissions Needed:</b> USERS_ADMIN or owner
 ///  @param userId The id of the user 
 ///
 ///  @param _id The id of the address 

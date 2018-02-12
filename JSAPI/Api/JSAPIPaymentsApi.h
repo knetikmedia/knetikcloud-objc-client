@@ -28,7 +28,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new payment method for a user
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 ///
 /// @param userId ID of the user for whom the payment method is being created
 /// @param paymentMethod Payment method being created (optional)
@@ -46,7 +46,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Delete an existing payment method for a user
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 ///
 /// @param userId ID of the user for whom the payment method is being updated
 /// @param _id ID of the payment method being deleted
@@ -64,7 +64,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Get a single payment method for a user
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 ///
 /// @param userId ID of the user for whom the payment method is being retrieved
 /// @param _id ID of the payment method being retrieved
@@ -82,7 +82,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Get a single payment method type
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param _id ID of the payment method type being retrieved
 /// 
@@ -98,7 +98,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Get all payment method types
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterName Filter for payment method types whose name matches a given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -120,7 +120,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Get all payment methods for a user
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 ///
 /// @param userId ID of the user for whom the payment methods are being retrieved
 /// @param filterName Filter for payment methods whose name starts with a given string (optional)
@@ -150,7 +150,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Authorize payment of an invoice for later capture
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER
 ///
 /// @param request Payment authorization request (optional)
 /// 
@@ -166,7 +166,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Capture an existing invoice payment authorization
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN
 ///
 /// @param _id ID of the payment authorization to capture
 /// 
@@ -182,7 +182,7 @@ extern NSInteger kJSAPIPaymentsApiMissingParamErrorCode;
 
 
 /// Update an existing payment method for a user
-/// 
+/// <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 ///
 /// @param userId ID of the user for whom the payment method is being updated
 /// @param _id ID of the payment method being updated

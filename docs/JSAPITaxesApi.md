@@ -1,6 +1,6 @@
 # JSAPITaxesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,6 +24,8 @@ Method | HTTP request | Description
 ```
 
 Create a country tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc
@@ -81,6 +83,8 @@ Name | Type | Description  | Notes
 ```
 
 Create a state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc
@@ -141,6 +145,8 @@ Name | Type | Description  | Notes
 
 Delete an existing tax
 
+<b>Permissions Needed:</b> TAX_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -181,7 +187,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -194,6 +200,8 @@ void (empty response body)
 ```
 
 Delete an existing state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc
@@ -238,7 +246,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -250,6 +258,8 @@ void (empty response body)
 ```
 
 Get a single tax
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -294,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -309,7 +319,7 @@ Name | Type | Description  | Notes
 
 List and search taxes
 
-Get a list of taxes
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc
@@ -360,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -373,6 +383,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single state tax
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -420,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -435,7 +447,7 @@ Name | Type | Description  | Notes
 
 List and search taxes across all countries
 
-Get a list of taxes
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -486,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -502,7 +514,7 @@ Name | Type | Description  | Notes
 
 List and search taxes within a country
 
-Get a list of taxes
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -556,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -569,6 +581,8 @@ Name | Type | Description  | Notes
 ```
 
 Create or update a tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc
@@ -630,6 +644,8 @@ Name | Type | Description  | Notes
 ```
 
 Create or update a state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Example 
 ```objc

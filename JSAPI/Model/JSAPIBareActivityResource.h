@@ -43,7 +43,7 @@
 /* Whether this activity is a template for other activities. Default: false [optional]
  */
 @property(nonatomic) NSNumber* template;
-/* The type of the activity 
+/* The type of the activity [optional]
  */
 @property(nonatomic) NSString* type;
 /* The unique key (for static reference in code) of the activity [optional]

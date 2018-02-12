@@ -1,6 +1,6 @@
 # JSAPIInvoicesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 Create an invoice
 
-Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -85,6 +85,8 @@ Name | Type | Description  | Notes
 
 Lists available fulfillment statuses
 
+<b>Permissions Needed:</b> ANY
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -124,7 +126,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -136,6 +138,8 @@ This endpoint does not need any parameter.
 ```
 
 Retrieve an invoice
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -180,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -194,6 +198,8 @@ Name | Type | Description  | Notes
 ```
 
 List invoice logs
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -244,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -273,7 +279,7 @@ Name | Type | Description  | Notes
 
 Retrieve invoices
 
-Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -302,7 +308,7 @@ NSString* filterVendorName = @"filterVendorName_example"; // Filters invoices by
 NSString* filterSku = @"filterSku_example"; // Filters invoices by item sku (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
-NSString* order = @"1"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+NSString* order = @"order_example"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 JSAPIInvoicesApi*apiInstance = [[JSAPIInvoicesApi alloc] init];
 
@@ -354,7 +360,7 @@ Name | Type | Description  | Notes
  **filterSku** | **NSString***| Filters invoices by item sku | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to 1]
+ **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
 
 ### Return type
 
@@ -366,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -378,6 +384,8 @@ Name | Type | Description  | Notes
 ```
 
 Lists available payment statuses
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -418,7 +426,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -431,6 +439,8 @@ This endpoint does not need any parameter.
 ```
 
 Pay an invoice using a saved payment method
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -491,7 +501,7 @@ void (empty response body)
 
 Set the fulfillment status of a bundled invoice item
 
-This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -556,6 +566,8 @@ void (empty response body)
 
 Set the external reference of an invoice
 
+<b>Permissions Needed:</b> INVOICES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -614,7 +626,7 @@ void (empty response body)
 
 Set the fulfillment status of an invoice item
 
-This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -676,6 +688,8 @@ void (empty response body)
 
 Set the order notes of an invoice
 
+<b>Permissions Needed:</b> INVOICES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -733,7 +747,7 @@ void (empty response body)
 
 Set the payment status of an invoice
 
-This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Example 
 ```objc
@@ -791,6 +805,8 @@ void (empty response body)
 ```
 
 Set or update billing info
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Example 
 ```objc

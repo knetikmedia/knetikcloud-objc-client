@@ -25,7 +25,7 @@ extern NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Retrieve a challenge event leaderboard details
-/// Lists all leaderboard entries with additional user details
+/// Lists all leaderboard entries with additional user details. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
 ///
 /// @param filterEvent A sepecific challenge event id (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -47,7 +47,7 @@ extern NSInteger kJSAPIReportingChallengesApiMissingParamErrorCode;
 
 
 /// Retrieve a challenge event participant details
-/// Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
+/// Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
 ///
 /// @param filterEvent A sepecific challenge event id (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)

@@ -25,7 +25,7 @@ extern NSInteger kJSAPIPaymentsXsollaApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a payment token that should be used to forward the user to Xsolla so they can complete payment
-/// 
+/// <b>Permissions Needed:</b> XSOLLA_ADMIN or owner
 ///
 /// @param request The payment request to be sent to XSolla (optional)
 /// 

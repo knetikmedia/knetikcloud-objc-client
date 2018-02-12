@@ -25,7 +25,7 @@ extern NSInteger kJSAPIAmazonWebServicesS3ApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get a temporary signed S3 URL for download
-/// To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+/// To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. <br><br><b>Permissions Needed:</b> S3_ADMIN
 ///
 /// @param bucket S3 bucket name (optional)
 /// @param path The path to the file relative the bucket (the s3 object key) (optional)
@@ -45,7 +45,7 @@ extern NSInteger kJSAPIAmazonWebServicesS3ApiMissingParamErrorCode;
 
 
 /// Get a signed S3 URL for upload
-/// Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
+/// Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after. <br><br><b>Permissions Needed:</b> S3_USER or S3_ADMIN
 ///
 /// @param filename The file name (optional)
 /// @param contentType The content type (optional)

@@ -22,7 +22,7 @@
 
 @interface JSAPIConfig : JSAPIObject
 
-/* The description of the config.  Max 140 characters [optional]
+/* The description of the config.  Max 255 characters [optional]
  */
 @property(nonatomic) NSString* _description;
 /* The name of the config 

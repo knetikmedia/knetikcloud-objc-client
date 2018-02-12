@@ -55,7 +55,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an object
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param templateId The id of the template this object is to be part of 
 ///
 ///  @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
@@ -133,7 +133,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create an object template
-/// Object templates define a type of entitlement and the properties they have
+/// Object templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param template The entitlement template to be created (optional)
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -188,7 +188,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an object
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param templateId The id of the template this object is part of 
 ///
 ///  @param objectId The id of the object 
@@ -243,7 +243,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -273,7 +273,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an entitlement template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -317,7 +317,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -347,7 +347,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single object
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param templateId The id of the template this object is part of 
 ///
 ///  @param objectId The id of the object 
@@ -402,7 +402,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -432,7 +432,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search objects
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param templateId The id of the template to get objects for 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -488,7 +488,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -518,7 +518,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -556,7 +556,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -586,7 +586,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search entitlement templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -625,7 +625,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -655,7 +655,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an object
-/// 
+/// <b>Permissions Needed:</b> INVENTORY_ADMIN
 ///  @param templateId The id of the template this object is part of 
 ///
 ///  @param objectId The id of the object 
@@ -750,7 +750,7 @@ NSInteger kJSAPIObjectsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an entitlement template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param template The updated template (optional)

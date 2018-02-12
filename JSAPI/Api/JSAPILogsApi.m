@@ -57,7 +57,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add a user log entry
-/// 
+/// <b>Permissions Needed:</b> owner
 ///  @param logEntry The user log entry to be added (optional)
 ///
 ///  @returns void
@@ -112,7 +112,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get an existing BRE event log entry by id
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///  @param _id The BRE event log entry id 
 ///
 ///  @returns JSAPIBreEventLog*
@@ -150,7 +150,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -180,7 +180,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a list of BRE event log entries
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///  @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 ///
 ///  @param filterEventName Filter event logs by event name (optional)
@@ -193,6 +193,8 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 ///
 ///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:DESC)
 ///
+///  @param filterRuleId Filter event logs by request id (optional)
+///
 ///  @returns JSAPIPageResourceBreEventLog_*
 ///
 -(NSURLSessionTask*) getBREEventLogsWithFilterStartDate: (NSString*) filterStartDate
@@ -201,6 +203,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
+    filterRuleId: (NSString*) filterRuleId
     completionHandler: (void (^)(JSAPIPageResourceBreEventLog_* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/bre/logs/event-log"];
 
@@ -225,6 +228,9 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     if (order != nil) {
         queryParams[@"order"] = order;
     }
+    if (filterRuleId != nil) {
+        queryParams[@"filter_rule_id"] = filterRuleId;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`
@@ -237,7 +243,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -267,7 +273,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get an existing forward log entry by id
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///  @param _id The forward log entry id 
 ///
 ///  @returns JSAPIForwardLog*
@@ -305,7 +311,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -335,12 +341,14 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a list of forward log entries
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 ///  @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 ///
 ///  @param filterEndDate A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 ///
 ///  @param filterStatusCode Filter forward logs by http status code (optional)
+///
+///  @param filterUrl Filter forward logs by URL starting with... (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
@@ -353,6 +361,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 -(NSURLSessionTask*) getBREForwardLogsWithFilterStartDate: (NSString*) filterStartDate
     filterEndDate: (NSString*) filterEndDate
     filterStatusCode: (NSNumber*) filterStatusCode
+    filterUrl: (NSNumber*) filterUrl
     size: (NSNumber*) size
     page: (NSNumber*) page
     order: (NSString*) order
@@ -370,6 +379,9 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     }
     if (filterStatusCode != nil) {
         queryParams[@"filter_status_code"] = filterStatusCode;
+    }
+    if (filterUrl != nil) {
+        queryParams[@"filter_url"] = filterUrl;
     }
     if (size != nil) {
         queryParams[@"size"] = size;
@@ -392,7 +404,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -422,7 +434,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a user log entry by id
-/// 
+/// <b>Permissions Needed:</b> LOGS_ADMIN or owner
 ///  @param _id The user log entry id 
 ///
 ///  @returns JSAPIUserActionLog*
@@ -460,7 +472,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -490,7 +502,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns a page of user logs entries
-/// 
+/// <b>Permissions Needed:</b> LOGS_ADMIN or owner
 ///  @param filterUser Filter for actions taken by a specific user by id (optional)
 ///
 ///  @param filterActionName Filter for actions of a specific name (optional)
@@ -541,7 +553,7 @@ NSInteger kJSAPILogsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];

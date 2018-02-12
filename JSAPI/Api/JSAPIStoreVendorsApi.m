@@ -55,7 +55,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///  @param vendor The vendor (optional)
 ///
 ///  @returns JSAPIVendorResource*
@@ -110,7 +110,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a vendor template
-/// Vendor Templates define a type of vendor and the properties they have.
+/// Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param vendorTemplateResource The new vendor template (optional)
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -165,7 +165,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///  @param _id The id of the vendor 
 ///
 ///  @returns void
@@ -203,7 +203,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -233,7 +233,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a vendor template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade force deleting the template if it's attached to other objects, cascade = detach (optional)
@@ -277,7 +277,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -307,7 +307,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single vendor
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the vendor 
 ///
 ///  @returns JSAPIVendorResource*
@@ -345,7 +345,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -375,7 +375,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single vendor template
-/// Vendor Templates define a type of vendor and the properties they have.
+/// Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPIItemTemplateResource*
@@ -413,7 +413,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -443,12 +443,12 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search vendor templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
 ///
-///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to 1)
+///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 ///
 ///  @returns JSAPIPageResourceItemTemplateResource_*
 ///
@@ -482,7 +482,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -512,7 +512,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search vendors
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterName Filters vendors by name starting with the text provided in the filter (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -557,7 +557,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -587,7 +587,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a vendor
-/// 
+/// <b>Permissions Needed:</b> VENDORS_ADMIN
 ///  @param _id The id of the vendor 
 ///
 ///  @param vendor The vendor (optional)
@@ -659,7 +659,7 @@ NSInteger kJSAPIStoreVendorsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a vendor template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param vendorTemplateResource The vendor template resource object (optional)

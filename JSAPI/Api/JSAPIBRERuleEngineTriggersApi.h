@@ -26,7 +26,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a trigger
-/// Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+/// Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 ///
 /// @param breTriggerResource The BRE trigger resource object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 
 
 /// Delete a trigger
-/// May fail if there are existing rules against it. Cannot delete core triggers
+/// May fail if there are existing rules against it. Cannot delete core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 ///
 /// @param eventName The trigger event name
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 
 
 /// Get a single trigger
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 ///
 /// @param eventName The trigger event name
 /// 
@@ -74,7 +74,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 
 
 /// List triggers
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 ///
 /// @param filterSystem Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed (optional)
 /// @param filterCategory Filter for triggers that are within a specific category (optional)
@@ -102,7 +102,7 @@ extern NSInteger kJSAPIBRERuleEngineTriggersApiMissingParamErrorCode;
 
 
 /// Update a trigger
-/// May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+/// May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 ///
 /// @param eventName The trigger event name
 /// @param breTriggerResource The BRE trigger resource object (optional)

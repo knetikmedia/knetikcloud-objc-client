@@ -2,16 +2,21 @@
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
 #import "JSAPIActivityOccurrenceCreationFailure.h"
+#import "JSAPIActivityOccurrenceJoinResult.h"
 #import "JSAPIActivityOccurrenceResource.h"
 #import "JSAPIActivityOccurrenceResults.h"
 #import "JSAPIActivityOccurrenceResultsResource.h"
+#import "JSAPIActivityOccurrenceSettingsResource.h"
 #import "JSAPIActivityResource.h"
+#import "JSAPIActivityUserResource.h"
 #import "JSAPICreateActivityOccurrenceRequest.h"
+#import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceActivityOccurrenceResource_.h"
 #import "JSAPIPageResourceBareActivityResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
+#import "JSAPIValueWrapperString_.h"
 
 
 @interface JSAPIActivitiesApi ()
@@ -60,8 +65,92 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 #pragma mark - Api Methods
 
 ///
+/// Add a user to an occurrence
+/// If called with no body, defaults to the user making the call.
+///  @param activityOccurrenceId The id of the activity occurrence 
+///
+///  @param test if true, indicates that the user should NOT be added. This can be used to test for eligibility (optional, default to false)
+///
+///  @param bypassRestrictions if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN (optional, default to false)
+///
+///  @param userId The id of the user, or null for 'caller' (optional)
+///
+///  @returns JSAPIActivityOccurrenceResource*
+///
+-(NSURLSessionTask*) addUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    test: (NSNumber*) test
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+    userId: (JSAPIIntWrapper*) userId
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler {
+    // verify the required parameter 'activityOccurrenceId' is set
+    if (activityOccurrenceId == nil) {
+        NSParameterAssert(activityOccurrenceId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityOccurrenceId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activity-occurrences/{activity_occurrence_id}/users"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (activityOccurrenceId != nil) {
+        pathParams[@"activity_occurrence_id"] = activityOccurrenceId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (test != nil) {
+        queryParams[@"test"] = [test isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (bypassRestrictions != nil) {
+        queryParams[@"bypass_restrictions"] = [bypassRestrictions isEqual:@(YES)] ? @"true" : @"false";
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = userId;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIActivityOccurrenceResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIActivityOccurrenceResource*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Create an activity
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///  @param activityResource The activity resource object (optional)
 ///
 ///  @returns JSAPIActivityResource*
@@ -116,7 +205,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new activity occurrence. Ex: start a game
-/// Has to enforce extra rules if not used as an admin
+/// Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 ///  @param test if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings (optional, default to false)
 ///
 ///  @param activityOccurrenceResource The activity occurrence object (optional)
@@ -177,7 +266,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a activity template
-/// Activity Templates define a type of activity and the properties they have
+/// Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param activityTemplateResource The activity template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -232,7 +321,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an activity
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///  @param _id The id of the activity 
 ///
 ///  @returns void
@@ -270,7 +359,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -300,7 +389,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a activity template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -344,7 +433,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -374,7 +463,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// List activity definitions
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterTemplate Filter for activities that are templates, or specifically not if false (optional)
 ///
 ///  @param filterName Filter for activities that have a name starting with specified string (optional)
@@ -431,7 +520,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -461,7 +550,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single activity
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The id of the activity 
 ///
 ///  @returns JSAPIActivityResource*
@@ -499,7 +588,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -529,7 +618,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Load a single activity occurrence details
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @returns JSAPIActivityOccurrenceResource*
@@ -567,7 +656,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -597,7 +686,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -635,7 +724,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -665,7 +754,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search activity templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -704,7 +793,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -734,10 +823,10 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// List activity occurrences
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///  @param filterActivity Filter for occurrences of the given activity ID (optional)
 ///
-///  @param filterStatus Filter for occurrences of the given activity ID (optional)
+///  @param filterStatus Filter for occurrences in the given status (optional)
 ///
 ///  @param filterEvent Filter for occurrences played during the given event (optional)
 ///
@@ -797,7 +886,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -826,8 +915,105 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Sets the status of an activity occurrence to FINISHED and logs metrics
+/// Remove a user from an occurrence
 /// 
+///  @param activityOccurrenceId The id of the activity occurrence 
+///
+///  @param userId The id of the user, or 'me' 
+///
+///  @param ban if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin (optional, default to false)
+///
+///  @param bypassRestrictions if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN (optional, default to false)
+///
+///  @returns void
+///
+-(NSURLSessionTask*) removeUserWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    ban: (NSNumber*) ban
+    bypassRestrictions: (NSNumber*) bypassRestrictions
+    completionHandler: (void (^)(NSError* error)) handler {
+    // verify the required parameter 'activityOccurrenceId' is set
+    if (activityOccurrenceId == nil) {
+        NSParameterAssert(activityOccurrenceId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityOccurrenceId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activity-occurrences/{activity_occurrence_id}/users/{user_id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (activityOccurrenceId != nil) {
+        pathParams[@"activity_occurrence_id"] = activityOccurrenceId;
+    }
+    if (userId != nil) {
+        pathParams[@"user_id"] = userId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (ban != nil) {
+        queryParams[@"ban"] = [ban isEqual:@(YES)] ? @"true" : @"false";
+    }
+    if (bypassRestrictions != nil) {
+        queryParams[@"bypass_restrictions"] = [bypassRestrictions isEqual:@(YES)] ? @"true" : @"false";
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: nil
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler(error);
+                                }
+                            }];
+}
+
+///
+/// Sets the status of an activity occurrence to FINISHED and logs metrics
+/// In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @param activityOccurrenceResults The activity occurrence object (optional)
@@ -898,8 +1084,169 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Update an activity
+/// Sets the settings of an activity occurrence
 /// 
+///  @param activityOccurrenceId The id of the activity occurrence 
+///
+///  @param settings The new settings (optional)
+///
+///  @returns JSAPIActivityOccurrenceResource*
+///
+-(NSURLSessionTask*) setActivityOccurrenceSettingsWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    settings: (JSAPIActivityOccurrenceSettingsResource*) settings
+    completionHandler: (void (^)(JSAPIActivityOccurrenceResource* output, NSError* error)) handler {
+    // verify the required parameter 'activityOccurrenceId' is set
+    if (activityOccurrenceId == nil) {
+        NSParameterAssert(activityOccurrenceId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityOccurrenceId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activity-occurrences/{activity_occurrence_id}/settings"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (activityOccurrenceId != nil) {
+        pathParams[@"activity_occurrence_id"] = activityOccurrenceId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = settings;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIActivityOccurrenceResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIActivityOccurrenceResource*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Set a user's status within an occurrence
+/// 
+///  @param activityOccurrenceId The id of the activity occurrence 
+///
+///  @param userId The id of the user 
+///
+///  @param status The new status (optional)
+///
+///  @returns JSAPIActivityUserResource*
+///
+-(NSURLSessionTask*) setUserStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    userId: (NSString*) userId
+    status: (NSString*) status
+    completionHandler: (void (^)(JSAPIActivityUserResource* output, NSError* error)) handler {
+    // verify the required parameter 'activityOccurrenceId' is set
+    if (activityOccurrenceId == nil) {
+        NSParameterAssert(activityOccurrenceId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"activityOccurrenceId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == nil) {
+        NSParameterAssert(userId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"userId"] };
+            NSError* error = [NSError errorWithDomain:kJSAPIActivitiesApiErrorDomain code:kJSAPIActivitiesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/activity-occurrences/{activity_occurrence_id}/users/{user_id}/status"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (activityOccurrenceId != nil) {
+        pathParams[@"activity_occurrence_id"] = activityOccurrenceId;
+    }
+    if (userId != nil) {
+        pathParams[@"user_id"] = userId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = status;
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"JSAPIActivityUserResource*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((JSAPIActivityUserResource*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Update an activity
+/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
 ///  @param _id The id of the activity 
 ///
 ///  @param activityResource The activity resource object (optional)
@@ -970,16 +1317,16 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Updated the status of an activity occurrence
-/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+/// Update the status of an activity occurrence
+/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @param activityOccurrenceStatus The activity occurrence status object (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) updateActivityOccurrenceWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceStatus: (NSString*) activityOccurrenceStatus
+-(NSURLSessionTask*) updateActivityOccurrenceStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
+    activityOccurrenceStatus: (JSAPIValueWrapperString_*) activityOccurrenceStatus
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'activityOccurrenceId' is set
     if (activityOccurrenceId == nil) {
@@ -1043,7 +1390,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an activity template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param activityTemplateResource The activity template resource object (optional)

@@ -22,7 +22,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"aliases": @"aliases", @"database": @"database", @"io": @"io", @"name": @"name", @"s3Config": @"s3_config" };
+  return @{ @"aliases": @"aliases", @"database": @"database", @"name": @"name", @"s3Config": @"s3_config" };
 }
 
 /**
@@ -32,7 +32,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"aliases", @"database", @"io", @"name", @"s3Config"];
+  NSArray *optionalProperties = @[@"aliases", @"database", @"name", @"s3Config"];
 
   return [optionalProperties containsObject:propertyName];
 }

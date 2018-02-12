@@ -1,6 +1,6 @@
 # JSAPIUsersGroupsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,16 +12,19 @@ Method | HTTP request | Description
 [**deleteGroup**](JSAPIUsersGroupsApi.md#deletegroup) | **DELETE** /users/groups/{unique_name} | Removes a group from the system
 [**deleteGroupMemberTemplate**](JSAPIUsersGroupsApi.md#deletegroupmembertemplate) | **DELETE** /users/groups/members/templates/{id} | Delete an group member template
 [**deleteGroupTemplate**](JSAPIUsersGroupsApi.md#deletegrouptemplate) | **DELETE** /users/groups/templates/{id} | Delete a group template
+[**disableGroupNotification**](JSAPIUsersGroupsApi.md#disablegroupnotification) | **PUT** /users/groups/{unique_name}/members/{user_id}/messages/disabled | Enable or disable notification of group messages
 [**getGroup**](JSAPIUsersGroupsApi.md#getgroup) | **GET** /users/groups/{unique_name} | Loads a specific group&#39;s details
 [**getGroupAncestors**](JSAPIUsersGroupsApi.md#getgroupancestors) | **GET** /users/groups/{unique_name}/ancestors | Get group ancestors
 [**getGroupMember**](JSAPIUsersGroupsApi.md#getgroupmember) | **GET** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
 [**getGroupMemberTemplate**](JSAPIUsersGroupsApi.md#getgroupmembertemplate) | **GET** /users/groups/members/templates/{id} | Get a single group member template
 [**getGroupMemberTemplates**](JSAPIUsersGroupsApi.md#getgroupmembertemplates) | **GET** /users/groups/members/templates | List and search group member templates
 [**getGroupMembers**](JSAPIUsersGroupsApi.md#getgroupmembers) | **GET** /users/groups/{unique_name}/members | Lists members of the group
+[**getGroupMessages**](JSAPIUsersGroupsApi.md#getgroupmessages) | **GET** /users/groups/{unique_name}/messages | Get a list of group messages
 [**getGroupTemplate**](JSAPIUsersGroupsApi.md#getgrouptemplate) | **GET** /users/groups/templates/{id} | Get a single group template
 [**getGroupTemplates**](JSAPIUsersGroupsApi.md#getgrouptemplates) | **GET** /users/groups/templates | List and search group templates
 [**getGroupsForUser**](JSAPIUsersGroupsApi.md#getgroupsforuser) | **GET** /users/{user_id}/groups | List groups a user is in
 [**listGroups**](JSAPIUsersGroupsApi.md#listgroups) | **GET** /users/groups | List and search groups
+[**postGroupMessage**](JSAPIUsersGroupsApi.md#postgroupmessage) | **POST** /users/groups/{unique_name}/messages | Send a group message
 [**removeGroupMember**](JSAPIUsersGroupsApi.md#removegroupmember) | **DELETE** /users/groups/{unique_name}/members/{user_id} | Removes a user from a group
 [**updateGroup**](JSAPIUsersGroupsApi.md#updategroup) | **PUT** /users/groups/{unique_name} | Update a group
 [**updateGroupMemberProperties**](JSAPIUsersGroupsApi.md#updategroupmemberproperties) | **PUT** /users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
@@ -39,6 +42,8 @@ Method | HTTP request | Description
 ```
 
 Adds a new member to the group
+
+<b>Permissions Needed:</b> GROUP_ADMIN or self if open
 
 ### Example 
 ```objc
@@ -100,6 +105,8 @@ Name | Type | Description  | Notes
 
 Adds multiple members to the group
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -159,6 +166,8 @@ Name | Type | Description  | Notes
 
 Create a group
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -215,7 +224,7 @@ Name | Type | Description  | Notes
 
 Create an group member template
 
-GroupMember Templates define a type of group member and the properties they have
+GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -273,7 +282,7 @@ Name | Type | Description  | Notes
 
 Create a group template
 
-Group Templates define a type of group and the properties they have
+Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -331,7 +340,7 @@ Name | Type | Description  | Notes
 
 Removes a group from the system
 
-All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -373,7 +382,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -387,7 +396,7 @@ void (empty response body)
 
 Delete an group member template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -432,7 +441,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -446,7 +455,7 @@ void (empty response body)
 
 Delete a group template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -491,6 +500,67 @@ void (empty response body)
 
 ### HTTP request headers
 
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **disableGroupNotification**
+```objc
+-(NSURLSessionTask*) disableGroupNotificationWithUniqueName: (NSString*) uniqueName
+    userId: (NSString*) userId
+    disabled: (JSAPIValueWrapperBoolean_*) disabled
+        completionHandler: (void (^)(NSError* error)) handler;
+```
+
+Enable or disable notification of group messages
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* uniqueName = @"uniqueName_example"; // The group unique name
+NSString* userId = @"userId_example"; // The user id of the member or 'me'
+JSAPIValueWrapperBoolean_* disabled = [[JSAPIValueWrapperBoolean_ alloc] init]; // disabled
+
+JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
+
+// Enable or disable notification of group messages
+[apiInstance disableGroupNotificationWithUniqueName:uniqueName
+              userId:userId
+              disabled:disabled
+          completionHandler: ^(NSError* error) {
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersGroupsApi->disableGroupNotification: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniqueName** | **NSString***| The group unique name | 
+ **userId** | **NSString***| The user id of the member or &#39;me&#39; | 
+ **disabled** | [**JSAPIValueWrapperBoolean_***](JSAPIValueWrapperBoolean_.md)| disabled | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
  - **Content-Type**: application/json
  - **Accept**: application/json
 
@@ -503,6 +573,8 @@ void (empty response body)
 ```
 
 Loads a specific group's details
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -547,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -560,10 +632,18 @@ Name | Type | Description  | Notes
 
 Get group ancestors
 
-Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
 
 NSString* uniqueName = @"uniqueName_example"; // The group unique name
 
@@ -593,11 +673,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -610,6 +690,8 @@ No authorization required
 ```
 
 Get a user from a group
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -657,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -669,6 +751,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single group member template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -713,7 +797,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -727,6 +811,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search group member templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -777,7 +863,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -792,6 +878,8 @@ Name | Type | Description  | Notes
 ```
 
 Lists members of the group
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -845,7 +933,73 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGroupMessages**
+```objc
+-(NSURLSessionTask*) getGroupMessagesWithUniqueName: (NSString*) uniqueName
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+        completionHandler: (void (^)(JSAPIPageResourceChatMessageResource_* output, NSError* error)) handler;
+```
+
+Get a list of group messages
+
+<b>Permissions Needed:</b> ANY
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* uniqueName = @"uniqueName_example"; // The group unique name
+NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
+NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
+
+JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
+
+// Get a list of group messages
+[apiInstance getGroupMessagesWithUniqueName:uniqueName
+              size:size
+              page:page
+          completionHandler: ^(JSAPIPageResourceChatMessageResource_* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersGroupsApi->getGroupMessages: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniqueName** | **NSString***| The group unique name | 
+ **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
+ **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
+
+### Return type
+
+[**JSAPIPageResourceChatMessageResource_***](JSAPIPageResourceChatMessageResource_.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -857,6 +1011,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single group template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -901,7 +1057,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -915,6 +1071,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search group templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -965,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -978,6 +1136,8 @@ Name | Type | Description  | Notes
 ```
 
 List groups a user is in
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -1025,7 +1185,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1045,6 +1205,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search groups
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -1113,6 +1275,58 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postGroupMessage**
+```objc
+-(NSURLSessionTask*) postGroupMessageWithUniqueName: (NSString*) uniqueName
+    chatMessageRequest: (JSAPIChatMessageRequest*) chatMessageRequest
+        completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler;
+```
+
+Send a group message
+
+### Example 
+```objc
+
+NSString* uniqueName = @"uniqueName_example"; // The group unique name
+JSAPIChatMessageRequest* chatMessageRequest = [[JSAPIChatMessageRequest alloc] init]; // The chat message request (optional)
+
+JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
+
+// Send a group message
+[apiInstance postGroupMessageWithUniqueName:uniqueName
+              chatMessageRequest:chatMessageRequest
+          completionHandler: ^(JSAPIChatMessageResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersGroupsApi->postGroupMessage: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniqueName** | **NSString***| The group unique name | 
+ **chatMessageRequest** | [**JSAPIChatMessageRequest***](JSAPIChatMessageRequest.md)| The chat message request | [optional] 
+
+### Return type
+
+[**JSAPIChatMessageResource***](JSAPIChatMessageResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
  - **Content-Type**: application/json
  - **Accept**: application/json
 
@@ -1126,6 +1340,8 @@ Name | Type | Description  | Notes
 ```
 
 Removes a user from a group
+
+<b>Permissions Needed:</b> GROUP_ADMIN or self if open
 
 ### Example 
 ```objc
@@ -1170,7 +1386,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1184,7 +1400,7 @@ void (empty response body)
 
 Update a group
 
-If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
 
 ### Example 
 ```objc
@@ -1243,6 +1459,8 @@ void (empty response body)
 ```
 
 Change a user's order
+
+<b>Permissions Needed:</b> GROUP_ADMIN
 
 ### Example 
 ```objc
@@ -1305,6 +1523,8 @@ void (empty response body)
 
 Change a user's membership properties
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -1366,6 +1586,8 @@ void (empty response body)
 
 Change a user's status
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -1426,6 +1648,8 @@ void (empty response body)
 
 Update an group member template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -1485,6 +1709,8 @@ Name | Type | Description  | Notes
 ```
 
 Update a group template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc

@@ -57,7 +57,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Add your vote to a poll
-/// 
+/// <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
 ///  @param _id The poll id 
 ///
 ///  @param answerKey The answer key (optional)
@@ -129,7 +129,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new poll
-/// Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+/// Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end. <br><br><b>Permissions Needed:</b> POLLS_ADMIN
 ///  @param pollResource The poll object (optional)
 ///
 ///  @returns JSAPIPollResource*
@@ -184,7 +184,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a poll template
-/// Poll templates define a type of poll and the properties they have
+/// Poll templates define a type of poll and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param pollTemplateResource The poll template resource object (optional)
 ///
 ///  @returns JSAPITemplateResource*
@@ -239,7 +239,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing poll
-/// 
+/// <b>Permissions Needed:</b> POLLS_ADMIN
 ///  @param _id The poll id 
 ///
 ///  @returns void
@@ -277,7 +277,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -307,7 +307,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a poll template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param cascade The value needed to delete used templates (optional)
@@ -351,7 +351,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -381,7 +381,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single poll
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param _id The poll id 
 ///
 ///  @returns JSAPIPollResource*
@@ -419,7 +419,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -449,7 +449,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get poll answer
-/// 
+/// <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
 ///  @param _id The poll id 
 ///
 ///  @returns JSAPIPollResponseResource*
@@ -487,7 +487,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -517,7 +517,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single poll template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @returns JSAPITemplateResource*
@@ -555,7 +555,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -585,7 +585,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search poll templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -624,7 +624,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -654,7 +654,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search polls
-/// Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+/// Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
 ///  @param filterCategory Filter for polls from a specific category by id (optional)
 ///
 ///  @param filterTagset Filter for polls with specified tags (separated by comma) (optional)
@@ -711,7 +711,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -741,7 +741,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an existing poll
-/// 
+/// <b>Permissions Needed:</b> POLLS_ADMIN
 ///  @param _id The poll id 
 ///
 ///  @param pollResource The poll object (optional)
@@ -813,7 +813,7 @@ NSInteger kJSAPIContentPollsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a poll template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///  @param _id The id of the template 
 ///
 ///  @param pollTemplateResource The poll template resource object (optional)

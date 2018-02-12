@@ -43,7 +43,7 @@
 /* Where this global came from. System globals cannot be removed or updated [optional]
  */
 @property(nonatomic) NSNumber* systemGlobal;
-/* The variable type the global stores. See the See Bre Variables enpoint for list 
+/* The variable type the global stores. See the BRE variables endpoint for list 
  */
 @property(nonatomic) NSString* type;
 

@@ -28,7 +28,7 @@ extern NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get the details for a single transaction
-/// 
+/// <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
 ///
 /// @param _id id
 /// 
@@ -44,7 +44,7 @@ extern NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode;
 
 
 /// List and search transactions
-/// 
+/// <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
 ///
 /// @param filterInvoice Filter for transactions from a specific invoice (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -66,7 +66,7 @@ extern NSInteger kJSAPIPaymentsTransactionsApiMissingParamErrorCode;
 
 
 /// Refund a payment transaction, in full or in part
-/// Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds.
+/// Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. <br><br><b>Permissions Needed:</b> PAYMENTS_ADMIN
 ///
 /// @param _id The id of the transaction to refund
 /// @param request Request containing refund details (optional)

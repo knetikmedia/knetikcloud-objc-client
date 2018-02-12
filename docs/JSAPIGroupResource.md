@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
-**_description** | **NSString*** | A description of the group. Max 250 characters | [optional] 
+**_description** | **NSString*** | A description of the group | [optional] 
 **memberCount** | **NSNumber*** | The number of users in the group | [optional] 
 **messageOfTheDay** | **NSString*** | A message of the day for members of the group | [optional] 
 **name** | **NSString*** | The name of the group. Max 50 characters | 

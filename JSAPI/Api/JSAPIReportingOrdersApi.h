@@ -25,7 +25,7 @@ extern NSInteger kJSAPIReportingOrdersApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Retrieve invoice counts aggregated by time ranges
-/// 
+/// <b>Permissions Needed:</b> REPORTING_ORDERS_ADMIN
 ///
 /// @param currencyCode The code for a currency to get sales data for
 /// @param granularity The time duration to aggregate by (optional) (default to day)

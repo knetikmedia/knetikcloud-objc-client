@@ -1,6 +1,6 @@
 # JSAPIReportingUsageApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,6 +25,8 @@ Method | HTTP request | Description
 ```
 
 Returns aggregated endpoint usage information by day
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -105,6 +107,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns aggregated endpoint usage information by hour
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -167,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -185,6 +189,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns aggregated endpoint usage information by minute
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -247,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -265,6 +271,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns aggregated endpoint usage information by month
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -327,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,6 +353,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns aggregated endpoint usage information by year
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -407,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -420,6 +430,8 @@ Name | Type | Description  | Notes
 ```
 
 Returns list of endpoints called (method and url)
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```objc
@@ -467,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

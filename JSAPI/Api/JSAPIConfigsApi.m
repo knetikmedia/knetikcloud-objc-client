@@ -53,7 +53,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new config
-/// 
+/// <b>Permissions Needed:</b> TOPICS_ADMIN
 ///  @param config The config object (optional)
 ///
 ///  @returns JSAPIConfig*
@@ -108,7 +108,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing config
-/// 
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///  @param name The config name 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single config
-/// Only configs that are public readable will be shown without admin access
+/// Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
 ///  @param name The config name 
 ///
 ///  @returns JSAPIConfig*
@@ -214,7 +214,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -244,14 +244,14 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search configs
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///  @param filterSearch Filter for configs whose name contains the given string (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned (optional, default to 1)
 ///
-///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to 1)
+///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 ///
 ///  @returns JSAPIPageResourceConfig_*
 ///
@@ -289,7 +289,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -319,7 +319,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an existing config
-/// 
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///  @param name The config name 
 ///
 ///  @param config The config object (optional)

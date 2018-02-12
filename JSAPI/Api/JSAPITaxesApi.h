@@ -28,7 +28,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a country tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param taxResource The tax object (optional)
 /// 
@@ -44,7 +44,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Create a state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param taxResource The tax object (optional)
@@ -62,7 +62,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Delete an existing tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// 
@@ -78,7 +78,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Delete an existing state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param stateCode The code of the state
@@ -96,7 +96,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Get a single tax
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// 
@@ -112,7 +112,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// List and search taxes
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned (optional) (default to 1)
@@ -132,7 +132,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Get a single state tax
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param stateCode The code of the state
@@ -150,7 +150,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// List and search taxes across all countries
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned (optional) (default to 1)
@@ -170,7 +170,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// List and search taxes within a country
-/// Get a list of taxes
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -192,7 +192,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Create or update a tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param taxResource The tax object (optional)
@@ -210,7 +210,7 @@ extern NSInteger kJSAPITaxesApiMissingParamErrorCode;
 
 
 /// Create or update a state tax
-/// 
+/// <b>Permissions Needed:</b> TAX_ADMIN
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// @param stateCode The code of the state

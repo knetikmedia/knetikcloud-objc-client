@@ -53,7 +53,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a global definition
-/// Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
+/// Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 ///  @param breGlobalResource The BRE global resource object (optional)
 ///
 ///  @returns JSAPIBreGlobalResource*
@@ -108,7 +108,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a global
-/// May fail if there are existing rules against it. Cannot delete core globals
+/// May fail if there are existing rules against it. Cannot delete core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 ///  @param _id The id of the global definition 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single global definition
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
 ///  @param _id The id of the global definition 
 ///
 ///  @returns JSAPIBreGlobalResource*
@@ -214,7 +214,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -244,7 +244,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
 
 ///
 /// List global definitions
-/// 
+/// <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
 ///  @param filterSystem Filter for globals that are system globals when true, or not when false. Leave off for both mixed (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -283,7 +283,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -313,7 +313,7 @@ NSInteger kJSAPIBRERuleEngineGlobalsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a global definition
-/// May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
+/// May fail if new parameters mismatch requirements of existing rules. Cannot update core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 ///  @param _id The id of the global definition 
 ///
 ///  @param breGlobalResource The BRE global resource object (optional)

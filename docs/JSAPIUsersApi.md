@@ -1,18 +1,20 @@
 # JSAPIUsersApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUserTag**](JSAPIUsersApi.md#addusertag) | **POST** /users/{user_id}/tags | Add a tag to a user
 [**createUserTemplate**](JSAPIUsersApi.md#createusertemplate) | **POST** /users/templates | Create a user template
 [**deleteUserTemplate**](JSAPIUsersApi.md#deleteusertemplate) | **DELETE** /users/templates/{id} | Delete a user template
+[**getDirectMessages1**](JSAPIUsersApi.md#getdirectmessages1) | **GET** /users/users/{recipient_id}/messages | Get a list of direct messages with this user
 [**getUser**](JSAPIUsersApi.md#getuser) | **GET** /users/{id} | Get a single user
 [**getUserTags**](JSAPIUsersApi.md#getusertags) | **GET** /users/{user_id}/tags | List tags for a user
 [**getUserTemplate**](JSAPIUsersApi.md#getusertemplate) | **GET** /users/templates/{id} | Get a single user template
 [**getUserTemplates**](JSAPIUsersApi.md#getusertemplates) | **GET** /users/templates | List and search user templates
 [**getUsers**](JSAPIUsersApi.md#getusers) | **GET** /users | List and search users
 [**passwordReset**](JSAPIUsersApi.md#passwordreset) | **PUT** /users/{id}/password-reset | Choose a new password after a reset
+[**postUserMessage**](JSAPIUsersApi.md#postusermessage) | **POST** /users/{recipient_id}/messages | Send a user message
 [**registerUser**](JSAPIUsersApi.md#registeruser) | **POST** /users | Register a new user
 [**removeUserTag**](JSAPIUsersApi.md#removeusertag) | **DELETE** /users/{user_id}/tags/{tag} | Remove a tag from a user
 [**setPassword**](JSAPIUsersApi.md#setpassword) | **PUT** /users/{id}/password | Set a user&#39;s password
@@ -30,6 +32,8 @@ Method | HTTP request | Description
 ```
 
 Add a tag to a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Example 
 ```objc
@@ -87,7 +91,7 @@ void (empty response body)
 
 Create a user template
 
-User Templates define a type of user and the properties they have
+User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -146,7 +150,7 @@ Name | Type | Description  | Notes
 
 Delete a user template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc
@@ -191,7 +195,73 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDirectMessages1**
+```objc
+-(NSURLSessionTask*) getDirectMessages1WithRecipientId: (NSNumber*) recipientId
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+        completionHandler: (void (^)(JSAPIPageResourceChatMessageResource_* output, NSError* error)) handler;
+```
+
+Get a list of direct messages with this user
+
+<b>Permissions Needed:</b> ANY
+
+### Example 
+```objc
+JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSNumber* recipientId = @56; // The user id
+NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
+NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
+
+JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
+
+// Get a list of direct messages with this user
+[apiInstance getDirectMessages1WithRecipientId:recipientId
+              size:size
+              page:page
+          completionHandler: ^(JSAPIPageResourceChatMessageResource_* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersApi->getDirectMessages1: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientId** | **NSNumber***| The user id | 
+ **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
+ **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
+
+### Return type
+
+[**JSAPIPageResourceChatMessageResource_***](JSAPIPageResourceChatMessageResource_.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -204,7 +274,7 @@ void (empty response body)
 
 Get a single user
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -249,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -261,6 +331,8 @@ Name | Type | Description  | Notes
 ```
 
 List tags for a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Example 
 ```objc
@@ -305,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -317,6 +389,8 @@ Name | Type | Description  | Notes
 ```
 
 Get a single user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Example 
 ```objc
@@ -361,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -375,6 +449,8 @@ Name | Type | Description  | Notes
 ```
 
 List and search user templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Example 
 ```objc
@@ -425,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -452,7 +528,7 @@ Name | Type | Description  | Notes
 
 List and search users
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -539,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -553,7 +629,7 @@ Name | Type | Description  | Notes
 
 Choose a new password after a reset
 
-Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -603,6 +679,58 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **postUserMessage**
+```objc
+-(NSURLSessionTask*) postUserMessageWithRecipientId: (NSNumber*) recipientId
+    chatMessageRequest: (JSAPIChatMessageRequest*) chatMessageRequest
+        completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler;
+```
+
+Send a user message
+
+### Example 
+```objc
+
+NSNumber* recipientId = @56; // The user id
+JSAPIChatMessageRequest* chatMessageRequest = [[JSAPIChatMessageRequest alloc] init]; // The chat message request (optional)
+
+JSAPIUsersApi*apiInstance = [[JSAPIUsersApi alloc] init];
+
+// Send a user message
+[apiInstance postUserMessageWithRecipientId:recipientId
+              chatMessageRequest:chatMessageRequest
+          completionHandler: ^(JSAPIChatMessageResource* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling JSAPIUsersApi->postUserMessage: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientId** | **NSNumber***| The user id | 
+ **chatMessageRequest** | [**JSAPIChatMessageRequest***](JSAPIChatMessageRequest.md)| The chat message request | [optional] 
+
+### Return type
+
+[**JSAPIChatMessageResource***](JSAPIChatMessageResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **registerUser**
 ```objc
 -(NSURLSessionTask*) registerUserWithUserResource: (JSAPIUserResource*) userResource
@@ -611,7 +739,7 @@ void (empty response body)
 
 Register a new user
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -670,6 +798,8 @@ Name | Type | Description  | Notes
 
 Remove a tag from a user
 
+<b>Permissions Needed:</b> USERS_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -713,7 +843,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -727,7 +857,7 @@ void (empty response body)
 
 Set a user's password
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
 
 ### Example 
 ```objc
@@ -785,7 +915,7 @@ void (empty response body)
 
 Reset a user's password
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -840,7 +970,7 @@ void (empty response body)
 
 Reset a user's password without user id
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```objc
@@ -896,7 +1026,7 @@ void (empty response body)
 
 Update a user
 
-Password will not be edited on this endpoint, use password specific endpoints.
+Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
 
 ### Example 
 ```objc
@@ -954,6 +1084,8 @@ void (empty response body)
 ```
 
 Update a user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```objc

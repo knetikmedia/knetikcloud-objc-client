@@ -32,7 +32,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create an invoice
-/// Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+/// Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
 ///
 /// @param req Invoice to be created (optional)
 /// 
@@ -48,7 +48,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Lists available fulfillment statuses
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",
@@ -63,7 +63,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Retrieve an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// 
@@ -79,7 +79,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// List invoice logs
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -99,7 +99,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Retrieve invoices
-/// Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+/// Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///
 /// @param filterUser The id of a user to get invoices for. Automtically added if not being called with admin permissions. (optional)
 /// @param filterEmail Filters invoices by customer&#39;s email. Admins only. (optional)
@@ -117,7 +117,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 /// @param filterSku Filters invoices by item sku (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
-/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+/// @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -147,7 +147,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Lists available payment statuses
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",
@@ -162,7 +162,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Pay an invoice using a saved payment method
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param request The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited. (optional)
@@ -180,7 +180,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set the fulfillment status of a bundled invoice item
-/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param bundleSku The sku of the bundle in the invoice that contains the given target
@@ -202,7 +202,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set the external reference of an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param externalRef External reference info (optional)
@@ -220,7 +220,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set the fulfillment status of an invoice item
-/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+/// This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param sku The sku of an item in the invoice
@@ -240,7 +240,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set the order notes of an invoice
-/// 
+/// <b>Permissions Needed:</b> INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param orderNotes Payment status info (optional)
@@ -258,7 +258,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set the payment status of an invoice
-/// This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+/// This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param request Payment status info (optional)
@@ -276,7 +276,7 @@ extern NSInteger kJSAPIInvoicesApiMissingParamErrorCode;
 
 
 /// Set or update billing info
-/// 
+/// <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 ///
 /// @param _id The id of the invoice
 /// @param billingInfoRequest Address info (optional)

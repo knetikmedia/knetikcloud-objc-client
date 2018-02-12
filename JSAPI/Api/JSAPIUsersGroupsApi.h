@@ -1,12 +1,16 @@
 #import <Foundation/Foundation.h>
+#import "JSAPIChatMessageRequest.h"
+#import "JSAPIChatMessageResource.h"
 #import "JSAPIGroupMemberResource.h"
 #import "JSAPIGroupResource.h"
+#import "JSAPIPageResourceChatMessageResource_.h"
 #import "JSAPIPageResourceGroupMemberResource_.h"
 #import "JSAPIPageResourceGroupResource_.h"
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
 #import "JSAPITemplateResource.h"
+#import "JSAPIValueWrapperBoolean_.h"
 #import "JSAPIApi.h"
 
 /**
@@ -31,7 +35,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Adds a new member to the group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN or self if open
 ///
 /// @param uniqueName The group unique name
 /// @param user The id and status for a user to add to the group
@@ -49,7 +53,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Adds multiple members to the group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param uniqueName The group unique name
 /// @param users The id and status for a list of users to add to the group
@@ -67,7 +71,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Create a group
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param groupResource The new group (optional)
 /// 
@@ -83,7 +87,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Create an group member template
-/// GroupMember Templates define a type of group member and the properties they have
+/// GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param groupMemberTemplateResource The group member template resource object (optional)
 /// 
@@ -99,7 +103,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Create a group template
-/// Group Templates define a type of group and the properties they have
+/// Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param groupTemplateResource The group template resource object (optional)
 /// 
@@ -115,7 +119,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Removes a group from the system
-/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+/// All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param uniqueName The group unique name
 /// 
@@ -131,7 +135,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Delete an group member template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -149,7 +153,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Delete a group template
-/// If cascade = 'detach', it will force delete the template even if it's attached to other objects
+/// If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param cascade The value needed to delete used templates (optional)
@@ -166,8 +170,28 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
     completionHandler: (void (^)(NSError* error)) handler;
 
 
-/// Loads a specific group's details
+/// Enable or disable notification of group messages
 /// 
+///
+/// @param uniqueName The group unique name
+/// @param userId The user id of the member or &#39;me&#39;
+/// @param disabled disabled
+/// 
+///  code:204 message:"No Content",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return void
+-(NSURLSessionTask*) disableGroupNotificationWithUniqueName: (NSString*) uniqueName
+    userId: (NSString*) userId
+    disabled: (JSAPIValueWrapperBoolean_*) disabled
+    completionHandler: (void (^)(NSError* error)) handler;
+
+
+/// Loads a specific group's details
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param uniqueName The group unique name
 /// 
@@ -183,7 +207,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Get group ancestors
-/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+/// Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
 ///
 /// @param uniqueName The group unique name
 /// 
@@ -199,7 +223,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Get a user from a group
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param uniqueName The group unique name
 /// @param userId The id of the user
@@ -217,7 +241,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Get a single group member template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -233,7 +257,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// List and search group member templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -253,7 +277,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Lists members of the group
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param uniqueName The group unique name
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -274,8 +298,28 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIPageResourceGroupMemberResource_* output, NSError* error)) handler;
 
 
-/// Get a single group template
+/// Get a list of group messages
+/// <b>Permissions Needed:</b> ANY
+///
+/// @param uniqueName The group unique name
+/// @param size The number of objects returned per page (optional) (default to 25)
+/// @param page The number of the page returned, starting with 1 (optional) (default to 1)
 /// 
+///  code:200 message:"OK",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIPageResourceChatMessageResource_*
+-(NSURLSessionTask*) getGroupMessagesWithUniqueName: (NSString*) uniqueName
+    size: (NSNumber*) size
+    page: (NSNumber*) page
+    completionHandler: (void (^)(JSAPIPageResourceChatMessageResource_* output, NSError* error)) handler;
+
+
+/// Get a single group template
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///
 /// @param _id The id of the template
 /// 
@@ -291,7 +335,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// List and search group templates
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -311,7 +355,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// List groups a user is in
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param userId The id of the user
 /// @param filterChildren Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent. (optional)
@@ -329,7 +373,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// List and search groups
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param filterTemplate Filter for groups using a specific template, by id (optional)
 /// @param filterMemberCount Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17 (optional)
@@ -360,8 +404,26 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPIPageResourceGroupResource_* output, NSError* error)) handler;
 
 
-/// Removes a user from a group
+/// Send a group message
 /// 
+///
+/// @param uniqueName The group unique name
+/// @param chatMessageRequest The chat message request (optional)
+/// 
+///  code:201 message:"Created",
+///  code:400 message:"Bad Request",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return JSAPIChatMessageResource*
+-(NSURLSessionTask*) postGroupMessageWithUniqueName: (NSString*) uniqueName
+    chatMessageRequest: (JSAPIChatMessageRequest*) chatMessageRequest
+    completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler;
+
+
+/// Removes a user from a group
+/// <b>Permissions Needed:</b> GROUP_ADMIN or self if open
 ///
 /// @param uniqueName The group unique name
 /// @param userId The id of the user to remove
@@ -379,7 +441,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Update a group
-/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+/// If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
 ///
 /// @param uniqueName The group unique name
 /// @param groupResource The updated group (optional)
@@ -397,7 +459,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Change a user's order
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param uniqueName The group unique name
 /// @param userId The user id of the member to modify
@@ -417,7 +479,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Change a user's membership properties
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param uniqueName The group unique name
 /// @param userId The user id of the member to modify
@@ -437,7 +499,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Change a user's status
-/// 
+/// <b>Permissions Needed:</b> GROUP_ADMIN
 ///
 /// @param uniqueName The group unique name
 /// @param userId The user id of the member to modify
@@ -457,7 +519,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Update an group member template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param groupMemberTemplateResource The group member template resource object (optional)
@@ -475,7 +537,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Update a group template
-/// 
+/// <b>Permissions Needed:</b> TEMPLATE_ADMIN
 ///
 /// @param _id The id of the template
 /// @param groupTemplateResource The group template resource object (optional)

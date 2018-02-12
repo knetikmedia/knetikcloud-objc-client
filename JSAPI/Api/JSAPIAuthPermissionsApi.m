@@ -53,7 +53,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///  @param permissionResource The permission resource object (optional)
 ///
 ///  @returns JSAPIPermissionResource*
@@ -108,7 +108,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///  @param permission The permission value 
 ///
 ///  @param force If true, removes permission assigned to roles (optional)
@@ -152,7 +152,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -182,7 +182,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///  @param permission The permission value 
 ///
 ///  @returns JSAPIPermissionResource*
@@ -220,7 +220,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -250,7 +250,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search permissions
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -289,7 +289,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -319,7 +319,7 @@ NSInteger kJSAPIAuthPermissionsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a permission
-/// 
+/// <b>Permissions Needed:</b> PERMISSIONS_ADMIN
 ///  @param permission The permission value 
 ///
 ///  @param permissionResource The permission resource object (optional)

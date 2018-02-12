@@ -53,7 +53,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///  @param relationship The new relationship (optional)
 ///
 ///  @returns JSAPIUserRelationshipResource*
@@ -108,7 +108,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///  @param _id The id of the relationship 
 ///
 ///  @returns void
@@ -146,7 +146,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -176,7 +176,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
 ///  @param _id The id of the relationship 
 ///
 ///  @returns JSAPIUserRelationshipResource*
@@ -214,7 +214,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -244,7 +244,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a list of user relationships
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned (optional, default to 1)
@@ -283,7 +283,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -313,7 +313,7 @@ NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///  @param _id The id of the relationship 
 ///
 ///  @param relationship The new relationship (optional)

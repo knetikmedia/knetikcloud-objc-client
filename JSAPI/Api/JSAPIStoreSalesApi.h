@@ -26,7 +26,7 @@ extern NSInteger kJSAPIStoreSalesApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///
 /// @param catalogSale The catalog sale object (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIStoreSalesApiMissingParamErrorCode;
 
 
 /// Delete a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///
 /// @param _id The id of the sale
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIStoreSalesApiMissingParamErrorCode;
 
 
 /// Get a single sale
-/// 
+/// <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 ///
 /// @param _id The id of the sale
 /// 
@@ -74,7 +74,7 @@ extern NSInteger kJSAPIStoreSalesApiMissingParamErrorCode;
 
 
 /// List and search sales
-/// 
+/// <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned, starting with 1 (optional) (default to 1)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIStoreSalesApiMissingParamErrorCode;
 
 
 /// Update a sale
-/// 
+/// <b>Permissions Needed:</b> SALES_ADMIN
 ///
 /// @param _id The id of the sale
 /// @param catalogSale The catalog sale object (optional)

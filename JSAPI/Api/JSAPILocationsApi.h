@@ -27,7 +27,7 @@ extern NSInteger kJSAPILocationsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Get a list of countries
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",
@@ -42,7 +42,7 @@ extern NSInteger kJSAPILocationsApiMissingParamErrorCode;
 
 
 /// Get the iso3 code of your country
-/// Determined by geo ip location
+/// Determined by geo ip location. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",
@@ -57,7 +57,7 @@ extern NSInteger kJSAPILocationsApiMissingParamErrorCode;
 
 
 /// Get a list of a country's states
-/// 
+/// <b>Permissions Needed:</b> ANY
 ///
 /// @param countryCodeIso3 The iso3 code of the country
 /// 
@@ -73,7 +73,7 @@ extern NSInteger kJSAPILocationsApiMissingParamErrorCode;
 
 
 /// Get the currency information of your country
-/// Determined by geo ip location, currency to country mapping and a fallback setting
+/// Determined by geo ip location, currency to country mapping and a fallback setting. <br><br><b>Permissions Needed:</b> ANY
 ///
 /// 
 ///  code:200 message:"OK",

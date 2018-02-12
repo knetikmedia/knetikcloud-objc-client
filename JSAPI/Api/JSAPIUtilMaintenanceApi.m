@@ -52,7 +52,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///  @returns void
 ///
 -(NSURLSessionTask*) deleteMaintenanceWithCompletionHandler: 
@@ -74,7 +74,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -104,7 +104,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
 
 ///
 /// Get current maintenance info
-/// Get current maintenance info. 404 if no maintenance.
+/// Get current maintenance info. 404 if no maintenance. <br><br><b>Permissions Needed:</b> ANY
 ///  @returns JSAPIMaintenance*
 ///
 -(NSURLSessionTask*) getMaintenanceWithCompletionHandler: 
@@ -126,7 +126,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -156,7 +156,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
 
 ///
 /// Set current maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///  @param maintenance The maintenance object (optional)
 ///
 ///  @returns void
@@ -211,7 +211,7 @@ NSInteger kJSAPIUtilMaintenanceApiMissingParamErrorCode = 234513;
 
 ///
 /// Update current maintenance info
-/// 
+/// <b>Permissions Needed:</b> MAINTENANCE_ADMIN
 ///  @param maintenance The maintenance object (optional)
 ///
 ///  @returns void

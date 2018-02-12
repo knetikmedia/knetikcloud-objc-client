@@ -57,7 +57,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a level schema
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param level The level schema definition (optional)
 ///
 ///  @returns JSAPILevelingResource*
@@ -112,7 +112,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param name The level schema name 
 ///
 ///  @returns void
@@ -150,7 +150,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -180,7 +180,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Retrieve a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param name The level schema name 
 ///
 ///  @returns JSAPILevelingResource*
@@ -218,7 +218,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -248,7 +248,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get the list of triggers that can be used to trigger a leveling progress update
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @returns NSArray<JSAPIBreTriggerResource>*
 ///
 -(NSURLSessionTask*) getLevelTriggersWithCompletionHandler: 
@@ -270,7 +270,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -300,7 +300,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search levels
-/// Get a list of levels schemas with optional filtering
+/// Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param filterName Filter for level schemas whose name contains a given string (optional)
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -345,7 +345,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -375,7 +375,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a user's progress for a given level schema
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN or self
 ///  @param userId The id of the user or 'me' 
 ///
 ///  @param name The level schema name 
@@ -430,7 +430,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -460,7 +460,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a user's progress for all level schemas
-/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
+/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
 ///  @param userId The id of the user or 'me' 
 ///
 ///  @param filterName Filter for level schemas whose name contains a given string (optional)
@@ -522,7 +522,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
@@ -552,7 +552,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Update or create a leveling progress record for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param name The level schema name 
@@ -641,7 +641,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Set leveling progress for a user
-/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+/// If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param userId The id of the user 
 ///
 ///  @param name The level schema name 
@@ -730,7 +730,7 @@ NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a level
-/// 
+/// <b>Permissions Needed:</b> LEVELING_ADMIN
 ///  @param name The level schema name 
 ///
 ///  @param varNewLevel The level schema definition (optional)

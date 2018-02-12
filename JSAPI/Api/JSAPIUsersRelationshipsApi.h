@@ -26,7 +26,7 @@ extern NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///
 /// @param relationship The new relationship (optional)
 /// 
@@ -42,7 +42,7 @@ extern NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode;
 
 
 /// Delete a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///
 /// @param _id The id of the relationship
 /// 
@@ -58,7 +58,7 @@ extern NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode;
 
 
 /// Get a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
 ///
 /// @param _id The id of the relationship
 /// 
@@ -74,7 +74,7 @@ extern NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode;
 
 
 /// Get a list of user relationships
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
 ///
 /// @param size The number of objects returned per page (optional) (default to 25)
 /// @param page The number of the page returned (optional) (default to 1)
@@ -94,7 +94,7 @@ extern NSInteger kJSAPIUsersRelationshipsApiMissingParamErrorCode;
 
 
 /// Update a user relationship
-/// 
+/// <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
 ///
 /// @param _id The id of the relationship
 /// @param relationship The new relationship (optional)
