@@ -30,7 +30,7 @@
 
 /* A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this user type, or be an extra not from the template [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The first line of the user's address (private) [optional]
  */
 @property(nonatomic) NSString* address;

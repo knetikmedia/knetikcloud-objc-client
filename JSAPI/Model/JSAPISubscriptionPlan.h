@@ -26,7 +26,7 @@
 @interface JSAPISubscriptionPlan : JSAPIObject
 
 
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 
 @property(nonatomic) NSString* availability;
 

@@ -33,7 +33,7 @@
 
 /* The additional properties for the subscription [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* Who can purchase this subscription [optional]
  */
 @property(nonatomic) NSString* availability;

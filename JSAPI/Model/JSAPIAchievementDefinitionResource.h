@@ -27,7 +27,7 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this resource type [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The date/time this resource was created in seconds since unix epoch [optional]
  */
 @property(nonatomic) NSNumber* createdDate;

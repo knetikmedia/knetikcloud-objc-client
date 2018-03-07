@@ -30,7 +30,7 @@
 @property(nonatomic) NSNumber* active;
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The unique ID for this category [optional]
  */
 @property(nonatomic) NSString* _id;

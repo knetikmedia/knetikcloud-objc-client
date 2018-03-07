@@ -27,7 +27,7 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The name of the category. Serves as the unique id [optional]
  */
 @property(nonatomic) NSString* name;
