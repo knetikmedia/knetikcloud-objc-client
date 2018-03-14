@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template if one is specified | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template if one is specified | [optional] 
 **createdDate** | **NSNumber*** | The date the device log was created | [optional] 
 **_description** | **NSString*** | The description of the device | [optional] 
 **deviceType** | **NSString*** | The type of device. Use mobile_device to specifically register mobile devices. This particular type will be used to send and receive notifications | [optional] 

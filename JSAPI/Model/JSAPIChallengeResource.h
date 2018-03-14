@@ -36,7 +36,7 @@
 @property(nonatomic) NSNumber* activities;
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The id of the campaign this challenge is a part of. The challenge must be tied to an active campaign before it will spawn events [optional]
  */
 @property(nonatomic) NSNumber* campaignId;

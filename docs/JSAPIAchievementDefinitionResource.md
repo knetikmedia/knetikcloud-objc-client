@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this resource type | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this resource type | [optional] 
 **createdDate** | **NSNumber*** | The date/time this resource was created in seconds since unix epoch | [optional] 
-**_description** | **NSString*** | The description of the achievement. Must be at least 2 characters in length. | [optional] 
+**_description** | **NSString*** | The description of the achievement | [optional] 
 **hidden** | **NSNumber*** | Whether the achievement is hidden from the user | 
 **name** | **NSString*** | The name of the achievement. Must be at least 6 characters in length. IMMUTABLE | 
 **requiredProgress** | **NSNumber*** | The required progress for the achievement definition | 

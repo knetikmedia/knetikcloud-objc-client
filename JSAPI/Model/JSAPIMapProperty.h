@@ -27,7 +27,7 @@
 
 /* A map/object of string to sub-property 
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* map;
+@property(nonatomic) NSDictionary* map;
 
 
 @end

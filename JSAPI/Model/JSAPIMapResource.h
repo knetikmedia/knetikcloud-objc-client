@@ -28,7 +28,7 @@
 
 @property(nonatomic) NSString* definition;
 
-@property(nonatomic) NSDictionary<JSAPIExpressionResource>* map;
+@property(nonatomic) NSDictionary* map;
 
 @property(nonatomic) NSString* type;
 

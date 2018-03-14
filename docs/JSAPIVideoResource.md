@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **NSNumber*** | Whether the video is available, based on various factors | [optional] 
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
 **author** | [**JSAPISimpleReferenceResourceLong_***](JSAPISimpleReferenceResourceLong_.md) | The original artist of the media | [optional] 
 **authored** | **NSNumber*** | The date the media was created as a unix timestamp in seconds | [optional] 
 **banned** | **NSNumber*** | Whether the video has been banned or not | [optional] 

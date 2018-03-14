@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **NSNumber*** | Whether the vendor is active.  Default &#x3D; true | [optional] 
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this user type, or be an extra not from the template | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this user type, or be an extra not from the template | [optional] 
 **createDate** | **NSNumber*** | The date the vendor was added. Unix timestamp in seconds | [optional] 
 **_description** | **NSString*** | A description of the vendor | [optional] 
 **_id** | **NSNumber*** | The id of the vendor | [optional] 

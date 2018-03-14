@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **NSNumber*** | Whether the campaign is active or not.  Defaults to false | [optional] 
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
 **createdDate** | **NSNumber*** | The date/time this resource was created in seconds since unix epoch | [optional] 
 **_id** | **NSNumber*** | The unique ID for that resource | [optional] 
 **leaderboardStrategy** | **NSString*** | The strategy for calculating the leaderboard. Defaults to highest score. Value MUST come from the list of available strategies from the Leaderboard Service | [optional] 

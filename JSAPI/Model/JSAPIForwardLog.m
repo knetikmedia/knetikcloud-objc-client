@@ -22,7 +22,7 @@
 
 + (NSDictionary *)modalDictionary {
 
-  return @{ @"endDate": @"end_date", @"errorMsg": @"error_msg", @"httpStatusCode": @"http_status_code", @"_id": @"id", @"payload": @"payload", @"response": @"response", @"retryCount": @"retry_count", @"startDate": @"start_date", @"url": @"url" };
+  return @{ @"endDate": @"end_date", @"errorMsg": @"error_msg", @"eventId": @"event_id", @"headers": @"headers", @"httpStatusCode": @"http_status_code", @"_id": @"id", @"method": @"method", @"payload": @"payload", @"response": @"response", @"retryCount": @"retry_count", @"retryable": @"retryable", @"ruleId": @"rule_id", @"startDate": @"start_date", @"success": @"success", @"url": @"url" };
 }
 
 /**
@@ -32,7 +32,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"endDate", @"errorMsg", @"httpStatusCode", @"_id", @"payload", @"response", @"retryCount", @"startDate", @"url"];
+  NSArray *optionalProperties = @[@"endDate", @"errorMsg", @"eventId", @"headers", @"httpStatusCode", @"_id", @"method", @"payload", @"response", @"retryCount", @"retryable", @"ruleId", @"startDate", @"success", @"url"];
 
   return [optionalProperties containsObject:propertyName];
 }

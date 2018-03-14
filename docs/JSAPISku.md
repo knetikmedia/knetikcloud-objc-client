@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template | [optional] 
 **currencyCode** | **NSString*** | The currency code for the SKU, a three letter string (ISO3) | 
 **_description** | **NSString*** | The friendly name of the SKU as it will appear on invoices and reports. Typically represents the option name like red, large, etc | 
 **inventory** | **NSNumber*** | The number of SKUs currently in stock | [optional] 

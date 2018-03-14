@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) |  | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) |  | [optional] 
 **availability** | **NSString*** |  | [optional] 
 **billGraceDays** | **NSNumber*** |  | [optional] 
 **consolidated** | **NSNumber*** |  | [optional] 

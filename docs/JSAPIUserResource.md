@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this user type, or be an extra not from the template | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this user type, or be an extra not from the template | [optional] 
 **address** | **NSString*** | The first line of the user&#39;s address (private) | [optional] 
 **address2** | **NSString*** | The second line of user&#39;s address (private) | [optional] 
 **avatarUrl** | **NSString*** | The url of the user&#39;s avatar image | [optional] 

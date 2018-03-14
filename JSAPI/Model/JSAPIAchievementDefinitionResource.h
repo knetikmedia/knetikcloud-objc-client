@@ -27,11 +27,11 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this resource type [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The date/time this resource was created in seconds since unix epoch [optional]
  */
 @property(nonatomic) NSNumber* createdDate;
-/* The description of the achievement. Must be at least 2 characters in length. [optional]
+/* The description of the achievement [optional]
  */
 @property(nonatomic) NSString* _description;
 /* Whether the achievement is hidden from the user 

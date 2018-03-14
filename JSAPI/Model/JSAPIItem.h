@@ -30,7 +30,7 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The behaviors linked to the item, describing various options and interactions. May not be included in item lists [optional]
  */
 @property(nonatomic) NSArray<JSAPIBehavior>* behaviors;

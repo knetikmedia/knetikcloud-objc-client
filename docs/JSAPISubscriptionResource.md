@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | The additional properties for the subscription | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | The additional properties for the subscription | [optional] 
 **availability** | **NSString*** | Who can purchase this subscription | [optional] 
 **behaviors** | [**NSArray&lt;JSAPIBehavior&gt;***](JSAPIBehavior.md) | The behaviors linked to the item, describing various options and interactions. May not be included in item lists | [optional] 
 **category** | **NSString*** | The category of the subscription | [optional] 

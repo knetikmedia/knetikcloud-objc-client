@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template | [optional] 
 **behaviors** | [**NSArray&lt;JSAPIBehavior&gt;***](JSAPIBehavior.md) | The behaviors linked to the item, describing various options and interactions. May not be included in item lists | [optional] 
 **category** | **NSString*** | A category for filtering items | [optional] 
 **createdDate** | **NSNumber*** | The date the item was created, unix timestamp in seconds | [optional] 

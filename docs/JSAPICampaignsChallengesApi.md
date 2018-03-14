@@ -1280,7 +1280,7 @@ Name | Type | Description  | Notes
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
     validateSettings: (NSNumber*) validateSettings
-        completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSError* error)) handler;
 ```
 
 Update a challenge activity
@@ -1310,10 +1310,7 @@ JSAPICampaignsChallengesApi*apiInstance = [[JSAPICampaignsChallengesApi alloc] i
               challengeId:challengeId
               challengeActivityResource:challengeActivityResource
               validateSettings:validateSettings
-          completionHandler: ^(JSAPIChallengeActivityResource* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
+          completionHandler: ^(NSError* error) {
                         if (error) {
                             NSLog(@"Error calling JSAPICampaignsChallengesApi->updateChallengeActivity: %@", error);
                         }
@@ -1331,7 +1328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JSAPIChallengeActivityResource***](JSAPIChallengeActivityResource.md)
+void (empty response body)
 
 ### Authorization
 

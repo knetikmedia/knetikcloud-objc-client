@@ -30,7 +30,7 @@
 
 @property(nonatomic) NSString* globalDefId;
 
-@property(nonatomic) NSDictionary<JSAPIExpressionResource>* scopes;
+@property(nonatomic) NSDictionary* scopes;
 
 @property(nonatomic) NSString* type;
 

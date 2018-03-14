@@ -30,7 +30,7 @@
 
 @property(nonatomic) NSString* eventName;
 
-@property(nonatomic) NSDictionary<JSAPIExpressionResource>* parameters;
+@property(nonatomic) NSDictionary* parameters;
 
 @property(nonatomic) NSString* type;
 

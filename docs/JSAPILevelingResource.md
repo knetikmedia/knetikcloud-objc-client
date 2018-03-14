@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
 **createdDate** | **NSNumber*** | The date the leveling schema was created | [optional] 
 **_description** | **NSString*** | The description of the leveling schema | [optional] 
 **name** | **NSString*** | The name of the leveling schema.  IMMUTABLE | 

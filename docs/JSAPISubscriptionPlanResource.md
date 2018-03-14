@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this subscription | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this subscription | [optional] 
 **billingCycleLength** | **NSNumber*** | The length of the billing cycle in number of billing cycle unit | 
 **billingCycleUnit** | **NSString*** | The time period unit to apply to the length of billing cycles | 
 **consolidated** | **NSNumber*** | Whether this plan will be renewed on the consolidated billing cycle | 

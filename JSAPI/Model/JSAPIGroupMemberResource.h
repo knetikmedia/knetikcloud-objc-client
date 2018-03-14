@@ -33,7 +33,7 @@
 
 /* A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this type, or be an extra not from the template [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The group. Id is the unique name [optional]
  */
 @property(nonatomic) JSAPISimpleGroupResource* group;

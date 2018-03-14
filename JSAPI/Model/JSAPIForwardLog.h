@@ -27,12 +27,18 @@
 @property(nonatomic) NSNumber* endDate;
 
 @property(nonatomic) NSString* errorMsg;
+
+@property(nonatomic) NSString* eventId;
+
+@property(nonatomic) NSString* headers;
 /* The http status code the forward log entry [optional]
  */
 @property(nonatomic) NSNumber* httpStatusCode;
 /* The id of the forward log entry [optional]
  */
 @property(nonatomic) NSString* _id;
+
+@property(nonatomic) NSString* method;
 /* The payload of the forward log entry [optional]
  */
 @property(nonatomic) NSObject* payload;
@@ -42,9 +48,15 @@
 /* The retry count of the forward log entry [optional]
  */
 @property(nonatomic) NSNumber* retryCount;
+
+@property(nonatomic) NSNumber* retryable;
+
+@property(nonatomic) NSString* ruleId;
 /* The start date of the forward log entry [optional]
  */
 @property(nonatomic) NSNumber* startDate;
+
+@property(nonatomic) NSNumber* success;
 /* The endpoint url of the forward log entry [optional]
  */
 @property(nonatomic) NSString* url;

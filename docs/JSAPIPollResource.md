@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **NSNumber*** | Whether the poll is active | 
-**additionalProperties** | [**NSDictionary&lt;JSAPIProperty&gt;***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
+**additionalProperties** | [**NSDictionary***](JSAPIProperty.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] 
 **answers** | [**NSArray&lt;JSAPIPollAnswerResource&gt;***](JSAPIPollAnswerResource.md) | The answers to the poll | 
 **category** | [**JSAPINestedCategory***](JSAPINestedCategory.md) | The category for the poll | 
 **createdDate** | **NSNumber*** | The date/time this resource was created in seconds since unix epoch | [optional] 
