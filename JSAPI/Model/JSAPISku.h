@@ -27,7 +27,7 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type, or be an extra not from the template [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The currency code for the SKU, a three letter string (ISO3) 
  */
 @property(nonatomic) NSString* currencyCode;

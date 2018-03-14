@@ -30,7 +30,7 @@
 
 /* A map of additional properties, keyed on the property name.  Must match the names and types defined in the template if one is specified [optional]
  */
-@property(nonatomic) NSDictionary<JSAPIProperty>* additionalProperties;
+@property(nonatomic) NSDictionary* additionalProperties;
 /* The date the device log was created [optional]
  */
 @property(nonatomic) NSNumber* createdDate;
