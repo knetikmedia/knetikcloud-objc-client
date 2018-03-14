@@ -415,12 +415,12 @@ extern NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return JSAPIChallengeActivityResource*
+/// @return void
 -(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
     validateSettings: (NSNumber*) validateSettings
-    completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSError* error)) handler;
 
 
 /// Update an challenge activity template

@@ -1,6 +1,6 @@
 # JSAPIUsersInventoryApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -1260,7 +1260,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) updateUserInventoryStatusWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
-    inventoryStatus: (NSString*) inventoryStatus
+    inventoryStatus: (JSAPIInventoryStatusWrapper*) inventoryStatus
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -1281,7 +1281,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSNumber* _id = @56; // The id of the user inventory
-NSString* inventoryStatus = inventoryStatus_example; // The inventory status object (optional)
+JSAPIInventoryStatusWrapper* inventoryStatus = [[JSAPIInventoryStatusWrapper alloc] init]; // The inventory status object (optional)
 
 JSAPIUsersInventoryApi*apiInstance = [[JSAPIUsersInventoryApi alloc] init];
 
@@ -1302,7 +1302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **_id** | **NSNumber***| The id of the user inventory | 
- **inventoryStatus** | **NSString***| The inventory status object | [optional] 
+ **inventoryStatus** | [**JSAPIInventoryStatusWrapper***](JSAPIInventoryStatusWrapper.md)| The inventory status object | [optional] 
 
 ### Return type
 

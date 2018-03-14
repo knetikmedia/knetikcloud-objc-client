@@ -53,7 +53,7 @@ NSInteger kJSAPIConfigsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a new config
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///  @param config The config object (optional)
 ///
 ///  @returns JSAPIConfig*

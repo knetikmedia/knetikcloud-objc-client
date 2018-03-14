@@ -3,6 +3,7 @@
 #import "JSAPIApiClient.h"
 #import "JSAPIEntitlementGrantRequest.h"
 #import "JSAPIEntitlementItem.h"
+#import "JSAPIInventoryStatusWrapper.h"
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIItemTemplateResource.h"
 #import "JSAPIPageResourceEntitlementItem_.h"
@@ -1581,7 +1582,7 @@ NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) updateUserInventoryStatusWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
-    inventoryStatus: (NSString*) inventoryStatus
+    inventoryStatus: (JSAPIInventoryStatusWrapper*) inventoryStatus
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

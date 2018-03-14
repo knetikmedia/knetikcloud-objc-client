@@ -172,7 +172,7 @@ NSInteger kJSAPIMessagingApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete an existing message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///  @param _id The message_template id 
 ///
 ///  @returns void
@@ -240,7 +240,7 @@ NSInteger kJSAPIMessagingApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///  @param _id The message_template id 
 ///
 ///  @returns JSAPIMessageTemplateResource*
@@ -308,7 +308,7 @@ NSInteger kJSAPIMessagingApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search message templates
-/// Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+/// Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
 ///  @param filterTagset Filter for message templates with at least one of a specified set of tags (separated by comma) (optional)
 ///
 ///  @param filterTagIntersection Filter for message templates with all of a specified set of tags (separated by comma) (optional)
@@ -400,7 +400,7 @@ NSInteger kJSAPIMessagingApiMissingParamErrorCode = 234513;
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) sendMessage1WithMessageResource: (JSAPIMessageResource*) messageResource
+-(NSURLSessionTask*) sendMessageWithMessageResource: (JSAPIMessageResource*) messageResource
     completionHandler: (void (^)(NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messaging/message"];
 
@@ -835,7 +835,7 @@ NSInteger kJSAPIMessagingApiMissingParamErrorCode = 234513;
 
 ///
 /// Update an existing message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///  @param _id The message_template id 
 ///
 ///  @param messageTemplateResource The message template (optional)

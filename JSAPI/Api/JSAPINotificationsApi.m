@@ -8,8 +8,8 @@
 #import "JSAPIPageResourceNotificationUserTypeResource_.h"
 #import "JSAPIPageResourceUserNotificationResource_.h"
 #import "JSAPIResult.h"
+#import "JSAPIUserNotificationStatusWrapper.h"
 #import "JSAPIValueWrapperBoolean_.h"
-#import "JSAPIValueWrapperString_.h"
 
 
 @interface JSAPINotificationsApi ()
@@ -59,7 +59,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Create a notification type
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param notificationType notificationType (optional)
 ///
 ///  @returns JSAPINotificationTypeResource*
@@ -114,7 +114,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Delete a notification type
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param _id id 
 ///
 ///  @returns void
@@ -182,7 +182,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a single notification type
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param _id id 
 ///
 ///  @returns JSAPINotificationTypeResource*
@@ -250,7 +250,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// List and search notification types
-/// Get a list of notification type with optional filtering
+/// Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param size The number of objects returned per page (optional, default to 25)
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -319,7 +319,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// View a user's notification settings for a type
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 ///  @param typeId The id of the topic 
 ///
 ///  @param userId The id of the subscriber or 'me' 
@@ -404,7 +404,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// View a user's notification settings
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 ///  @param userId The id of the subscriber or 'me' 
 ///
 ///  @param size The number of objects returned per page (optional, default to 25)
@@ -490,7 +490,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get notifications
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 ///  @param _id The id of the user or 'me' 
 ///
 ///  @param filterStatus filter for notifications with a given status (optional)
@@ -582,7 +582,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Send a notification
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param notification notification (optional)
 ///
 ///  @returns JSAPINotificationResource*
@@ -637,7 +637,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Set notification status
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 ///  @param userId The id of the user or 'me' 
 ///
 ///  @param notificationId The id of the notification 
@@ -648,7 +648,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setUserNotificationStatusWithUserId: (NSString*) userId
     notificationId: (NSString*) notificationId
-    notification: (JSAPIValueWrapperString_*) notification
+    notification: (JSAPIUserNotificationStatusWrapper*) notification
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {
@@ -726,7 +726,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Enable or disable direct notifications for a user
-/// Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+/// Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 ///  @param typeId The id of the topic 
 ///
 ///  @param userId The id of the subscriber or 'me' 
@@ -826,7 +826,7 @@ NSInteger kJSAPINotificationsApiMissingParamErrorCode = 234513;
 
 ///
 /// Update a notificationType
-/// 
+/// <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 ///  @param _id id 
 ///
 ///  @param notificationType notificationType (optional)

@@ -314,7 +314,7 @@ NSInteger kJSAPIFulfillmentApiMissingParamErrorCode = 234513;
 ///
 /// Update a fulfillment type
 /// <b>Permissions Needed:</b> FULFILLMENT_ADMIN
-///  @param _id The id 
+///  @param _id The fulfillment id 
 ///
 ///  @param fulfillmentType The fulfillment type (optional)
 ///

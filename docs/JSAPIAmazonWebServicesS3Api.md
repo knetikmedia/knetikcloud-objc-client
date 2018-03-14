@@ -1,6 +1,6 @@
 # JSAPIAmazonWebServicesS3Api
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSString* bucket = @"bucket_example"; // S3 bucket name (optional)
-NSString* path = @"path_example"; // The path to the file relative the bucket (the s3 object key) (optional)
+NSString* path = @"path_example"; // The path to the file relative to the bucket (the s3 object key) (optional)
 NSNumber* expiration = @60; // The number of seconds this URL will be valid. Default to 60 (optional) (default to 60)
 
 JSAPIAmazonWebServicesS3Api*apiInstance = [[JSAPIAmazonWebServicesS3Api alloc] init];
@@ -56,7 +56,7 @@ JSAPIAmazonWebServicesS3Api*apiInstance = [[JSAPIAmazonWebServicesS3Api alloc] i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **NSString***| S3 bucket name | [optional] 
- **path** | **NSString***| The path to the file relative the bucket (the s3 object key) | [optional] 
+ **path** | **NSString***| The path to the file relative to the bucket (the s3 object key) | [optional] 
  **expiration** | **NSNumber***| The number of seconds this URL will be valid. Default to 60 | [optional] [default to 60]
 
 ### Return type

@@ -67,7 +67,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 
 
 /// Delete an existing message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///
 /// @param _id The message_template id
 /// 
@@ -83,7 +83,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 
 
 /// Get a single message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///
 /// @param _id The message_template id
 /// 
@@ -99,7 +99,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 
 
 /// List and search message templates
-/// Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+/// Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
 ///
 /// @param filterTagset Filter for message templates with at least one of a specified set of tags (separated by comma) (optional)
 /// @param filterTagIntersection Filter for message templates with all of a specified set of tags (separated by comma) (optional)
@@ -136,7 +136,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return void
--(NSURLSessionTask*) sendMessage1WithMessageResource: (JSAPIMessageResource*) messageResource
+-(NSURLSessionTask*) sendMessageWithMessageResource: (JSAPIMessageResource*) messageResource
     completionHandler: (void (^)(NSError* error)) handler;
 
 
@@ -253,7 +253,7 @@ extern NSInteger kJSAPIMessagingApiMissingParamErrorCode;
 
 
 /// Update an existing message template
-/// <b>Permissions Needed:</b> ARTICLES_ADMIN
+/// <b>Permissions Needed:</b> MESSAGING_ADMIN
 ///
 /// @param _id The message_template id
 /// @param messageTemplateResource The message template (optional)

@@ -6,6 +6,7 @@
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
 #import "JSAPISubscriptionPriceOverrideRequest.h"
+#import "JSAPISubscriptionStatusWrapper.h"
 #import "JSAPIApi.h"
 
 /**
@@ -128,7 +129,7 @@ extern NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode;
 ///
 /// @param userId The id of the user
 /// @param inventoryId The id of the user&#39;s inventory
-/// @param status The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;)
+/// @param status The new status for the subscription
 /// 
 ///  code:204 message:"No Content",
 ///  code:400 message:"Bad Request",
@@ -139,7 +140,7 @@ extern NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode;
 /// @return void
 -(NSURLSessionTask*) setSubscriptionStatusWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    status: (JSAPIStringWrapper*) status
+    status: (JSAPISubscriptionStatusWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler;
 
 

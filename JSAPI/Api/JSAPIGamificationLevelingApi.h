@@ -62,7 +62,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Retrieve a level
-/// <b>Permissions Needed:</b> LEVELING_ADMIN
+/// <b>Permissions Needed:</b> LEVELING_USER
 ///
 /// @param name The level schema name
 /// 
@@ -93,7 +93,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// List and search levels
-/// Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
+/// Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER
 ///
 /// @param filterName Filter for level schemas whose name contains a given string (optional)
 /// @param size The number of objects returned per page (optional) (default to 25)
@@ -115,7 +115,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Get a user's progress for a given level schema
-/// <b>Permissions Needed:</b> LEVELING_ADMIN or self
+/// <b>Permissions Needed:</b> LEVELING_USER or self
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param name The level schema name
@@ -133,7 +133,7 @@ extern NSInteger kJSAPIGamificationLevelingApiMissingParamErrorCode;
 
 
 /// Get a user's progress for all level schemas
-/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
+/// Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self
 ///
 /// @param userId The id of the user or &#39;me&#39;
 /// @param filterName Filter for level schemas whose name contains a given string (optional)

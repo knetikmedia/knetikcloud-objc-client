@@ -7,8 +7,10 @@
 #import "JSAPIActivityOccurrenceResults.h"
 #import "JSAPIActivityOccurrenceResultsResource.h"
 #import "JSAPIActivityOccurrenceSettingsResource.h"
+#import "JSAPIActivityOccurrenceStatusWrapper.h"
 #import "JSAPIActivityResource.h"
 #import "JSAPIActivityUserResource.h"
+#import "JSAPIActivityUserStatusWrapper.h"
 #import "JSAPICreateActivityOccurrenceRequest.h"
 #import "JSAPIIntWrapper.h"
 #import "JSAPIPageResourceActivityOccurrenceResource_.h"
@@ -16,7 +18,6 @@
 #import "JSAPIPageResourceTemplateResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPITemplateResource.h"
-#import "JSAPIValueWrapperString_.h"
 
 
 @interface JSAPIActivitiesApi ()
@@ -618,7 +619,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Load a single activity occurrence details
-/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+/// <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @returns JSAPIActivityOccurrenceResource*
@@ -823,7 +824,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// List activity occurrences
-/// <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+/// <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 ///  @param filterActivity Filter for occurrences of the given activity ID (optional)
 ///
 ///  @param filterStatus Filter for occurrences in the given status (optional)
@@ -1013,7 +1014,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Sets the status of an activity occurrence to FINISHED and logs metrics
-/// In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+/// In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @param activityOccurrenceResults The activity occurrence object (optional)
@@ -1085,7 +1086,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Sets the settings of an activity occurrence
-/// 
+/// <b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @param settings The new settings (optional)
@@ -1168,7 +1169,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///
 -(NSURLSessionTask*) setUserStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
     userId: (NSString*) userId
-    status: (NSString*) status
+    status: (JSAPIActivityUserStatusWrapper*) status
     completionHandler: (void (^)(JSAPIActivityUserResource* output, NSError* error)) handler {
     // verify the required parameter 'activityOccurrenceId' is set
     if (activityOccurrenceId == nil) {
@@ -1318,7 +1319,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 
 ///
 /// Update the status of an activity occurrence
-/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+/// If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 ///  @param activityOccurrenceId The id of the activity occurrence 
 ///
 ///  @param activityOccurrenceStatus The activity occurrence status object (optional)
@@ -1326,7 +1327,7 @@ NSInteger kJSAPIActivitiesApiMissingParamErrorCode = 234513;
 ///  @returns void
 ///
 -(NSURLSessionTask*) updateActivityOccurrenceStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceStatus: (JSAPIValueWrapperString_*) activityOccurrenceStatus
+    activityOccurrenceStatus: (JSAPIActivityOccurrenceStatusWrapper*) activityOccurrenceStatus
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'activityOccurrenceId' is set
     if (activityOccurrenceId == nil) {

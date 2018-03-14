@@ -245,7 +245,7 @@ extern NSInteger kJSAPIChatApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return JSAPIChatMessageResource*
--(NSURLSessionTask*) sendMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
+-(NSURLSessionTask*) sendChatMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
     completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler;
 
 

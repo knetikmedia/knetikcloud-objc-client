@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"https://sandbox.knetikcloud.com";
+        _host = @"https://jsapi-integration.us-east-1.elasticbeanstalk.com";
         _username = @"";
         _password = @"";
         _accessToken= @"";

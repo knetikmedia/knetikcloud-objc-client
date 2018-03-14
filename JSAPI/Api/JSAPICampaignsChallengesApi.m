@@ -1513,20 +1513,20 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
 ///
 ///  @param validateSettings Whether to validate the settings being sent against the available settings on the base activity. (optional, default to false)
 ///
-///  @returns JSAPIChallengeActivityResource*
+///  @returns void
 ///
 -(NSURLSessionTask*) updateChallengeActivityWithId: (NSNumber*) _id
     challengeId: (NSNumber*) challengeId
     challengeActivityResource: (JSAPIChallengeActivityResource*) challengeActivityResource
     validateSettings: (NSNumber*) validateSettings
-    completionHandler: (void (^)(JSAPIChallengeActivityResource* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
             NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
+            handler(error);
         }
         return nil;
     }
@@ -1537,7 +1537,7 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"challengeId"] };
             NSError* error = [NSError errorWithDomain:kJSAPICampaignsChallengesApiErrorDomain code:kJSAPICampaignsChallengesApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
+            handler(error);
         }
         return nil;
     }
@@ -1589,10 +1589,10 @@ NSInteger kJSAPICampaignsChallengesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"JSAPIChallengeActivityResource*"
+                              responseType: nil
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((JSAPIChallengeActivityResource*)data, error);
+                                    handler(error);
                                 }
                             }];
 }

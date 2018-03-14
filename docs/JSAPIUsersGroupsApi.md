@@ -1,6 +1,6 @@
 # JSAPIUsersGroupsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -514,6 +514,8 @@ void (empty response body)
 ```
 
 Enable or disable notification of group messages
+
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```objc
@@ -1580,7 +1582,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) updateGroupMemberStatusWithUniqueName: (NSString*) uniqueName
     userId: (NSNumber*) userId
-    status: (NSString*) status
+    status: (JSAPIGroupMemberStatusWrapper*) status
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -1601,7 +1603,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSString* uniqueName = @"uniqueName_example"; // The group unique name
 NSNumber* userId = @56; // The user id of the member to modify
-NSString* status = status_example; // The new status for the user
+JSAPIGroupMemberStatusWrapper* status = [[JSAPIGroupMemberStatusWrapper alloc] init]; // The new status for the user
 
 JSAPIUsersGroupsApi*apiInstance = [[JSAPIUsersGroupsApi alloc] init];
 
@@ -1622,7 +1624,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **NSString***| The group unique name | 
  **userId** | **NSNumber***| The user id of the member to modify | 
- **status** | **NSString***| The new status for the user | 
+ **status** | [**JSAPIGroupMemberStatusWrapper***](JSAPIGroupMemberStatusWrapper.md)| The new status for the user | 
 
 ### Return type
 

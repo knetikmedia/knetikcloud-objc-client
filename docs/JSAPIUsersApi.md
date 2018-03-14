@@ -1,13 +1,13 @@
 # JSAPIUsersApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUserTag**](JSAPIUsersApi.md#addusertag) | **POST** /users/{user_id}/tags | Add a tag to a user
 [**createUserTemplate**](JSAPIUsersApi.md#createusertemplate) | **POST** /users/templates | Create a user template
 [**deleteUserTemplate**](JSAPIUsersApi.md#deleteusertemplate) | **DELETE** /users/templates/{id} | Delete a user template
-[**getDirectMessages1**](JSAPIUsersApi.md#getdirectmessages1) | **GET** /users/users/{recipient_id}/messages | Get a list of direct messages with this user
+[**getDirectMessages1**](JSAPIUsersApi.md#getdirectmessages1) | **GET** /users/{recipient_id}/messages | Get a list of direct messages with this user
 [**getUser**](JSAPIUsersApi.md#getuser) | **GET** /users/{id} | Get a single user
 [**getUserTags**](JSAPIUsersApi.md#getusertags) | **GET** /users/{user_id}/tags | List tags for a user
 [**getUserTemplate**](JSAPIUsersApi.md#getusertemplate) | **GET** /users/templates/{id} | Get a single user template

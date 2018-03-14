@@ -230,7 +230,7 @@ NSInteger kJSAPIUsersFriendshipsApiMissingParamErrorCode = 234513;
 
 ///
 /// Returns the invite token
-/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
+/// This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 ///  @param userId The id of the user or 'me' if logged in 
 ///
 ///  @returns NSString*

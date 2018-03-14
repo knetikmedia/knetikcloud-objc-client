@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIEntitlementGrantRequest.h"
 #import "JSAPIEntitlementItem.h"
+#import "JSAPIInventoryStatusWrapper.h"
 #import "JSAPIInvoiceResource.h"
 #import "JSAPIItemTemplateResource.h"
 #import "JSAPIPageResourceEntitlementItem_.h"
@@ -427,7 +428,7 @@ extern NSInteger kJSAPIUsersInventoryApiMissingParamErrorCode;
 /// @return void
 -(NSURLSessionTask*) updateUserInventoryStatusWithUserId: (NSNumber*) userId
     _id: (NSNumber*) _id
-    inventoryStatus: (NSString*) inventoryStatus
+    inventoryStatus: (JSAPIInventoryStatusWrapper*) inventoryStatus
     completionHandler: (void (^)(NSError* error)) handler;
 
 

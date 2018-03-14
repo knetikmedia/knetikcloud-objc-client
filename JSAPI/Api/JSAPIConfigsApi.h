@@ -26,7 +26,7 @@ extern NSInteger kJSAPIConfigsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Create a new config
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> CONFIGS_ADMIN
 ///
 /// @param config The config object (optional)
 /// 

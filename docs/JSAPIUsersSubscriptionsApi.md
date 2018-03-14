@@ -1,6 +1,6 @@
 # JSAPIUsersSubscriptionsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -330,7 +330,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) setSubscriptionStatusWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    status: (JSAPIStringWrapper*) status
+    status: (JSAPISubscriptionStatusWrapper*) status
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
@@ -351,7 +351,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* userId = @56; // The id of the user
 NSNumber* inventoryId = @56; // The id of the user's inventory
-JSAPIStringWrapper* status = [[JSAPIStringWrapper alloc] init]; // The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
+JSAPISubscriptionStatusWrapper* status = [[JSAPISubscriptionStatusWrapper alloc] init]; // The new status for the subscription
 
 JSAPIUsersSubscriptionsApi*apiInstance = [[JSAPIUsersSubscriptionsApi alloc] init];
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSNumber***| The id of the user | 
  **inventoryId** | **NSNumber***| The id of the user&#39;s inventory | 
- **status** | [**JSAPIStringWrapper***](JSAPIStringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
+ **status** | [**JSAPISubscriptionStatusWrapper***](JSAPISubscriptionStatusWrapper.md)| The new status for the subscription | 
 
 ### Return type
 

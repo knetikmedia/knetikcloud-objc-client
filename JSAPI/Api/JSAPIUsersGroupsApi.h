@@ -2,6 +2,7 @@
 #import "JSAPIChatMessageRequest.h"
 #import "JSAPIChatMessageResource.h"
 #import "JSAPIGroupMemberResource.h"
+#import "JSAPIGroupMemberStatusWrapper.h"
 #import "JSAPIGroupResource.h"
 #import "JSAPIPageResourceChatMessageResource_.h"
 #import "JSAPIPageResourceGroupMemberResource_.h"
@@ -171,7 +172,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 
 
 /// Enable or disable notification of group messages
-/// 
+/// <b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///
 /// @param uniqueName The group unique name
 /// @param userId The user id of the member or &#39;me&#39;
@@ -514,7 +515,7 @@ extern NSInteger kJSAPIUsersGroupsApiMissingParamErrorCode;
 /// @return void
 -(NSURLSessionTask*) updateGroupMemberStatusWithUniqueName: (NSString*) uniqueName
     userId: (NSNumber*) userId
-    status: (NSString*) status
+    status: (JSAPIGroupMemberStatusWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler;
 
 

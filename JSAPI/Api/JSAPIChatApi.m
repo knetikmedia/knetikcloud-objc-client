@@ -905,7 +905,7 @@ NSInteger kJSAPIChatApiMissingParamErrorCode = 234513;
 ///
 ///  @returns JSAPIChatMessageResource*
 ///
--(NSURLSessionTask*) sendMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
+-(NSURLSessionTask*) sendChatMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
     completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/chat/messages"];
 

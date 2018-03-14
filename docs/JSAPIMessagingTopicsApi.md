@@ -1,12 +1,11 @@
 # JSAPIMessagingTopicsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**disableTopicSubscriber**](JSAPIMessagingTopicsApi.md#disabletopicsubscriber) | **PUT** /messaging/topics/{id}/subscribers/{user_id}/disabled | Enable or disable messages for a user
 [**getTopicSubscriber**](JSAPIMessagingTopicsApi.md#gettopicsubscriber) | **GET** /messaging/topics/{id}/subscribers/{user_id} | Get a subscriber to a topic
-[**getTopicSubscribers**](JSAPIMessagingTopicsApi.md#gettopicsubscribers) | **GET** /messaging/topics/{id}/subscribers | Get all subscribers to a topic
 [**getUserTopics**](JSAPIMessagingTopicsApi.md#getusertopics) | **GET** /users/{id}/topics | Get all messaging topics for a given user
 
 
@@ -20,7 +19,7 @@ Method | HTTP request | Description
 
 Enable or disable messages for a user
 
-Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```objc
@@ -82,7 +81,7 @@ void (empty response body)
 
 Get a subscriber to a topic
 
-<b>Permissions Needed:</b> TOPICS_ADMIN
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```objc
@@ -135,64 +134,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getTopicSubscribers**
-```objc
--(NSURLSessionTask*) getTopicSubscribersWithId: (NSString*) _id
-        completionHandler: (void (^)(JSAPIPageResourceTopicSubscriberResource_* output, NSError* error)) handler;
-```
-
-Get all subscribers to a topic
-
-<b>Permissions Needed:</b> TOPICS_ADMIN
-
-### Example 
-```objc
-JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_client_credentials_grant)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
-// Configure OAuth2 access token for authorization: (authentication scheme: oauth2_password_grant)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
-
-
-NSString* _id = @"_id_example"; // The id of the topic
-
-JSAPIMessagingTopicsApi*apiInstance = [[JSAPIMessagingTopicsApi alloc] init];
-
-// Get all subscribers to a topic
-[apiInstance getTopicSubscribersWithId:_id
-          completionHandler: ^(JSAPIPageResourceTopicSubscriberResource_* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling JSAPIMessagingTopicsApi->getTopicSubscribers: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_id** | **NSString***| The id of the topic | 
-
-### Return type
-
-[**JSAPIPageResourceTopicSubscriberResource_***](JSAPIPageResourceTopicSubscriberResource_.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getUserTopics**
 ```objc
 -(NSURLSessionTask*) getUserTopicsWithId: (NSString*) _id
@@ -201,7 +142,7 @@ Name | Type | Description  | Notes
 
 Get all messaging topics for a given user
 
-<b>Permissions Needed:</b> TOPICS_ADMIN
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```objc

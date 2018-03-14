@@ -1,6 +1,6 @@
 # JSAPINotificationsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,6 +24,8 @@ Method | HTTP request | Description
 ```
 
 Create a notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```objc
@@ -81,6 +83,8 @@ Name | Type | Description  | Notes
 
 Delete a notification type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -133,6 +137,8 @@ void (empty response body)
 ```
 
 Get a single notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```objc
@@ -192,7 +198,7 @@ Name | Type | Description  | Notes
 
 List and search notification types
 
-Get a list of notification type with optional filtering
+Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```objc
@@ -257,6 +263,8 @@ Name | Type | Description  | Notes
 
 View a user's notification settings for a type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -318,6 +326,8 @@ Name | Type | Description  | Notes
 ```
 
 View a user's notification settings
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```objc
@@ -388,6 +398,8 @@ Name | Type | Description  | Notes
 
 Get notifications
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -456,6 +468,8 @@ Name | Type | Description  | Notes
 
 Send a notification
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -508,11 +522,13 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) setUserNotificationStatusWithUserId: (NSString*) userId
     notificationId: (NSString*) notificationId
-    notification: (JSAPIValueWrapperString_*) notification
+    notification: (JSAPIUserNotificationStatusWrapper*) notification
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
 Set notification status
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```objc
@@ -527,7 +543,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSString* userId = @"userId_example"; // The id of the user or 'me'
 NSString* notificationId = @"notificationId_example"; // The id of the notification
-JSAPIValueWrapperString_* notification = [[JSAPIValueWrapperString_ alloc] init]; // status (optional)
+JSAPIUserNotificationStatusWrapper* notification = [[JSAPIUserNotificationStatusWrapper alloc] init]; // status (optional)
 
 JSAPINotificationsApi*apiInstance = [[JSAPINotificationsApi alloc] init];
 
@@ -548,7 +564,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **NSString***| The id of the user or &#39;me&#39; | 
  **notificationId** | **NSString***| The id of the notification | 
- **notification** | [**JSAPIValueWrapperString_***](JSAPIValueWrapperString_.md)| status | [optional] 
+ **notification** | [**JSAPIUserNotificationStatusWrapper***](JSAPIUserNotificationStatusWrapper.md)| status | [optional] 
 
 ### Return type
 
@@ -575,7 +591,7 @@ void (empty response body)
 
 Enable or disable direct notifications for a user
 
-Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```objc
@@ -636,6 +652,8 @@ void (empty response body)
 ```
 
 Update a notificationType
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```objc

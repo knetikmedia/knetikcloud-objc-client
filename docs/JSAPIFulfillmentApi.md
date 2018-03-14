@@ -1,6 +1,6 @@
 # JSAPIFulfillmentApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -270,7 +270,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-NSNumber* _id = @56; // The id
+NSNumber* _id = @56; // The fulfillment id
 JSAPIFulfillmentType* fulfillmentType = [[JSAPIFulfillmentType alloc] init]; // The fulfillment type (optional)
 
 JSAPIFulfillmentApi*apiInstance = [[JSAPIFulfillmentApi alloc] init];
@@ -289,7 +289,7 @@ JSAPIFulfillmentApi*apiInstance = [[JSAPIFulfillmentApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_id** | **NSNumber***| The id | 
+ **_id** | **NSNumber***| The fulfillment id | 
  **fulfillmentType** | [**JSAPIFulfillmentType***](JSAPIFulfillmentType.md)| The fulfillment type | [optional] 
 
 ### Return type

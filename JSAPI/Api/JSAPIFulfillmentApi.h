@@ -96,7 +96,7 @@ extern NSInteger kJSAPIFulfillmentApiMissingParamErrorCode;
 /// Update a fulfillment type
 /// <b>Permissions Needed:</b> FULFILLMENT_ADMIN
 ///
-/// @param _id The id
+/// @param _id The fulfillment id
 /// @param fulfillmentType The fulfillment type (optional)
 /// 
 ///  code:204 message:"No Content",

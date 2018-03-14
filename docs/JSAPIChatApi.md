@@ -1,6 +1,6 @@
 # JSAPIChatApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**getThreadMessages**](JSAPIChatApi.md#getthreadmessages) | **GET** /chat/threads/{id}/messages | List messages in a thread
 [**getTopicMessages**](JSAPIChatApi.md#gettopicmessages) | **GET** /chat/topics/{id}/messages | List messages in a topic
 [**removeChatBlacklist**](JSAPIChatApi.md#removechatblacklist) | **DELETE** /chat/users/{id}/blacklist/{blacklisted_user_id} | Remove a user from a blacklist
-[**sendMessage**](JSAPIChatApi.md#sendmessage) | **POST** /chat/messages | Send a message
+[**sendChatMessage**](JSAPIChatApi.md#sendchatmessage) | **POST** /chat/messages | Send a message
 
 
 # **acknowledgeChatMessage**
@@ -701,9 +701,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **sendMessage**
+# **sendChatMessage**
 ```objc
--(NSURLSessionTask*) sendMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
+-(NSURLSessionTask*) sendChatMessageWithChatMessageResource: (JSAPIChatMessageResource*) chatMessageResource
         completionHandler: (void (^)(JSAPIChatMessageResource* output, NSError* error)) handler;
 ```
 
@@ -727,13 +727,13 @@ JSAPIChatMessageResource* chatMessageResource = [[JSAPIChatMessageResource alloc
 JSAPIChatApi*apiInstance = [[JSAPIChatApi alloc] init];
 
 // Send a message
-[apiInstance sendMessageWithChatMessageResource:chatMessageResource
+[apiInstance sendChatMessageWithChatMessageResource:chatMessageResource
           completionHandler: ^(JSAPIChatMessageResource* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling JSAPIChatApi->sendMessage: %@", error);
+                            NSLog(@"Error calling JSAPIChatApi->sendChatMessage: %@", error);
                         }
                     }];
 ```

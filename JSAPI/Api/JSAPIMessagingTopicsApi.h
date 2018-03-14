@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "JSAPIPageResourceTopicResource_.h"
-#import "JSAPIPageResourceTopicSubscriberResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPITopicSubscriberResource.h"
 #import "JSAPIValueWrapperBoolean_.h"
@@ -28,7 +27,7 @@ extern NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode;
 -(instancetype) initWithApiClient:(JSAPIApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
 /// Enable or disable messages for a user
-/// Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+/// Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///
 /// @param _id The id of the topic
 /// @param userId The id of the subscriber or &#39;me&#39;
@@ -48,7 +47,7 @@ extern NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode;
 
 
 /// Get a subscriber to a topic
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///
 /// @param _id The id of the topic
 /// @param userId The id of the subscriber or &#39;me&#39;
@@ -65,24 +64,8 @@ extern NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode;
     completionHandler: (void (^)(JSAPITopicSubscriberResource* output, NSError* error)) handler;
 
 
-/// Get all subscribers to a topic
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
-///
-/// @param _id The id of the topic
-/// 
-///  code:200 message:"OK",
-///  code:400 message:"Bad Request",
-///  code:401 message:"Unauthorized",
-///  code:403 message:"Forbidden",
-///  code:404 message:"Not Found"
-///
-/// @return JSAPIPageResourceTopicSubscriberResource_*
--(NSURLSessionTask*) getTopicSubscribersWithId: (NSString*) _id
-    completionHandler: (void (^)(JSAPIPageResourceTopicSubscriberResource_* output, NSError* error)) handler;
-
-
 /// Get all messaging topics for a given user
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///
 /// @param _id The id of the user or &#39;me&#39;
 /// 

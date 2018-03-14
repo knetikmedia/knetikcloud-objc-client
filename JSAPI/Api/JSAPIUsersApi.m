@@ -297,7 +297,7 @@ NSInteger kJSAPIUsersApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/users/{recipient_id}/messages"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/users/{recipient_id}/messages"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (recipientId != nil) {

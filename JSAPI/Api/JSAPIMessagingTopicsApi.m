@@ -2,7 +2,6 @@
 #import "JSAPIQueryParamCollection.h"
 #import "JSAPIApiClient.h"
 #import "JSAPIPageResourceTopicResource_.h"
-#import "JSAPIPageResourceTopicSubscriberResource_.h"
 #import "JSAPIResult.h"
 #import "JSAPITopicSubscriberResource.h"
 #import "JSAPIValueWrapperBoolean_.h"
@@ -55,7 +54,7 @@ NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode = 234513;
 
 ///
 /// Enable or disable messages for a user
-/// Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+/// Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///  @param _id The id of the topic 
 ///
 ///  @param userId The id of the subscriber or 'me' 
@@ -155,7 +154,7 @@ NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode = 234513;
 
 ///
 /// Get a subscriber to a topic
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///  @param _id The id of the topic 
 ///
 ///  @param userId The id of the subscriber or 'me' 
@@ -239,76 +238,8 @@ NSInteger kJSAPIMessagingTopicsApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get all subscribers to a topic
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
-///  @param _id The id of the topic 
-///
-///  @returns JSAPIPageResourceTopicSubscriberResource_*
-///
--(NSURLSessionTask*) getTopicSubscribersWithId: (NSString*) _id
-    completionHandler: (void (^)(JSAPIPageResourceTopicSubscriberResource_* output, NSError* error)) handler {
-    // verify the required parameter '_id' is set
-    if (_id == nil) {
-        NSParameterAssert(_id);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
-            NSError* error = [NSError errorWithDomain:kJSAPIMessagingTopicsApiErrorDomain code:kJSAPIMessagingTopicsApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messaging/topics/{id}/subscribers"];
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (_id != nil) {
-        pathParams[@"id"] = _id;
-    }
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
-    [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
-    if(acceptHeader.length > 0) {
-        headerParams[@"Accept"] = acceptHeader;
-    }
-
-    // response content type
-    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
-
-    // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"oauth2_client_credentials_grant", @"oauth2_password_grant"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"JSAPIPageResourceTopicSubscriberResource_*"
-                           completionBlock: ^(id data, NSError *error) {
-                                if(handler) {
-                                    handler((JSAPIPageResourceTopicSubscriberResource_*)data, error);
-                                }
-                            }];
-}
-
-///
 /// Get all messaging topics for a given user
-/// <b>Permissions Needed:</b> TOPICS_ADMIN
+/// <b>Permissions Needed:</b> TOPICS_ADMIN or self
 ///  @param _id The id of the user or 'me' 
 ///
 ///  @returns JSAPIPageResourceTopicResource_*

@@ -339,6 +339,8 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
 ///
 ///  @param page The number of the page returned, starting with 1 (optional, default to 1)
 ///
+///  @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
+///
 ///  @returns JSAPIPageResourceFlagReportResource_*
 ///
 -(NSURLSessionTask*) getModerationReportsWithExcludeResolved: (NSNumber*) excludeResolved
@@ -346,6 +348,7 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     filterContextId: (NSString*) filterContextId
     size: (NSNumber*) size
     page: (NSNumber*) page
+    order: (NSString*) order
     completionHandler: (void (^)(JSAPIPageResourceFlagReportResource_* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/moderation/reports"];
 
@@ -366,6 +369,9 @@ NSInteger kJSAPIMediaModerationApiMissingParamErrorCode = 234513;
     }
     if (page != nil) {
         queryParams[@"page"] = page;
+    }
+    if (order != nil) {
+        queryParams[@"order"] = order;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

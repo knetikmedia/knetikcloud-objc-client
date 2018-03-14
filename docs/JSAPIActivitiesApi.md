@@ -1,6 +1,6 @@
 # JSAPIActivitiesApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 Load a single activity occurrence details
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -719,7 +719,7 @@ Name | Type | Description  | Notes
 
 List activity occurrences
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -861,7 +861,7 @@ void (empty response body)
 
 Sets the status of an activity occurrence to FINISHED and logs metrics
 
-In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -923,6 +923,8 @@ Name | Type | Description  | Notes
 
 Sets the settings of an activity occurrence
 
+<b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
+
 ### Example 
 ```objc
 JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
@@ -978,7 +980,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) setUserStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
     userId: (NSString*) userId
-    status: (NSString*) status
+    status: (JSAPIActivityUserStatusWrapper*) status
         completionHandler: (void (^)(JSAPIActivityUserResource* output, NSError* error)) handler;
 ```
 
@@ -997,7 +999,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
 NSString* userId = @"userId_example"; // The id of the user
-NSString* status = status_example; // The new status (optional)
+JSAPIActivityUserStatusWrapper* status = [[JSAPIActivityUserStatusWrapper alloc] init]; // The new status (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
@@ -1021,7 +1023,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
  **userId** | **NSString***| The id of the user | 
- **status** | **NSString***| The new status | [optional] 
+ **status** | [**JSAPIActivityUserStatusWrapper***](JSAPIActivityUserStatusWrapper.md)| The new status | [optional] 
 
 ### Return type
 
@@ -1103,13 +1105,13 @@ Name | Type | Description  | Notes
 # **updateActivityOccurrenceStatus**
 ```objc
 -(NSURLSessionTask*) updateActivityOccurrenceStatusWithActivityOccurrenceId: (NSNumber*) activityOccurrenceId
-    activityOccurrenceStatus: (JSAPIValueWrapperString_*) activityOccurrenceStatus
+    activityOccurrenceStatus: (JSAPIActivityOccurrenceStatusWrapper*) activityOccurrenceStatus
         completionHandler: (void (^)(NSError* error)) handler;
 ```
 
 Update the status of an activity occurrence
 
-If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 
 ### Example 
 ```objc
@@ -1123,7 +1125,7 @@ JSAPIDefaultConfiguration *apiConfig = [JSAPIDefaultConfiguration sharedConfig];
 
 
 NSNumber* activityOccurrenceId = @789; // The id of the activity occurrence
-JSAPIValueWrapperString_* activityOccurrenceStatus = [[JSAPIValueWrapperString_ alloc] init]; // The activity occurrence status object (optional)
+JSAPIActivityOccurrenceStatusWrapper* activityOccurrenceStatus = [[JSAPIActivityOccurrenceStatusWrapper alloc] init]; // The activity occurrence status object (optional)
 
 JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 
@@ -1142,7 +1144,7 @@ JSAPIActivitiesApi*apiInstance = [[JSAPIActivitiesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **NSNumber***| The id of the activity occurrence | 
- **activityOccurrenceStatus** | [**JSAPIValueWrapperString_***](JSAPIValueWrapperString_.md)| The activity occurrence status object | [optional] 
+ **activityOccurrenceStatus** | [**JSAPIActivityOccurrenceStatusWrapper***](JSAPIActivityOccurrenceStatusWrapper.md)| The activity occurrence status object | [optional] 
 
 ### Return type
 

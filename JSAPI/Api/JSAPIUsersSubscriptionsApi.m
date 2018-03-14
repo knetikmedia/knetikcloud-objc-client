@@ -8,6 +8,7 @@
 #import "JSAPIResult.h"
 #import "JSAPIStringWrapper.h"
 #import "JSAPISubscriptionPriceOverrideRequest.h"
+#import "JSAPISubscriptionStatusWrapper.h"
 
 
 @interface JSAPIUsersSubscriptionsApi ()
@@ -493,13 +494,13 @@ NSInteger kJSAPIUsersSubscriptionsApiMissingParamErrorCode = 234513;
 ///
 ///  @param inventoryId The id of the user's inventory 
 ///
-///  @param status The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') 
+///  @param status The new status for the subscription 
 ///
 ///  @returns void
 ///
 -(NSURLSessionTask*) setSubscriptionStatusWithUserId: (NSNumber*) userId
     inventoryId: (NSNumber*) inventoryId
-    status: (JSAPIStringWrapper*) status
+    status: (JSAPISubscriptionStatusWrapper*) status
     completionHandler: (void (^)(NSError* error)) handler {
     // verify the required parameter 'userId' is set
     if (userId == nil) {

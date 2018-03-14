@@ -43,7 +43,7 @@
 /* The raw score in this leaderboard. Null means non-compete or disqualification [optional]
  */
 @property(nonatomic) NSNumber* score;
-/* Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 5 tags and 50 characters each [optional]
+/* Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 10 tags and 50 characters each [optional]
  */
 @property(nonatomic) NSArray<NSString*>* tags;
 /* The number of users tied at this rank, including this user. 1 means no tie [optional]

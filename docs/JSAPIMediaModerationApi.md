@@ -1,6 +1,6 @@
 # JSAPIMediaModerationApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -272,6 +272,7 @@ Name | Type | Description  | Notes
     filterContextId: (NSString*) filterContextId
     size: (NSNumber*) size
     page: (NSNumber*) page
+    order: (NSString*) order
         completionHandler: (void (^)(JSAPIPageResourceFlagReportResource_* output, NSError* error)) handler;
 ```
 
@@ -295,6 +296,7 @@ NSString* filterContext = @"filterContext_example"; // Filter by moderation cont
 NSString* filterContextId = @"filterContextId_example"; // Filter by moderation context ID (optional)
 NSNumber* size = @25; // The number of objects returned per page (optional) (default to 25)
 NSNumber* page = @1; // The number of the page returned, starting with 1 (optional) (default to 1)
+NSString* order = @"order_example"; // A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 JSAPIMediaModerationApi*apiInstance = [[JSAPIMediaModerationApi alloc] init];
 
@@ -304,6 +306,7 @@ JSAPIMediaModerationApi*apiInstance = [[JSAPIMediaModerationApi alloc] init];
               filterContextId:filterContextId
               size:size
               page:page
+              order:order
           completionHandler: ^(JSAPIPageResourceFlagReportResource_* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -323,6 +326,7 @@ Name | Type | Description  | Notes
  **filterContextId** | **NSString***| Filter by moderation context ID | [optional] 
  **size** | **NSNumber***| The number of objects returned per page | [optional] [default to 25]
  **page** | **NSNumber***| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **NSString***| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
 
 ### Return type
 
